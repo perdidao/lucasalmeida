@@ -1,5 +1,7 @@
 .who{
     background-color:$mint;
+    position:relative;
+    z-index:2;
     
     &__wrapper{
         width:100%;

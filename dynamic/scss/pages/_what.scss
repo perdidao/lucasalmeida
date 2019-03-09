@@ -1,5 +1,8 @@
 .what{
     padding-top:13vh;
+    background-color:$white;
+    position:relative;
+    z-index:2;
     
     &__wrapper{
         width:100%;
