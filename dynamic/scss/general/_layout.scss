@@ -1,0 +1,58 @@
+*{
+    box-sizing:border-box;
+    font-family:inherit;
+    outline:0;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+html {
+    //definição para automatizar o responsivo do size e basear em VW
+    font-size: fixed-vw(10); //para travar o layout apos o tamanho maximo de desktop
+
+    @media (max-width: $size-desktop-full) {
+        font-size: desktop-vw(10, true);
+    }
+
+    @media (max-width: $size-desktop-min) and (orientation: portrait) {
+        font-size: mobile-vw(10, true); //para calcular o valor de vw sobre o tamanho do layout-mobile
+    }
+
+    @media (min-height: $layout-desktop-height-limit) and (max-height: $layout-desktop-height-min) and (orientation: landscape) {
+        font-size: desktop-vh(10, true);
+    }
+}
+
+body{
+    font:$regular vw($base-size) $default-font;
+    color:$black;
+    @include font-smoothing(on);
+}
+
+h1, h2, h3, h4, h5, h6{
+    letter-spacing:-0.04em;
+    color:$black;
+}
+
+p{
+    line-height:1.6;
+}
+
+strong{
+    font-weight:bold;
+}
+
+@include selection($white,$cyan);
+
+.headline{
+    font-size:vw(140);
+    line-height:vw(120);
+
+    span{
+        display:block;
+        margin:0 vw(70);
+    }
+}

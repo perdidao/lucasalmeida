@@ -1,0 +1,103 @@
+.who{
+    background-color:$mint;
+    
+    &__wrapper{
+        width:100%;
+        height:100vh;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:vw(100);
+    }
+
+    &__greetings{
+        margin-top:vw(120);
+        max-width:vw(740);
+
+        &--title{
+            font-size:vw(220);
+            line-height:1;
+        }
+
+        &--text{
+            padding-left:vw(20);
+            font-size:vw(26);
+            line-height:vw(42);
+        }
+    }
+
+    &__face{
+        margin-top:vw(130);
+        pointer-events:none;
+        position:relative;
+        width:vw(400);
+        height:vw(400);
+        border-radius:50%;
+        background-color:$yellow;
+        box-shadow: 0 0 vw(15) rgba(0,0,0,.1);
+    
+        backface-visibility:hidden;
+        transform-style:preserve-3d;
+        transform:translateZ(0);
+        
+        &:after{
+            content:" ";
+            position: absolute;
+            width: 100%;
+            height: vw(10);
+            border-radius: 50%;
+            left:0;
+            bottom:vw(-50);
+            box-shadow: 0 vw(30) vw(40) rgba(0,0,0,.1);
+        }
+    
+        &--eye{
+            width:vw(40);
+            height:vw(90);
+            border-radius:50%;
+            background-color:$brown;
+            transform:translateZ(vw(60));
+            box-shadow: 0 0 vw(30) rgba(0,0,0,.1);
+        
+            position:absolute;
+            top:vw(90);
+            z-index:2;
+        
+            &-left{
+                left:vw(120);
+            }
+        
+            &-right{
+                left:vw(250);
+            }
+        }
+        
+        &--mouth{
+            width:vw(280);
+            height:vw(135);
+            background-color:$brown;
+            transform:translateZ(vw(40));
+            overflow:hidden;
+            box-shadow: 0 0 vw(30) rgba(0,0,0,.1);
+            
+            position:absolute;
+            top:vw(210);
+            left:vw(60);
+            z-index:2;
+            border-radius:0 0 vw(140) vw(140);
+            
+            &:after{
+                content:' ';
+                display:block;
+                width:vw(140);
+                height:vw(140);
+                border-radius:50%;
+                background-color:$red;
+                
+                position:absolute;
+                top:vw(60);
+                left:vw(15);
+            }
+        }
+    }
+}

@@ -1,0 +1,53 @@
+/* -- Colors */
+$cyan:#03E4E4;
+$black:#3b464e;
+$mint:#f6f9fa;
+$white:#FFF;
+
+$green:#18DE70;
+$yellow:#f5d648;
+$red:#d0545e;
+$brown:#81363d;
+
+/* -- Fonts */
+$default-font:'Circular Std', Helvetica, Arial, sans-serif;
+
+$regular:normal;
+$bold:bold;
+
+$base-size:18px;
+// $convert-base:$base-size;
+$convert-base:1000;
+
+/* -- Helpers */
+$fast-transition:all 100ms ease-in-out;
+$default-transition:all 300ms ease-in-out;
+$slow-transition:all 600ms ease-in-out;
+
+$layout-mobile: 720px;
+$layout-tablet: 768px;
+$layout-desktop: 1440px;
+$layout-desktop-from: 1440px;
+
+$size-mobile: 750px;
+$size-mobile-min: 0px;
+
+$size-tablet: 768px;
+$size-tablet-min: 751px;
+
+$size-desktop: 1000px;
+$size-desktop-min: 769px;
+$size-desktop-full: 1440px;
+$size-desktop-fullhd: 1440px;
+
+$size-container: 1200px;
+
+$layout-desktop-height: 900px;
+$layout-tablet-height: 800px;
+$layout-mobile-height: 1120px;
+
+$layout-desktop-height-limit: 500px;
+$layout-desktop-height-limit-max: 670px;
+$layout-desktop-height-min: 730px;
+$layout-tablet-height-min: 1120px;
+$layout-mobile-height-min: 1120px;

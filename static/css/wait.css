@@ -1,0 +1,70 @@
+@charset "UTF-8";
+/*
+?
+??
+??  ?? ?    ?
+??    ??                  ??? ??     ? ????           ?   ? ??          ?????      ?   ? ??           ??? ? ???    ? ??                   ??   ?? ??                     ??????? ???                 ?        ?? ??              ?          ?? ?? ????              x  x  ?? ??   ?????             ?? ??   ??    ??       o  ?? ??   ??       ??       ?? ???             ??????
+
+--Configurações iniciais */
+/* Reset Global */
+@import url("https://fonts.googleapis.com/css?family=Lora");
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
+
+html { line-height: 1; }
+
+ol, ul { list-style: none; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+caption, th, td { text-align: left; font-weight: normal; vertical-align: middle; }
+
+q, blockquote { quotes: none; }
+q:before, q:after, blockquote:before, blockquote:after { content: ""; content: none; }
+
+a img { border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary { display: block; }
+
+/* Padrões */
+* { box-sizing: border-box; outline: 0; }
+
+body { font: normal 16px "Lora", serif; color: #ebeded; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+::-moz-selection { color: #ebeded; background-color: #c53f81; }
+
+::selection { color: #ebeded; background-color: #c53f81; }
+
+::-webkit-input-placeholder { color: #ebeded; }
+
+:-moz-placeholder { color: #ebeded; opacity: 1; }
+
+::-moz-placeholder { color: #ebeded; opacity: 1; }
+
+:-ms-input-placeholder { color: #ebeded; }
+
+.wrapper { width: 100%; min-height: 100vh; margin-bottom: 20vh; padding-bottom: 1px; background: #f35473 url(../wait/bkg.jpg) no-repeat center top; position: relative; z-index: 2; box-shadow: 0 0 120px rgba(0, 0, 0, 0.4); }
+
+.placeholder { width: 90%; max-width: 480px; margin: 0 auto 50px; text-align: center; }
+.placeholder__seal { width: 100%; height: 210px; background: url(../wait/selo.png) no-repeat center bottom; margin-bottom: 40px; }
+.placeholder__logo { width: 100%; height: 36px; background: url(../wait/logo.png) no-repeat center center; margin-bottom: 50px; text-indent: -9999em; overflow: hidden; }
+.placeholder__soon { font-size: 24px; line-height: 1.2; margin-bottom: 30px; }
+.placeholder__form { width: 100%; max-width: 300px; margin: 0 auto; overflow: hidden; }
+.placeholder__form p { margin-bottom: 30px; }
+.placeholder__form input, .placeholder__form select, .placeholder__form textarea { display: block; float: left; width: 100%; height: 40px; border: 0; border-bottom: 2px solid #ebeded; border-radius: 0; margin-bottom: 10px; background: #f35473; font: normal 16px "Lora", serif; color: #ebeded; text-align: center; transition: all 300ms ease-in-out; }
+.placeholder__form input:focus, .placeholder__form select:focus, .placeholder__form textarea:focus { border-bottom-color: #c53f81; }
+.placeholder__form input.i-city, .placeholder__form select.i-city, .placeholder__form textarea.i-city { width: 76%; margin-right: 4%; }
+.placeholder__form input.i-uf, .placeholder__form select.i-uf, .placeholder__form textarea.i-uf { width: 20%; }
+.placeholder__form textarea { height: 120px; resize: none; }
+.placeholder__form button { display: block; float: left; width: 100%; height: 40px; border: 0; border-radius: 0; background: #c53f81; font: normal 16px "Lora", serif; color: #ebeded; text-align: center; cursor: pointer; transition: all 300ms ease-in-out; }
+.placeholder__form button:hover { color: #c53f81; background: #ebeded; }
+.placeholder__form .retorno { float: left; margin: 10px 0 0; border-top: 2px solid #ebeded; padding: 10px 0; text-align: center; }
+
+.footer { width: 100%; min-height: 20vh; padding: 40px 0; background: #c53f81 url(../wait/bkg-footer.jpg) no-repeat center top; position: fixed; z-index: 1; bottom: 0; left: 0; }
+.footer p { text-align: center; width: 90%; max-width: 300px; }
+.footer__contact { font-size: 14px; font-weight: bold; margin: 0 auto 20px; }
+.footer__address { font-size: 12px; margin: 0 auto; }
+
+@media screen and (max-width: 1440px) { .wrapper { margin-bottom: 25vh; }
+  .footer { min-height: 25vh; } }
+@media screen and (max-width: 540px) { .wrapper { margin-bottom: 30vh; }
+  .footer { min-height: 30vh; } }

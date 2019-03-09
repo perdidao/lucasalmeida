@@ -1,0 +1,53 @@
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+
+    &__container{
+        width:vw($size-desktop-full);
+        margin:0 auto;
+        padding:vw(50) vw(100) 0;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+    }
+
+    &.scrolled{
+        .header__container{
+            padding:vw(20) vw(100) 0;
+        }
+        
+        .header__logo{
+            width:vw(70);
+        }
+    }
+
+    &__logo{
+        width:vw(100);
+
+        svg{
+            display:block;
+            width:100%;
+            fill:$cyan;
+        }
+
+        span{
+            display:none;
+        }
+    }
+
+    &__nav{
+        text-align:right;
+
+        &--item{
+            display:inline-block;
+            margin-left:vw(120);
+
+            &.active{
+                font-weight:$bold;
+                color:$cyan;
+            }
+        }
+    }
+}

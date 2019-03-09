@@ -1,0 +1,32 @@
+/*
+        _|\ _/|_,
+      ,((\\' '-\\\\_
+    ,(())        '))\
+  ,(()))        ,_  \
+((())'    |          \
+)))))      >.__       \
+(((('     /    '-.   .c|
+)))      /        '-'''
+===============================
+Certified XGH free project
+Desenvolvido por Lucas Almeida (Jura?!)
+
+-- Initial configuration */
+@import 'compass';
+
+/* Global reset */
+@include global-reset;
+
+/* Global and generic styles */
+@import 'general/variables';
+@import 'general/mixins';
+@import 'general/functions';
+@import 'general/fonts';
+@import 'general/layout';
+
+/* Elements */
+@import 'elements/header';
+
+/* Pages and sections */
+@import 'pages/who';
+@import 'pages/what';

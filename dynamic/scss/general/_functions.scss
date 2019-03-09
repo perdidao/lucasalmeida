@@ -1,0 +1,121 @@
+/* ==========================================================================
+   =functions
+   ========================================================================== */
+   @function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+    @return $number;
+}
+
+@function desktop-full-vw($pixel: 0, $base: false) {
+    @if $base {
+        $base: $convert-base;
+    } @else {
+        $base: 100;
+    }
+
+    @return ((strip-unit($pixel) / strip-unit($layout-desktop-full)) * $base) * 1vw;
+}
+
+@function desktop-vw($pixel: 0, $base: false) {
+    @if $base {
+        $base: $convert-base;
+    } @else {
+        $base: 100;
+    }
+
+    @return ((strip-unit($pixel) / strip-unit($layout-desktop)) * $base) * 1vw;
+}
+
+@function desktop-vh($pixel: 0, $base: false) {
+    @if $base {
+        $base: $convert-base;
+    } @else {
+        $base: 100;
+    }
+
+    @return ((strip-unit($pixel) / strip-unit($layout-desktop-height)) * $base) * 1vh;
+}
+
+@function tablet-vw($pixel: 0, $base: false) {
+    @if $base {
+        $base: $convert-base;
+    } @else {
+        $base: 100;
+    }
+
+    @return ((strip-unit($pixel) / strip-unit($layout-tablet)) * $base) * 1vw;
+}
+
+@function mobile-vw($pixel: 0, $base: false) {
+    @if $base {
+        $base: $convert-base;
+    } @else {
+        $base: 100;
+    }
+
+    @return ((strip-unit($pixel) / strip-unit($layout-mobile)) * $base) * 1vw;
+}
+
+@function fixed-vw($pixel: 0) {
+    @return (strip-unit($pixel) * ($convert-base / 100)) * 1px;
+}
+
+@function vw($pixel: 0) {
+    @return (strip-unit($pixel) / ($convert-base / 10)) * 1rem;
+}
+
+@function resize($pixel, $pixel_from: 0, $pixel_to: 0) {
+    @return (strip-unit($pixel) * (strip-unit($pixel_to)/strip-unit($pixel_from)));
+}
+
+@function to-desktop-full-vw($pixel: 0, $layout-size: 0) {
+    $percent: $pixel / $layout-size;
+    @return vw($layout-desktop-full * $percent);
+}
+
+@function to-desktop-vw($pixel: 0, $layout-size: 0) {
+    $percent: $pixel / $layout-size;
+    @return vw($layout-desktop * $percent);
+}
+
+@function desktop-va($pixel: 0) {
+     @return calc(#{strip-unit($pixel)} * ((100vh + 100vw) / (#{strip-unit($layout-desktop)} + #{strip-unit($layout-desktop-height)})));
+}
+
+@function desktop-va-width($pixel: 0) {
+     @return calc(#{strip-unit($pixel)} * ((100vh + #{$layout-desktop-height}) / (#{strip-unit($layout-desktop)} + #{strip-unit($layout-desktop-height)})));
+}
+
+@function desktop-va-height($pixel: 0) {
+     @return calc(#{strip-unit($pixel)} * ((100vh + #{$layout-desktop}) / (#{strip-unit($layout-desktop)} + #{strip-unit($layout-desktop-height)})));
+}
+
+@function fixed-va($pixel: 0) {
+     @return (strip-unit($pixel) * 1px);
+}
+
+@function to-tablet-vw($pixel: 0, $layout-size: 0) {
+    $percent: $pixel / $layout-size;
+    @return vw($layout-tablet * $percent);
+}
+
+@function to-mobile-vw($pixel: 0, $layout-size: 0) {
+    $percent: $pixel / $layout-size;
+    @return vw($layout-mobile * $percent);
+}
+
+@function mobile-va($pixel: 0) {
+     @return calc(#{strip-unit($pixel)} * ((100vh + 100vw) / (#{strip-unit($layout-mobile)} + #{strip-unit($layout-mobile-height)})));
+}
+
+@function mobile-va-width($pixel: 0) {
+     @return calc(#{strip-unit($pixel)} * ((100vh + #{$layout-mobile-height}) / (#{strip-unit($layout-mobile)} + #{strip-unit($layout-mobile-height)})));
+}
+
+@function mobile-va-height($pixel: 0) {
+     @return calc(#{strip-unit($pixel)} * ((100vh + #{$layout-mobile}) / (#{strip-unit($layout-mobile)} + #{strip-unit($layout-mobile-height)})));
+}
+
+@function zerofill($i) { @return #{str-slice("00",0,2 - str-length(#{$i}))}$i; }
