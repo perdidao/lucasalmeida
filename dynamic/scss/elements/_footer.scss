@@ -16,4 +16,20 @@
         font-size:vw(80);
         margin-bottom:vw(30);
     }
+    
+    @media (max-width:$size-desktop-min){
+        width:100%;
+        height:auto;
+        margin:0;
+        padding:vw(120) vw(60);
+        position:static;
+
+        &__greeting{
+            line-height:1;
+        }
+
+        &__copy{
+            font-size:vw(22);
+        }
+    }
 }

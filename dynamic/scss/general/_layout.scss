@@ -55,4 +55,31 @@ strong{
         display:block;
         margin:0 vw(70);
     }
+
+    @media (max-width:$size-desktop-min){
+        font-size:vw(120);
+        line-height:vw(110);
+        margin-bottom:vw(120);
+
+        &.whom__title{
+            font-size:vw(100);
+            line-height:vw(90);
+
+            span{
+                margin:0 vw(30);
+            }
+        }
+    }
+}
+
+// -- Logo color transition
+@keyframes color{
+	from{ filter:hue-rotate(0deg); }
+	to  { filter:hue-rotate(360deg); }
+}
+
+.header__nav--item,
+.header__logo,
+.how__link{
+    animation:color 20s infinite linear;
 }
