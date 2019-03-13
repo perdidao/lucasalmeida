@@ -8,7 +8,7 @@ if(window.matchMedia('screen and (min-width:769px)').matches){
 			easing:'linear',
 			scrollSpeed:600,
 			updateHash:false,
-			setHeight:false,
+			// setHeight:false,
 			touchScroll:false,
 			before:function(i,sections){
 				var current = $(sections[i].context),
@@ -48,11 +48,11 @@ $(document).on('scroll',function(e){
 	var top = $(this).scrollTop();
 	
 	// -- Navigation scroll transition
-	if(top >= wheight){
-		$('.header').addClass('scrolled');
-	} else if(top < wheight){
-		$('.header').removeClass('scrolled');
-	}
+	// if(top >= wheight){
+	// 	$('.header').addClass('scrolled');
+	// } else if(top < wheight){
+	// 	$('.header').removeClass('scrolled');
+	// }
 
 	// -- Scroll position detection
 	$('.header__nav a').removeClass('active');
@@ -82,7 +82,7 @@ function goto(elem){
 $('.header__nav a').on('click', function(e){
 	var elem = $(this).attr('href');
 	
-	goto(elem);
+	// goto(elem);
 
     return false;
 });

@@ -1,5 +1,5 @@
 .how{
-    padding-top:13vh;
+    // padding-top:13vh;
     background-color:$white;
     position:relative;
     z-index:2;
@@ -13,7 +13,7 @@
     &__wrapper{
         width:100%;
         max-width:vw(1400);
-        height:87vh;
+        height:100vh;
         margin:0 auto;
         padding:0 vw(100);
         display:flex;
@@ -39,11 +39,17 @@
         @media (max-width:$size-desktop-min){
             font-size:vw(32);
             line-height:vw(48);
+            margin-bottom:vw(50);
         }
     }
 
     &__link{
         font-weight:$bold;
         color:$cyan;
+    }
+
+    &__copy{
+        margin-left:vw(70);
+        font-size:vw(16);
     }
 }

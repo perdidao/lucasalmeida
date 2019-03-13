@@ -10,24 +10,6 @@
         background-color:$mint;
     }
 
-    &__container{
-        width:vw($size-desktop-full);
-        margin:0 auto;
-        padding:vw(50) vw(100) 0;
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-
-        transition:$fast-transition;
-
-        @media (max-width:$size-desktop-min){
-            width:100%;
-            margin:0;
-            padding:vw(60) vw(60) 0;
-            display:block;
-        }
-    }
-
     &.scrolled{
         .header__container{
             padding:vw(20) vw(100) 0;
@@ -39,8 +21,12 @@
     }
 
     &__logo{
-        width:vw(100);
+        width:vw(80);
         transition:$fast-transition;
+        position:fixed;
+        top:50%;
+        left:vw(50);
+        transform:translateY(-50%);
 
         @media (max-width:$size-desktop-min){
             width:vw(140);
@@ -57,8 +43,46 @@
         }
     }
 
+    // &__nav{
+    //     text-align:right;
+        
+    //     @media (max-width:$size-desktop-min){
+    //         display:none;    
+    //     }
+
+    //     &--item{
+    //         display:inline-block;
+    //         margin-left:vw(120);
+    //         cursor:default;
+
+    //         &.active{
+    //             font-weight:$bold;
+    //             color:$cyan;
+    //         }
+    //     }
+    // }
+
     &__nav{
-        text-align:right;
+        position:fixed;
+        top:0;
+        right:vw(50);
+        z-index:9999;
+        height:100vh;
+        display:flex;
+        align-items:flex-end;
+        justify-content:center;
+        flex-flow:column;
+
+        &:before{
+            content:' ';
+            display:block;
+            width:1px;
+            height:100vh;
+            position:fixed;
+            top:0;
+            right:vw(60);
+            background-color:rgba(0,0,0,.05);
+        }
         
         @media (max-width:$size-desktop-min){
             display:none;    
@@ -66,11 +90,31 @@
 
         &--item{
             display:inline-block;
-            margin-left:vw(120);
+            cursor:default;
+            margin:vw(50) 0;
+            line-height:vw(20);
+            transition:$default-transition;
+            color:rgba(0,0,0,.2);
+
+            &-bullet{
+                content:' ';
+                display:block;
+                float:right;
+                width:vw(20);
+                height:vw(20);
+                border-radius:50%;
+                margin-left:vw(10);
+                background-color:transparent;
+                transition:$default-transition;
+            }
 
             &.active{
                 font-weight:$bold;
                 color:$cyan;
+
+                .header__nav--item-bullet{
+                    background-color:$cyan;   
+                }
             }
         }
     }
