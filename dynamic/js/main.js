@@ -1,6 +1,39 @@
-console.log('Desenvolvido por lucasalmeida.cc');
+console.log('Desenvolvido por Lucas Almeida');
 
 // -- Scrolling functions
+if(window.matchMedia('screen and (min-width:769px)').matches){
+	$.getScript('./static/js/scrollify.js',function(){
+		$.scrollify({
+			section:'.block',
+			easing:'linear',
+			scrollSpeed:600,
+			updateHash:false,
+			setHeight:false,
+			touchScroll:false,
+			before:function(i,sections){
+				var current = $(sections[i].context),
+				elem = current.find('[data-animate]');
+
+				$.each(elem,function(e,el){
+					$(el).removeClass('animated fadeInUp');
+				});
+				
+			},
+			after:function(i,sections){
+				var current = $(sections[i].context),
+				elem = current.find('[data-animate]');
+
+				$.each(elem,function(e,el){
+					setTimeout(function(){
+						$(el).addClass('animated fadeInUp');
+					},e*200);
+				});
+
+			},
+		});
+	});
+};
+
 var blocks = $('.block'),
 	blocksPos = [];
 
@@ -33,7 +66,6 @@ $(document).on('scroll',function(e){
 		$('.header__nav a').eq(3).addClass('active');
 	}
 
-
 });
 
 // -- Navigation scroll function
@@ -53,6 +85,22 @@ $('.header__nav a').on('click', function(e){
 	goto(elem);
 
     return false;
+});
+
+// -- Parallax
+var elem, elemTop, scrolled, newPos, speed;
+
+elem = $('.parallax-item');
+
+$(document).scroll(function(){
+	scrolled = $(window).scrollTop();
+
+	$.each(elem, function(e, el){
+		speed = el.dataset.speed;
+		newPos = scrolled/speed + 'px';
+
+		$(el).css('transform','translatey('+newPos+')');
+	});
 });
 
 // -- Face interaction

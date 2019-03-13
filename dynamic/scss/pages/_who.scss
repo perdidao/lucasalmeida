@@ -12,6 +12,8 @@
         align-items:center;
         justify-content:space-between;
         padding:vw(100);
+        position:relative;
+        z-index:2;
 
         @media (max-width:$size-desktop-min){
             display:block;

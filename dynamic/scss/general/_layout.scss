@@ -83,3 +83,40 @@ strong{
 .how__link{
     animation:color 20s infinite linear;
 }
+
+.block{
+    overflow:hidden;
+}
+
+*[data-animate]{
+    opacity:0;
+
+    &.animated{
+        opacity:1;
+    }
+
+    @media (max-width:$size-desktop-min){
+        opacity:1;
+    }
+}
+
+.illustration{
+    position:absolute;
+    z-index:1;
+    top:5vh;
+    left:5vw;
+    color:$white;
+    font-size:vw(280);
+    line-height:1.2;
+    font-weight:bold;
+
+    text-shadow:
+    -1px -1px 0 $silver,
+    1px -1px 0 $silver,
+    -1px 1px 0 $silver,
+    1px 1px 0 $silver;
+
+    @media (max-width:$size-desktop-min){
+        display:none;
+    }
+}

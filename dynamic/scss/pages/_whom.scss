@@ -19,6 +19,8 @@
         align-items:flex-end;
         justify-content:space-evenly;
         text-align:right;
+        position:relative;
+        z-index:2;
 
         @media (max-width:$size-desktop-min){
             height:auto;
