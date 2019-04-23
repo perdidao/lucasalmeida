@@ -144,13 +144,13 @@
     }
 
     &__scroll{
-        width:vw(30);
+        width:vw(24);
         position:absolute;
         left:50%;
         bottom:vw(50);
         transform:translateX(-50%);
         animation:
-            color 20s infinite linear,
+            // color 20s infinite linear,
             bounce 600ms infinite alternate;
 
         svg{

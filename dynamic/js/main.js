@@ -8,7 +8,7 @@ if(window.matchMedia('screen and (min-width:769px)').matches){
 			easing:'linear',
 			scrollSpeed:600,
 			updateHash:false,
-			// setHeight:false,
+			setHeight:false,
 			touchScroll:false,
 			before:function(i,sections){
 				var current = $(sections[i].context),
