@@ -4,29 +4,19 @@
     top:0;
     left:0;
     width:100%;
+    cursor:url(../img/donut.png), auto;
 
     @media (max-width:$size-desktop-min){
         position:static;
         background-color:$mint;
     }
 
-    &.scrolled{
-        .header__container{
-            padding:vw(20) vw(100) 0;
-        }
-        
-        .header__logo{
-            width:vw(70);
-        }
-    }
-
     &__logo{
         width:vw(80);
         transition:$fast-transition;
         position:fixed;
-        top:50%;
-        left:vw(50);
-        transform:translateY(-50%);
+        top:vw(30);
+        left:vw(30);
 
         @media (max-width:$size-desktop-min){
             width:vw(140);
@@ -43,79 +33,4 @@
         }
     }
 
-    // &__nav{
-    //     text-align:right;
-        
-    //     @media (max-width:$size-desktop-min){
-    //         display:none;    
-    //     }
-
-    //     &--item{
-    //         display:inline-block;
-    //         margin-left:vw(120);
-    //         cursor:default;
-
-    //         &.active{
-    //             font-weight:$bold;
-    //             color:$cyan;
-    //         }
-    //     }
-    // }
-
-    &__nav{
-        position:fixed;
-        top:0;
-        right:vw(50);
-        z-index:9999;
-        height:100vh;
-        display:flex;
-        align-items:flex-end;
-        justify-content:center;
-        flex-flow:column;
-
-        &:before{
-            content:' ';
-            display:block;
-            width:1px;
-            height:100vh;
-            position:fixed;
-            top:0;
-            right:vw(60);
-            background-color:rgba(0,0,0,.05);
-        }
-        
-        @media (max-width:$size-desktop-min){
-            display:none;    
-        }
-
-        &--item{
-            display:inline-block;
-            cursor:default;
-            margin:vw(50) 0;
-            line-height:vw(20);
-            transition:$default-transition;
-            color:rgba(0,0,0,.2);
-
-            &-bullet{
-                content:' ';
-                display:block;
-                float:right;
-                width:vw(20);
-                height:vw(20);
-                border-radius:50%;
-                margin-left:vw(10);
-                background-color:transparent;
-                transition:$default-transition;
-            }
-
-            &.active{
-                font-weight:$bold;
-                color:$cyan;
-
-                .header__nav--item-bullet{
-                    background-color:$cyan;   
-                }
-            }
-        }
-    }
 }

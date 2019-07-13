@@ -94,10 +94,6 @@ strong{
     &.animated{
         opacity:1;
     }
-
-    @media (max-width:$size-desktop-min){
-        opacity:1;
-    }
 }
 
 .illustration{
