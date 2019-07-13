@@ -50,5 +50,9 @@
     &__copy{
         margin-left:vw(70);
         font-size:vw(16);
+
+        @media (max-width:$size-desktop-min){
+            font-size:vw(22);
+        }
     }
 }

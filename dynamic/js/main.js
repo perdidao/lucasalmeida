@@ -1,106 +1,59 @@
 console.log('Desenvolvido por Lucas Almeida');
 
 // -- Scrolling functions
-if(window.matchMedia('screen and (min-width:769px)').matches){
-	$.getScript('./static/js/scrollify.js',function(){
-		$.scrollify({
-			section:'.block',
-			easing:'linear',
-			scrollSpeed:600,
-			updateHash:false,
-			setHeight:false,
-			touchScroll:false,
-			before:function(i,sections){
-				var current = $(sections[i].context),
-				elem = current.find('[data-animate]');
-
-				$.each(elem,function(e,el){
-					$(el).removeClass('animated fadeInUp');
-				});
-				
-			},
-			after:function(i,sections){
-				var current = $(sections[i].context),
-				elem = current.find('[data-animate]');
-
-				$.each(elem,function(e,el){
-					setTimeout(function(){
-						$(el).addClass('animated fadeInUp');
-					},e*200);
-				});
-
-			},
-		});
-	});
-};
-
 var blocks = $('.block'),
-	blocksPos = [];
+	blocksPos = [],
+	padding = $(window).innerHeight()/2,
+	updatedWho = false,
+	updatedWhat = false,
+	updatedWhom = false,
+	updatedHow = false;
 
 $.each(blocks,function(b,block){
-	var blockPos = $(block).offset().top - 10;
+	var blockPos = {
+		'offset': $(block).offset().top - padding,
+		'el': $(block).attr('id')
+	}
 	blocksPos.push(blockPos);
 });
 
-$(document).on('scroll',function(e){
-	
-	var wheight = $(window).innerHeight();
-	var top = $(this).scrollTop();
-	
-	// -- Navigation scroll transition
-	// if(top >= wheight){
-	// 	$('.header').addClass('scrolled');
-	// } else if(top < wheight){
-	// 	$('.header').removeClass('scrolled');
-	// }
+function updateItems(section){
+	var current = $('#'+section),
+	elem = current.find('[data-animate]');
 
-	// -- Scroll position detection
-	$('.header__nav a').removeClass('active');
-	if(top >= blocksPos[0] && top < blocksPos[1]){
-		$('.header__nav a').eq(0).addClass('active');
-	} else if(top >= blocksPos[1] && top < blocksPos[2]){
-		$('.header__nav a').eq(1).addClass('active');
-	} else if(top >= blocksPos[2] && top < blocksPos[3]){
-		$('.header__nav a').eq(2).addClass('active');
-	} else if(top >= blocksPos[3]){
-		$('.header__nav a').eq(3).addClass('active');
-	}
-
-});
-
-// -- Navigation scroll function
-function goto(elem){
-	element = $(elem);
-
-	var distance = element.offset().top;
-	
-    $('html, body').animate({
-        scrollTop: distance
-	}, 1000);
+	$.each(elem,function(e,el){
+		setTimeout(function(){
+			$(el).addClass('animated fadeInUp');
+		},e*200);
+	});
 }
 
-$('.header__nav a').on('click', function(e){
-	var elem = $(this).attr('href');
+$(document).on('scroll',function(e){
 	
-	// goto(elem);
+	var top = $(this).scrollTop();
 
-    return false;
-});
+	if(top >= blocksPos[0].offset && top < blocksPos[1].offset){
+		if(updatedWho != true){
+			updateItems(blocksPos[0].el);
+		}
+		updatedWho = true;
+	} else if(top >= blocksPos[1].offset && top < blocksPos[2].offset){
+		if(updatedWhat != true){
+			updateItems(blocksPos[1].el);
+		}
+		updatedWhat = true;
+	} else if(top >= blocksPos[2].offset && top < blocksPos[3].offset){
+		if(updatedWhom != true){
+			updateItems(blocksPos[2].el);
+		}
+		updatedWhom = true;
+	} else {
+		if(updatedHow != true){
+			updateItems(blocksPos[3].el);
+		}
+		updatedHow = true;
+	}
 
-// -- Parallax
-var elem, elemTop, scrolled, newPos, speed;
-
-elem = $('.parallax-item');
-
-$(document).scroll(function(){
-	scrolled = $(window).scrollTop();
-
-	$.each(elem, function(e, el){
-		speed = el.dataset.speed;
-		newPos = scrolled/speed + 'px';
-
-		$(el).css('transform','translatey('+newPos+')');
-	});
 });
 
 // -- Face interaction
