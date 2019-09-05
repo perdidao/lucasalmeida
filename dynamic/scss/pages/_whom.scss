@@ -30,6 +30,10 @@
         }
     }
 
+    &__title{
+        margin-bottom:vw(80);
+    }
+
     &__list{
         display:flex;
         flex-flow:wrap;
