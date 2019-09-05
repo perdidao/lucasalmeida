@@ -12,10 +12,9 @@ Certified XGH free project
 Desenvolvido por Lucas Almeida (Jura?!)
 
 -- Initial configuration */
-@import 'compass';
 
 /* Global reset */
-@include global-reset;
+@import 'libs/reset';
 
 /* Global and generic styles */
 @import 'general/variables';

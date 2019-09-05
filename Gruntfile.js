@@ -1,3 +1,5 @@
+const sass = require('node-sass');
+
 module.exports = function(grunt){
 
 	// Configuração do projeto
@@ -8,23 +10,35 @@ module.exports = function(grunt){
 		watch:{
 			styles:{
 				files:[
-				'dynamic/scss/**/*.scss',
-				'dynamic/js/*.js'
+					'dynamic/scss/**/*.scss',
+					'dynamic/js/*.js'
 				],
-				tasks:['compass','uglify']
+				tasks:['sass:dev','postcss','uglify']
 			}
 		},
 
-		// SASS
-		compass: {
-			dist: {
+		sass: {
+			dev: {
 				options: {
-				sassDir: 'dynamic/scss/',
-				cssDir: 'static/css/',
-				outputStyle:'compressed',
-				environment: 'development',
-				specify: 'dynamic/scss/main.scss'
+						implementation: sass,
+				    style: 'compact'
+				},
+				files: {
+				    'static/css/main.css': 'dynamic/scss/main.scss'
 				}
+			},
+		},
+
+    postcss: {
+			options: {
+				processors: [
+					require('pixrem')(),
+					require('autoprefixer')({browsers: 'last 2 versions'}),
+					require('cssnano')()
+				]
+			},
+			dev: {
+				src: 'static/css/main.css'
 			}
 		},
 
@@ -52,7 +66,7 @@ module.exports = function(grunt){
 			}
 		},
 
-        clean: {
+    clean: {
 			dist: {
 				src: ['dist']
 			}
@@ -85,16 +99,17 @@ module.exports = function(grunt){
 
 	// Carrega os plugins
 	grunt.loadNpmTasks('grunt-notify');
-    grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-compass');
+	grunt.loadNpmTasks('grunt-sass');
+	grunt.loadNpmTasks('grunt-postcss');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 
 	grunt.task.run('notify_hooks');
 
 	// Tarefas padrão
 	grunt.registerTask('default', ['watch']);
-	grunt.registerTask('compile', ['compass','uglify','clean','copy']);
+	grunt.registerTask('compile', ['sass:dev','uglify','clean','copy','postcss']);
 
 };
