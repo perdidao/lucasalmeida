@@ -99,7 +99,7 @@ module.exports = function(grunt){
 
 	// Carrega os plugins
 	grunt.loadNpmTasks('grunt-notify');
-  grunt.loadNpmTasks('grunt-contrib-copy');
+  	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-sass');
