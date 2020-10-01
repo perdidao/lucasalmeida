@@ -7,3 +7,4 @@ yarn.lock
 .sass-cache/
 node_modules/
 dist/
+static/

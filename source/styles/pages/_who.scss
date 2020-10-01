@@ -2,7 +2,7 @@
     background-color:$black;
     position:relative;
     z-index:2;
-    cursor:url(../img/donut.png), auto;
+    cursor:url(../images/donut.webp), auto;
 
     &.block{
         @media (max-width:$size-desktop-min){

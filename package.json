@@ -1,6 +1,11 @@
 {
   "name": "lucasalmeida",
   "version": "0.1.0",
+  "scripts": {
+    "dev": "grunt dev",
+    "build": "grunt build",
+    "deploy": "grunt deploy"
+  },
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-contrib-compass": "^1.1.1",
@@ -13,7 +18,12 @@
     "autoprefixer": "^8.5.0",
     "cssnano": "^3.10.0",
     "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-connect": "^3.0.0",
     "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-sass": "^2.0.0",
+    "grunt-contrib-uglify-es": "^3.3.0",
+    "grunt-cwebp": "^3.0.2",
     "grunt-sass": "^3.1.0",
     "install": "^0.11.0",
     "node-sass": "^4.12.0",
