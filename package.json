@@ -1,6 +1,7 @@
 {
   "name": "lucasalmeida",
   "version": "0.1.0",
+  "license": "UNLICENSED",
   "scripts": {
     "dev": "grunt dev",
     "build": "grunt build",
