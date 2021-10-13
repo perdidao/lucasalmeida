@@ -14,23 +14,20 @@ Desenvolvido por Lucas Almeida (Jura?!)
 -- Initial configuration */
 
 /* Global reset */
-@import 'libs/reset';
+@import 'styles/libs/reset';
 
 /* Global and generic styles */
-@import 'general/variables';
-@import 'general/mixins';
-@import 'general/functions';
-@import 'general/fonts';
-@import 'general/layout';
+@import 'styles/general/variables';
+@import 'styles/general/mixins';
+@import 'styles/general/functions';
+@import 'styles/general/fonts';
+@import 'styles/general/layout';
 
 /* Libs */
-@import 'libs/animate';
+@import 'styles/libs/animate';
 
 /* Elements */
-@import 'elements/header';
+@import 'styles/elements/header';
 
 /* Pages and sections */
-@import 'pages/who';
-@import 'pages/what';
-@import 'pages/whom';
-@import 'pages/how';
+@import 'styles/pages/who';
