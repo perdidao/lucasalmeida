@@ -12,8 +12,8 @@ function App() {
   })
 
   const handleMouseMovement = (ev) => {
-    const ax = -(window.innerWidth / 1.2 - ev.pageX) / 40
-    const ay = (window.innerHeight / 2 - ev.pageY) / 40
+    const ax = -(window.innerWidth / 2 - ev.pageX) / 30
+    const ay = (window.innerHeight / 2 - ev.pageY) / 30
     setMousePosition({
       ax,
       ay
@@ -38,14 +38,6 @@ function App() {
         </header>
         <section className="who block" id="who">
           <div className="who__wrapper">
-            <section className="who__greetings">
-              <h2 className="who__greetings--title">Olá!</h2>
-              <p className="who__greetings--text">
-                Meu nome é <strong>Lucas Almeida</strong> e eu crio soluções práticas,
-                acessíveis e eficientes que ampliam a presença digital da sua
-                empresa e melhoram a sua comunicação com o público-alvo.
-              </p>
-            </section>
             <section className="who__face" style={{ transform: `rotateY(${mousePosition.ax}deg) rotateX(${mousePosition.ay}deg)` }}>
               <div className="who__face--eye who__face--eye-left"></div>
               <div className="who__face--eye who__face--eye-right"></div>
