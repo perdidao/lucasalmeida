@@ -1,0 +1,41 @@
+@use "sass:math";
+
+// COLORS
+$primary: #ff5257;
+$title: white;
+$text: rgba(255,255,255,.6);
+$black: #0d1117;
+
+// FONT
+$font-family: 'Oxygen', sans-serif;
+
+// SCREENS
+$size-notebook: 1440px;
+$size-tube: 1024px;
+$size-mobile: 640px;
+
+// FUNCTIONS
+@function font-size($pixel) {
+  $rem: math.div($pixel, 16);
+  @return $rem * 1rem; 
+}
+
+@function letter-spacing($value) {
+  $em: math.div($value, 1000);
+  @return $em * 1em;
+}
+
+@function vw($pixel, $screen: 'desktop') {
+  $base: 1920;
+
+  @if ($screen == 'notebook') {
+    $base: 1280;
+  }
+
+  @if ($screen == 'mobile') {
+    $base: 411;
+  }
+
+  $vw: math.div($pixel * 100, $base);
+  @return $vw * 1vw;
+}

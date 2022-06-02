@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap');
+
+* {
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: $black;
+  color: $text;
+  font-family: $font-family;
+  font-size: 14px;
+}
+
+.header{ 
+  margin: vw(80) 0 vw(80) vw(320);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  
+  @media (max-width: $size-notebook) {
+    margin: vw(80, notebook) 0 vw(80, notebook) vw(160, notebook);
+  }
+  
+  @media (max-width: $size-mobile) {
+    margin: vw(80, mobile) vw(40, mobile);
+
+    flex-direction: column;
+  }
+
+  &__image {
+    margin: 0;
+    width: vw(142);
+    border-radius: 50%;
+    overflow: hidden;
+
+    @media (max-width: $size-notebook) {
+      width: vw(142, notebook);
+    }
+
+    @media (max-width: $size-mobile) {
+      width: vw(96, mobile);
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &__text {
+    margin-top: vw(142);
+
+    @media (max-width: $size-notebook) {
+      margin-top: vw(142, notebook);
+    }
+
+    @media (max-width: $size-mobile) {
+      margin: vw(24, mobile) 0 0 vw(48, mobile);
+    }
+  }
+
+  &__name {
+    font-size: font-size(48);
+    font-weight: bold;
+    color: $title;
+    margin-bottom: vw(16);
+    
+    @media (max-width: $size-notebook) {
+      margin-bottom: vw(16, notebook);
+    }
+    
+    @media (max-width: $size-mobile) {
+      margin-bottom: vw(16, mobile);
+    }
+  }
+
+  &__position {
+    font-size: font-size(16);
+    text-transform: uppercase;
+    letter-spacing: letter-spacing(200);
+    margin-bottom: vw(16);
+    
+    @media (max-width: $size-notebook) {
+      margin-bottom: vw(16, notebook);
+    }
+    
+    @media (max-width: $size-mobile) {
+      margin-bottom: vw(8, mobile);
+    }
+  }
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  @media (max-width: $size-mobile) {
+    margin-left: vw(-8, mobile);
+  }
+
+  &__link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    margin-right: vw(16);
+    transition: opacity 200ms ease-in-out;
+    
+    @media (max-width: $size-notebook) {
+      margin-right: vw(16, notebook);
+    }
+    
+    @media (max-width: $size-mobile) {
+      padding: vw(8, mobile);
+      margin-right: vw(8, mobile);
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
+
+.content {
+  width: vw(790);
+  margin: 0 0 vw(160) vw(810);
+
+  @media (max-width: $size-notebook) {
+    width: vw(480, notebook);
+    margin: 0 0 vw(160, notebook) vw(610, notebook);
+  }
+
+  @media (max-width: $size-tube) {
+    width: vw(640, notebook);
+    margin: 0 0 vw(160, notebook) vw(302, notebook);
+  }
+
+  @media (max-width: $size-mobile) {
+    width: vw(300, mobile);
+    margin: 0 0 vw(160, mobile) vw(88, mobile);
+  }
+
+  &__box {
+    margin-bottom: vw(80);
+    
+    @media (max-width: $size-notebook) {
+      margin-bottom: vw(80, notebook);
+    }
+    
+    @media (max-width: $size-mobile) {
+      margin-bottom: vw(80, mobile);
+    }
+  }
+
+  &__title {
+    font-size: font-size(24);
+    font-weight: bold;
+    color: $primary;
+    margin-bottom: vw(16);
+    
+    @media (max-width: $size-notebook) {
+      margin-bottom: vw(16, notebook);
+    }
+    
+    @media (max-width: $size-mobile) {
+      margin-bottom: vw(16, mobile);
+    }
+  }
+
+  &__text {
+    font-size: font-size(14);
+    line-height: font-size(24);
+    margin-bottom: vw(24);
+    
+    @media (max-width: $size-notebook) {
+      margin-bottom: vw(24, notebook);
+    }
+    
+    @media (max-width: $size-mobile) {
+      margin-bottom: vw(24, mobile);
+    }
+  }
+}
+
+.footer {
+  width: vw(790);
+  margin: 0 0 vw(80) vw(810);
+
+  @media (max-width: $size-notebook) {
+    width: vw(480, notebook);
+    margin: 0 0 vw(80, notebook) vw(610, notebook);
+  }
+
+  @media (max-width: $size-tube) {
+    width: vw(640, notebook);
+    margin: 0 0 vw(80, notebook) vw(302, notebook);
+  }
+
+  @media (max-width: $size-mobile) {
+    width: vw(300, mobile);
+    margin: 0 0 vw(80, mobile) vw(88, mobile);
+  }
+}
