@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "parcel",
     "start": "parcel",
-    "build": "parcel build"
+    "build": "parcel build --public-url ./"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "2.6.0",
