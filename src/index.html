@@ -31,15 +31,20 @@
 <body>
 
   <header class="header">
-    <figure class="header__image">
-      <img src="./assets/me.png" alt="" aria-hidden="true">
-    </figure>
+    <div id="face">
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+      <div class="mouth"></div>
+    </div>
     <div class="header__text">
       <h1 class="header__name">
         Lucas Almeida
       </h1>
       <p class="header__position">
-        Lead software engineer
+        UI Designer / Software engineer
+      </p>
+      <p class="header__portfolio">
+        Check out some of <a href="https://perdidao.github.io" title="Lucas Almeida's project list" target="_blank" rel="noopener">my projects</a>
       </p>
       <nav class="social">
         <a href="https://discordapp.com/users/423860463722299394" title="Entre em contato via Discord" class="social__link" rel="noopener" target="_blank">
@@ -70,8 +75,7 @@
         About me
       </h2>
       <p class="content__text">
-        I'm a brazilian web developer based in São Sebastião da Amoreira, Paraná, a pretty small town with only 8.5k citizens. I started my carrer working as a web designer back in 2010, then migrated to frontend development with the help of a friend/professor/boss.<br>
-        On my free time I generally stay with my two kids and on my free free time, I like to play online (mainly counter-strike).
+        I'm a brazilian web developer based in São Sebastião da Amoreira, Paraná, a pretty small town with only 8.5k citizens. I started my carrer working as a web designer back in 2010, then migrated to frontend development with the help of a friend/professor/boss.
       </p>
     </section>
     <section class="content__box">
@@ -87,7 +91,7 @@
         Professional experience
       </h2>
       <p class="content__text">
-        My current stack is heavy on React with typescript and Nextjs, but sometimes I need to work on PHP and even Go. I worked with a lot of different technologies on the past, like: Vuejs, Nuxtjs, Emberjs, Electron, React Native, Flutter, Thymeleaf, Wordpress, Woocommerce, Backbonejs with Marionette, Magento and others.<br>
+        My current stack is heavy on React with typescript and Nextjs, but sometimes I need to work on PHP and even Go. I worked with a lot of different technologies on the past, like: Vuejs, Nuxtjs, Emberjs, Electron, React Native, Flutter, Swift, Thymeleaf, Wordpress, Woocommerce, Backbonejs with Marionette, Magento and others.<br>
         I also have experience on design tools like Photoshop, Sketch, Figma and Illustrator.
       </p>
       <p class="content__text">
@@ -100,5 +104,7 @@
     <img src="./assets/logo.png" alt="Lucas Almeida © 2022, todos os direitos reservados">
   </footer>
   
+  <script src="./scripts/jquery.js"></script>
+  <script src="./scripts/index.js"></script>
 </body>
 </html>

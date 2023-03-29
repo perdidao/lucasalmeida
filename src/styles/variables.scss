@@ -1,13 +1,15 @@
 @use "sass:math";
 
 // COLORS
-$primary: #ff5257;
-$title: white;
-$text: rgba(255,255,255,.6);
-$black: #0d1117;
+$primary: #d7fe62;
+$title: #e9e9e9;
+$text: #e9e9e9;
+$black: #282828;
+$red:#bf6a51;
+$brown:#704033;
 
 // FONT
-$font-family: 'Oxygen', sans-serif;
+$font-family: 'Space Grotesk', sans-serif;
 
 // SCREENS
 $size-notebook: 1440px;

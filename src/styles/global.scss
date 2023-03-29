@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
 
 * {
   -webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+  cursor:url(https://i.imgur.com/WzrBWep.png), auto;
 }
 
 body {
@@ -23,29 +24,9 @@ body {
   }
   
   @media (max-width: $size-mobile) {
-    margin: vw(80, mobile) vw(40, mobile);
+    margin: vw(80, mobile) vw(20, mobile);
 
     flex-direction: column;
-  }
-
-  &__image {
-    margin: 0;
-    width: vw(142);
-    border-radius: 50%;
-    overflow: hidden;
-
-    @media (max-width: $size-notebook) {
-      width: vw(142, notebook);
-    }
-
-    @media (max-width: $size-mobile) {
-      width: vw(96, mobile);
-    }
-
-    img {
-      display: block;
-      width: 100%;
-    }
   }
 
   &__text {
@@ -64,21 +45,20 @@ body {
     font-size: font-size(48);
     font-weight: bold;
     color: $title;
-    margin-bottom: vw(16);
+    margin-bottom: vw(8);
     
     @media (max-width: $size-notebook) {
-      margin-bottom: vw(16, notebook);
+      margin-bottom: vw(8, notebook);
     }
     
     @media (max-width: $size-mobile) {
-      margin-bottom: vw(16, mobile);
+      margin-bottom: vw(8, mobile);
     }
   }
 
   &__position {
     font-size: font-size(16);
-    text-transform: uppercase;
-    letter-spacing: letter-spacing(200);
+    letter-spacing: letter-spacing(140);
     margin-bottom: vw(16);
     
     @media (max-width: $size-notebook) {
@@ -86,7 +66,31 @@ body {
     }
     
     @media (max-width: $size-mobile) {
+      letter-spacing: letter-spacing(20);
       margin-bottom: vw(8, mobile);
+    }
+  }
+
+  &__portfolio {
+    font-size: font-size(16);
+    letter-spacing: letter-spacing(40);
+    margin-bottom: vw(24);
+    
+    @media (max-width: $size-notebook) {
+      margin-bottom: vw(24, notebook);
+    }
+    
+    @media (max-width: $size-mobile) {
+      margin-bottom: vw(16, mobile);
+    }
+
+    a {
+      color: $primary;
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
@@ -95,8 +99,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  margin-bottom: vw(16);
 
+  @media (max-width: $size-notebook) {
+    margin-bottom: vw(16, notebook);
+  }
+  
   @media (max-width: $size-mobile) {
+    margin-bottom: vw(8, mobile);
     margin-left: vw(-8, mobile);
   }
 
