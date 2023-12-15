@@ -1,4 +1,10 @@
 @import 'reset';
+@import 'fontawesome/fontawesome';
+@import 'fontawesome/solid';
+@import 'fontawesome/regular';
+@import 'fontawesome/brands';
 @import 'variables';
 @import 'global';
-@import 'face';
+
+// Components
+@import 'components/header';

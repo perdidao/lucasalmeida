@@ -1,0 +1,53 @@
+.header{
+  width: hu(3);
+  height: vu(1);
+  margin-left: hu(1);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  &__logo {
+    transform: translateX(-36px);
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &__link {
+    display: block;
+    margin-left: vw(20);
+
+    &--button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: vw(40);
+      border: 2px solid $color-grayscale-3;
+      padding: vw(6) vw(14) vw(5);
+      text-decoration: none;
+      color: $color-grayscale-7;
+      font-weight: bold;
+
+      i {
+        margin-left: vw(5);
+      }
+    }
+    
+    i {
+      font-size: 24px;
+      color: $color-grayscale-6;
+      transition: color 300ms ease-in-out;
+    }
+
+    &:hover {
+
+      i {
+        color: $color-grayscale-3;
+      }
+    }
+
+  }
+}

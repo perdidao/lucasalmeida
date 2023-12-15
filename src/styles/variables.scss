@@ -1,15 +1,32 @@
 @use "sass:math";
 
 // COLORS
-$primary: #d7fe62;
-$title: #e9e9e9;
-$text: #e9e9e9;
+$color-grayscale-1: #161617;
+$color-grayscale-2: #38383b;
+$color-grayscale-3: #5f5f65;
+$color-grayscale-4: #86868f;
+$color-grayscale-5: #aaaab5;
+$color-grayscale-6: #cacad7;
+$color-grayscale-7: #e7e7f4;
 $black: #282828;
-$red:#bf6a51;
-$brown:#704033;
 
 // FONT
-$font-family: 'Space Grotesk', sans-serif;
+$font-family-primary: 'Archivo', sans-serif;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+// UNITS
+@function hu($quantity) {
+  $amount: $quantity * 16.66;
+
+  @return $amount * 1vw;
+}
+
+@function vu($quantity) {
+  $amount: $quantity * 25;
+
+  @return $amount * 1vh;
+}
 
 // SCREENS
 $size-notebook: 1440px;
