@@ -1,0 +1,42 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Central Plano Assistencial",
+      "slug": "central",
+      "categories": [
+        {
+          "id": 1,
+          "name": "Design"
+        },
+        {
+          "id": 2,
+          "name": "Front-end"
+        },
+        {
+          "id": 3,
+          "name": "Back-end"
+        }
+      ],
+      "releaseYear": 2020,
+      "description": "Projetop",
+      "url": "/projetos/central",
+      "thumbnail": "/projects/2020_central.png"
+    },
+    {
+      "id": 2,
+      "title": "ONU Haters Pro Bem",
+      "slug": "hatersprobem",
+      "categories": [
+        {
+          "id": 2,
+          "name": "Front-end"
+        }
+      ],
+      "releaseYear": 2020,
+      "description": "Projetop",
+      "url": "/projetos/hatersprobem",
+      "thumbnail": "/projects/2020_hatersprobem.png"
+    }
+  ]
+}
