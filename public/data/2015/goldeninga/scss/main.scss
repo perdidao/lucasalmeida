@@ -1,0 +1,82 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// CORES
+$Azul:#1D334D;
+$Amarelo:#F3CA31;
+$Vermelho:#F77;
+$Cinza:#777;
+
+// FONTES
+@import "fonts.scss";
+
+// ESTILOS GLOBAIS
+body{ font-family:$Fb; @include font-size(18px); line-height:1.3em; color:$Azul; @include font-smoothing(on); min-width:640px; }
+@include selection(#FFF, $Azul);
+
+// HEADER
+#header{ width:100%; height:90px; background-color:#FFF; }
+#logo{ float:left; width:15%; height:78px; margin:6px 0 6px 2%; background:url(../img/logo.png) no-repeat left center; }
+#menu{ float:left; width:66%; height:90px; text-align:center; }
+#menu a{ display:inline-block; height:90px; line-height:90px; text-transform:uppercase; padding:0 30px; @include font-size(16px); @include transition(all 300ms ease-in-out); }
+#menu a:hover,
+#menu a.current{ background-color:$Azul; color:#FFF; }
+#redes{ display:block; float:right; width:150px; height:90px; line-height:90px; margin-right:2%; text-align:right; text-transform:uppercase; font-family:$Fl; @include font-size(16px); }
+#redes img{ float:left; margin:34px 0 0 10px; display:inline-block; }
+
+// CONTATO
+#contato{ text-align:center; @include font-size(20px); line-height:33px; }
+#contato h2{ display:block; width:100%; height:77px; background:url(../img/linha-contato.png) no-repeat center center; font-family:$Di; @include font-size(45px); padding:10px 0 0 90px; line-height:70px; margin:100px 0 90px; }
+#contato .telefones span{ font-family:$Fl; }
+#contato .note-endereco{ font-family:$Fli; line-height:25px; }
+
+// FOOTER
+#footer{ width:100%; text-align:center; margin-top:80px; }
+#footer .copyrights,
+#footer a{ display:block; width:100%; padding:20px 0; border-top:1px solid $Azul; }
+
+
+// RESPONSIVO
+@media screen and(max-width:1270px){
+	#menu a{ padding:0 15px; }
+}
+
+@media screen and(max-width:1024px){
+	#redes{ display:none; }
+	#menu{ float:right; width:73%; }
+}
+
+@media screen and(max-width:900px){
+	#logo{ width:20%; }
+	#menu{ float:right; width:78%; }
+}
+
+@media screen and(max-width:860px){
+	#logo{ width:50%; }
+	#menu{ display:none; position:absolute; z-index:999; top:90px; left:0; width:100%; }
+	#menu a{ width:100%; background-color:#FFF; }
+	#menu-button{ display:block; float:right; width:50px; height:50px; margin:20px 2% 20px 0; background:url(../img/ico-menu.png) no-repeat center center; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

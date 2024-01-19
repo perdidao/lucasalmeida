@@ -1,0 +1,18 @@
+// ESQUEMA DE COLUNAS
+.col-esq, .col-cen, .col-dir{ float:left; }
+
+// 1 COLUNA
+.col1 .col-cen{ width:100%; }
+
+// 2 COLUNAS (DIREITA PRINCIPAL)
+.col2-dir .col-esq{ width:23%; margin-right:2%; }
+.col2-dir .col-dir{ width:75%; }
+
+// 2 COLUNAS (ESQUERDA PRINCIPAL)
+.col2-esq .col-esq{ width:75%; margin-right:2%; }
+.col2-esq .col-dir{ width:23%; }
+
+// 3 COLUNAS
+.col3 .col-esq{ width:23%; margin-right:2%; }
+.col3 .col-cen{ width:50%; margin-right:2%; }
+.col3 .col-dir{ width:23%; }

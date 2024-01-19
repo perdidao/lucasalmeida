@@ -1,0 +1,347 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+@import "colunas.scss";
+@import "formularios.scss";
+
+// FONTES
+@import url(http://fonts.googleapis.com/css?family=Oswald:300,400,700);
+$Oswald: 'Oswald', 'Arial Narrow', Helvetica, Arial, sans-serif;
+$Default: Tahoma, Verdana, Segoe, sans-serif;
+
+$Light:300;
+$Regular:400;
+$Bold:700;
+
+// CORES
+$Primaria:#233741;
+$Primaria-clara:#42535c;
+$Secundaria:#C40C42;
+
+// TABELAS
+table{ border-collapse:collapse; width:100%; }
+table th{ background-color:#f0f0f0; color:$Primaria; text-transform:uppercase; }
+table td,
+table th{ text-align:center; padding:5px; border:1px solid $Primaria; vertical-align:top; }
+
+// ESTILOS GLOBAIS
+body{ @include font-size(12px); line-height:1.3em; font-family:$Default; font-weight:$Regular; color:$Primaria; @include font-smoothing(on); }
+@include selection(#FFF, $Secundaria);
+
+#conteudo{ margin-top:40px; }
+h2.titulo{ background:url(../img/bkg-titulo.png) repeat-x center 7px; margin-bottom:30px; }
+h2.titulo span{ display:inline-block; padding-right:10px; background-color:#FFF; font-family:$Oswald; @include font-size(26px); text-transform:uppercase; }
+h2.titulo .box-btns{ float:right; background-color:#FFF; margin-top:-15px; }
+h2.titulo .box-btns button{ float:right; margin-left:10px; }
+h3.subtitulo{ font-family:$Oswald; @include font-size(18px); text-transform:uppercase; letter-spacing:0.06em; }
+strong{ font-weight:$Bold; }
+
+.bto{ text-decoration:none !important; width:100%; text-align:center; padding:5px 10px; background-color:$Secundaria; font-family:$Oswald; @include font-size(13px); color:#FFF; }
+
+// ÍCONES PEQUENOS
+.ico-peq{ padding-left:25px; }
+.ico-peq.i-chat{ background:url(../img/icones/ico-chat.png) no-repeat left 14px; }
+.ico-peq.i-atendimento{ background:url(../img/icones/ico-atendimento.png) no-repeat 3px 12px; }
+.ico-peq.i-pedidos{ background:url(../img/icones/ico-pedidos.png) no-repeat 2px 12px; }
+.ico-peq.i-desejos{ background:url(../img/icones/ico-desejos.png) no-repeat 4px center; }
+.ico-peq.i-conta{ background:url(../img/icones/ico-conta.png) no-repeat left 10px; }
+.ico-peq.i-boletim{ background-image:url(../img/icones/ico-boletim.png); }
+.ico-peq.i-visualizados{ background-image:url(../img/icones/ico-visualizados.png); }
+.ico-peq.i-carrinho{ background-image:url(../img/icones/ico-carrinho.png); }
+.ico-peq.i-lista{ background-image:url(../img/icones/ico-lista.png); }
+.ico-peq.i-calendario{ background-image:url(../img/icones/ico-calendario.png); }
+
+// HEADER
+#header{ width:100%; }
+#top-header{ background-color:$Primaria; height:40px; font-family:$Oswald; color:#FFF; @include font-size(11px); text-transform:uppercase; }
+#login{ display:block; float:left; line-height:40px; }
+#login a{ font-weight:$Bold; @include font-size(12px); }
+#user-nav{ float:right; }
+#user-nav a{ display:block; float:left; height:40px; line-height:40px; margin-left:30px; }
+
+#logo{ display:block; float:left; width:211px; height:102px; margin:15px 0; background:url(../img/logo.png) no-repeat center center; }
+
+#televendas{ float:left; height:30px; margin:50px 0 0 50px; padding-left:36px; background:url(../img/icones/ico-televendas.png) no-repeat left center; }
+#televendas p{ font-family:$Oswald; @include font-size(11px); text-transform:uppercase; }
+#televendas p strong{ color:$Secundaria; @include font-size(14px); font-weight:$Bold; }
+
+#pesquisa{ float:left; width:350px; margin:45px 0 0 40px; height:40px; border:1px solid $Primaria; background-color:#FFF; }
+#campo-pesquisa{ display:block; float:left; border:0; width:308px; height:38px; padding:0 10px; font-family:$Default; color:$Primaria; @include font-size(11px); outline:none; }
+#pesquisar{ display:block; float:right; width:38px; height:38px; background:transparent url(../img/icones/ico-pesquisa.png) no-repeat center center; border:0; cursor:pointer; }
+
+#carrinho{ float:right; width:190px; height:111px; margin-top:15px; padding:15px 0 0 50px; background:url(../img/bkg-carrinho.png) no-repeat center center; }
+#carrinho h2{ font-family:$Oswald; text-transform:uppercase; color:$Secundaria; @include font-size(17px); margin-bottom:7px; }
+#carrinho h3{ font-family:$Oswald; text-transform:uppercase; @include font-size(11px); }
+#carrinho .subtotal{}
+#carrinho .nota{ @include font-size(10px); color:$Secundaria; text-transform:uppercase; }
+
+// MENU
+#wrapper-menu{ width:100%; }
+#menu{ width:100%; height:40px; padding:2px 10px; background-color:#f0f0f0; border-radius:5px; }
+#menu li{ float:left; }
+#menu li a{ display:block; height:37px; padding:0 34px; @include font-size(16px); line-height:38px; font-family:$Oswald; text-transform:uppercase; border-left:1px solid #cfcfcf; border-right:1px solid #FFF; }
+#menu li:first-child a{ border-left:0; }
+#menu li:last-child a{ border-right:0; }
+
+// BOX LATERAIS
+.box-lateral{ border:1px solid $Primaria; margin-bottom:20px; }
+.box-lateral h2{ display:block; width:100%; background-color:$Primaria-clara; padding:7px; font-family:$Oswald; text-transform:uppercase; @include font-size(14px); color:#FFF; }
+.box-lateral h2.ico-peq{ padding-left:30px; background-position:7px center; background-repeat:no-repeat; }
+.box-lateral h2 a{ display:inline; }
+.box-lateral a{ text-decoration:underline; display:block; }
+.box-lateral .conteudo{ padding:10px; }
+.box-lateral .conteudo.inferior{ text-align:right; }
+.box-lateral .conteudo ul li a{ text-decoration:underline; }
+.box-lateral table{ width:100%; background-color:#F0F0F0; }
+.box-lateral table td{ padding:10px; }
+.box-lateral table td .excluir{ display:block; width:13px; height:13px; background:url(../img/icones/ico-fechar.png) no-repeat center center; }
+.box-lateral .destaque{ color:$Secundaria; }
+
+// PREFERÊNCIAS
+#preferencias{ border:1px solid #9EA6AA; background-color:#F0F0F0; }
+#preferencias .superior{ border-bottom:1px solid #9EA6AA; padding:5px; }
+#preferencias .inferior{ padding:5px; }
+#preferencias select{ border:1px solid $Primaria; color:$Secundaria; background-color:#FFF; }
+
+#quantidade-itens{ display:block; float:left; font-weight:$Bold; }
+
+#por-pagina{ float:right }
+
+#visualizar-como{ float:left; }
+#visualizar-como a{ color:$Secundaria; text-decoration:underline; }
+#visualizar-como a.selecionado{ font-weight:$Bold; color:$Primaria; text-decoration:none; }
+
+#mostrar{ float:right; }
+
+// LISTA DE PRODUTOS
+#lista-produtos{ margin-top:20px; }
+#lista-produtos li{ float:left; width:33.3%; border-right:1px solid #f0f0f0; padding:0 5px; margin-bottom:10px; }
+#lista-produtos li:nth-child(3n){ border:0; }
+#lista-produtos li .box-imagem{ width:100%; margin-bottom:5px; }
+#lista-produtos li .box-imagem img{ display:block; width:100%; }
+#lista-produtos li h3{ font-family:$Oswald; @include font-size(14px); font-weight:$Bold; }
+#lista-produtos li p{ font-family:$Oswald; @include font-size(12px); font-weight:$Light; }
+#lista-produtos li p.preco{ margin:10px 0; font-family:$Oswald; @include font-size(17px); font-weight:$Bold; color:$Secundaria; }
+#lista-produtos li a{ text-decoration:underline; display:block; margin-bottom:5px; }
+
+// INTERAÇÃO COM O CLIENTE
+#rodape{ margin-top:100px; }
+#interacao{ width:100%; padding:15px 0; background-color:$Primaria; color:#FFF; font-family:$Oswald; }
+#interacao h2{ @include font-size(22px); text-transform:uppercase; font-weight:$Bold; }
+#interacao span{ text-transform:none; @include font-size(18px); font-weight:$Light; }
+
+#newsletter{ float:left; width:48%; margin-right:4%; }
+#newsletter label{ float:left; margin:23px 10px 0 0; }
+#newsletter label#newsletter-box{ margin-top:10px; width:270px; }
+#newsletter-box input{ height:32px; float:left; width:220px; border:0; }
+#enviar-newsletter{ width:50px; height:32px; float:left; background:$Secundaria url(../img/icones/ico-mail.png) no-repeat center center; }
+
+#social{ float:left; width:48%; }
+#box-facebook{ width:360px; height:32px; padding:6px; margin-top:15px; background-color:#FFF; float:left; }
+#social a.ico-soc{ display:block; float:left; width:22px; height:22px; margin:20px 0 0 10px; }
+#social a.ico-soc.i-facebook{ background:url(../img/icones/ico-facebook.png) no-repeat center center; }
+#social a.ico-soc.i-twitter{ background:url(../img/icones/ico-twitter.png) no-repeat center center; }
+#social a.ico-soc.i-gplus{ background:url(../img/icones/ico-gplus.png) no-repeat center center; }
+
+// LINKS - RODAPÉ
+.links{ float:left; margin:30px 75px 0 0; }
+.links.last{ margin-right:0; }
+.links h3{ font-family:$Oswald; @include font-size(16px); text-transform:uppercase; color:$Primaria; }
+.links ul{ margin-top:5px; }
+.links ul li{ color:$Secundaria; list-style:disc; margin-left:15px; font-family:$Oswald; margin-bottom:5px; }
+.links ul li a{ color:$Primaria; @include font-size(13px); }
+
+// INFORMAÇÕES ADICIONAIS - RODAPÉ
+.informacoes{ float:left; width:31.33%; margin:50px 3% 0 0; }
+.informacoes.last{ margin-right:0; }
+.informacoes h3{ font-family:$Oswald; text-transform:uppercase; padding-bottom:5px; border-bottom:1px solid #d2d2d2; margin-bottom:10px; }
+
+// ENDEREÇO
+#endereco{ text-align:center; background:url(../img/bkg-endereco.png) repeat-x center center; color:#CACACA; @include font-size(7px); margin-top:20px; }
+#endereco span{ display:inline-block; background-color:#FFF; padding:0 10px; }
+
+#assinatura{ display:block; width:520px; height:20px; margin:20px auto; background:url(../img/assinatura.png) no-repeat center center; }
+
+// BUSCA
+#busca{}
+#busca legend{ font-family:$Oswald; @include font-size(18px); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:20px; }
+#busca .form-linha{ width:100%; min-height:30px; margin-bottom:12px; }
+#busca .form-linha label{ float:left; min-width:100px; line-height:30px; }
+#busca .form-linha input,
+#busca .form-linha textarea{ float:left; width:300px; padding:5px; border:1px solid $Primaria; color:$Primaria; @include font-size(12px); outline:none; margin-top:5px; resize:none; font-family:$Default; }
+#busca .form-linha textarea{ height:70px; }
+#busca .form-linha.linha-dupla input{ width:125px; margin-right:10px; }
+#busca .form-linha.linha-dupla span{ font-family:$Oswald; @include font-size(15px); font-weight:300; display:block; float:left; text-transform:uppercase; margin-top:16px; }
+#buscar{ float:right; }
+
+// PRODUTO
+#prod-imagem{ float:left; width:48%; padding:20px; border:1px solid $Primaria; }
+#prod-imagem img{ display:block; width:100%; }
+
+#prod-info{ float:left; margin-left:2%; width:50%; }
+#prod-info h3{ @include font-size(18px); font-family:$Oswald; text-transform:uppercase; margin-bottom:30px; }
+#prod-info a{ text-decoration:underline; display:block; }
+#prod-info .disponibilidade{ margin:20px 0; }
+#prod-info .disponibilidade span{ color:$Secundaria; }
+#prod-info .preco{ @include font-size(14px); font-weight:700; color:$Secundaria; margin-bottom:25px; }
+#prod-info .separador{ display:block; width:100%; height:1px; background-color:$Primaria; margin:15px 0; }
+#prod-info h4{ @include font-size(14px); font-family:$Oswald; margin-bottom:10px; }
+
+#prod-extra{ margin-top:30px; }
+#prod-extra h3{ @include font-size(18px); font-family:$Oswald; text-transform:uppercase; margin-bottom:10px; }
+#prod-extra .prod-descricao{ padding:10px; border:1px solid $Primaria; margin-bottom:30px; }
+.bt-adc-tags{ display:block; font-family:$Oswald; text-transform:uppercase; padding-left:20px; background:url(../img/icones/ico-tags.png) no-repeat left center; margin-bottom:5px; }
+#prod-extra .form-linha{ width:100%; }
+#nova-tag{ float:left; width:325px; height:30px; }
+#adc-tag{ float:left; display:block; margin:0 0 0 10px; height:30px; line-height:20px; background-color:$Primaria; }
+
+// ENVIAR PARA UM AMIGOS
+#amigo{}
+#amigo legend{ font-family:$Oswald; @include font-size(18px); display:block; background:url(../img/icones/ico-amigos.png) no-repeat left center; padding:5px 0 5px 25px; text-transform:uppercase; }
+#amigo .half{ width:48%; margin-right:4%; }
+#amigo .half.left{ margin-right:0; }
+#amigo .destinatario .half{ float:left; }
+#amigo label{ margin-bottom:10px; }
+#amigo textarea{ height:120px; }
+#amigo .box-botoes button{ float:right; }
+
+// CONTATO
+#contato legend{ font-family:$Oswald; @include font-size(18px); display:block; text-transform:uppercase; margin-bottom:20px; }
+#contato .half{ width:48%; margin-right:4%; float:left; }
+#contato .half.left{ margin-right:0; }
+#contato label{ margin-bottom:10px; }
+#contato textarea{ height:120px; }
+#contato .box-botoes button{ float:right; }
+
+// SUCESSO
+.sucesso p{ font-family:$Oswald; @include font-size(15px); font-weight:300; line-height:19px; margin-top:30px; }
+.sucesso p a{ color:$Secundaria; text-decoration:underline; }
+.sucesso button{ float:right; }
+
+// CARRINHO
+h2 .btn-continuar{ background-color:#f0f0f0; color:$Primaria; font-weight:300; }
+h2 .btn-finalizar{ font-weight:700; }
+
+.tabela-carrinho{ border-collapse:collapse; width:100%; }
+.tabela-carrinho tr{ }
+.tabela-carrinho th{ background-color:#f0f0f0; color:$Primaria; font-family:$Oswald; @include font-size(12px); text-transform:uppercase; }
+.tabela-carrinho td,
+.tabela-carrinho th{ text-align:center; padding:5px; border:1px solid $Primaria; vertical-align:top; }
+.tabela-carrinho td{ min-height:100px; }
+.tabela-carrinho td.info-produto{ text-align:left; padding:10px; }
+#remover{ display:block; width:15px; height:15px; margin:0 auto; background:url(../img/icones/ico-remover.png) no-repeat center center; }
+.tabela-carrinho td img{ border:1px solid #EEE; }
+.tabela-carrinho td h4 a{ color:$Secundaria; font-weight:bold; text-decoration:underline; }
+.tabela-carrinho .preco{ color:$Secundaria; }
+.tabela-carrinho .quantidade{ width:40px; text-align:center; color:$Secundaria; border:1px solid $Primaria; }
+.tabela-carrinho .subtotal{ color:$Secundaria; }
+
+.box-frete{ width:25%; }
+.box-desconto{ width:35%; }
+.box-frete,
+.box-desconto{ float:left; margin:10px 2.5% 0 0; border:1px solid $Primaria; padding:20px; }
+.box-frete h3,
+.box-desconto h3{ font-family:$Oswald; text-transform:uppercase; @include font-size(15px); padding:4px 0 4px 25px; background-repeat:no-repeat; background-position:left center; }
+.box-frete h3{ background-image:url(../img/icones/ico-frete.png); }
+.box-desconto h3{ background-image:url(../img/icones/ico-cupom.png); }
+.box-frete p,
+.box-desconto p{ margin-bottom:10px; }
+.box-frete input,
+.box-desconto input{ float:left; height:28px; border:1px solid $Primaria; }
+.box-desconto input{ width:70%; }
+.box-frete button,
+.box-desconto button{ @include font-size(10px); float:left; margin:0px 0 0 10px; }
+
+.box-total{ float:left; margin:10px 0 0 0; border:1px solid $Primaria; padding:13px 20px; width:35%; }
+.box-total ul{ text-align:right; width:100%; }
+.box-total ul li{ width:60%; float:right; font-family:$Oswald; @include font-size(15px); margin-bottom:10px; }
+.box-total ul li strong{ display:block; float:left; width:50%; }
+.box-total ul li span{ display:block; float:left; width:50%; }
+.box-total ul li.total{ text-transform:uppercase; font-weight:700; @include font-size(17px); color:$Secundaria; }
+.box-total button{ float:left; }
+.box-total .btn-continuar{ background-color:#f0f0f0; color:$Primaria; font-weight:300; @include font-size(14px); padding:5px 10px; }
+.box-total .btn-finalizar{ font-weight:700; @include font-size(14px); padding:5px 10px; margin-left:10px; }
+
+.relacionados{ margin-top:40px; }
+#lista-produtos.compre-tambem{}
+#lista-produtos.compre-tambem li{ float:left; width:25%; border-right:1px solid #f0f0f0; padding:0 5px; margin-bottom:10px; }
+#lista-produtos.compre-tambem li:nth-child(3n){ border-right:1px solid #f0f0f0; }
+#lista-produtos.compre-tambem li:nth-child(4n){ border:0; }
+
+// LOGIN
+.login{}
+.login .col-esq{ width:48%; float:left; padding:30px 2% 30px 0; margin:50px 2% 0 0; border-right:1px solid $Primaria; }
+.login .col-dir{ width:48%; float:left; margin-top:50px; padding:30px 0; }
+.login .interno{ width:90%; margin:30px auto; }
+.login .col-esq h2,
+.login .col-dir h2{ @include font-size(18px); text-transform:uppercase; margin-bottom:10px; font-family:$Oswald; padding:5px 0 5px 30px; }
+.login h2.cadastro{ background:url(../img/icones/ico-cadastro.png) no-repeat left center; }
+.login h2.login{ background:url(../img/icones/ico-login.png) no-repeat left center; }
+.login p{ font-family:$Oswald; font-weight:300; @include font-size(15px); line-height:19px; letter-spacing:0.04em; }
+.login button{ float:right; margin-top:20px; }
+.login label{ margin-top:5px; }
+#criar-conta{ margin-top:90px; }
+#esqueceu-senha{ float:left; }
+
+// CADASTRO
+.cadastro .col-esq{ width:48%; float:left; padding-right:2%; margin-right:2%; border-right:1px solid $Primaria; }
+.cadastro .col-dir{ width:48%; float:left; }
+.cadastro .col-esq h2,
+.cadastro .col-dir h2{ @include font-size(18px); text-transform:uppercase; margin-bottom:10px; font-family:$Oswald; }
+.cadastro label{ margin-bottom:10px; }
+.cadastro .half{ width:48%; margin-right:4%; }
+.cadastro .half.left{ margin-right:0; }
+.cadastro #enviar{ float:right; }
+
+// PAINEL
+.menu-conta{ border-color:#a7afb3; }
+.menu-conta h2{ background-color:$Secundaria; }
+.menu-conta li a{ text-decoration:none !important; display:block; padding:5px 0; border-bottom:1px solid #a7afb3; }
+.menu-conta li:last-child a{ border:0; }
+.menu-conta li a.active{ font-weight:bold; }
+
+.box-painel{ margin-top:30px; }
+.box-painel .titulos{ height:30px; }
+.box-painel .titulos h2{ display:block; float:left; @include font-size(18px); text-transform:uppercase; font-family:$Oswald; padding:5px 0 5px 25px; }
+.box-painel .titulos a{ float:right; color:$Secundaria; text-decoration:underline; }
+.pedidos th{ font-weight:bold; }
+.pedidos em{ font-style:italic; }
+.pedidos .ver{ color:$Secundaria; text-decoration:underline; }
+.pedidos .recomprar{ font-weight:bold; text-decoration:underline; }
+
+.tit-pedidos h2{ background:url(../img/icones/ico-calendario.png) no-repeat left center; }
+.tit-conta h2{ background:url(../img/icones/ico-login.png) no-repeat left center; }
+
+.box-info{ float:left; width:48%; margin:0 4% 40px 0; }
+.box-info.left{ margin-right:0; }
+.box-info a{ color:$Secundaria; text-decoration:underline; }
+.box-info p{}
+.box-info .box-titulo{ padding-bottom:5px; border-bottom:1px solid $Primaria; margin-bottom:10px; }
+.box-info .box-titulo strong{ text-align:left; }
+.box-info .box-titulo a{ float:right; }
+
+.box-info.box-full{ width:100%; margin-right:0; }
+.endereco{ float:left; width:48%; margin-right:4%; }
+.endereco.left{ margin-right:0; }
+.endereco h3{ text-transform:uppercase; font-weight:bold; }
+.endereco p{ margin-bottom:5px; }
+
+// RESPONSIVO
+@import "mediaqueries.scss";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

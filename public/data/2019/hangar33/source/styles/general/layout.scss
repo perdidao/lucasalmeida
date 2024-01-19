@@ -1,0 +1,64 @@
+*{
+    box-sizing:border-box;
+    font-family:inherit;
+    @include font-smoothing(on);
+}
+
+body{
+    background-color:$black;
+    font:$regular 16px $default-font;
+    color:$white;
+}
+
+p{
+    font-size:rfs(16px);
+    letter-spacing:0.05rem;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family:$Solido;
+    font-weight:$medium;
+    color:$orange;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.button{
+    display:inline-block;
+    min-width:rfs(150px);
+    padding:rfs(3px) rfs(15px) 0;
+    border:0;
+    background-color:$orange;
+    font-weight:$regular;
+    font-size:rfs(27px);
+    font-family:$Solido;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:$white;
+    cursor:pointer;
+    transition:all 300ms ease-in-out;
+
+    &:hover{
+        opacity:0.6;
+    }
+
+    @media screen and (max-width:$size-mobile-max){
+        font-size:rfs(36px);
+        padding:rfs(8px) rfs(50px) rfs(5px);
+    }
+}
+
+[data-scroll] {
+    transition:opacity 2s;
+}
+
+[data-scroll="in"] {
+    opacity: 1;
+}
+
+[data-scroll="out"] {
+    opacity: 0;
+}

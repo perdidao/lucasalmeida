@@ -1,0 +1,184 @@
+// Dependências
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// Fontes
+@import 'https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i';
+$Noto:'Noto Sans', Helvetica, Arial, sans-serif;
+
+$regular:400;
+$bold:700;
+
+// Cores
+$turquesa:#008A91;
+$marinho:#005359;
+$roxo:#7669B8;
+$lilas:#9f97CB;
+$azul:#094F79;
+
+$cinza:#5F5F5F;
+$prata:#9B9B9B;
+
+// Estilos Globais
+body{ @include font-size(18px); font-weight:$regular; font-family:$Noto; color:#FFF; @include font-smoothing(on); }
+@include selection(#FFF,$turquesa);
+
+/// * Header * /
+#header{ position:fixed; z-index:999; top:0; left:0; width:100%; background-color:#CCCDCF; }
+#header > .center{ min-height:85px; }
+#logo{ width:320px; height:130px; background:#FFF url(../img/logo.jpg) no-repeat center center; @include removeText; position:absolute; top:0; left:0; }
+
+#header .bottom{ width:100%; min-height:50px; background-color:$turquesa; }
+#menu{ float:left; margin-left:340px; }
+#menu a{ display:inline-block; height:50px; line-height:50px; margin-left:20px; @include transition(all 300ms ease-in-out); }
+#menu a:hover{ @include opacity(0.7); }
+#menu a.active{ font-weight:$bold; }
+
+#social{ float:right; margin-right:-100px; }
+#social p{ line-height:50px; float:left; margin-right:20px; }
+#social a{ display:block; float:left; width:50px; height:50px; background:no-repeat center center; @include transition(all 300ms ease-in-out); }
+#social a:hover{ @include opacity(0.7); }
+#social a.fb{ background-image:url(../img/ico-fb.png); }
+#social a.in{ background-image:url(../img/ico-in.png); }
+
+/// * Banners * /
+#banner{ position:relative; margin-top:135px; }
+.owl-controls .owl-nav div{ position:absolute; top:50%; @include transform(translatey(-50%)); width:20px; height:35px; background:no-repeat center center; @include removeText; @include transition(all 300ms ease-in-out); }
+.owl-controls .owl-nav div:hover{ @include opacity(0.5); }
+.owl-controls .owl-nav .owl-prev{ left:12%; background-image:url(../img/arw-prev.png); }
+.owl-controls .owl-nav .owl-next{ right:12%; background-image:url(../img/arw-next.png); }
+
+.owl-controls .owl-dots{ width:100%; position:absolute; left:0; bottom:30px; text-align:center; }
+.owl-controls .owl-dots .owl-dot{ display:inline-block; width:12px; height:12px; margin:0 10px; background-color:#C3C7D2; @include border-radius(50%); @include transition(all 300ms ease-in-out); }
+.owl-controls .owl-dots .owl-dot.active{ background-color:$turquesa; }
+
+/// * Sobre * /
+#sobre{ width:100%; padding:100px 0 150px; background-color:$marinho; }
+#sobre .center{ max-width:880px; overflow:hidden; }
+#sobre h2{ @include font-size(30px); font-weight:$bold; line-height:1.2em; text-transform:uppercase; margin-bottom:80px; }
+
+#topicos{ float:left; width:25%; }
+#topicos li{ margin-bottom:5px; }
+#topicos li a{ display:block; padding:20px 0 20px 40px; background-color:$turquesa; color:#FFF; @include font-size(24px); font-weight:$bold; text-transform:uppercase; @include transition(all 300ms ease-in-out); }
+#topicos li a.active{ background-color:#FFF; color:$roxo; }
+
+#visao, #valores{ display:none; }
+#sobre article{ float:left; margin-left:6%; width:69%; }
+#sobre article h3{ margin-top:10px; @include font-size(25px); font-weight:$bold; }
+#sobre article p{ @include font-size(14px); line-height:1.2em; text-align:justify; text-indent:40px; }
+
+/// * Serviços * /
+#servicos{ width:100%; padding:110px 0 100px; background:#CCC url(../img/bkg-servicos.png) repeat center center; overflow:hidden; }
+#servicos h2{ text-align:center; color:$cinza; text-transform:uppercase; font-weight:$bold; @include font-size(38px); margin-bottom:50px; }
+#servicos a{ display:block; float:left; width:49%; padding:80px 0; background-color:$turquesa; text-align:center; @include font-size(30px); font-weight:$bold; text-transform:uppercase; @include transition(all 300ms ease-in-out); }
+#servicos a:hover{ @include opacity(0.5); }
+#servicos a span{ display:block; @include font-size(18px); font-weight:$regular; line-height:34px; }
+#servicos a:last-child{ margin-left:2%; }
+
+.box-servicos{ width:1000px; padding:60px 120px; }
+.box-servicos h2{ @include font-size(40px); font-weight:$bold; color:$turquesa; margin-bottom:20px; text-transform:uppercase; }
+.box-servicos h2 span{ @include font-size(24px); font-weight:$regular; display:block; color:$cinza; margin-bottom:5px; }
+.box-servicos p{ @include font-size(14px); color:$cinza; line-height:1.3em; text-indent:40px; }
+.box-servicos p strong{ display:block; font-weight:$bold; color:$turquesa; }
+
+/// * Blog * /
+#blog{ padding:110px 0 60px; overflow:hidden; }
+#blog h2{ text-align:center; color:$turquesa; text-transform:uppercase; font-weight:$bold; @include font-size(38px); margin-bottom:50px; }
+#blog li{ float:left; width:32%; margin-right:2%; color:$cinza; }
+#blog li:last-child{ margin-right:0; }
+#blog li img{ display:block; width:100%; margin-bottom:10px; }
+#blog li strong{ font-weight:$bold; }
+#blog li .categoria{ color:$turquesa; }
+#blog li .data{ color:$prata; }
+#blog li h3{ @include font-size(25px); line-height:1.2em; font-weight:$bold; text-transform:uppercase; margin:10px 0; }
+#blog li p{ @include font-size(15px); font-style:italic; line-height:20px; }
+#blog li .leia{ display:block; float:right; padding:5px 10px; margin-top:10px; background-color:$marinho; color:#FFF; font-weight:$bold; font-style:italic; @include font-size(15px); }
+#blog .mat-anteriores{ display:block; float:right; padding:6px 60px 10px 20px; margin-top:45px; font-weight:$bold; @include font-size(25px); font-style:italic; background:$lilas url(../img/pointer.png) no-repeat center center; }
+
+/// * Newsletter * /
+#newsletter{ width:100%; padding:50px 0; background:url(../img/bkg-newsletter.png) repeat center center; }
+#newsletter .f-left{ float:left; margin-left:8%; font-weight:$bold; }
+#newsletter .f-left h2{ @include font-size(40px); text-transform:uppercase; }
+#newsletter .f-left p{ @include font-size(22px); font-style:italic; }
+#newsletter .f-right{ float:right; width:50%; margin-top:10px; }
+#newsletter .f-right input{ display:block; float:left; width:72%; height:45px; border:2px solid #CCC; background-color:#FFF; font-weight:$bold; font-style:italic; @include font-size(20px); font-family:inherit; color:$cinza; text-align:center; @include font-smoothing(on); }
+#newsletter .f-right #assinar{ display:block; float:left; width:28%; height:45px; border:0; background-color:$azul; font-family:$Noto; @include font-size(20px); font-style:italic; font-weight:$bold; color:#FFF; cursor:pointer; @include transition(all 300ms ease-in-out); }
+#newsletter .f-right #assinar:hover{ @include opacity(0.8); }
+
+/// * Logos * /
+#logos{ text-align:center; padding:30px 0; }
+#logos a{ margin:0 20px; }
+
+/// * Contato * /
+#contato{ width:100%; padding:80px 0; background-color:$azul; }
+#contato h2{ @include font-size(37px); text-transform:uppercase; font-weight:$bold; margin-bottom:30px; padding-bottom:30px; border-bottom:1px solid #FFF; }
+#contato .f-left{ float:left; width:55%; }
+#contato .f-left input,
+#contato .f-left textarea{ display:block; float:left; width:100%; height:40px; background:#FFF; border:0; padding:0 10px; color:$cinza; font-family:$Noto; @include font-size(14px); font-style:italic; margin-bottom:10px; }
+#contato .f-left textarea{ height:260px; resize:none; padding:5px 10px; }
+#contato .f-left input.mail{ width:60%; margin-right:2%; }
+#contato .f-left input.tel{ width:38%; }
+#contato .f-left #enviar{ display:block; width:100%; height:40px; background-color:$turquesa; border:0; color:#FFF; font-family:$Noto; font-weight:$bold; @include font-size(25px); font-style:italic; text-transform:uppercase; cursor:pointer; @include transition(all 300ms ease-in-out); }
+#contato .f-left #enviar:hover{ @include opacity(0.8); }
+#contato .f-left p{ @include font-size(12px); margin-top:10px; }
+#contato .f-right{ float:left; width:33%; margin-left:4%; line-height:1.2em; }
+#contato .f-right h3{ @include font-size(18px); margin-bottom:5px; }
+#contato .f-right p{ @include font-size(14px); margin-bottom:20px; }
+#contato .f-right p strong{ @include font-size(28px); font-weight:$bold; display:block; }
+#contato .f-right p strong span{ @include font-size(18px); }
+#contato .f-right h4{ @include font-size(18px); font-style:italic; font-weight:$bold; text-transform:uppercase; margin:10px 0 15px; }
+
+/// * Responsivo * /
+@media screen and(max-width:1220px){
+	#social{ margin-right:0; }
+	#social p{ display:none; }
+}
+
+@media screen and(max-width:860px){
+	#logo{ position:static; margin:0 auto; }
+	#menu{ margin-left:0; }
+
+	#newsletter .f-left{ width:100%; margin:0 0 30px; text-align:center; }
+	#newsletter .f-right{ width:100%; }
+}
+
+@media screen and(max-width:760px){
+	#topicos{ width:100%; }
+	#topicos li{ margin-bottom:30px; float:left; width:33.33%; }
+	#topicos li a{ padding:20px 0; text-align:center; }
+	#sobre article{ margin-left:0; width:100%; }
+}
+
+@media screen and(max-width:660px){
+	#banner{ display:none; }
+	#sobre{ margin-top:170px; }
+	#contato .f-left{ width:100%; margin:0 0 30px; }
+	#contato .f-right{ width:100%; margin:0; text-align:center; }
+}
+
+@media screen and(max-width:520px){
+	#menu{ display:none; }
+	#social{ width:100%; text-align:center; }
+	#social a{ display:inline-block; float:none; }
+
+	#servicos a{ width:100%; margin-bottom:10px; }
+	#servicos a:last-child{ margin-left:0; }
+
+	#blog li{ width:100%; margin:0 0 20px; }
+
+	#logos a{ display:inline-block; margin:0 10px 20px; }
+}
+
+@media screen and(max-width:460px){
+	#logo{ width:100%; }
+
+	#sobre h2{ @include font-size(20px); text-transform:none; }
+	#topicos li{ margin-bottom:5px; width:100%; }
+
+	#newsletter .f-right input,
+	#newsletter .f-right #assinar{ width:100%; }
+
+	#contato .f-left input.mail,
+	#contato .f-left input.tel{ width:100%; margin:0 0 10px; }
+}

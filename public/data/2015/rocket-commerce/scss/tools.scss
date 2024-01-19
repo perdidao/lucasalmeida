@@ -1,0 +1,41 @@
+// CLASSES E ATRIBUTOS GLOBAIS
+.f-left{ float:left; }
+.f-right{ float:right; }
+.center{ width:980px; margin:0 auto; }
+.clear{ clear:both; }
+*{ @include box-sizing(border-box); }
+a{ color:inherit; text-decoration:none; }
+
+// TAMANHOS DE FONTE RELATIVOS
+@function calculateRem($size) {
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+}
+
+@mixin font-smoothing($value: on) {
+    @if $value == on {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    @else {
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
+    }
+}
+
+// SELEÇÃO PERSONALIZADA
+@mixin selection($texto, $fundo){
+    ::-moz-selection { color:$texto; background-color:$fundo; }
+    ::selection { color:$texto; background-color:$fundo; }
+}
+
+// ESCONDE TEXTO
+@mixin removeText{
+    text-indent:-9999em;
+    overflow:hidden;
+}

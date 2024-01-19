@@ -1,0 +1,348 @@
+// Dependências
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// Fontes
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,300,700,900);
+$Lato:'Lato', Helvetica, Arial, sans-serif;
+
+$thin:100;
+$light:300;
+$regular:400;
+$bold:700;
+$black:900;
+
+// Cores
+$amarelo:#FDDD46;
+$amarelo2:#FEBF2E;
+$vermelho:#D9443C;
+$verde:#19753B;
+$roxo:#8606B1;
+$lima:#E1E657;
+$azul:#0066B3;
+$azul2:#0078A5;
+$laranja:#E8860D;
+$cinza:#6A6A6B;
+$grafite:#444;
+$prata:#878787;
+
+// Estilos Globais
+body{ font-family:$Lato; @include font-size(16px); font-weight:$regular; color:$grafite; @include font-smoothing(on); }
+@include selection(#FFF,$azul);
+
+// Header
+#header{ position:fixed; z-index:10; top:0; left:0; width:100%; }
+#top-header{ width:100%; background-color:#E9E8E8; padding:7px 0; }
+#top-header .f-right{ float:right; }
+#top-header .f-right p{ float:left; text-transform:uppercase; line-height:27px; @include font-size(12px); color:$cinza; }
+#top-header .f-right ul{ float:left; }
+#top-header .f-right ul li{ float:left; margin:0 10px; }
+#top-header .f-right ul li a{ display:block; height:27px; background-repeat:no-repeat; background-position:center center; @include removeText; }
+#top-header .f-right ul li a.corrida{ width:117px; background-image:url(../img/serv-megafeira.png); }
+#top-header .f-right ul li a.acia{ width:45px; background-image:url(../img/serv-acia.png); }
+#top-header .f-right ul li a.scpc{ width:54px; background-image:url(../img/serv-scpc.png); }
+#top-header .f-right ul li a.scpcheque{ width:60px; background-image:url(../img/serv-scpcheque.png); }
+#low-header{ height:90px; background-color:#FFF; @include box-shadow(0 6px 6px rgba(0,0,0,.22)); }
+#low-header #logo{ float:left; width:139px; height:78px; margin-top:-15px; background:url(../img/acia.png) no-repeat center center; @include removeText; }
+#low-header #menu{ float:right; margin:38px 40px 0 0; }
+#low-header #menu ul{}
+#low-header #menu ul li{ display:inline-block; margin-right:45px; }
+#low-header #menu ul li:last-child{ margin-right:0; }
+#low-header #menu ul li a{ display:block; @include font-size(14px); font-weight:$black; color:$cinza; @include transition(all 300ms ease-in-out); }
+#low-header #menu ul li a:hover{ color:$azul; }
+
+// Início
+#inicio{ width:100%; padding:60px 0 70px; margin-top:130px; background:url(../img/bkg-inicio.jpg) repeat center top; }
+#inicio .mega-feira{ position:absolute; z-index:1; top:-40px; left:0; width:508px; height:375px; background:url(../img/queima.png) no-repeat center center; }
+#inicio .col-right{ float:right; width:100%; max-width:300px; margin-right:80px; }
+#inicio .col-right h2{ @include font-size(26px); font-weight:$bold; letter-spacing:-0.08em; color:#59595C; margin-bottom:10px; }
+#inicio .col-right h3{ @include font-size(21px); font-weight:$black; letter-spacing:-0.01em; color:$vermelho; margin-bottom:10px; }
+#inicio .col-right p{ @include font-size(18px); line-height:32px; letter-spacing:-0.01em; }
+
+// Inscreva-se
+#inscreva{ width:100%; min-height:400px; background:#F7F6F6 url(../img/bkg-inscreva.jpg) no-repeat center top; padding:25px 0 0; }
+#inscreva h2{ width:100%; height:332px; background:url(../img/selo-inscreva.png) no-repeat center center; background-size:contain; @include removeText; }
+#inscreva .btn{ position:absolute; top:200px; left:100px; display:block; width:246px; height:79px; background:url(../img/btn-inscreva.png) no-repeat center center; @include removeText; @include transition(all 300ms ease-in-out); }
+#inscreva .btn:hover{ @include opacity(0.7); }
+
+// Apoio
+#apoio{ padding:10px 0; background-color:#FFF; }
+#apoio h2{ float:left; @include font-size(12px); text-transform:uppercase; letter-spacing:-0.05em; }
+#apoio ul{ float:left; }
+#apoio ul li{ display:inline-block; margin-left:60px; }
+#apoio ul li a{ display:block; height:80px; background-repeat:no-repeat; background-position:center center; @include removeText; @include filter(grayscale(1)); @include transition(all 300ms ease-in-out); }
+#apoio ul li a:hover{ @include filter(grayscale(0)); }
+#apoio ul li a.ara{ width:175px; background-image:url(../img/par-arapongas.png); }
+#apoio ul li a.sesi{ width:165px; background-image:url(../img/par-sesi.png); }
+#apoio ul li a.unopar{ width:98px; background-image:url(../img/par-unopar.png); }
+#apoio ul li a.obr{ width:130px; background-image:url(../img/par-obrigado.png); }
+
+// Pagamento
+#pagamento{ width:100%; background:#F4F4F4; padding:70px 0 40px; }
+#pagamento .col{ float:left; width:31.3%; margin-right:2%; }
+#pagamento .col:last-child{ margin-right:0; }
+#pagamento .col h2{ @include font-size(21px); background:url(../img/linha.jpg) repeat-x center center; margin-bottom:20px; }
+#pagamento .col h2 span{ display:inline-block; background-color:#F4F4F4; padding:0 10px 3px 0; }
+#pagamento .col img{ display:block; width:100%; }
+#pagamento .col p{ @include font-size(12px); color:$prata; margin-top:10px; }
+
+// Sobre
+#sobre{ width:100%; padding:40px 0; background:$vermelho url(../img/ptn-vermelho.png) repeat center top; color:#FFF; @include font-size(21px); letter-spacing:-0.05em; }
+#sobre h2{ margin-bottom:40px; @include font-size(48px); font-weight:$black; position:relative; }
+#sobre h2:after{ content:' '; display:block; width:85%; height:1px; background-color:#FFF; position:absolute; top:28px; right:0; }
+#sobre h3{ @include font-size(32px); font-weight:$black; color:$amarelo; margin-bottom:20px; }
+#sobre h4{ font-weight:$bold; color:$amarelo; }
+#sobre p{ line-height:1.2em; margin-bottom:30px; }
+#sobre .wrapper{ padding:10px; background-color:#CB352F; }
+#sobre .wrapper iframe{ display:block; width:100%; height:520px; }
+
+// Horários
+#horarios{ background:url(../img/ptn-cinza.png) repeat center top; padding:50px 0; }
+#horarios h2{ background:$vermelho; padding:10px 10px 25px; text-align:center; text-transform:uppercase; color:#FFF; @include font-size(32px); font-weight:$black; }
+#horarios .horarios{ margin:-15px auto 0; width:98%; }
+#horarios .horarios li{ float:left; background-color:#FFF; padding:8px 0; text-align:center; @include font-size(28px); letter-spacing:-0.04em; }
+#horarios .horarios li.hor3{ width:33%; margin:0 0.5% 0.5% 0; }
+#horarios .horarios li.hor2{ width:49.5%; margin:0 0.5% 0.5% 0; }
+#horarios .horarios li.last{ margin-right:0; }
+#horarios p{ width:98%; margin:0 auto; background-color:$verde; padding:10px 0; color:#FFF; text-transform:uppercase; text-align:center; @include font-size(24px); font-weight:$bold; }
+
+// Mapa
+#mapa{ width:100%; height:490px; margin-bottom:15px; }
+
+// Para você
+#voce{ width:100%; padding:40px 0; background:$amarelo url(../img/bkg-voce.png) repeat center top; }
+#voce h2{ @include font-size(32px); font-weight:$black; color:$roxo; margin-bottom:15px; }
+#voce p{ @include font-size(21px); line-height:1.3em; }
+
+// Corrida
+#corrida{ background:$roxo url(../img/bkg-corrida.jpg) repeat center top; color:#FFF; padding:35px 0 30px; }
+#corrida .center{ background:url(../img/ico-corrida.png) no-repeat 0 40px; }
+#corrida .c-left{ float:right; width:100%; max-width:700px; }
+#corrida .c-left h2{ @include font-size(32px); font-weight:$black; color:$lima; margin-bottom:20px; }
+#corrida .c-left p{ @include font-size(21px); line-height:1.3em; margin-bottom:20px; }
+#corrida .c-left p strong{ font-weight:$bold; }
+#corrida .inner{ width:100%; max-width:620px; margin:0 auto; }
+#corrida .inner h3{ @include font-size(32px); font-weight:$black; color:$lima; margin-bottom:10px; text-align:center; }
+#corrida .inner img{ display:block; width:100%; margin-bottom:15px; }
+#corrida .inner img:last-child{ margin-bottom:0; }
+
+// Serviços
+#servicos{}
+
+#top-servicos{ padding:20px 0; text-align:center; }
+#lista-servicos{}
+#lista-servicos li{ display:inline-block; margin:0 5px; }
+#lista-servicos li a{ display:block; }
+#lista-servicos li a img{ display:block; @include filter(grayscale(1)); @include transition(all 300ms ease-in-out); }
+#lista-servicos li a:hover img,
+#lista-servicos .synced li a img{ @include filter(grayscale(0)); }
+
+#bottom-servicos{ padding:40px 0 100px; background:url(../img/bkg-servicos.png) repeat center top; color:#FFF; }
+#bottom-servicos h2{ @include font-size(34px); font-weight:$bold; margin-bottom:30px; }
+#det-servicos{}
+#det-servicos li{}
+#det-servicos li .icone{ float:left; width:40%; text-align:center; }
+#det-servicos li .icone img{}
+#det-servicos li .content{ float:left; width:60%; max-width:480px; }
+#det-servicos li .content h3{ @include font-size(30px); font-weight:$bold; color:#731448; margin-bottom:20px; }
+#det-servicos li .content p{ @include font-size(21px); line-height:24px; margin-bottom:20px; }
+#det-servicos li .content p strong{ display:block; font-weight:$bold; }
+
+#det-servicos .owl-buttons{ position:absolute; top:90px; left:0; width:40%; height:56px; }
+#det-servicos .owl-buttons .owl-prev,
+#det-servicos .owl-buttons .owl-next{ width:29px; height:56px; margin:0 27px; background-repeat:no-repeat; background-position:center center; @include removeText; }
+#det-servicos .owl-buttons .owl-prev{ background-image:url(../img/arw-prev.png); float:left; }
+#det-servicos .owl-buttons .owl-next{ background-image:url(../img/arw-next.png); float:right; }
+
+// Empresas Participantes
+#empresas{ padding:30px 0 0; background-color:$azul2; color:#FFF; }
+#empresas h2{ margin-bottom:40px; @include font-size(48px); font-weight:$black; position:relative; }
+#empresas h2:after{ content:' '; display:block; width:44%; height:1px; background-color:#FFF; position:absolute; top:28px; right:0; }
+#categorias{ float:left; width:34%; }
+#categorias li{ @include font-size(19px); font-weight:$bold; }
+#categorias li a{ display:block; padding:4px 10px; }
+#categorias li a.active{ background-color:$amarelo2; color:$azul2; padding:7px 10px; }
+#empresas .lojas{ float:left; width:65%; margin-left:1%; padding:30px 50px; background-color:#005F82; display:none; }
+#empresas .lojas#colchoes{ display:block; }
+#empresas .lojas h3{ @include font-size(32px); font-weight:$bold; padding-left:18px; margin-bottom:20px; background:url(../img/bullet.png) no-repeat left 7px; color:$amarelo2; }
+#empresas .lojas ul{ float:left; width:32%; margin-right:2%; }
+#empresas .lojas ul.last{ margin-right:0; }
+#empresas .lojas ul li{ @include font-size(18px); margin-bottom:14px; }
+
+// Para Lojistas
+#lojistas{ padding:45px 0 0; }
+#lojistas h2{ @include font-size(32px); font-weight:$black; color:$vermelho; margin-bottom:30px; }
+#lojistas p{ @include font-size(21px); line-height:1.3em; margin-bottom:30px; }
+#lojistas p em{ font-style:italic; }
+#lojistas h3{ @include font-size(28px); font-weight:$black; color:$cinza; margin-bottom:30px; }
+#lojistas .lista-oferece{}
+#lojistas .lista-oferece li{ float:left; width:32%; margin-right:2%; }
+#lojistas .lista-oferece li:last-child{ margin-right:0; }
+#lojistas .lista-oferece li p{ margin-bottom:10px; }
+#lojistas .lista-oferece li img{ display:block; width:100%; }
+#lojistas .disclaimer{ @include font-size(12px); margin-top:10px; color:$prata; }
+
+#expositores{ background-color:$prata; color:#FFF; padding:45px 0; }
+#expositores h3{ color:#FFF; }
+#expositores .lista-expositores{}
+#expositores .lista-expositores li{ float:left; width:32%; margin-right:2%; }
+#expositores .lista-expositores li:last-child{ margin-right:0; }
+#expositores .lista-expositores li .thumb{ margin-bottom:10px; }
+#expositores .lista-expositores li .thumb a{ display:block; position:relative; }
+#expositores .lista-expositores li .thumb a:after{ content:' '; display:block; width:61px; height:61px; background:url(../img/ico-play.png) no-repeat center center; position:absolute; top:50%; left:50%; @include transform(translate(-50%,-50%)); }
+#expositores .lista-expositores li .thumb a img{ display:block; width:100%; }
+#expositores .lista-expositores p{ margin-bottom:0; }
+#expositores .lista-expositores p.sobre{ @include font-size(16px); line-height:21px; text-align:right; }
+
+// Mundo mais justo
+#mundo-melhor{ padding:60px 0 25px; }
+#mundo-melhor .wrapper{ width:100%; max-width:780px; margin:0 auto; }
+#mundo-melhor .wrapper h2{ @include font-size(30px); font-weight:$black; color:$laranja; margin-bottom:30px; }
+#mundo-melhor .wrapper h3{ @include font-size(21px); color:#4D4D4F; font-weight:$bold; margin-bottom:30px; }
+#mundo-melhor .wrapper p{ @include font-size(21px); line-height:1.3em; margin-bottom:30px; }
+#mundo-melhor .wrapper .fotos{ padding:10px; margin-bottom:30px; background-color:#FFF; @include box-shadow(0 0 15px rgba(0,0,0,.3)); @include border-radius(3px); position:relative; }
+#mundo-melhor .wrapper .fotos li{}
+#mundo-melhor .wrapper .fotos li img{ display:block; width:100%; }
+
+#mundo-melhor .wrapper .fotos .owl-buttons .owl-prev,
+#mundo-melhor .wrapper .fotos .owl-buttons .owl-next{ position:absolute; top:50%; margin-top:-25px; width:34px; height:50px; background-repeat:no-repeat; background-position:center center; @include removeText; @include box-shadow(0 0 3px rgba(0,0,0,.6)); }
+#mundo-melhor .wrapper .fotos .owl-buttons .owl-prev{ left:-17px; background-image:url(../img/fotos-prev.jpg); }
+#mundo-melhor .wrapper .fotos .owl-buttons .owl-next{ right:-17px; background-image:url(../img/fotos-next.jpg); }
+
+#mundo-melhor .box{ float:left; padding:10px; background-color:#DDD; @include font-size(21px); line-height:1.2em; }
+#mundo-melhor .box h3{ font-weight:$black; color:$laranja; }
+#mundo-melhor .box p{ hyphens:auto; }
+#mundo-melhor .box.box-s{ width:100%; margin-bottom:2%; }
+#mundo-melhor .box.box-d{ width:49%; margin-right:2%; }
+#mundo-melhor .box.box-d:last-child{ margin-right:0; }
+
+// Transporte Público
+#transporte{}
+#transporte .titulo{ width:100%; background-color:$vermelho; color:#FFF; }
+#transporte .titulo h2{ padding:5px 0; @include font-size(40px); line-height:34px; text-transform:uppercase; font-weight:$black; letter-spacing:-0.04em; padding-left:90px; background:url(../img/ico-transport.png) no-repeat left center; }
+
+#contrans{ background-color:$amarelo2; padding:25px 0 20px; }
+#contrans .col-left{ float:left; width:40%; }
+#contrans .col-left p{ @include font-size(21px); line-height:1.2em; margin-bottom:10px; }
+#contrans .col-left .tab{ margin-bottom:10px; }
+#contrans .col-left .tab h3{ padding:5px 0 5px 40px; background:$azul url(../img/bullet-w.png) no-repeat 15px center; @include font-size(24px); font-weight:$black; color:$lima; }
+#contrans .col-left .tab p{ background-color:#FFF; padding:5px 40px; @include font-size(18px); color:$azul; margin-bottom:2px; }
+#contrans .col-left .tab p strong{ display:block; float:left; @include font-size(26px); font-weight:$black; margin-right:10px; }
+#contrans .col-right{ float:left; width:56%; margin-left:4%; }
+#contrans .col-right .linha{ position:relative; }
+#contrans .col-right .linha h3{ @include font-size(24px); letter-spacing:-0.04em; color:$azul; text-transform:uppercase; margin-bottom:5px; font-weight:$black; }
+#contrans .col-right .linha p{ @include font-size(19px); line-height:1.3em; }
+#contrans .col-right .linha p span{ @include font-size(14px); }
+#contrans .col-right .linha.linha1{ margin-bottom:40px; }
+#contrans .col-right .linha.linha1:before{ content:'Linha 1'; display:block; width:203px; height:54px; background:url(../img/box-linha.png) no-repeat center center; color:#FFF; @include font-size(37px); font-weight:$black; text-transform:uppercase; text-align:center; line-height:54px; position:absolute; top:-53px; right:0; }
+#contrans .col-right .linha.linha2:before{ content:'Linha 2'; display:block; width:203px; height:54px; background:url(../img/box-linha.png) no-repeat center center; color:#FFF; @include font-size(37px); font-weight:$black; text-transform:uppercase; text-align:center; line-height:54px; position:absolute; top:-27px; right:0; }
+
+// Facebook
+#facebook{ background-color:#3B5998; padding:30px 0 45px; }
+#facebook .inner{ width:100%; max-width:520px; margin:0 auto; text-align:center; }
+#facebook .inner h2{ @include font-size(30px); font-weight:$black; color:#FFF; margin-bottom:20px; }
+#facebook .inner .wrapper{ padding:10px; background-color:#FFF; }
+
+// Contato
+#contato{ padding:25px 0 15px; }
+#contato h2{ margin-bottom:20px; @include font-size(48px); font-weight:$black; position:relative; color:$azul2; }
+#contato h2:after{ content:' '; display:block; width:69%; height:1px; background-color:$azul2; position:absolute; top:28px; right:0; }
+#contato .col-left{ float:left; }
+#contato .col-left p{ @include font-size(20px); line-height:24px; }
+#contato .col-left p strong,
+#contato .col-left p a{ display:block; color:$azul2; font-weight:$bold; }
+
+#contato .col-right{ float:right; }
+#contato .col-right p{ @include font-size(16px); color:$azul2; float:left; }
+#contato .col-right a{ display:block; float:left; width:152px; height:101px; background:url(../img/acia-f.png) no-repeat center center; @include removeText; }
+
+// Responsivo
+
+@media screen and(max-width:1000px){
+	#inicio .mega-feira{ left:0; width:50%; background-size:contain; }
+	#inicio .col-right{ margin-right:0; }
+
+	#corrida .center{ background:none; }
+	#corrida .c-left{ max-width:100%; text-align:center; }
+}
+
+@media screen and(max-width:940px){
+	#low-header #menu{ margin:38px 0; }
+	#low-header #menu ul li{ margin-right:20px; }
+
+	#apoio h2{ float:left; width:100%; text-align:center; margin-bottom:20px; }
+	#apoio ul{ width:100%; text-align:center; }
+
+	#sobre h2:after{ display:none; }
+	#contato h2:after{ display:none; }
+
+	#mundo-melhor .box.box-d{ width:100%; margin:0 0 2%; }
+}
+
+@media screen and(max-width:820px){
+	#top-header .f-right{ float:left; }
+	#low-header{ padding-top:1px; }
+	#low-header #logo{ float:none; margin:6px auto; }
+	#low-header #menu{ display:none; }
+
+	#apoio ul li{ margin:0 20px 20px; }
+
+	#horarios .horarios li.hor3{ width:100%; margin:0 0 0.5%; }
+	#horarios .horarios li.hor2{ width:100%; margin:0 0 0.5%; }
+
+	#bottom-servicos h2{ text-align:center; }
+	#det-servicos li .icone{ display:none; }
+	#det-servicos li .content{ float:none; width:80%; max-width:100%; margin:0 10%; }
+
+	#det-servicos .owl-buttons{ width:100%; }
+	#det-servicos .owl-buttons .owl-prev,
+	#det-servicos .owl-buttons .owl-next{ margin:0; }
+
+	#empresas{ display:none; }
+}
+
+@media screen and(max-width:680px){
+	#inicio .mega-feira{ position:static; width:100%; height:200px; margin:0 auto 30px; }
+	#inicio .col-right{ float:none; max-width:100%; text-align:center; }
+
+	#inscreva{ background-color:#d17dd5; background-position:bottom center; padding-bottom:80px; }
+	#inscreva h2{ height:190px; margin-bottom:20px; }
+	#inscreva .btn{ position:static; display:block; width:100%; height:80px; background-size:contain; }
+
+	#pagamento .col{ width:100%; margin:0 0 20px; }
+
+	#top-servicos{ display:none; }
+
+	#lojistas .lista-oferece li,
+	#expositores .lista-expositores li{ width:100%; margin:0 0 20px; }
+
+	#contrans .col-left{ width:100%; margin:0 0 40px; }
+	#contrans .col-right{ width:100%; margin:0; }
+	#contrans .col-right .linha.linha1:before{ top:-27px; }
+
+	#mundo-melhor .wrapper .fotos .owl-buttons .owl-prev{ left:0; }
+	#mundo-melhor .wrapper .fotos .owl-buttons .owl-next{ right:0; }
+
+	#contato{ text-align:center; }
+	#contato .col-left,
+	#contato .col-right{ width:100%; }
+	#contato .col-left{ margin:0 0 30px; }
+	#contato .col-right p{ float:none; width:100%; text-align:center; margin:0 0 10px; }
+	#contato .col-right a{ float:none; margin:0 auto; }
+}
+
+@media screen and(max-width:400px){
+	#top-header .f-right p{ text-align:center; width:100%; line-height:1.2em; margin-bottom:5px; }
+	#top-header .f-right ul{ width:100%; text-align:center; }
+	#top-header .f-right ul li{ float:none; display:inline-block; }
+	#top-header .f-right ul li a.corrida{ display:none; }
+
+	#horarios h2{ @include font-size(24px); }
+
+	#det-servicos li .content{ width:70%; margin:0 15%; }
+
+	#transporte .titulo h2{ padding-left:0; background:none; }
+	#contrans .col-right .linha.linha1:before,
+	#contrans .col-right .linha.linha2:before{ position:static; margin-bottom:10px; width:100%; background:$laranja; }
+}

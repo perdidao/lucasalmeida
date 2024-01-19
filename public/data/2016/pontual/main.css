@@ -1,0 +1,241 @@
+@charset "UTF-8";
+@import url(../font/lora.css);
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
+
+html { line-height: 1; }
+
+ol, ul { list-style: none; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+caption, th, td { text-align: left; font-weight: normal; vertical-align: middle; }
+
+q, blockquote { quotes: none; }
+q:before, q:after, blockquote:before, blockquote:after { content: ""; content: none; }
+
+a img { border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary { display: block; }
+
+.center { width: 94%; max-width: 940px; margin: 0 auto; position: relative; }
+
+.clear { clear: both; }
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; outline: none; }
+
+a { color: inherit; text-decoration: none; }
+
+body { font-size: 14px; font-size: 0.875rem; font-family: "Lora", "Georgia", "Times New Roman", serif; color: #787878; }
+
+::-moz-selection { color: #FFF; background-color: #0871B9; }
+
+::selection { color: #FFF; background-color: #0871B9; }
+
+#translations { width: 100%; padding: 10px 0; text-align: right; background-color: #374E59; }
+
+#translations .inner { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+
+#translations a { display: inline-block; width: 37px; height: 29px; background-repeat: no-repeat; background-position: center center; -moz-transition: all 300ms ease-in-out; -o-transition: all 300ms ease-in-out; -webkit-transition: all 300ms ease-in-out; transition: all 300ms ease-in-out; }
+
+#translations a:hover { filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70); opacity: 0.7; }
+
+#translations a.pt { background-image: url(../img/pt.png); margin-right: 15px; }
+
+#translations a.en { background-image: url(../img/en.png); }
+
+#header { max-width: 1440px; padding: 0 40px; margin: 0 auto; }
+
+#logo { float: left; width: 193px; height: 72px; margin: 10px 0; background: url(../img/logo.png) no-repeat center center; text-indent: -9999em; overflow: hidden; }
+
+#header .col-right { float: right; text-align: right; }
+
+#header .fone { display: inline-block; padding-left: 30px; margin-top: 10px; line-height: 20px; background: url(../img/ico-fone.png) no-repeat left center; color: #3EA648; font-size: 17px; font-size: 1.0625rem; }
+
+#menu { margin-top: 15px; font-size: 18px; font-size: 1.125rem; }
+
+#menu a { display: inline-block; margin-left: 25px; -moz-transition: all 300ms ease-in-out; -o-transition: all 300ms ease-in-out; -webkit-transition: all 300ms ease-in-out; transition: all 300ms ease-in-out; }
+
+#menu a:hover, #menu a.active { color: #0871B9; }
+
+#banners { width: 100%; position: relative; }
+
+#banners li { width: 100%; text-align: center; }
+
+#banners li { display: block; width: 100%; }
+
+#banners li img { max-width: 100%; }
+
+#banners .owl-pagination { position: absolute; bottom: 35px; left: 0; width: 100%; text-align: center; }
+
+#banners .owl-pagination .owl-page { display: inline-block; width: 10px; height: 10px; margin: 0 15px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background-color: #FFF; -moz-transition: all 300ms ease-in-out; -o-transition: all 300ms ease-in-out; -webkit-transition: all 300ms ease-in-out; transition: all 300ms ease-in-out; }
+
+#banners .owl-pagination .owl-page.active { background-color: #0871B9; }
+
+#sobre { padding: 65px 0; text-align: center; }
+
+#sobre h2 { text-transform: uppercase; font-size: 36px; font-size: 2.25rem; padding-bottom: 20px; border-bottom: 1px solid #CCC; margin-bottom: 30px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+#sobre h3 { font-size: 24px; font-size: 1.5rem; color: #374E59; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; margin-bottom: 30px; }
+
+#sobre p { max-width: 800px; margin: 0 auto 20px; line-height: 30px; }
+
+#servicos { background: #374E59 url(../img/bkg-servicos.png) repeat 0 0; color: #FFF; padding: 65px 0 50px; }
+
+#servicos h2 { text-transform: uppercase; font-size: 36px; font-size: 2.25rem; margin-bottom: 30px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-align: center; }
+
+#servicos .servicos { border-top: 1px solid #FFF; border-bottom: 1px solid #FFF; padding: 20px 0 0; }
+
+#servicos .servicos li { float: left; width: 49%; margin: 0 2% 2% 0; text-transform: uppercase; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+#servicos .servicos li:nth-child(2n) { margin-right: 0; }
+
+#servicos .servicos li a { display: block; background-color: #2C404A; padding: 80px 0; text-align: center; font-size: 18px; font-size: 1.125rem; -moz-transition: all 300ms ease-in-out; -o-transition: all 300ms ease-in-out; -webkit-transition: all 300ms ease-in-out; transition: all 300ms ease-in-out; }
+
+#servicos .servicos li a:hover { filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70); opacity: 0.7; }
+
+#servicos .servicos li a strong { display: block; font-size: 30px; font-size: 1.875rem; font-weight: 700; }
+
+.hide { display: none; }
+
+.inner-servicos { width: 1024px; height: 460px; padding: 60px 120px; background: url(../img/bkg-fancy.png) no-repeat right bottom; color: #787878; }
+
+.inner-servicos h3 { font-size: 24px; font-size: 1.5rem; text-transform: uppercase; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; margin-bottom: 25px; }
+
+.inner-servicos h3 strong { display: block; font-size: 40px; font-size: 2.5rem; font-weight: 700; color: #448FB4; }
+
+.inner-servicos p { font-size: 14px; font-size: 0.875rem; line-height: 30px; margin-bottom: 20px; }
+
+.inner-servicos ul li { font-size: 14px; font-size: 0.875rem; line-height: 30px; }
+
+.inner-servicos ul li:before { content: '•'; padding-right: 30px; }
+
+#clientes { padding: 65px 0 50px; }
+
+#clientes h2 { text-transform: uppercase; font-size: 36px; font-size: 2.25rem; padding-bottom: 25px; border-bottom: 1px solid #CCC; margin-bottom: 50px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-align: center; }
+
+#lista-clientes { width: 100%; }
+
+#lista-clientes li { width: 100%; text-align: center; }
+
+#lista-clientes li a { display: block; }
+
+#lista-clientes li a img { max-width: 100%; -webkit-filter: grayscale(1); filter: grayscale(1); -moz-transition: all 300ms ease-in-out; -o-transition: all 300ms ease-in-out; -webkit-transition: all 300ms ease-in-out; transition: all 300ms ease-in-out; }
+
+#lista-clientes li a:hover img { -webkit-filter: grayscale(0); filter: grayscale(0); }
+
+#clientes .arrows { display: block; width: 52px; height: 52px; background-repeat: no-repeat; background-position: center center; position: absolute; top: 35px; }
+
+#clientes #prev { left: 40px; background-image: url(../img/prev.png); }
+
+#clientes #next { right: 40px; background-image: url(../img/next.png); }
+
+#orcamento { background: url(../img/bkg-orcamento.jpg) repeat-x center bottom; position: relative; margin-top: 50px; }
+
+#orcamento .center { background-color: #ECECEC; padding: 80px 80px 0; }
+
+#orcamento h2 { position: absolute; top: -45px; left: 0; width: 100%; z-index: 1; text-transform: uppercase; font-size: 36px; font-size: 2.25rem; line-height: 88px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-align: center; color: #FFF; height: 103px; background: url(../img/bkg-title.png) no-repeat center center; }
+
+#form { background-color: #FFF; padding: 40px 80px; color: #787878; }
+
+#form input, #form select { display: block; width: 98%; height: 40px; padding: 0 15px; font-size: 14px; font-size: 0.875rem; font-family: inherit; font-style: italic; color: inherit; border: 1px solid #ececec; color: #ababab; }
+
+::-webkit-input-placeholder { color: #ababab; }
+
+:-moz-placeholder { color: #ababab; opacity: 1; }
+
+::-moz-placeholder { color: #ababab; opacity: 1; }
+
+:-ms-input-placeholder { color: #ababab; }
+
+#form .x1 { float: left; width: 23%; margin: 0 1% 2%; }
+
+#form .x2 { float: left; width: 48%; margin: 0 1% 2%; }
+
+#form .x3 { float: left; width: 73%; margin: 0 1% 2%; }
+
+#form .x4 { float: left; width: 98%; margin: 0 1% 2%; }
+
+#form .arquivo { height: 40px; }
+
+#form .arquivo p { float: left; width: 92%; height: 40px; padding: 15px; font-size: 14px; font-size: 0.875rem; font-family: inherit; font-style: italic; color: inherit; border: 1px solid #ececec; }
+
+#form .arquivo a { display: block; float: left; width: 8%; height: 40px; background: #FFA061 url(../img/ico-arquivo.png) no-repeat center center; }
+
+#form .checkBig { display: block; height: 150px; text-align: center; border: 1px solid #ececec; font-size: 16px; font-size: 1rem; font-weight: 700; line-height: 1.2em; padding: 45px 15px 0; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; background: url(../img/checkBig.png) no-repeat center 86px; -moz-transition: all 300ms ease-in-out; -o-transition: all 300ms ease-in-out; -webkit-transition: all 300ms ease-in-out; transition: all 300ms ease-in-out; }
+
+#form .checkBig:hover, #form .checkBig.active { background-color: #FFA061; background-image: url(../img/checkBig-active.png); color: #FFF; }
+
+#form .subt { float: left; width: 98%; margin: 10px 1% 10px; }
+
+#form .fancyCheck { display: block; float: left; width: 50%; padding: 10px 0; }
+
+#form .fancyCheck input { width: auto; height: auto; display: inline-block; }
+
+#form .obg { font-size: 13px; font-size: 0.8125rem; font-style: italic; color: #ababab; }
+
+#solicitar { display: block; width: 98%; margin: 0 1%; height: 40px; background-color: #3EA648; color: #FFF; text-transform: uppercase; font-family: inherit; cursor: pointer; border: 0; font-size: 18px; font-size: 1.125rem; font-weight: 700; letter-spacing: 0.1em; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -moz-transition: all 300ms ease-in-out; -o-transition: all 300ms ease-in-out; -webkit-transition: all 300ms ease-in-out; transition: all 300ms ease-in-out; }
+
+#solicitar:hover { filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70); opacity: 0.7; }
+
+#hover { display: none; position: fixed; top: 0; left: 0; z-index: 11000; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); }
+
+#hover .inner { width: 524px; height: 263px; padding: 120px 40px 0; background: #FFF url(../img/bkg-hover.png) no-repeat center center; position: absolute; top: 50%; left: 50%; -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); text-align: center; }
+
+#hover .inner h3 { font-size: 26px; font-size: 1.625rem; color: #2c404a; letter-spacing: -0.02em; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; margin-bottom: 15px; }
+
+#hover .inner p { font-size: 18px; font-size: 1.125rem; color: #787878; letter-spacing: -0.02em; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; line-height: 1.2em; }
+
+#contato { width: 100%; padding: 65px 0 50px; background: #448fb4 url(../img/bkg-contato.png) repeat-x center bottom; color: #FFF; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+#contato h2 { text-transform: uppercase; font-size: 36px; font-size: 2.25rem; padding-bottom: 20px; border-bottom: 1px solid #FFF; margin-bottom: 30px; }
+
+#contato .col-left { float: left; width: 60%; margin-right: 4%; }
+
+#contato .col-left input, #contato .col-left textarea { display: block; float: left; width: 100%; height: 40px; padding: 0 15px; margin-bottom: 2%; font-size: 14px; font-size: 0.875rem; font-family: inherit; font-style: italic; color: inherit; border: 1px solid #d2d6d5; color: #ababab; background-color: #FFF; }
+
+#contato .col-left input.c-email { width: 55%; margin-right: 2%; }
+
+#contato .col-left input.c-tel { width: 43%; }
+
+#contato .col-left textarea { height: 130px; padding: 15px; resize: none; }
+
+#enviar { display: block; width: 100%; height: 40px; background-color: #FFA061; color: #FFF; text-transform: uppercase; font-family: inherit; cursor: pointer; border: 0; font-size: 18px; font-size: 1.125rem; font-weight: 700; letter-spacing: 0.1em; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -moz-transition: all 300ms ease-in-out; -o-transition: all 300ms ease-in-out; -webkit-transition: all 300ms ease-in-out; transition: all 300ms ease-in-out; }
+
+#enviar:hover { filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70); opacity: 0.7; }
+
+#contato .col-left .obg { font-style: italic; }
+
+#contato .col-right { float: left; width: 36%; }
+
+#contato .col-right p { font-size: 16px; font-size: 1rem; margin-bottom: 20px; line-height: 1.2em; }
+
+#contato .col-right p strong { font-size: 24px; font-size: 1.5rem; font-weight: 700; }
+
+#footer { width: 100%; background-color: #367EA2; padding: 20px 0; color: #FFF; text-align: center; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 12px; font-size: 0.75rem; }
+
+@media screen and (max-width: 1120px) { .inner-servicos { width: 100%; padding: 60px; } }
+@media screen and (max-width: 980px) { #translations { text-align: center; }
+  #translations a { margin: 0 8px; }
+  #translations a.pt { margin-right: 8px; }
+  #logo { float: none; width: 100%; }
+  #header .col-right { float: none; width: 100%; text-align: center; }
+  #menu a { margin: 0 13px 10px; }
+  #orcamento .center { padding: 80px 20px 0; }
+  #form { padding: 30px 20px; }
+  #contato .col-left { width: 50%; margin-right: 4%; }
+  #contato .col-right { width: 46%; } }
+@media screen and (max-width: 680px) { #servicos .servicos li { width: 100%; margin: 0 0 2%; }
+  #form .x1, #form .x3 { width: 48%; }
+  #form .fancyCheck { width: 100%; }
+  #contato .col-left input.c-email, #contato .col-left input.c-tel { width: 100%; margin-right: 0; } }
+@media screen and (max-width: 540px) { #logo { margin-top: 30px; }
+  #menu { display: none; }
+  #banners { display: none !important; }
+  #clientes .arrows { display: none; }
+  #orcamento .center { padding: 50px 0 0; }
+  #form { padding: 10px; }
+  #form .x1, #form .x2, #form .x3, #form .x4 { width: 98%; }
+  #form .arquivo p { width: 80%; }
+  #form .arquivo a { width: 20%; }
+  #contato .col-left { width: 100%; margin: 0 0 40px; }
+  #contato .col-right { width: 100%; } }

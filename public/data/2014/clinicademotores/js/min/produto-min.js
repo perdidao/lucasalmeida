@@ -1,0 +1,1 @@
+function tamanho(){var n=$(window).height(),i=$(window).width();$("#overlay").css({width:i,height:n})}$(document).ready(function(){tamanho()}),$(window).resize(function(){tamanho()});

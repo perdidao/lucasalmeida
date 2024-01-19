@@ -1,0 +1,62 @@
+.highlight{
+    position:relative;
+    width:100%;
+    min-height:105vh;
+    background:$black url(../images/bkg-home.jpg) no-repeat center top;
+    background-size:100% auto;
+
+    @media screen and (max-width:$size-mobile-max){
+        background-size:cover;
+        min-height:100vh;
+    }
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    &__content{
+        width:rfs(480px);
+        margin-top:40vh;
+        text-align:center;
+
+        @media screen and (max-width:$size-mobile-max){
+            margin:0;
+            width:90%;
+        }
+    }
+
+    &__title{
+        font-size:rfs(69px);
+        margin-bottom:rfs(10px);
+    }
+
+    &__text{
+        max-width:rfs(400px);
+        margin:0 auto rfs(20px);
+    }
+
+    &:after{
+        content:' ';
+        display:block;
+        width:rfs(54px);
+        height:rfs(54px);
+        background:transparent url(../images/scroll-down.png) no-repeat center center;
+        background-size:contain;
+
+        position:absolute;
+        bottom:6vh;
+        left:50%;
+        transform:translateX(-50%);
+
+        animation-name:pulse;
+        animation-duration:1s;
+        animation-iteration-count:infinite;
+        animation-timing-function:linear;
+        animation-direction:alternate;
+    }
+}
+
+@keyframes pulse{
+    from { opacity:1; }
+    to   { opacity:0.4; }
+}

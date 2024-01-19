@@ -1,0 +1,127 @@
+.filters {
+  border-bottom: 1px solid rgba($royal, 0.1);
+
+  &-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-top: rel(30);
+
+    @media (max-width: $size-mobile) {
+      padding-top: rel(20, true);
+      flex-direction: column;
+    }
+  }
+
+  &-types {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: $size-mobile) {
+      width: 100%;
+      flex-direction: column;
+      margin-bottom: rel(20, true);
+    }
+
+    &__title {
+      font-weight: $bold;
+      margin-right: rel(30);
+
+      @media (max-width: $size-mobile) {
+        margin: 0 0 rel(20, true);
+      }
+    }
+
+    &__link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: rel(40);
+      padding: 0 rel(40);
+      border: 1px solid $royal;
+      border-radius: rel(5);
+      margin-right: rel(30);
+      transition: $default-transition;
+
+      @media (max-width: $size-mobile) {
+        width: 100%;
+        height: rel(40, true);
+        padding: 0 rel(40, true);
+        margin: 0 0 rel(10, true);
+        font-size: rem(32);
+        justify-content: center;
+      }
+
+      &.active,
+      &:hover {
+        color: $white;
+        background-color: $cyan;
+        border-color: $cyan;
+
+        .filters-types__icon--default {
+          display: none;
+        }
+
+        .filters-types__icon--alt {
+          display: block;
+        }
+      }
+    }
+
+    &__icon {
+      margin-right: rel(10);
+
+      &--alt {
+        display: none;
+      }
+
+      @media (max-width: $size-mobile) {
+        margin-right: rel(20, true);
+      }
+    }
+  }
+
+  &-sort {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: rel(10);
+
+    @media (max-width: $size-mobile) {
+      width: 100%;
+      text-align: center;
+      margin: 0;
+      flex-direction: column;
+    }
+
+    &__title {
+      margin-right: rel(30);
+
+      @media (max-width: $size-mobile) {
+        margin: 0 0 rel(20, true);
+        font-size: rem(32);
+        width: 100%;
+      }
+    }
+
+    &__select {
+      display: block;
+      width: rel(260);
+      padding: 0 rel(10) rel(35);
+      border: 0;
+      border-bottom: 2px solid $royal;
+      font-family: $default-font;
+      font-size: rem(16);
+      font-weight: $bold;
+      color: $royal;
+
+      @media (max-width: $size-mobile) {
+        width: 100%;
+        padding: rel(10, true) rel(10, true) rel(20, true);
+        font-size: rem(32);
+        text-align: center;
+      }
+    }
+  }
+}

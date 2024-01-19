@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<!--
+		                 ___       _.--.
+		\`.|\..----...-'`   `-._.-'_.-'`
+		/  ' `         ,       __.--'
+		)/' _/     \   `-_,   /
+		`-'" `"\_  ,_.-;_.-\_ ',
+			_.-'_./   {_.'   ; /
+		  {_.-``-'          {_/
+	===============================
+
+	Desenvolvido por Lucas Almeida
+	-->
+	<head>
+		<meta name="robots" content="index, follow">
+  		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Phaza Alimentos</title>
+		<meta name="description" content="Há mais de 20 anos produzindo biscoitos tradicionais japoneses de qualidade incomparável">
+		<meta name="author" content="Lucas Almeida">
+		<meta name="generator" content="Phaza Alimentos">
+		<meta name="theme-color" content="#E00109">
+
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+
+		<link rel="icon" href="favicon.png" type="image/x-icon">
+		<link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="Phaza Alimentos">
+		<meta property="og:site_name" content="Phaza Alimentos"/>
+		<meta property="og:url" content="http://www.phaza.com.br">
+		<meta property="og:image" content="http://www.phaza.com.br/static/images/social.jpg">
+		<meta property="og:description" content="Há mais de 20 anos produzindo biscoitos tradicionais japoneses de qualidade incomparável">
+
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content="Phaza Alimentos">
+		<meta name="twitter:url" content="http://www.phaza.com.br">
+		<meta name="twitter:image:src" content="http://www.phaza.com.br/static/images/social.jpg">
+		<meta name="twitter:description" content="Há mais de 20 anos produzindo biscoitos tradicionais japoneses de qualidade incomparável">
+
+		<meta itemprop="name" content="Phaza Alimentos">
+		<meta itemprop="description" content="Há mais de 20 anos produzindo biscoitos tradicionais japoneses de qualidade incomparável">
+		<meta itemprop="image" content="http://www.phaza.com.br/static/images/social.jpg">
+
+		<link rel="stylesheet" href="static/css/main.css">
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120544575-3"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'UA-120544575-3');
+		</script>
+
+		<script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+		<script type="text/javascript">
+		(function(){
+			emailjs.init("user_ReaCA3UO9ExB5mrAz7Js5");
+		})();
+		</script>
+	</head>
+	<body>
+
+		<header class="header">
+
+			<div class="header__container container">
+
+				<div class="header__logo"><img src="static/images/logotype.png" alt="Phaza Alimentos"></div>
+
+				<nav class="header__nav">
+
+					<a href="#highlight" class="header__nav--link active">Início</a>
+					<a href="#about" class="header__nav--link">Sobre a Phaza</a>
+					<a href="#products" class="header__nav--link">Produtos</a>
+					<a href="#resellers" class="header__nav--link">Representantes</a>
+					<a href="#contact" class="header__nav--link">Contato</a>
+
+				</nav>
+
+			</div>
+
+		</header>
+
+		<section class="highlight navigable" id="highlight">
+
+			<section class="highlight__content">
+
+				<div class="highlight__icon">
+					<img src="static/images/ico-maneki.png" alt="Maneki Neko">
+				</div>
+
+				<h1 class="highlight__title">
+					Sequinho e crocante
+				</h1>
+
+				<p class="highlight__since">desde 1996</p>
+
+			</section>
+
+		</section>
+
+		<section class="about navigable" id="about">
+
+			<div class="about__container container">
+
+				<div class="about__content">
+
+					<h2 class="about__title">
+						Sembei Phaza
+					</h2>
+
+					<p class="about__text">
+						Fundada em 1996 na cidade de Maringá - PR, a Phaza Indústria e Comércio de Gêneros Alimentícios LTDA já produz alimentos de qualidade há mais de 20 anos.
+					</p>
+
+					<p class="about__text">
+						Com qualidade e padrões extremamente elevados, produz uma variedade de biscoitos tradicionais da culinária japonesa, incluindo sembeis de gergelim, gengibre (Shogá), açucarado e, inclusive, sembeis light. Também produz o mandiopan, salgadinho a base de fécula de mandioca.
+					</p>
+
+				</div>
+
+				<div class="about__pics">
+
+					<div class="about__pics-1" data-parallax data-speed="14">
+						<img src="static/images/img-sobre1.jpg" alt="Pacotes de sembei enroladinho e de sembei açucarado com gengibre sobre a mesa">
+					</div>
+
+					<div class="about__pics-2">
+						<img src="static/images/img-sobre2.jpg" alt="Três embalagens diferentes de sembeis de gergelim">
+					</div>
+
+				</div>
+
+				
+			</div>
+
+			<div class="about__parallax-1" data-parallax data-speed="6"></div>
+
+			<div class="about__parallax-2" data-parallax data-speed="3"></div>
+
+		</section>
+
+		<section class="products navigable" id="products">
+
+			<div class="section__header">
+				<h2 class="section__header--title">Produtos</h2>
+				<p class="section__header--subtitle">conheça nossa linha completa de produtos</p>
+			</div>
+
+			<ul class="products__list container">
+
+				<script id="products-template" type="text/x-handlebars-template">
+				{{#each products}}
+				<li class="products__item">
+
+					<figure class="products__item--image">
+						<a href="#product-{{@index}}" class="product-reference"><img src="{{thumb}}" alt="Placeholder"></a>
+					</figure>
+
+					<h3 class="products__item--title">
+						<a href="#product-{{@index}}" class="product-reference">{{title}}</a>
+					</h3>
+
+					<p class="products__item--description">
+						<a href="#product-{{@index}}" class="product-reference">{{description}}</a>
+					</p>
+
+				</li>
+				{{/each}}
+				</script>
+				
+			</ul>
+
+			<section class="product__wrapper">
+
+				<script id="product-template" type="text/x-handlebars-template">
+				{{#each products}}
+				<div class="product" id="product-{{@index}}">
+
+					<div class="product__container container">
+
+						<a href="javascript:;" title="Clique para fechar este produto" class="product__close"></a>
+
+						<div class="product__image">
+							<img src="{{image}}" alt="Foto do produto {{title}}">
+						</div>
+						
+						<div class="product__info">
+							
+							<h2 class="product__info--title">{{title}}</h2>
+
+							<p class="product__info--description">{{long_description}}</p>
+
+							<div class="product__info--table">
+								{{#if tabela_gergelim}}
+								<table>
+									<tbody>
+										<tr>
+											<td>Valor Energético</td>
+											<td>111 Kcal ou 465 kJ</td>
+											<td>6%</td>
+										</tr>
+										<tr>
+											<td>Carboidratos</td>
+											<td>26 g</td>
+											<td>9%</td>
+										</tr>
+										<tr>
+											<td>Proteínas</td>
+											<td>1,7 g</td>
+											<td>2%</td>
+										</tr>
+										<tr>
+											<td>Gorduras Totais</td>
+											<td>0 g</td>
+											<td>0%</td>
+										</tr>
+										<tr>
+											<td>Gorduras Saturadas</td>
+											<td>0,4 g</td>
+											<td>2%</td>
+										</tr>
+										<tr>
+											<td>Gorduras Trans</td>
+											<td>0 g</td>
+											<td>0%</td>
+										</tr>
+										<tr>
+											<td>Fibra Alimentar</td>
+											<td>0 g</td>
+											<td>0%</td>
+										</tr>
+										<tr>
+											<td>Sódio</td>
+											<td>0 g</td>
+											<td>0%</td>
+										</tr>
+									</tbody>
+									<thead>
+										<tr>
+											<th colspan="2">Porção de 30g (8 unidades em média )</th>
+											<th>% VD(*)</th>
+										</tr>
+									</thead>
+								</table>
+								<p class="product__info--reference">
+									*% Valores Diários de referência com base em uma dieta de 2.000 kcal ou 8.400 kJ. Seus valores diários podem ser maiores ou menores, dependendo de suas necessidades energéticas.<br>
+									**VD não estabelecidos.
+								</p>
+								{{/if}}
+								{{#if tabela_gengibre}}
+								<table>
+									<tbody>
+										<tr>
+											<td>Valor Energético</td>
+											<td>107 Kcal ou 449 kJ</td>
+											<td>5%</td>
+										</tr>
+										<tr>
+											<td>Carboidratos</td>
+											<td>25 g</td>
+											<td>8%</td>
+										</tr>
+										<tr>
+											<td>Proteínas</td>
+											<td>1,7 g</td>
+											<td>2%</td>
+										</tr>
+										<tr>
+											<td>Gorduras Totais</td>
+											<td>0 g</td>
+											<td>0%</td>
+										</tr>
+										<tr>
+											<td>Gorduras Saturadas</td>
+											<td>0,4 g</td>
+											<td>2%</td>
+										</tr>
+										<tr>
+											<td>Gorduras Trans</td>
+											<td>0 g</td>
+											<td>0%</td>
+										</tr>
+										<tr>
+											<td>Fibra Alimentar</td>
+											<td>0 g</td>
+											<td>0%</td>
+										</tr>
+										<tr>
+											<td>Sódio</td>
+											<td>0 g</td>
+											<td>0%</td>
+										</tr>
+									</tbody>
+									<thead>
+										<tr>
+											<th colspan="2">Porção de 30g (8 unidades em média )</th>
+											<th>% VD(*)</th>
+										</tr>
+									</thead>
+								</table>
+								<p class="product__info--reference">
+									*% Valores Diários de referência com base em uma dieta de 2.000 kcal ou 8.400 kJ. Seus valores diários podem ser maiores ou menores, dependendo de suas necessidades energéticas.<br>
+									**VD não estabelecidos.
+								</p>
+								{{/if}}
+								{{#if tabela_mandiopan}}
+								<table>
+									<tbody>
+										<tr>
+											<td>Valor Energético</td>
+											<td>40 Kcal ou 168 kJ</td>
+											<td>2%</td>
+										</tr>
+										<tr>
+											<td>Carboidratos</td>
+											<td>10 g</td>
+											<td>3%</td>
+										</tr>
+										<tr>
+											<td>Proteínas</td>
+											<td>1,7 g</td>
+											<td>2%</td>
+										</tr>
+										<tr>
+											<td>Gorduras Totais</td>
+											<td>0 g</td>
+											<td>0%</td>
+										</tr>
+										<tr>
+											<td>Gorduras Saturadas</td>
+											<td>0,4 g</td>
+											<td>2%</td>
+										</tr>
+										<tr>
+											<td>Gorduras Trans</td>
+											<td>0 g</td>
+											<td>0%</td>
+										</tr>
+										<tr>
+											<td>Fibra Alimentar</td>
+											<td>0 g</td>
+											<td>0%</td>
+										</tr>
+										<tr>
+											<td>Sódio</td>
+											<td>67 g</td>
+											<td>3%</td>
+										</tr>
+									</tbody>
+									<thead>
+										<tr>
+											<th colspan="2">Porção de 12g (14 unidades em média )</th>
+											<th>% VD(*)</th>
+										</tr>
+									</thead>
+								</table>
+								<p class="product__info--reference">
+									*% Valores Diários de referência com base em uma dieta de 2.000 kcal ou 8.400 kJ. Seus valores diários podem ser maiores ou menores, dependendo de suas necessidades energéticas.<br>
+									**VD não estabelecidos.
+								</p>
+								{{/if}}
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+				{{/each}}
+				</script>
+
+			</section>
+
+		</section>
+
+		<section class="resellers navigable" id="resellers">
+
+			<div class="section__header">
+				<h2 class="section__header--title">Representantes</h2>
+				<p class="section__header--subtitle">
+					Quer vender nossos produtos em seu estabelecimento?<br>
+					Entre em contato com o representante mais próximo.
+				</p>
+			</div>
+
+			<ul class="resellers__list container">
+
+				<script id="reseller-template" type="text/x-handlebars-template">
+				{{#each resellers}}
+				<li class="resellers__item">
+
+					<h3 class="resellers__item--title">
+						{{title}}
+					</h3>
+
+					<span class="resellers__item--state">{{state}}</span>
+
+					<p class="resellers__item--address">
+						{{address}}
+						<span class="resellers__item--phone">{{phone}}</span>
+					</p>
+
+				</li>
+				{{/each}}
+				</script>
+
+			</ul>
+
+			<div class="button__wrapper container">
+
+				<a href="#reseller-form" class="button resellers__button">seja um representante</a>
+
+			</div>
+
+		</section>
+
+		<section class="contact navigable" id="contact">
+
+			<div class="section__header">
+				<h2 class="section__header--title">Contato</h2>
+				<p class="section__header--subtitle">
+					Utilize o formulário abaixo para falar conosco pois<br>
+					sua opinião é muito importante para nós.
+				</p>
+			</div>
+
+			<div class="contact__container container">
+
+				<div class="contact__form">
+
+					<h3 class="contact__info--title">Informações de contato</h3>
+
+					<p class="contact__info--text contact__info--text-phone">
+						(44) 3266-7423
+					</p>
+
+					<p class="contact__info--text contact__info--text-email">
+						phaza@phaza.com.br
+					</p>
+
+					<p class="contact__info--text contact__info--text-address">
+						Rua Carlos Hofferer, 437<br>
+						Jardim Monte Carlo - CEP 87065-620<br>
+						Maringá - PR
+					</p>
+
+					<!-- <div class="form">
+
+						<input type="text" name="nome" class="form__input" placeholder="Nome" required>
+
+						<input type="email" name="email" class="form__input" placeholder="E-mail" required>
+
+						<input type="text" name="telefone" class="form__input" placeholder="Telefone" data-mask="phone" required>
+
+						<input type="text" name="cidade" class="form__input form__input-city" placeholder="Cidade">
+
+						<input type="text" name="estado" class="form__input form__input-state" maxlength="2" placeholder="UF">
+
+						<select name="assunto" class="form__input form__input-select">
+							<option value="">Assunto</option>
+							<option value="dicas">Dicas e sugestões</option>
+							<option value="financeiro">Financeiro</option>
+							<option value="compras">Compras</option>
+							<option value="representacao">Quero ser um representante</option>
+						</select>
+
+						<textarea name="mensagem" rows="5" class="form__input form__input-text" placeholder="Mensagem" required></textarea>
+					
+						<div class="button__wrapper">
+	
+							<a href="javascript:;" class="button" id="formSubmit">enviar mensagem</a>
+			
+						</div>
+
+					</div>
+
+					<div class="loading"></div>
+	
+					<p class="form__message"></p> -->
+
+				</div>
+
+				<div class="contact__info">
+
+					<div class="contact__info--map">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.1063990086395!2d-51.9757582843442!3d-23.456626263619498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ecd770abd785af%3A0xad0c2fd10839edd!2sPhaza+Industria+E+Comercio+De+Generos+Alimenticios!5e0!3m2!1spt-BR!2sbr!4v1554086376672!5m2!1spt-BR!2sbr" frameborder="0" style="border:0" allowfullscreen></iframe>
+					</div>
+
+				</div>
+
+			</div>
+			
+		</section>
+
+		<footer class="footer navigable">
+
+			<div class="footer__container container">
+
+				<p class="footer__copy">
+					Phaza © 2019 - Todos os direitos reservados.
+				</p>
+
+				<a href="https://www.lucasalmeida.dev" target="_blank" title="Lucas Almeida — Consultoria e Desenvolvimento Web" class="footer__signature"></a>
+
+			</div>
+
+		</footer>
+
+		<script src="static/js/jquery.min.js"></script>
+		<script src="static/js/hb.js"></script>
+		<script src="static/js/imagesloaded.js"></script>
+		<script src="static/js/mask.js"></script>
+		<script src="static/js/main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,464 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import url('../fonts/gotham.css');
+$Gotham:'Gotham', Helvetica, Arial, sans-serif;
+
+$regular:400;
+$bold:700;
+
+// CORES
+$vermelho:#B93223;
+$verde:#294535;
+$amarelo:#FFCE26;
+$cinza:#333;
+$prata:#676767;
+$marfim:#F3F3F3;
+
+/* =========================== */
+/* Estilos globais============ */
+
+body{ font-weight:$regular; @include font-size(18px); font-family:$Gotham; color:$cinza; @include font-smoothing(on); }
+@include selection(#FFF,$vermelho);
+
+#blur{ @include transition(all 300ms ease-in-out); }
+#blur.active{ @include filter(blur(10px)); }
+
+.btn{ display:inline-block; padding:10px 20px; border:1px solid $vermelho; color:$vermelho; @include border-radius(10px); @include transition(all 300ms ease-in-out); }
+.btn:hover{ background-color:$vermelho; color:#FFF; }
+
+/* =========================== */
+/* Topo e menu =============== */
+
+#header{ position:absolute; z-index:1000; top:0; left:0; width:100%; }
+#header .inner{ max-width:88%; margin:0 auto; padding:30px 0 0; }
+#logo{ display:block; float:left; }
+#btn-menu{ display:block; float:right; border:1px solid #FFF; padding:10px 15px; margin-top:10px; @include font-size(14px); line-height:28px; color:#FFF; @include border-radius(10px); }
+#btn-menu span{ display:block; float:right; width:28px; height:28px; margin-left:15px; background:url(../img/menu.png) no-repeat center center; }
+#btn-menu.active span{ background-image:url(../img/menu-f.png); }
+
+#nav{ display:none; position:fixed; z-index:999; top:0; left:0; width:100%; height:100%; background-color:rgba(12,69,51,0.9); border-bottom:10px solid $vermelho; }
+#menu{ position:absolute; top:50%; left:50%; text-align:center; @include transform(translate(-50%,-50%)); }
+#menu li{ display:block; margin:40px 0; }
+#menu li a{ @include font-size(24px); color:#FFF; @include transition(all 200ms ease-in-out); }
+#menu li a:hover,
+#menu li a.active{ color:$amarelo; font-weight:$bold; }
+
+#social{ position:absolute; left:50%; bottom:20px; @include transform(translatex(-50%)); }
+#social li{ display:inline-block; margin:0 10px; }
+#social li a{ display:block; height:26px; background:no-repeat center center; @include transition(all 200ms ease-in-out); }
+#social li a:hover{ @include opacity(0.7); }
+#social li a.fb{ width:13px; background-image:url(../img/ico-fb.png); }
+#social li a.yt{ width:25px; background-image:url(../img/ico-yt.png); }
+
+#headline{ width:100%; height:980px; background:url(../img/banner.jpg) no-repeat center top; position:relative; }
+#headline .inner{ width:88%; max-width:960px; position:absolute; top:50%; left:50%; @include transform(translate(-50%,-50%)); color:#FFF; }
+#headline .inner h1{ @include font-size(70px); line-height:80px; font-weight:$bold; }
+#headline .inner h1 span{ color:$amarelo; }
+#headline .inner .separador{ width:240px; height:1px; background-color:#FFF; margin:35px 0; }
+#headline .inner p{ @include font-size(18px); line-height:25px; max-width:660px; }
+
+/* =========================== */
+/* Novos Serviços ============ */
+
+#servicos{ padding:90px 0; margin-bottom:100px; background:#EEE url(../img/bkg-servicos.jpg) repeat center top; text-align:center; }
+#servicos h2{ width:100%; background:url(../img/linha-servicos.png) no-repeat center center; @include font-size(35px); font-weight:$bold; text-transform:uppercase; color:$verde; margin-bottom:130px; }
+#servicos ul{ width:100%; margin-bottom:50px; }
+#servicos ul li{ display:inline-block; max-width:150px; margin:0 45px 30px; vertical-align:top; }
+#servicos ul li .icone{ margin-bottom:10px; }
+#servicos ul li p{ line-height:25px; }
+#servicos .sub{ margin-bottom:15px; }
+
+/* =========================== */
+/* Notícias ================== */
+
+#noticias{ background:url(../img/linha-noticias.png) no-repeat center 15px; padding-bottom:180px; }
+#noticias h2{ width:100%; @include font-size(35px); font-weight:$bold; text-transform:uppercase; color:$verde; margin-bottom:130px; text-align:center; }
+#noticias h2 span{ color:$vermelho; }
+#noticias ul{}
+#noticias ul li{ position:relative; overflow:hidden; }
+#noticias ul li .image{ position:absolute; top:0; left:0; width:50%; background-color:$verde; }
+#noticias ul li .image img{ display:block; width:100%; @include transition(all 300ms ease-in-out); }
+#noticias ul li:hover .image img{ @include opacity(0.2); }
+#noticias ul li .texto{ width:55.55%; padding:70px 80px 45px 130px; float:right; margin-top:60px; background-color:$cinza; color:#FFF; }
+#noticias ul li .texto h3{ @include font-size(35px); line-height:40px; margin-bottom:30px; font-weight:$bold; }
+#noticias ul li .texto p{ @include font-size(14px); line-height:30px; }
+
+#noticias .owl-dots{ position:absolute; left:50%; bottom:-50px; @include transform(translatex(-50%)); }
+#noticias .owl-dots .owl-dot{ display:inline-block; width:10px; height:10px; margin:0 5px; border:1px solid $verde; @include border-radius(50%); @include transition(all 300ms ease-in-out); }
+#noticias .owl-dots .owl-dot.active{ background-color:$verde; }
+
+/* =========================== */
+/* Consulta de certificado === */
+
+#certificado{ width:100%; padding:150px 0; margin-bottom:150px; background:$vermelho url(../img/bkg-certificado.jpg) no-repeat center top; position:relative; }
+#certificado:after{ content:' '; display:block; width:80%; max-width:960px; height:10px; background-color:$verde; position:absolute; left:50%; bottom:-5px; @include transform(translatex(-50%)); }
+#certificado .inner{ width:96%; max-width:480px; margin:0 auto; color:$amarelo; text-align:center; }
+#certificado .inner h2{ @include font-size(32px); font-weight:$bold; text-transform:uppercase; margin-bottom:15px; }
+#certificado .inner .sub{ margin-bottom:70px; }
+#certificado .inner .form{ color:#FFF; }
+#certificado .inner .form p{ margin-bottom:15px; }
+#certificado .inner .form input{ display:block; margin:0 auto 20px; width:100%; max-width:320px; border:0; border-bottom:2px solid #FFF; background-color:transparent; font-family:$Gotham; @include font-size(26px); text-align:center; color:#FFF; }
+#certificado .inner .form button{ display:block; width:100%; padding:20px 0 15px; background-color:#FFF; color:$vermelho; text-transform:uppercase; font-family:$Gotham; @include font-size(16px); letter-spacing:0.6em; border:0; cursor:pointer; @include transition(all 300ms ease-in-out); }
+#certificado .inner .form button:hover{ background-color:$vermelho; color:#FFF; }
+
+/* =========================== */
+/* Clientes ================== */
+
+#clientes{}
+#clientes h2{ @include font-size(35px); font-weight:$bold; text-transform:uppercase; color:$verde; margin-bottom:90px; text-align:center; }
+#clientes ul{ padding-bottom:150px; border-bottom:12px solid $prata; position:relative; }
+#clientes ul .owl-item{ text-align:center; }
+#clientes ul li{ display:inline-block; }
+#clientes ul li a{ @include transition(all 300ms ease-in-out); }
+#clientes ul li a:hover{ @include opacity(0.7); }
+
+#clientes .owl-prev,
+#clientes .owl-next{ position:absolute; top:5px; width:36px; height:71px; background:no-repeat center center; @include removeText; }
+#clientes .owl-prev{ left:-120px; background-image:url(../img/arw-prev.png); }
+#clientes .owl-next{ right:-120px; background-image:url(../img/arw-next.png); }
+
+/* =========================== */
+/* Nossos Serviços =========== */
+
+#topo-sobre.servicos{ height:600px; background:$verde url(../img/topo-servicos.jpg) no-repeat center bottom; }
+#topo-sobre.servicos .inner{ top:64%; }
+#topo-sobre.servicos h1{ text-transform:uppercase; text-align:center; }
+
+#menu-servicos{ padding:160px 0 90px; margin-bottom:70px; background:#EEE; text-align:center; }
+#menu-servicos ul{ width:100%; margin-bottom:50px; }
+#menu-servicos ul li{ display:inline-block; max-width:150px; margin:0 45px 30px; vertical-align:top; }
+#menu-servicos ul li .icone{ margin-bottom:10px; background:#FFF url(../img/olho.png) no-repeat center center; @include border-radius(50%); overflow:hidden; @include transition(all 300ms ease-in-out); }
+#menu-servicos ul li .icone img{ display:block; width:100%; @include transition(all 300ms ease-in-out); }
+#menu-servicos ul li .icone:hover{ background-color:$vermelho; }
+#menu-servicos ul li .icone:hover img{ @include opacity(0.1); }
+#menu-servicos ul li p{ line-height:25px; }
+
+.subtitle{ text-align:center; color:$verde; text-transform:uppercase; font-weight:$bold; @include font-size(36px); margin-bottom:60px; }
+#scroll{ float:left; width:33%; height:600px; overflow:hidden; margin-bottom:100px; }
+#scroll .submenu{ padding-left:10px; }
+#scroll .submenu li{ padding:20px 0; border-bottom:1px solid $marfim; }
+#scroll .submenu li a{ line-height:30px; }
+#scroll .submenu li a.active{ font-weight:$bold; color:$vermelho; }
+
+.conteudo{ float:left; width:60%; margin-left:7%; background-color:$marfim; padding:40px 100px; line-height:30px; }
+.conteudo h2{ @include font-size(24px); font-weight:$bold; margin-bottom:30px; }
+.conteudo p{ margin-bottom:30px; }
+
+/* =========================== */
+/* Sobre ===================== */
+
+#topo-sobre{ width:100%; height:730px; background:url(../img/bkg-sobre.jpg) no-repeat center top; position:relative; }
+#topo-sobre.noticias{ background-image:url(../img/bkg-noticias.jpg); }
+#topo-sobre.noticias.interna{ height:430px; background-position:center center; }
+#topo-sobre .inner{ width:88%; max-width:1440px; position:absolute; top:50%; left:50%; @include transform(translate(-50%,-50%)); color:#FFF; }
+#topo-sobre .inner h1{ @include font-size(70px); line-height:80px; font-weight:$bold; }
+#topo-sobre .inner h1 span{ color:$amarelo; }
+#topo-sobre .inner .separador{ width:240px; height:1px; background-color:#FFF; margin:35px 0; }
+#topo-sobre .inner p{ @include font-size(18px); line-height:25px; max-width:660px; }
+#topo-sobre.noticias p{ max-width:360px; }
+
+#visao{ width:100%; padding:150px 0; }
+#visao .texto{ float:left; width:50%; max-width:580px; margin-top:80px; }
+#visao .texto h2{ @include font-size(70px); font-weight:$bold; color:$vermelho; position:relative; margin-bottom:50px; }
+#visao .texto h2:after{ content:' '; display:block; width:500px; height:1px; background-color:$vermelho; position:absolute; bottom:-20px; right:85%; }
+#visao .texto p{ line-height:35px; }
+#visao .imagem{ float:left; width:50%; }
+#visao .imagem img{ display:block; width:100%; }
+
+#missao{ background-color:$marfim; padding:70px 0 370px; position:relative; text-align:center; }
+#missao h2{ @include font-size(70px); color:$verde; font-weight:$bold; margin-bottom:80px; }
+#missao p{ line-height:25px; width:90%; max-width:960px; margin:0 auto; }
+#missao img{ display:block; position:absolute; left:50%; bottom:-240px; @include transform(translatex(-50%)); max-width:100%; }
+
+#valores{ padding-top:370px; background:url(../img/linha-valores.png) no-repeat center 120px; margin-bottom:120px; }
+#valores .image{ float:left; width:50%; }
+#valores .image img{ display:block; width:100%; }
+#valores .texto{ float:left; width:25%; margin:155px 12.5% 0; }
+#valores .texto h2{ @include font-size(70px); font-weight:$bold; color:$vermelho; position:relative; margin-bottom:90px; }
+#valores .texto p{ line-height:35px; }
+
+#estrutura{ overflow:hidden; }
+#estrutura h2{ @include font-size(35px); font-weight:$bold; text-transform:uppercase; color:$verde; text-align:center; margin-bottom:60px; }
+#estrutura h2 span{ color:$vermelho; }
+#estrutura img{ display:block; width:100%; }
+#estrutura .lista1{ float:left; width:37.5%; }
+#estrutura .lista1 li{ float:left; width:50%; }
+#estrutura .lista1 li:last-child{ width:100%; }
+#estrutura .lista2{ float:left; width:62.5%; }
+#estrutura .lista2 li{ float:left; width:40%; }
+#estrutura .lista2 li:last-child{ width:60%; }
+
+/* =========================== */
+/* Notícias ================== */
+
+#container{ padding-top:135px; }
+#container.noticia{ padding-top:60px; }
+#container.noticia .center{ max-width:1180px; }
+
+#lista-noticias{ float:left; width:70%; }
+#lista-noticias li{ float:left; width:46%; margin:0 8% 50px 0; position:relative; }
+#lista-noticias li:nth-child(2n){ margin-right:0; }
+#lista-noticias li .fb{ display:block; width:21px; height:21px; background:url(../img/fb.png) no-repeat center center; position:absolute; top:0; left:-31px; @include transition(all 200ms ease-in-out); }
+#lista-noticias li .fb:hover{ @include opacity(0.6); }
+#lista-noticias li .imagem{ background:$vermelho url(../img/olho.png) no-repeat center center; margin-bottom:20px; }
+#lista-noticias li .imagem img{ display:block; width:100%; @include transition(all 300ms ease-in-out); }
+#lista-noticias li .imagem:hover img{ @include opacity(0.1); }
+#lista-noticias li h2{ @include font-size(24px); font-weight:$bold; color:$verde; line-height:1.3em; margin-bottom:20px; }
+#lista-noticias li p{ @include font-size(14px); line-height:30px; }
+
+#container .col-right{ float:left; width:26%; margin-left:4% }
+#container.noticia .col-right{ width:32%; margin-left:8%; }
+
+#busca{ width:100%; background-color:$marfim; overflow:hidden; padding:10px; margin-bottom:20px; }
+#busca input{ display:block; float:left; width:80%; height:30px; padding:0 10px; background-color:transparent; border:0; @include font-size(12px); color:$cinza; font-family:$Gotham; }
+#busca button{ display:block; float:left; width:20%; height:30px; border:0; background:url(../img/busca.png) no-repeat center center; }
+
+#mais-lidas{ margin-bottom:50px; }
+#mais-lidas h2{ @include font-size(24px); font-weight:$bold; text-transform:uppercase; text-align:center; color:$amarelo; background-color:$verde; padding:25px 0; margin-bottom:20px; }
+#mais-lidas ul{}
+#mais-lidas ul li{ width:100%; margin-bottom:20px; overflow:hidden; }
+#mais-lidas ul li a{ display:block; @include transition(all 300ms ease-in-out); }
+#mais-lidas ul li a:hover{ @include opacity(0.6); }
+#mais-lidas ul li a img{ display:block; float:left; width:38%; }
+#mais-lidas ul li a span{ display:block; float:left; width:59%; margin:25px 0 0 3%; @include font-size(15px); line-height:17px; }
+
+#comentarios{}
+#comentarios h2{ @include font-size(24px); font-weight:$bold; text-transform:uppercase; text-align:center; color:$amarelo; background-color:$verde; padding:25px 0; margin-bottom:20px; }
+
+#pagination{ width:100%; padding:35px 0; margin-top:30px; background-color:$verde; color:#FFF; text-align:center; @include font-size(24px); font-weight:$bold; }
+#pagination a{ display:inline-block; margin:0 10px; @include transition(all 300ms ease-in-out); }
+#pagination a:hover,
+#pagination a.active{ color:$amarelo; }
+
+#artigo{ float:left; width:60%; position:relative; }
+#artigo .fb{ display:block; width:21px; height:21px; background:url(../img/fb.png) no-repeat center center; position:absolute; top:0; left:-31px; @include transition(all 200ms ease-in-out); }
+#artigo .fb:hover{ @include opacity(0.6); }
+#artigo .image{ margin-bottom:30px; }
+#artigo .image img{ display:block; width:100%; }
+#artigo h2{ @include font-size(24px); font-weight:$bold; color:$verde; line-height:1.3em; margin-bottom:30px; }
+#artigo p{ @include font-size(14px); line-height:30px; margin-bottom:30px; }
+#artigo p a{ color:$vermelho; text-decoration:underline; }
+#artigo p em{ font-style:italic; }
+#artigo p strong{ font-weight:$bold; }
+
+/* =========================== */
+/* Equipe ==================== */
+
+#wrapper-equipe{ padding:580px 0 80px; background:#232726 url(../img/bkg-equipe.jpg) no-repeat center top; }
+#wrapper{ width:90%; max-width:1420px; padding:170px 0 120px; margin:0 auto; background-color:$marfim; }
+#wrapper h1{ @include font-size(40px); font-weight:$bold; text-transform:uppercase; color:$verde; text-align:center; }
+#wrapper .separador{ width:120px; height:3px; background-color:$verde; margin:30px auto 40px; }
+#wrapper p{ @include font-size(14px); line-height:29px; width:94%; max-width:940px; margin:0 auto 40px; }
+
+#equipe{ width:90%; max-width:1420px; margin:80px auto 0; }
+#equipe h2{ @include font-size(24px); font-weight:$bold; text-transform:uppercase; color:#FFF; text-align:center; margin-bottom:100px; }
+#equipe ul{ overflow:hidden; }
+#equipe li{ float:left; width:18%; margin:0 3.5% 40px; @include font-size(20px); text-align:center; }
+#equipe li .image{ @include border-radius(50%); overflow:hidden; margin-bottom:15px; position:relative; }
+#equipe li .image img{ display:block; width:100%; @include transition(all 300ms ease-in-out);  }
+#equipe li .image:hover img{ @include filter(blur(5px)); }
+#equipe li .image .linkedin{ display:block; width:100%; height:100%; position:absolute; top:0; left:0; background:rgba(0,0,0,.7) url(../img/linkedin.png) no-repeat center center; @include opacity(0); @include transition(all 300ms ease-in-out); }
+#equipe li .image:hover .linkedin{ @include opacity(1); }
+#equipe li h3{ font-weight:$bold; color:$amarelo; margin-bottom:5px; }
+#equipe li p{ color:#FFF; line-height:27px; }
+
+/* =========================== */
+/* Certificados ============== */
+
+#certificado.interna{ padding:280px 0 150px; margin-bottom:60px; }
+
+#resultados{  }
+#resultados .tempo{ text-align:center; color:$verde; margin-bottom:100px; }
+#resultados .tempo strong{ @include font-size(30px); font-weight:$bold; }
+#resultados table{ width:100%; margin-bottom:80px; }
+#resultados table tr{ border-bottom:1px solid #E5E4E4; }
+#resultados table thead tr{ border:0; }
+#resultados table tr td{ padding:40px 0; }
+#resultados table tr th{ font-weight:$bold; color:$verde; }
+#resultados .btn-donwload{ display:block; width:28px; height:27px; background:url(../img/ico-download.png) no-repeat center center; }
+
+/* =========================== */
+/* Multimídia ================ */
+
+#topo-sobre.multimidia{ background-image:url(../img/bkg-fotos.jpg); }
+#topo-sobre.multimidia h1{ text-transform:uppercase; }
+
+#fotos{ width:90%; max-width:1420px; padding:90px 0 120px; margin:0 auto; }
+#lista-galerias{ position:relative; }
+#lista-galerias .owl-nav div{ position:absolute; top:50%; width:36px; height:71px; @include transform(translatey(-65%)); background:no-repeat center center; @include removeText; }
+#lista-galerias .owl-nav .owl-prev{ left:-100px; background-image:url(../img/arw-prev.png); }
+#lista-galerias .owl-nav .owl-next{ right:-100px; background-image:url(../img/arw-next.png); }
+#fotos .block{ overflow:hidden; }
+#fotos .block li{ float:left; width:32.33%; margin:0 1.5% 1.5% 0; position:relative; }
+#fotos .block li:nth-child(3n){ margin-right:0; }
+#fotos .block li img{ display:block; width:100%; }
+#fotos .block li p{ background-color:$cinza; padding:25px 0; font-weight:$bold; line-height:23px; color:#FFF; text-align:center; }
+#fotos .block li a{ display:block; width:100%; height:100%; background:rgba(185,50,35,.9) url(../img/olho.png) no-repeat center center; position:absolute; top:0; left:0; width:100%; height:100%; text-align:center; color:#FFF; @include opacity(0); @include transition(all 300ms ease-in-out); }
+#fotos .block li:hover a{ @include opacity(1); }
+#fotos .block li a span{ display:block; width:100%; position:absolute; top:60%; font-weight:$bold; }
+
+#videos{ width:100%; margin-bottom:100px; background:url(../img/bkg-videos.jpg) no-repeat center 120px; }
+#videos ul{ width:80%; max-width:940px; margin:0 auto; }
+#videos ul li{}
+#videos ul li p{ @include font-size(24px); font-weight:$bold; margin-bottom:15px; }
+#videos ul li iframe{ display:block; width:100%; height:620px; }
+#videos .owl-nav div{ position:absolute; top:50%; width:36px; height:71px; @include transform(translatey(-30%)); background:no-repeat center center; @include removeText; }
+#videos .owl-nav .owl-prev{ left:-100px; background-image:url(../img/arw-prev-a.png); }
+#videos .owl-nav .owl-next{ right:-100px; background-image:url(../img/arw-next-a.png); }
+
+/* =========================== */
+/* Contato =================== */
+
+#topo-sobre.contato{ height:600px; background-image:url(../img/topo-contato.jpg); }
+
+#contato{ padding:110px 0 150px; background:url(../img/bkg-contato.jpg) no-repeat center top; }
+#contato .inner{ width:96%; max-width:960px; margin:0 auto; text-align:center; }
+#contato h2{ @include font-size(35px); text-transform:uppercase; font-weight:$bold; color:$amarelo; }
+#contato .separador{ width:180px; height:1px; background-color:$amarelo; margin:45px auto; }
+#contato .telefone{ display:inline-block; background:url(../img/ico-telefone.png) no-repeat left center; padding-left:37px; line-height:30px; color:$amarelo; @include font-size(24px); margin-bottom:20px; }
+#contato .telefone span{ @include font-size(18px); }
+#contato .email{ display:inline-block; background:url(../img/ico-email.png) no-repeat left center; padding-left:37px; line-height:30px; color:$amarelo; @include font-size(24px); }
+#contato form{ margin-top:90px; }
+#contato input{ display:block; width:100%; border:0; padding:5px 0; background-color:transparent; margin-bottom:20px; border-bottom:1px solid #FFF; color:#FFF; font-family:$Gotham; @include font-size(18px); text-align:center; }
+#contato button{ display:block; width:100%; padding:25px 0 20px; background-color:#FFF; color:$cinza; text-transform:uppercase; font-family:$Gotham; @include font-size(20px); letter-spacing:0.6em; border:0; cursor:pointer; @include transition(all 300ms ease-in-out); }
+#contato button:hover{ background-color:$amarelo; }
+
+/* =========================== */
+/* Rodapé ==================== */
+
+#footer{ width:100%; }
+#footer .center{ border-top:12px solid $prata; padding:70px 0; text-align:center; }
+#ffw{ display:inline-block; width:26px; height:24px; background:url(../img/ffw.png) no-repeat center center; @include removeText; margin-bottom:15px; }
+#footer p{ @include font-size(12px); color:$prata; }
+
+/* =========================== */
+/* Responsivo ================ */
+@media screen and(max-width:1700px){
+	#clientes ul{ padding:0 60px 150px; }
+	#clientes .owl-prev{ left:0; }
+	#clientes .owl-next{ right:0; }
+
+	#servicos ul li{ margin:0 25px 30px; }
+
+	#lista-galerias .owl-nav .owl-prev{ left:-53px; }
+	#lista-galerias .owl-nav .owl-next{ right:-53px; }
+}
+
+@media screen and(max-width:1300px){
+	#topo-sobre{ background-position:-200px top; }
+}
+
+@media screen and(max-width:1120px){
+	#lista-noticias{ width:60%; }
+	#lista-noticias li{ width:100%; margin:0 0 50px; }
+	#container .col-right{ width:36%; margin-left:4% }
+	#lista-noticias li .fb{ left:auto; right:-31px; }
+
+	#fotos{ width:80%; }
+
+	#videos .owl-nav .owl-prev{ left:-50px; }
+	#videos .owl-nav .owl-next{ right:-50px; }
+
+	#scroll{ height:auto; }
+}
+
+@media screen and(max-width:1024px){
+	#noticias ul li .image{ width:50%; }
+	#noticias ul li .texto{ width:90%; padding:200px 80px 45px; margin-top:160px; }
+
+	#equipe li{ width:28%; margin:0 2.66% 40px; }
+}
+
+@media screen and(max-width:800px){
+	#noticias ul li .image{ width:70%; }
+
+	#visao{ padding:50px 0; }
+	#visao .texto{ width:100%; margin:0 0 50px; }
+	#visao .imagem{ width:100%; }
+
+	#missao{ padding:70px 0 0; }
+	#missao img{ position:static; @include transform(translatex(0)); width:100%; margin-top:50px; }
+
+	#valores{ padding-top:0; margin-bottom:50px; }
+	#valores .image{ width:100%; }
+	#valores .texto{ width:80%; margin:30px 10% 0; }
+
+	#container{ padding-top:50px; }
+
+	#lista-noticias{ width:95%; }
+	#container .col-right{ display:none; }
+	#lista-noticias li .fb{ left:auto; right:-24px; }
+
+	#artigo{ width:95%; }
+	#artigo .fb{ left:auto; right:-24px; }
+
+	#fotos .block li{ width:100%; margin:0 0 2%; }
+	#lista-galerias .owl-nav .owl-prev,
+	#lista-galerias .owl-nav .owl-next{ display:none !important; }
+
+	#videos ul li iframe{ height:320px; }
+	#videos .owl-nav .owl-prev,
+	#videos .owl-nav .owl-next{ display:none !important; }
+
+	#scroll{ width:40%; }
+	.conteudo{ width:55%; margin-left:5%; padding:40px; }
+}
+
+@media screen and(max-width:620px){
+	#noticias h2{ margin-bottom:50px; }
+	#noticias ul li .image{ position:static; width:100%; }
+	#noticias ul li .texto{ width:100%; padding:50px; margin-top:0; }
+
+	#wrapper{ padding:80px 0; }
+	#equipe li{ width:42%; margin:0 4% 40px; }
+
+	#scroll{ width:100%; margin-bottom:10px; }
+	.conteudo{ width:100%; margin-left:0; padding:20px; }
+}
+
+@media screen and(max-width:520px){
+	#estrutura .lista1,
+	#estrutura .lista2{ width:100%; }
+}
+
+@media screen and(max-width:490px){
+	#menu li{ margin:20px 0; }
+	#menu li a{ @include font-size(18px); }
+
+	#headline{ height:auto; padding:200px 0; }
+	#headline .inner{ position:static; @include transform(translate(0,0)); margin:0 auto; }
+	#headline .inner h1{ @include font-size(50px); line-height:60px; }
+
+	#noticias ul li .texto{ padding:30px; }
+	#noticias ul li .texto h3{ @include font-size(24px); line-height:30px; }
+
+	#contato{ padding:110px 0; }
+
+	#topo-sobre{ height:auto; padding:200px 0 100px; }
+	#topo-sobre .inner{ position:static; @include transform(translate(0,0)); margin:0 auto; }
+	#topo-sobre .inner h1{ @include font-size(50px); line-height:60px; }
+
+	#equipe li{ width:80%; margin:0 10% 40px; }
+
+	#wrapper{ padding:30px; }
+	#wrapper h1{ @include font-size(30px); }
+}
+
+@media screen and(max-width:360px){
+	#headline{ height:auto; padding:200px 0 100px; }
+	#headline .inner h1{ @include font-size(40px); line-height:46px; }
+
+	#servicos{ margin-bottom:50px; }
+
+	#noticias ul li .texto h3{ @include font-size(20px); line-height:26px; }
+}
+
+
+
+
+
+

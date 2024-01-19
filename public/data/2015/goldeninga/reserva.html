@@ -1,0 +1,127 @@
+<div class="overlay-reserva">
+	<section id="reserva">
+
+		<div class="passos passo1">
+			<div class="concluido"></div>
+		</div>
+
+		<a href="javascript:;" id="fechar"></a>
+
+		<h2>Faça já sua reserva! Podemos te oferecer praticidade e facilidade à sua viagem ou evento</h2>
+
+		<a href="javascript:;" class="btn-pessoa active" id="pf">Pessoa Física</a>
+		<a href="javascript:;" class="btn-pessoa" id="pj">Pessoa Jurídica</a>
+
+		<!-- Passo 1 - Pessoa Física -->
+		<div class="step step1pf">
+
+			<div class="col-left">
+
+				<input type="text" id="nome" placeholder="NOME" required>
+				<input type="text" id="email" placeholder="E-MAIL" required>
+				<input type="text" id="telefone" placeholder="TELEFONE" required>
+				<input type="text" id="nome" placeholder="CELULAR" required>
+
+			</div>
+
+			<div class="col-right">
+
+				<input type="text" id="nascimento" placeholder="DATA DE NASCIMENTO" required>
+				<div class="line">
+					<span>SEXO</span>
+					<p>MASC. ( )</p>
+					<p>FEM. ( )</p>
+					<br class="clear">
+				</div>
+				<input type="text" id="cpf" placeholder="CPF" required>
+
+			</div>
+
+			<br class="clear">
+
+			<button class="avancar" data-step="step2" data-passo="passo2">Avançar</button>
+			<span class="notice">Preencha o formulário corretamente*</span>
+
+		</div>
+		<!-- Passo 1 - Pessoa Física -->
+
+		<!-- Passo 1 - Pessoa Jurídica -->
+		<div class="step step1pj">
+
+			<div class="col-left">
+
+				<input type="text" id="nomefantasia" placeholder="NOME FANTASIA" required>
+				<input type="text" id="razaosocial" placeholder="RAZÃO SOCIAL" required>
+				<input type="text" id="cnpj" placeholder="CNPJ" required>
+				<input type="text" id="fundacao" placeholder="DATA DE FUNDAÇÃO" required>
+				<input type="text" id="responsavel" placeholder="RESPONSÁVEL" required>
+
+			</div>
+
+			<div class="col-right">
+
+				<input type="email" id="email" placeholder="E-MAIL" required>
+				<input type="text" id="telefone" placeholder="TELEFONE" required>
+				<input type="text" id="fax" placeholder="FAX" required>
+				<input type="text" id="celular" placeholder="CELULAR" required>
+
+			</div>
+
+			<br class="clear">
+
+			<button class="avancar" data-step="step2" data-passo="passo2">Avançar</button>
+			<span class="notice">Preencha o formulário corretamente*</span>
+
+		</div>
+		<!-- Passo 1 - Pessoa Jurídica -->
+
+		<!-- Passo 2 -->
+		<div class="step step2">
+
+			<input type="text" id="endereco" placeholder="ENDEREÇO" required>
+			<input type="text" id="numero" placeholder="NÚMERO" required>
+			<input type="text" id="complemento" placeholder="COMPLEMENTO" required>
+			<input type="text" id="estado" placeholder="ESTADO" required>
+			<input type="text" id="cidade" placeholder="CIDADE" required>
+			<input type="text" id="bairro" placeholder="BAIRRO" required>
+			<input type="text" id="cep" placeholder="CEP" required>
+
+			<br class="clear">
+
+			<button class="avancar" data-step="step3" data-passo="passo3">Avançar</button>
+			<span class="notice">Preencha o formulário corretamente*</span>
+
+		</div>
+		<!-- Passo 2 -->
+
+		<!-- Passo 3 -->
+		<div class="step step3">
+
+			<div class="col-left">
+
+				<input type="text" id="datachegada" placeholder="DATA DE CHEGADA" required>
+				<input type="text" id="datasaida" placeholder="DATA DE SAÍDA" required>
+				<input type="text" id="apartamento" placeholder="APARTAMENTO" required>
+				<input type="text" id="numerohospedes" placeholder="NÚMERO DE HÓSPEDES" required>
+
+			</div>
+
+			<div class="col-right">
+
+				<p class="titulo-comentarios">Comentários</p>
+				<textarea id="comentarios"></textarea>
+
+			</div>
+
+			<br class="clear">
+
+			<button class="enviar">Enviar</button>
+			<span class="notice">Preencha o formulário corretamente*</span>
+
+		</div>
+		<!-- Passo 3 -->
+
+	</section>
+</div>
+
+<script type="text/javascript" src="js/reserva.js"></script>

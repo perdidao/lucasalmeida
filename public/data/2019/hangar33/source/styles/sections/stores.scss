@@ -1,0 +1,119 @@
+.stores{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    overflow:hidden;
+    background:$black;
+
+    &__gallery{
+        display:none;
+        float:left;
+        width:50%;
+        max-height:100vh;
+        overflow:hidden;
+        position:relative;
+
+        @media screen and (max-width:$size-mobile-max){
+            width:100%;
+            float:none;
+            margin-bottom:rfs(30px);
+
+            img{
+                display:block;
+                width:100%;
+            }
+        }
+    }
+
+    &__info{
+        float:left;
+        width:50%;
+        min-height:100vh;
+        padding:0 rfs(70px);
+        
+        display:flex;
+        align-items:center;
+        justify-content:flex-start;
+
+        @media screen and (max-width:$size-mobile-max){
+            width:100%;
+            float:none;
+            min-height:0;
+        }
+    }
+
+    &__content{
+        display:none;
+        max-width:rfs(360px);
+        height:40vh;
+
+        @media screen and (max-width:$size-mobile-max){
+            max-width:100%;
+            height:auto;
+        }
+
+        &--logo{
+            margin-bottom:rfs(30px);
+
+            img{
+                display:inline-block;
+                max-width:100%;
+            }
+        }
+
+        &--text{
+            margin-bottom:rfs(20px);
+        }
+
+        &:after{
+            content:' ';
+            display:block;
+            width:rfs(75px);
+            height:3px;
+            background-color:$orange;
+        }
+    }
+
+    &__nav{
+        max-width:rfs(320px);
+        margin-bottom:rfs(30px);
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+
+        @media screen and (max-width:$size-mobile-max){
+            max-width:100%;
+        }
+
+        &--link{
+            display:block;
+            font-weight:$medium;
+            font-size:rfs(25px);
+            font-family:$Solido;
+            text-transform:uppercase;
+            color:rgba($silver,.6);
+            transition:all 300ms ease-in-out;
+
+            &:after{
+                content:' ';
+                display:block;
+                width:0;
+                height:3px;
+                background-color:$orange;
+                transition:all 300ms ease-in-out;
+            }
+
+            &.active{
+                color:$silver;
+
+                &:after{
+                    width:100%;
+                }
+            }
+
+            @media screen and (max-width:$size-mobile-max){
+                font-size:rfs(50px);
+            }
+        }
+    }
+}

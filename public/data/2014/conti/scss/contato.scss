@@ -1,0 +1,78 @@
+// DEPENDÊNCIAS
+@import "compass";
+@import "tools.scss";
+
+// CORES
+$Azul:#1B3280;
+$CinzaClaro:#929497;
+$Cinza:#58595B;
+$Grafite:#404041;
+
+// FONTES
+$AvenirBook: "Avenir Book", Helvetica, Arial, sans-serif;
+$AvenirRoman: "Avenir Roman", Helvetica, Arial, sans-serif;
+$Garamond: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+
+// PRODUTOS
+#linha-topo{ width:83%; height:6px; background-color:$CinzaClaro; }
+#banner{ width:100%; height:380px; background:url(../img/banner-fale-conosco.jpg) no-repeat center top; text-align:center; padding-top:170px }
+#banner h1{ color:#FFF; @include font-size(90px); font-family:$Garamond; font-style:italic; }
+
+// ÁREA CENTRAL
+#conteudo{ width:100%; min-height:1000px; padding:90px 0; background:url(../img/bkg-contato.jpg) repeat-y center top; }
+#conteudo .center{ width:880px; }
+
+.form{ width:100%; padding:90px 100px 110px; background-color:#FFF; }
+.form.f-upper{ padding-bottom:10px; }
+.form h2{ @include font-size(32px); margin-bottom:40px; }
+.form .col-left{ float:left; width:45%; margin-right:10%; }
+.form .col-right{ float:left; width:45%; }
+.form label{ display:block; float:left; width:100%; @include font-size(17px); font-family:$Garamond; font-style:italic; margin-bottom:20px; }
+.form input,
+.form textarea{ display:block; width:100%; padding:5px 10px; margin-top:10px; background-color:#d0d2d3; border:0; height:40px; @include font-size(17px); font-family:$Garamond; color:$Grafite; }
+#enviar{ display:block; float:right; padding:10px 30px; margin-top:20px; border:3px solid $Azul; color:$Azul; font-family:$Garamond; font-style:italic; @include font-size(18px); @include transition(all 300ms ease-in-out); text-transform:none; font-weight:$bold; }
+.form textarea{ height:300px; resize:none; }
+#cidade{ width:72%; margin-right:5%; }
+#estado{ width:23%; }
+.form p{ clear:right; float:right; @include font-size(12px); font-family:$Garamond; font-style:italic; margin-top:10px; }
+
+// ABAS
+#tabs{ background-color:#FFF; }
+#tabs li{ float:left; width:33.3%; }
+#tabs li a{ display:block; width:100%; height:65px; line-height:65px; text-align:center; font-family:$Garamond; font-style:italic; @include font-size(20px); }
+#tabs li a.consumidor{ background-color:#FFF; }
+#tabs li a.revendedor{ background-color:#a6a8ab; }
+#tabs li a.fornecedor{ background-color:#d0d2d3; }
+
+// VISITAS
+#duvida{ padding:130px 0; background-color:#e5e7ea; }
+#duvida h2{ text-align:center; margin-bottom:30px; }
+#duvida p{ max-width:64%; margin:0 auto; @include font-size(16px); line-height:28px; text-align:justify; }
+#duvida p strong{ font-family:$AvenirRoman; font-weight:600; }
+.btn-duvida{ display:block; width:400px; height:50px; margin:40px auto 0; border:3px solid $Azul; color:$Azul; font-family:$Garamond; font-style:italic; @include font-size(27px); text-align:center; line-height:46px; }
+
+// RESPONSIVO
+@media screen and(max-width:1260px){
+	.center{ width:96%; }
+}
+
+@media screen and(max-width:880px){
+	#conteudo .center{ width:96%; }
+	.form h2{ text-align:center; }
+}
+
+@media screen and(max-width:740px){
+	.form .col-left,
+	.form .col-right{ float:left; width:100%; margin-right:0; }
+}
+
+
+@media screen and(max-width:640px){
+	.form{ width:100%; padding:90px 50px 110px; background-color:#FFF; }
+	#enviar{ width:100%; }
+}
+
+@media screen and(max-width:430px){
+	.btn-duvida{ width:96%; height:auto; padding:5px 20px; margin:40px auto 0; line-height:1.3em; }
+	#duvida p{ max-width:96%; }
+}

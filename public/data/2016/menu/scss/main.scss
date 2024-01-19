@@ -1,0 +1,298 @@
+// Dependências
+@import "compass";
+
+/* ------------ */
+/* Reset do CSS */
+/* ------------ */
+@include global-reset;
+@import "tools.scss";
+
+// Fontes
+@import url(../fonts/brandon.css);
+$helvetica:Helvetica, Arial, sans-serif;
+$Brandon:'Brandon', Helvetica, Arial, sans-serif;
+
+$reg:400;
+$bold:600;
+$black:700;
+
+// Cores
+$vinho:#8A1823;
+$laranja:#E9682B;
+$vermelho:#C32B39;
+
+$oliva:#9C9F7A;
+$ocre:#B3B692;
+$borda:#BFC3B1;
+$bege:#F3F4E9;
+
+/* ----------------- */
+/* Estilos da página */
+/* ----------------- */
+body{ font-family:$helvetica; @include font-size(19px); color:#353535; @include font-smoothing(on); background:#FEFEFE url(../img/bkg.jpg) repeat top center; }
+@include selection(#FFF,$laranja);
+
+h2.title{ @include font-size(50px); font-family:$Brandon; font-weight:$black; text-transform:uppercase; color:$laranja; margin:8px 0 15px; position:relative; }
+h2.title:before{ content:' '; display:block; width:18px; height:2px; background-color:$laranja; position:absolute; top:-7px; left:3px; }
+a.btn{ display:inline-block; font-family:$Brandon; @include font-size(13px); font-weight:$bold; text-transform:uppercase; letter-spacing:0.4em; color:#FFF; padding:30px 50px; margin-top:35px; background-color:$vermelho; @include transition(all 300ms ease-in-out); }
+a.btn:hover{ @include opacity(0.7); }
+
+#btn-menu{
+    display:none;
+    width:50px;
+    height:50px;
+    position:absolute;
+    z-index:11;
+    top:15px;
+    right:15px;
+    background-color:$vinho;
+    & span,
+    &:before,
+    &:after{
+        content:" ";
+        display:block;
+        width:30px;
+        height:1px;
+        background-color:#FFF;
+        @include transform(rotate(0));
+        position:absolute;
+        left:10px;
+        @include transition(all 300ms ease-in-out);
+    }
+        
+    &:before{ top:16px; }
+    & span{ top:25px; @include opacity(1); }
+    &:after{ bottom:15px; }
+        
+    &.active span{ @include opacity(0); top:25px; @include transform(rotate(90deg)); }
+    &.active:before{ width:34px; top:25px; left:8px; @include transform(rotate(45deg)); }
+    &.active:after{ width:34px; bottom:24px; left:8px; @include transform(rotate(-45deg)); } 
+}
+
+/* TOPO ----------- */
+#header{ width:100%; height:540px; position:relative; }
+#logo{ width:100%; max-width:570px; height:189px; background:url(../img/logo.png) no-repeat right center; background-size:contain; position:absolute; z-index:9; top:175px; right:0; @include removeText; }
+#banners{ width:100%; text-align:center; }
+#banners li{ display:block; }
+#banners li img{ padding:0; }
+
+#banners .owl-controls{ position:absolute; width:100%; bottom:30px; left:0; text-align:center; }
+#banners .owl-controls .owl-pagination .owl-page{ display:inline-block; width:14px; height:14px; margin:0 3px; background-color:#FFF; border:2px solid #FFF; @include border-radius(50%); @include transition(all 300ms ease-in-out); }
+#banners .owl-controls .owl-pagination .owl-page.active{ background-color:$laranja; }
+
+/* NAVEGAÇÃO ------ */
+#nav{ width:100%; height:67px; background:url(../img/bkg-nav.jpg) repeat center center; }
+#nav .center{ max-width:1000px; }
+#menu{ float:left; width:57%; height:67px; background-color:$vinho; color:#FFF; font-family:$Brandon; font-weight:$bold; }
+#menu > li{ float:left;  }
+#menu > li.sub{ position:relative; }
+#menu > li > a{ display:block; height:67px; padding:0 10px; line-height:67px; @include font-size(16px); text-transform:uppercase; @include transition(all 300ms ease-in-out); }
+#menu > li:last-child a{ padding:0 5px; }
+#menu > li.sub > a{ padding:0 28px 0 25px; background:url(../img/pointer.png) no-repeat right center; }
+#menu > li.sub > a.active{ background-color:#72141D; }
+#menu > li > a:hover{ background-color:#72141D; }
+
+#submenu{ position:absolute; z-index:10; top:67px; left:0; width:100%; background-color:#CB5016; padding:20px 0; display:none; }
+#submenu li{}
+#submenu li a{ display:block; color:#F89C71; text-transform:uppercase; @include font-size(14.4px); padding:10px 22px; @include transition(all 300ms ease-in-out); }
+#submenu li a:hover{ background-color:$laranja; color:#FFF; }
+
+#login{ float:right; width:43%; height:67px; background:$laranja url(../img/bkg-menu.jpg) no-repeat left center; font-family:$Brandon; }
+#login label{ display:block; float:left; margin-left:30px; line-height:67px; @include font-size(16px); text-transform:uppercase; color:#FFF; font-weight:$bold; }
+#login input{ display:block; float:left; max-width:140px; height:44px; margin-top:10px; background-color:#CC6230; border:1px solid #FC8D58; font-family:inherit; font-weight:$reg; text-align:center; color:#FFF; @include font-size(16px); @include border-radius(0 2px 2px 0); @include box-shadow(inset 0 1px 2px rgba(0,0,0,.3)); }
+#login #i-login{ margin-left:13px; @include border-radius(2px 0 0 2px); border-right:0; }
+#entrar{ display:block; float:left; width:44px; height:43px; border:0; margin:10px 0 0 5px; background:#F18024 url(../img/ico-user.png) no-repeat center center; @include border-radius(2px); @include box-shadow(0 2px 2px rgba(0,0,0,.2)); cursor:pointer; @include transition(all 300ms ease-in-out); }
+#entrar:hover{ @include opacity(0.7); }
+
+/* BEM-VINDO ------ */
+#bem-vindo{ width:100%; height:400px; }
+#bem-vindo .center{ max-width:1240px; }
+#bem-vindo #chef-ana{ float:left; width:45%; position:absolute; z-index:1; top:0; left:0; }
+#bem-vindo #chef-ana img{ display:block; width:100%; }
+#bem-vindo .content{ float:right; width:55%; padding:135px 100px 0; }
+#bem-vindo .content h2{ @include font-size(82px); font-family:$Brandon; font-weight:$bold; text-transform:uppercase; color:$laranja; line-height:0.6em; margin-bottom:30px; }
+#bem-vindo .content p{ @include font-size(18px); line-height:22px; }
+
+/* SOBRE ---------- */
+#sobre-wrapper{ min-height:1360px; background:url(../img/bkg-sobre.png) no-repeat center top; position:relative; z-index:2; }
+#sobre-wrapper p{ color:#FFF; @include font-size(19px); line-height:25px; max-width:470px; }
+#sobre{ float:right; width:65%; max-width:640px; padding:60px 70px 0; }
+#cursos{ margin-top:45px; }
+#cursos .inner{ float:left; width:65%; padding:45px 70px 0; }
+#lista-cursos{ float:right; background-color:rgba(82,0,6,.8); padding:10px 15px; color:#FFF; margin:210px 18px 0 0; }
+#lista-cursos li{ font-family:$Brandon; font-weight:$bold; @include font-size(18px); text-transform:uppercase; line-height:28px; letter-spacing:0.09em; }
+
+/* FOTOS ---------- */
+#fotos{ width:983px; margin:15px 0 0 -1px; padding:5px; background-color:#CCC; position:relative; }
+#prev-foto, #next-foto{ display:block; width:30px; height:60px; background-color:$vinho; background-repeat:no-repeat; background-position:center center; position:absolute; z-index:3; top:50%; @include transform(translatey(-50%)); }
+#prev-foto{ left:0; background-image:url(../img/arw-prev.png); }
+#next-foto{ right:0; background-image:url(../img/arw-next.png); }
+#lista-fotos{ }
+#lista-fotos li{ display:block; margin:5px; }
+#lista-fotos li img{ display:block; width:100%; }
+
+/* CONSULTORIAS --- */
+#consultorias{ margin-top:-100px; position:relative; z-index:3; }
+#consultorias .col-left{ float:left; width:60%; min-height:960px; background:url(../img/bkg-consult.png) no-repeat left top; background-size:contain; }
+#consultorias .col-left .inner{ width:100%; max-width:400px; margin:205px 0 0 90px; }
+#consultorias .col-left .inner p{ @include font-size(19px); line-height:26px; }
+#consultorias .col-left .inner p em{ font-style:italic; }
+#consultorias .col-left .inner .btn{ margin-top:20px; }
+
+#consultorias .col-right{ float:right; width:40%; margin-top:80px; }
+#consultorias .col-right h3{ @include font-size(27px); font-weight:$black; font-family:$Brandon; color:$oliva; text-transform:uppercase; line-height:33px; margin-bottom:20px; }
+.form{}
+.form input,
+.form select,
+.form textarea{ display:block; width:100%; height:50px; border:1px solid $borda; border-top:0; padding:0 15px; margin:0; background-color:$bege; color:$oliva; font-family:$helvetica; @include font-size(16px); }
+.form textarea{ padding-top:10px; resize:none; height:125px; }
+.form input:first-child{ border-top:1px solid $borda; }
+.form .btn-submit{ display:block; width:100%; height:70px; background-color:$ocre; border:0; cursor:pointer; color:#FFF; @include font-size(13px); font-family:$Brandon; font-weight:$bold; letter-spacing:0.4em; text-transform:uppercase; @include transition(all 300ms ease-in-out); margin:30px 0; }
+.form .btn-submit:hover{ @include opacity(0.6); }
+
+#mensagens{ @include font-size(16px); color:#818465; }
+#mensagens li{ position:relative; padding:20px 0; }
+#mensagens li:first-child{ padding-top:0; }
+#mensagens li:first-child:after{ content:' '; display:block; width:100%; height:5px; position:absolute; bottom:0; left:0; background:url(../img/bullet.png) repeat-x left center; }
+#mensagens li p em{ font-style:italic; line-height:20px; }
+#mensagens li p strong{ display:block; margin-top:5px; font-weight:$bold; }
+
+/* EVENTOS -------- */
+#eventos{ background:url(../img/bkg-eventos.png) no-repeat center top; min-height:1110px; padding-top:350px; position: relative; z-index: 4; margin-top: -90px; }
+#eventos .col-left{ float:left; width:50%; padding:0 30px 0 50px; }
+#eventos .col-left > p{ color:#FFF; @include font-size(19px); line-height:25px; max-width:470px; }
+#eventos .col-left .btn{ margin-top:15px; }
+#depoimentos{ @include font-size(16px); color:#FFF; margin-top:20px; }
+#depoimentos li{ position:relative; padding:20px 0; @include font-size(14px); line-height:1.2em; }
+#depoimentos li:first-child{ padding-top:0; }
+#depoimentos li:first-child:after{ content:' '; display:block; width:100%; height:5px; position:absolute; bottom:0; left:0; background:url(../img/bullet.png) repeat-x left center; }
+#depoimentos li p em{ font-style:italic; letter-spacing:-0.02em; }
+#depoimentos li p strong{ display:block; margin-top:5px; font-weight:$bold; }
+#eventos .col-right{ float:right; width:40%; margin-top:260px; }
+#eventos .col-right h3{ @include font-size(27px); font-weight:$black; font-family:$Brandon; color:$oliva; text-transform:uppercase; line-height:33px; margin-bottom:20px; }
+
+/* CONTATO -------- */
+#contato{ min-height:630px; background:url(../img/bkg-contato.jpg) no-repeat center top; margin-top:-10px; }
+#contato .col-left{ float:left; width:40%; margin-left:7%; }
+#contato .col-left p{ @include font-size(19px); line-height:26px; margin-bottom:35px; }
+#contato .col-right{ float:left; width:40%; margin:230px 0 0 9%; }
+#contato .col-right p{ color:#FFF; @include font-size(19px); line-height:26px; }
+#contato .col-right p strong{ font-weight:$bold; }
+
+/* RODAPÉ --------- */
+#footer{ background:#232630 url(../img/bkg-footer.jpg) repeat-x left top; padding:110px 0 70px; color:#FFF; font-family:$Brandon; @include font-size(13px); text-transform:uppercase; letter-spacing:0.4em; }
+#footer h2{ font-weight:$black; line-height:18px; margin-bottom:15px; }
+#footer p{ line-height:26px; }
+#footer .col1{ float:left; width:35%; margin-right:2%; }
+#footer .col2{ float:left; width:37%; margin-right:2%; }
+#footer .col3{ float:left; width:24%; }
+#social{}
+#social li{ display:inline-block; }
+#social li a{ display:block; width:46px; height:46px; background-repeat:no-repeat; background-position:center center; margin-right:3px; @include transition(all 300ms ease-in-out); }
+#social li a:hover{ @include opacity(0.7); }
+#social li a.fb{ background-image:url(../img/ico-facebook.png); }
+#social li a.in{ background-image:url(../img/ico-instagram.png); }
+#social li a.yt{ background-image:url(../img/ico-youtube.png); }
+#social li a.tw{ background-image:url(../img/ico-twitter.png); }
+#footer .copy{ margin-top:50px; @include font-size(13px); font-family:$helvetica; text-transform:none; letter-spacing:0; color:#424757; text-align:center; }
+
+/* RESPONSIVO ----- */
+@media screen and(max-width:1040px){
+	#nav{ background:$vinho; }
+	#menu{ width:100%; }
+	#login{ width:100%; max-width:370px; padding:0 10px; position:absolute; top:-67px; right:0; background:$laranja; }
+	#login label{ display:none; }
+
+	#bem-vindo .content{ padding:135px 20px 0; }
+	#bem-vindo .content h2{ @include font-size(60px); }
+
+	#fotos{ width:100%; margin:15px 0 0; }
+
+	#footer .col1{ width:45%; margin-right:10%; }
+	#footer .col2{ width:45%; margin-right:0; }
+	#footer .col3{ width:100%; text-align:center; }
+}
+
+@media screen and(max-width:940px){
+	#lista-cursos{ display:none; }
+
+	#consultorias{ margin:30px 0 80px; }
+	#consultorias .col-left{ width:50%; min-height:0; background:transparent; }
+	#consultorias .col-left .inner{ max-width:400px; margin:0; }
+	#consultorias .col-right{ width:48%; margin:0 0 0 2%; }
+
+	#eventos{ padding-top:245px; margin-top:0; }
+	#eventos .col-left > p{ @include font-size(16px); line-height:20px; }
+	#eventos .col-right{ margin-top:320px; }
+}
+
+@media screen and(max-width:820px){
+	#banners .owl-controls{ bottom:77px; }
+
+	#sobre-wrapper{ min-height:0; background:#a3101d; padding-bottom:50px; }
+	#sobre{ width:100%; max-width:100%; }
+	#cursos{ margin:0 0 30px; }
+	#cursos .inner{ width:100%; }
+
+	#consultorias .col-left,
+	#consultorias .col-right{ width:80%; margin:0 10%; }
+	#consultorias .col-left{ margin-bottom:50px; }
+	#consultorias .col-left .inner{ max-width:100%; }
+
+	#contato .col-left p{ @include font-size(16px); line-height:22px; margin-bottom:20px; }
+}
+
+@media screen and(max-width:720px){
+	#consultorias{ margin:30px 0; }
+
+	#eventos{ background:transparent; padding-top:0; margin-top:50px; }
+	#eventos .col-left{ width:100%; padding:30px; background:url(../img/bkg-eventos-alt.jpg) repeat center top; }
+	#eventos .col-right{ width:80%; margin:20px 10% 0; }
+
+	#footer .col1,
+	#footer .col2,
+	#footer .col3{ width:100%; margin:0 0 20px; text-align:center; }
+}
+
+@media screen and(max-width:680px){
+	#consultorias h2.title{ @include font-size(36px); }
+
+	#btn-menu{ display:block; }
+	#nav{ display:none; width:100%; height:auto; padding:20px 0; position:absolute; z-index:999; top:80px; left:0; }
+	#menu{ height:auto; text-align:center; }
+	#menu > li{ float:none; }
+	#menu > li > a{ height:auto; padding:15px 20px; line-height:1.2em; }
+	#menu > li:last-child a{ padding:20px; }
+	#menu > li.sub > a{ display:none; }
+	#menu > li > a.active{ background-color:#72141D; }
+
+	#submenu{ position:static; background-color:transparent; padding:0; display:block; }
+	#submenu li a{ color:#FFF; @include font-size(16px); padding:15px 20px; }
+	#submenu li a:hover{ background-color:#72141D; color:#FFF; }
+	
+	#login{ display:none; }
+
+	#banners .owl-controls{ bottom:30px; }
+
+	#bem-vindo #chef-ana{ display:none; }
+	#bem-vindo .content{ width:100%; padding:135px 30px 0; text-align:center; }
+
+	#contato{ min-height:0; background:transparent; margin-top:0; }
+	#contato .col-left,
+	#contato .col-right{ width:100%; margin:0; }
+	#contato .col-right{ margin:30px 0; background:url(../img/bkg-contato-alt.jpg) no-repeat center center; padding:40px 0; text-align:center; }
+}
+
+@media screen and(max-width:420px){
+	#bem-vindo{ height:auto; }
+	#bem-vindo .content{ float:none; padding:30px; }
+	#bem-vindo .content h2{ @include font-size(40px); }
+
+	#sobre, #cursos .inner{ padding:50px 20px 0; }
+
+	#consultorias .col-left,
+	#consultorias .col-right{ width:100%; margin:0; }
+	#consultorias .col-left{ margin-bottom:50px; }
+
+	#eventos .col-right{ width:100%; margin:20px 0 0; }
+}

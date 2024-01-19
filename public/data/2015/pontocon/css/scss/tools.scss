@@ -1,0 +1,77 @@
+// CLASSES E ATRIBUTOS GLOBAIS
+.f-left{ float:left; }
+.f-right{ float:right; }
+.center{ width:980px; margin:0 auto; }
+.clear{ clear:both; }
+*{ @include box-sizing(border-box); }
+a{ color:inherit; text-decoration:none; }
+
+// PESOS PADRÃO
+$light:300;
+$regular:400;
+$bold:700;
+
+// TAMANHOS DE FONTE RELATIVOS
+@function calculateRem($size) {
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+}
+
+// SUAVIZAÇÃO DE FONTES
+// Fontes escuras em fundos claros(off) e fontes claras em fundos escuros(on)
+@mixin font-smoothing($value: on) {
+    @if $value == on {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    @else {
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
+    }
+}
+
+// SELEÇÃO PERSONALIZADA
+@mixin selection($texto, $fundo){
+    ::-moz-selection { color:$texto; background-color:$fundo; }
+    ::selection { color:$texto; background-color:$fundo; }
+}
+
+// ESCONDE TEXTO
+@mixin removeText{
+    text-indent:-9999em;
+    overflow:hidden;
+}
+
+// GRADIENTES
+@mixin linear-gradient($from, $to, $direction) {
+    background: $to;
+    @if $direction == vertical {
+        background: -moz-linear-gradient(top, $from 0%, $to 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$from), color-stop(100%,$to));
+        background: -webkit-linear-gradient(top, $from 0%,$to 100%);
+        background: -o-linear-gradient(top, $from 0%,$to 100%);
+        background: -ms-linear-gradient(top, $from 0%,$to 100%);
+        background: linear-gradient(to bottom, $from 0%,$to 100%);
+    }
+    @if $direction == horizontal {
+        background: -moz-linear-gradient(left, $from 0%, $to 100%);
+        background: -webkit-gradient(linear, top left, top right, color-stop(0%,$from), color-stop(100%,$to));
+        background: -webkit-linear-gradient(left, $from 0%,$to 100%);
+        background: -o-linear-gradient(left, $from 0%,$to 100%);
+        background: -ms-linear-gradient(left, $from 0%,$to 100%);
+        background: linear-gradient(to right, $from 0%,$to 100%);
+    }
+}
+
+// COR NOS PLACEHOLDERS
+@mixin placeholder($color){
+    ::-webkit-input-placeholder { color:$color; }
+    :-moz-placeholder { color:$color; opacity:  1; }
+    ::-moz-placeholder{ color:$color; opacity:  1; }
+    :-ms-input-placeholder{ color:$color; }
+}

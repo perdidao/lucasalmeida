@@ -1,0 +1,184 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import url(frutiger.css);
+@import 'https://fonts.googleapis.com/css?family=Lato';
+
+$Frutiger:'Frutiger', Helvetica, Arial, sans-serif;
+$FrutigerCn:'Frutiger Condensed', Helvetica, Arial Narrow, sans-serif;
+$Lato:'Lato', Helvetica, Arial, sans-serif;
+
+$regular:400;
+$bold:600;
+
+// CORES
+$Ciano:#27AAE1;
+$Teal:#0079A0;
+
+$Silver:#EFEFEF;
+$Gray:#666;
+
+// ESTILOS GLOBAIS
+body{ font-family:$Frutiger; color:$Gray; @include font-size(18px); letter-spacing:0.05em; @include font-smoothing(on); }
+@include selection(#FFF,#06C);
+
+// Header
+#nav{ width:100%; @include background-image(linear-gradient(#2c9ba2, #157fa2)); text-align:center; color:#FFF; @include font-size(16px); text-transform:uppercase; padding:20px 0; position:fixed; z-index:10; top:0; left:0; }
+#nav a{ display:inline-block; @include transition(all 300ms ease-in-out); }
+#nav a:hover{ @include opacity(0.7); }
+#nav span{ display:inline-block; width:1px; height:22px; background-color:#FFF; @include transform(translatey(5px)); margin:0 30px; }
+
+#header{ width:100%; padding:20px 0; background-color:#FFF; overflow:hidden; margin-top:70px; }
+#logo{ float:left; width:20%; height:177px; background:url(../img/logo.png) no-repeat left center; background-size:contain; @include removeText; }
+#enderecos{ float:left; width:80%; }
+#enderecos li{ float:left; width:25%; padding-top:50px; letter-spacing:0em; }
+#enderecos li p{ font-family:$FrutigerCn; line-height:24px; color:#000; }
+#enderecos li p.tel{ color:$Ciano; line-height:32px; }
+#enderecos li p strong{ text-transform:uppercase; @include font-size(21px); color:$Gray; }
+#enderecos li p span{ @include font-size(30px); }
+
+// Banners
+#banner{ position:relative; }
+#banner .owl-nav div{ position:absolute; top:50%; @include transform(translatey(-50%)); width:42px; height:63px; background:no-repeat center center; @include removeText; @include transition(all 300ms ease-in-out); }
+#banner .owl-nav div:hover{ @include opacity(0.7); }
+#banner .owl-nav .owl-prev{ left:12.5%; background-image:url(../img/arw-prev.png); }
+#banner .owl-nav .owl-next{ right:12.5%; background-image:url(../img/arw-next.png); }
+
+// Especialidades
+#especialidades{}
+#especialidades h2{ width:100%; text-align:center; @include background-image(linear-gradient(#2c9ba2, #157fa2)); padding:50px 0; margin-bottom:90px; @include font-size(36px); color:#FFF; text-transform:uppercase; }
+#lista-especialidades{ text-align:center; }
+#lista-especialidades li{ display:inline-block; width:22%; margin:0 1% 3%; vertical-align:top; position:relative; cursor:pointer; }
+#lista-especialidades li .icone{ width:110px; height:110px; @include border-radius(50%); border:1px solid #CCC; margin:0 auto 20px; position:relative; @include transition(all 300ms ease-in-out); }
+#lista-especialidades li.active .icone,
+#lista-especialidades li:hover .icone{ background-color:$Gray; }
+#lista-especialidades li .icone svg{ display:block; fill:$Gray; width:60%; position:absolute; top:50%; left:50%; @include transform(translate(-50%,-50%)); @include transition(all 300ms ease-in-out); }
+#lista-especialidades li.active .icone svg,
+#lista-especialidades li:hover .icone svg{ fill:#FFF; }
+#lista-especialidades li h3{ text-transform:uppercase; min-height:90px; line-height:1.3em; }
+#lista-especialidades li .tooltip{ display:none; position:absolute; top:150px; left:50%; z-index:1; @include transform(translatex(-50%)); background-color:$Gray; color:#FFF; width:440px; padding:25px 50px 25px 30px; }
+#lista-especialidades li .tooltip:before{ content:' '; display:block; width:38px; height:20px; background:url(../img/tooltip.png) no-repeat center center; position:absolute; top:-20px; left:50%; @include transform(translatex(-50%)); }
+#lista-especialidades li .tooltip .fechar{ display:block; width:13px; height:13px; background:url(../img/fechar.png) no-repeat center center; position:absolute; top:20px; right:20px; }
+#lista-especialidades li .tooltip p{ text-align:left; font-family:$Lato; @include font-size(16px); line-height:1.3em; }
+
+#lista-especialidades li .icone.exame svg{ width:80%; }
+#lista-especialidades li .icone.cirurgia svg{ width:46%; }
+#lista-especialidades li .icone.oftalmologia svg{ width:50%; }
+#lista-especialidades li .icone.estrabismo svg{ width:70%; }
+#lista-especialidades li .icone.retina svg{ width:70%; }
+#lista-especialidades li .icone.plastica svg{ width:36%; }
+
+// Exames
+#exames{}
+#exames .wrapper{ max-width:1100px; width:100%; padding:80px 0 50px; margin:80px auto; @include border-radius(20px); background-color:$Silver; position:relative; }
+#exames .icone{ width:110px; height:110px; @include border-radius(50%); background:$Ciano url(../img/ico-exames.png) no-repeat center center; border:5px solid #FFF; position:absolute; top:-55px; left:50%; @include transform(translatex(-50%)); }
+#exames h2{ @include font-size(36px); text-transform:uppercase; text-align:center; margin-bottom:25px; }
+#exames .col{ float:left; width:50%; }
+#exames .col li{ position:relative; margin-bottom:20px; }
+#exames .col li > a{ text-transform:uppercase; }
+#exames .col li .tooltip{ display:none; width:430px; position:absolute; z-index:1; top:-30px; left:-460px; padding:20px 50px 20px 20px; background-color:$Gray; color:#FFF; }
+#exames .col li .tooltip:before{ content:' '; display:block; width:20px; height:38px; background:url(../img/tooltip-left.png) no-repeat center center; position:absolute; top:18px; right:-20px; }
+#exames .col.right li .tooltip{ left:auto; right:-460px; }
+#exames .col.right li .tooltip:before{ right:auto; left:-20px; background-image:url(../img/tooltip-right.png); }
+#exames .col li .tooltip .fechar{ display:block; width:13px; height:13px; background:url(../img/fechar.png) no-repeat center center; position:absolute; top:20px; right:20px; }
+#exames .col li .tooltip p{ font-family:$Lato; @include font-size(16px); line-height:1.3em; }
+
+// Médicos Especialistas
+#medicos h2{ @include font-size(36px); text-transform:uppercase; text-align:center; margin-bottom:60px; color:$Teal; }
+#medicos ul{ text-align:center }
+#medicos ul li{ display:inline-block; width:31%; max-width:460px; padding:40px 0; margin:0 1% 60px; text-transform:uppercase; background-color:$Silver; @include border-radius(20px); }
+
+// Contato
+#contato{ width:100%; padding:90px 0 0; background-color:$Teal; color:#FFF; }
+#contato .scenter{ max-width:1100px; }
+#contato h2{ @include font-size(36px); text-transform:uppercase; text-align:center; margin-bottom:60px; }
+#contato ul{ overflow:hidden; margin-bottom:40px; font-family:$FrutigerCn; }
+#contato ul li{ float:left; width:23%; margin:0 1%; padding:10px; cursor:pointer; }
+#contato ul li:hover,
+#contato ul li.active{ background:rgba(0,0,0,.2); }
+#contato ul li p{ line-height:24px; }
+#contato ul li p strong{ @include font-size(21px); }
+#contato .mapa{ display:none; width:100%; height:300px; @include opacity(0.6); }
+#contato .mapa iframe{ display:block; width:100%; height:100%; }
+#contato #londrina1{ display:block; }
+
+// Rodapé
+#footer{ width:100%; background-color:$Gray; color:#FFF; font-family:$FrutigerCn; letter-spacing:0; padding:15px 0; @include font-size(11px); }
+#footer .logo{ float:left; width:236px; height:60px; background:url(../img/logo-footer.png) no-repeat center center; margin-bottom:15px; }
+#lmenu{ float:right; margin-top:15px; }
+#lmenu li{ display:inline-block; }
+#lmenu li.separador{ width:1px; height:12px; background-color:#FFF; @include transform(translatey(2px)); margin:0 15px; }
+#lmenu li a{ text-transform:uppercase; }
+#footer .copy{ float:left; text-transform:uppercase; }
+#footer .assinatura{ display:block; float:right; text-transform:uppercase; line-height:17px; }
+#footer .assinatura span{ display:inline-block; width:37px; height:17px; margin-left:3px; background:url(../img/m2mp.png) no-repeat center center; @include removeText; @include transform(translatey(3px)); }
+
+// Responsivo
+@media screen and(max-width:1900px){
+	#exames .col li .tooltip{ top:40px; left:50%; @include transform(translatex(-50%)); }
+	#exames .col li .tooltip:before{ width:38px; height:20px; background:url(../img/tooltip.png) no-repeat center center; top:-20px; left:50%; @include transform(translatex(-50%)); }
+	#exames .col.right li .tooltip{ left:50%; right:auto; }
+	#exames .col.right li .tooltip:before{ right:auto; left:50%; background-image:url(../img/tooltip.png); }
+}
+
+@media screen and(max-width:1300px){
+	#medicos ul li{ width:30%; padding:40px 10px; }
+}
+
+@media screen and(max-width:1200px){
+	#logo{ width:100%; background-position:center center; }
+	#enderecos{ width:100%; text-align:center; }
+
+	#lista-especialidades li{ width:46%; }
+
+	#medicos ul li{ width:40%; padding:40px 10px; }
+}
+
+@media screen and(max-width:1024px){
+	#medicos ul li{ display:block; width:100%; max-width:100%; margin:0 0 20px; padding:30px 10px; }
+
+	#contato ul li{ width:48%; margin:0 1%; }
+}
+
+@media screen and(max-width:840px){
+	#nav{ display:none; }
+	#enderecos li{ width:50%; }
+
+	#lista-especialidades li{ width:100%; cursor:default; }
+	#lista-especialidades li h3{ min-height:0; margin-bottom:20px; }
+	#lista-especialidades li .tooltip{ display:block; position:static; @include transform(translatex(0)); width:100%; padding:30px; }
+	#lista-especialidades li .tooltip:before{ content:' '; display:block; width:38px; height:20px; background:url(../img/tooltip.png) no-repeat center center; position:absolute; top:-20px; left:50%; @include transform(translatex(-50%)); }
+	#lista-especialidades li .tooltip .fechar{ display:none; }
+
+	#lista-especialidades li.active .icone,
+	#lista-especialidades li:hover .icone{ background-color:#FFF; }
+	#lista-especialidades li.active .icone svg,
+	#lista-especialidades li:hover .icone svg{ fill:$Gray; }
+
+	#exames .col{ width:100%; }
+	#exames .col li .tooltip{ display:block; width:100%; position:static; padding:20px;  @include transform(translatex(0)); }
+	#exames .col li .tooltip:before{ display:none; }
+	#exames .col li .tooltip .fechar{ display:none; }
+}
+
+@media screen and(max-width:640px){
+	#footer .logo{ width:100%; }
+	#lmenu{ width:100%; text-align:center; margin-bottom:20px; }
+	#footer .copy{ width:100%; text-align:center; margin-bottom:15px; }
+	#footer .assinatura{ width:100%; text-align:center; }
+}
+
+@media screen and(max-width:580px){
+	#contato ul li{ width:100%; margin:0 0 20px; text-align:center; }
+}
+
+@media screen and(max-width:480px){
+	#enderecos li{ width:100%; }
+}
+
+@media screen and(max-width:360px){
+	#lmenu li.separador{ margin:0 5px; }
+}

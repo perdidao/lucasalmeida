@@ -1,0 +1,192 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import url(../fonts/noto.css);
+$Noto:'Noto Sans', Helvetica, Arial, sans-serif;
+$regular:400;
+$bold:600;
+
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+$Pacifico:'Pacifico', serif;
+
+// CORES
+$azul:#094F79;
+$ciano:#3BB8DE;
+$vermelho:#EF404D;
+$amarelo:#FBF23C;
+$verde:#39CF32;
+
+$cinza:#5B5B5B;
+$prata:#9B9B9B;
+
+// ESTILOS GLOBAIS
+body{ font-family:$Noto; @include font-size(16px); @include font-smoothing(on); color:#FFF; }
+@include selection(#FFF,$ciano);
+
+// Header e menu
+#header{ width:100%; position:fixed; z-index:9; top:0; left:0; }
+#topbar{ width:100%; height:80px; background-color:$azul; }
+#logo{ float:left; width:180px; height:130px; background:#FFF url(../img/logo.png) no-repeat center center; @include removeText; }
+#topbar p{ float:left; font-family:$Pacifico; @include font-size(34px); margin:30px 0 0 30px; }
+
+#nav-wrapper{ width:100%; background-color:$ciano; height:55px; line-height:55px; }
+#menu{ float:right; }
+#menu a{ display:inline-block; margin-right:20px; @include transition(all 300ms ease-in-out); }
+#menu a:hover{ color:$amarelo; }
+#menu a.active{ color:$amarelo; font-weight:$bold; }
+#nav-wrapper .fb{ display:block; float:right; width:55px; height:55px; background:#45609D url(../img/ico-facebook.png) no-repeat center center; }
+
+// Banners
+#banner-wrapper{ margin-top:135px; position:relative; }
+#banners{ width:100%; }
+#banners li{ width:100%; height:460px; background-repeat:no-repeat; background-position:center top; }
+#plantao{ position:absolute; bottom:70px; right:70px; z-index:1; width:206px; height:206px; background:url(../img/plantao.png) no-repeat center center; @include removeText; }
+
+#banner-wrapper .center a{ display:block; width:20px; height:35px; position:absolute; bottom:212px; background-repeat:no-repeat; background-position:center center; @include transition(all 300ms ease-in-out); }
+#banner-wrapper .center a:hover{ @include opacity(0.6); }
+#banner-wrapper .center #prev{ left:0; background-image:url(../img/prev.png); }
+#banner-wrapper .center #next{ right:0; background-image:url(../img/next.png); }
+
+.owl-controls{ width:100%; position:absolute; z-index:2; bottom:25px; left:0; text-align:center; }
+.owl-controls .owl-page{ display:inline-block; width:12px; height:12px; margin:0 12px; background-color:#CCC; @include border-radius(50%); @include transition(all 300ms ease-in-out); }
+.owl-controls .owl-page.active{ background-color:#42B7A8; }
+
+// Sobre
+#sobre{ width:100%; min-height:675px; background:#2480A5 url(../img/bkg-sobre.jpg) no-repeat center top; }
+#sobre .col-left{ float:left; margin:80px 0 0 8%; width:48%; position:relative; z-index:2; }
+#sobre .col-left h2{ @include font-size(37px); text-transform:uppercase; font-weight:$bold; }
+#sobre .col-left h2 span{ display:block; @include font-size(30px); line-height:1.2em; margin-bottom:25px; }
+#sobre .col-left h3{ @include font-size(25px); font-weight:$bold; }
+#sobre .col-left p{ @include font-size(18px); line-height:1.2em; margin-bottom:30px; }
+#sobre .faixa{ width:661px; height:254px; background:url(../img/faixa.png) no-repeat center center; @include removeText; position:absolute; z-index:1; bottom:-200px; left:8%; }
+
+// Serviços
+#servicos{ width:100%; padding:160px 0 80px; background:url(../img/bkg-servicos.png) repeat-x center bottom; }
+#servicos h2{ text-align:center; @include font-size(37px); text-transform:uppercase; font-weight:$bold; color:$azul; margin-bottom:40px; }
+#servicos .pagamento{ width:261px; height:144px; background:url(../img/pagamento.png) no-repeat center center; position:absolute; top:-70px; right:-10px; @include removeText; }
+#lista-servicos{}
+#lista-servicos li{ float:left; width:245px; height:245px; margin:0 43px 30px; background-color:$azul; text-align:center; @include border-radius(50%); overflow:hidden; padding:20px; }
+#lista-servicos li .table{ display:table; width:100%; height:100%; }
+#lista-servicos li .table-cell{ display:table-cell; vertical-align:middle; }
+#lista-servicos li a{ width:240px; height:240px; @include font-size(24px); font-weight:$bold; line-height:1.2em; }
+
+.box-servicos{ width:1000px; padding:60px 120px; }
+.box-servicos h2{ @include font-size(40px); font-weight:$bold; font-style:italic; color:$azul; margin-bottom:20px; }
+.box-servicos h2 span{ @include font-size(24px); font-weight:$regular; display:block; color:$prata; margin-bottom:5px; }
+.box-servicos p{ @include font-size(14px); color:$prata; line-height:1.2em; }
+.box-servicos p strong{ display:block; font-weight:$bold; color:$azul; }
+.hide{ display:none; }
+
+// Blog
+#blog{ padding:90px 0; }
+#blog h2{ @include font-size(37px); text-transform:uppercase; font-weight:$bold; color:$vermelho; text-align:center; margin-bottom:40px; }
+#blog ul{}
+#blog ul li{ float:left; width:32%; margin-right:2%; font-style:italic; @include font-size(15px); }
+#blog ul li:last-child{ margin-right:0; }
+#blog ul li img{ display:block; width:100%; margin-bottom:10px; }
+#blog ul li .categoria{ color:$vermelho; line-height:20px; }
+#blog ul li .categoria strong{ font-weight:$bold; }
+#blog ul li .data{ color:$prata; line-height:20px; margin-bottom:10px; }
+#blog ul li h3{ color:$azul; @include font-size(25px); line-height:1.2em; font-weight:$bold; text-transform:uppercase; font-style:normal; margin-bottom:10px; }
+#blog ul li .excerpt{ color:$cinza; line-height:1.2em; }
+#blog ul li .ler-mais{ display:block; float:right; padding:5px 10px; background-color:$vermelho; font-weight:$bold; margin-top:15px; }
+
+#blog .mais-materias{ display:block; float:right; height:45px; padding:0 50px 0 20px; margin-top:45px; background:$azul url(../img/pointer.png) no-repeat right center; line-height:45px; @include font-size(25px); font-weight:$bold; font-style:italic; }
+
+// Galeria de Fotos
+#fotos{ padding:110px 0 70px; background-color:$ciano; }
+#fotos h2{ @include font-size(37px); text-transform:uppercase; font-weight:$bold; text-align:center; margin-bottom:40px; }
+#fotos ul{}
+#fotos ul li{ float:left; width:32%; margin:0 2% 2% 0; padding:10px; background-color:#FFF; }
+#fotos ul li.double{ width:66%; margin-right:0; }
+#fotos ul li:nth-child(3n){ margin-right:0; }
+#fotos ul li a{ display:block; }
+#fotos ul li a img{ display:block; width:100%; }
+
+// Newsletter
+#newsletter{ width:100%; padding:50px 0; background:url(../img/bkg-newsletter.png) repeat center center; }
+#newsletter .f-left{ float:left; margin-left:8%; font-weight:$bold; }
+#newsletter .f-left h2{ @include font-size(40px); text-transform:uppercase; }
+#newsletter .f-left p{ @include font-size(22px); font-style:italic; }
+#newsletter .f-right{ float:right; width:50%; margin-top:10px; }
+#newsletter .f-right input{ display:block; float:left; width:72%; height:45px; border:2px solid #CCC; background-color:#FFF; font-weight:$bold; font-style:italic; @include font-size(20px); font-family:inherit; color:$cinza; text-align:center; @include font-smoothing(on); }
+#newsletter .f-right #assinar{ display:block; float:left; width:28%; height:45px; border:0; background-color:$azul; font-family:$Noto; @include font-size(20px); font-style:italic; font-weight:$bold; color:#FFF; cursor:pointer; @include transition(all 300ms ease-in-out); }
+#newsletter .f-right #assinar:hover{ @include opacity(0.8); }
+
+// Contato
+#contato{ width:100%; padding:80px 0; background-color:$azul; }
+#contato h2{ @include font-size(37px); text-transform:uppercase; font-weight:$bold; margin-bottom:30px; padding-bottom:30px; border-bottom:1px solid #FFF; }
+#contato .f-left{ float:left; width:55%; }
+#contato .f-left input,
+#contato .f-left textarea{ display:block; float:left; width:100%; height:40px; background:#FFF; border:0; padding:0 10px; color:$cinza; font-family:$Noto; @include font-size(14px); font-style:italic; margin-bottom:10px; }
+#contato .f-left textarea{ height:260px; resize:none; padding:5px 10px; }
+#contato .f-left input.mail{ width:60%; margin-right:2%; }
+#contato .f-left input.tel{ width:38%; }
+#contato .f-left #enviar{ display:block; width:100%; height:40px; background-color:$verde; border:0; color:#FFF; font-family:$Noto; font-weight:$bold; @include font-size(25px); font-style:italic; text-transform:uppercase; cursor:pointer; @include transition(all 300ms ease-in-out); }
+#contato .f-left #enviar:hover{ @include opacity(0.8); }
+#contato .f-left p{ @include font-size(12px); margin-top:10px; }
+#contato .f-right{ float:left; width:33%; margin-left:4%; line-height:1.2em; }
+#contato .f-right h3{ @include font-size(18px); margin-bottom:5px; }
+#contato .f-right p{ @include font-size(14px); margin-bottom:20px; }
+#contato .f-right p strong{ @include font-size(28px); font-weight:$bold; display:block; }
+#contato .f-right p strong span{ @include font-size(18px); }
+#contato .f-right h4{ @include font-size(18px); font-style:italic; font-weight:$bold; text-transform:uppercase; margin:10px 0 15px; }
+
+// Aviso
+#disclaimer{ position:fixed; z-index:999; left:0; top:0; width:100%; height:100%; background-color:rgba(4,31,47,.9); }
+#disclaimer .inner{ max-width:600px; padding:40px; position:absolute; top:50%; left:50%; @include transform(translate(-50%, -50%)); background-color:#FFF; @include border-radius(5px); color:$cinza; }
+#disclaimer .inner #fechar{ position:absolute; top:-15px; right:-15px; width:30px; height:30px; @include border-radius(50%); background:$vermelho url(../img/fechar.png) no-repeat center center; }
+#disclaimer .inner h2{ @include font-size(22px); color:$vermelho; margin-bottom:20px; text-align:center; }
+#disclaimer .inner p{ line-height:1.4em; margin:0 0 10px; text-align:justify; }
+#disclaimer .inner p strong{ font-weight:$bold; }
+
+// Responsivo
+@media screen and(max-width:960px){
+	#sobre .col-left{ margin:80px 0 0 0; width:60%; }
+	#sobre .faixa{ width:100%; bottom:-200px; left:0; background-size:contain; }
+}
+
+@media screen and(max-width:860px){
+	#menu{ display:none; }
+
+	#sobre .col-left{ width:80%; }
+
+	#servicos .pagamento{ display:none; }
+
+	#lista-servicos li{ float:none; margin:0 auto 20px; }
+
+	#newsletter .f-left{ width:100%; margin:0 0 30px; text-align:center; }
+	#newsletter .f-right{ width:100%; }
+}
+
+@media screen and(max-width:660px){
+	#contato .f-left{ width:100%; margin:0 0 30px; }
+	#contato .f-right{ width:100%; margin:0; text-align:center; }
+}
+
+@media screen and(max-width:560px){
+	#topbar p{ display:none; }
+	#plantao{ bottom:-20px; right:20px; }
+
+	#sobre .col-left{ width:100%; }
+
+	#blog ul li{ width:100%; margin:0 0 20px; }
+}
+
+@media screen and(max-width:460px){
+	#sobre .faixa{ display:none; }
+
+	#blog .mais-materias{ padding:0 40px 0 10px; width:100%; }
+
+	#fotos ul li,
+	#fotos ul li.double{ width:100%; margin:0 0 2%; }
+
+	#newsletter .f-right input,
+	#newsletter .f-right #assinar{ width:100%; }
+
+	#contato .f-left input.mail,
+	#contato .f-left input.tel{ width:100%; margin:0 0 10px; }
+}

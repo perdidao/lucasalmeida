@@ -1,0 +1,130 @@
+// Dependências
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// Fontes ☆
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+$Open:'Open Sans', Helvetica, Arial, sans-serif;
+$regular:400;
+$bold:700;
+
+// Cores ☆
+$grafite:#333;
+$cinza:#888;
+$vermelho:#E46F6A;
+$salmao:#FB908F;
+
+/* ☆  Estilos globais ☆  */
+body{ font-weight:$regular; @include font-size(18px); font-family:$Open; color:$cinza; @include font-smoothing(on); background:url(../img/star.png) no-repeat left bottom; }
+@include selection(#FFF,$salmao);
+
+#content{ position:relative; z-index:9; }
+#glitch{ position:absolute; z-index:1; top:0; right:0; width:764px; height:710px; background:url(../img/animate.gif) no-repeat left bottom; }
+
+h2{ @include font-size(50px); line-height:1em; color:$grafite; margin-bottom:55px; }
+
+/* ☆  Cabeçalho ☆  */
+#header{ position:fixed; z-index:10; top:0; left:0; width:100%; padding-top:60px; @include transition(all 300ms ease-in-out); }
+#header.scrolled{ background-color:#FFF; padding:20px 0; }
+#header .center{ overflow:hidden; }
+#header h1{ float:left; }
+#logo{ display:block; }
+#menu{ float:right; @include font-size(16px); }
+#menu a{ display:inline-block; vertical-align:middle; margin-right:70px; @include transition(all 300ms ease-in-out); }
+#menu a:hover{ color:$salmao; }
+#menu a.btn{ background-color:$salmao; height:50px; line-height:50px; padding:0 50px; margin:0; color:#FFF; font-weight:$bold; }
+#menu a.btn:hover{ color:#FFF; @include opacity(0.4); }
+
+/* ☆  Headlines ☆  */
+#headlines{ margin:110px 0 120px; min-height:590px; position:relative; }
+#headlines li{ padding-top:120px; }
+#headlines li p{ line-height:38px; max-width:640px; margin-bottom:55px; }
+#headlines li .btn{ display:inline-block; padding:18px 30px 20px; background-color:$salmao; @include font-size(16px); font-weight:$bold; line-height:1em; color:#FFF; @include transition(all 300ms ease-in-out); }
+#headlines li .btn:hover{ @include opacity(0.4); }
+
+#headlines .owl-dots{ position:absolute; bottom:30px; left:0; width:100%; text-align:center; }
+#headlines .owl-dots .owl-dot{ display:inline-block; width:10px; height:10px; margin:0 15px; background-color:#DDD; @include border-radius(50%); @include transition(all 300ms ease-in-out); }
+#headlines .owl-dots .owl-dot.active{ background-color:$salmao; }
+
+/* ☆  Sobre ☆  */
+#sobre{ overflow:hidden; padding-bottom:120px; }
+#sobre h2{ text-align:center; }
+#sobre .sub{ max-width:900px; margin:0 auto 60px; line-height:38px; }
+#sobre .col{ float:left; width:23%; margin:0 1%; }
+#sobre .col .ico{ height:130px; margin-bottom:30px; }
+#sobre .col .ico object{ vertical-align:bottom; }
+#sobre .col h3{ @include font-size(30px); line-height:1em; color:$grafite; margin-bottom:30px; }
+#sobre .col p{ @include font-size(16px); line-height:24px; }
+
+/* ☆  Contato ☆  */
+#contato{ padding-bottom:120px; overflow:hidden; }
+#contato .col-left{ float:left; width:49%; }
+#contato .col-left p{ line-height:38px; }
+#contato .col-right{ float:left; width:48%; margin:110px 0 0 2%; }
+#contato input,
+#contato textarea{ display:block; width:100%; height:60px; padding:0 20px; margin-bottom:20px; background:#FFF; border:1px solid $vermelho; font-family:$Open; @include font-size(18px); color:$cinza; }
+#contato textarea{ height:180px; padding:10px 20px; resize:none; }
+#contato button{ display:block; width:100%; height:60px; background:$salmao; border:1px solid $vermelho; font-family:$Open; @include font-size(18px); font-weight:$bold; letter-spacing:0.3em; color:#FFF; text-transform:uppercase; @include transition(all 300ms ease-in-out); cursor:pointer; }
+#contato button:hover{ @include opacity(0.4); }
+#contato .aviso{ padding:20px 0 0; line-height:1.3em; text-align:center; }
+#contato .aviso.error{ color:$vermelho; }
+#contato .aviso.success{ color:#0C6; }
+
+/* ☆  Rodapé ☆  */
+#footer{ overflow:hidden; padding-bottom:60px; }
+#quotes{ text-align:center; padding-bottom:120px; }
+#quotes li h2{ line-height:1.3em; min-height:140px; margin-bottom:10px; }
+#quotes li p{ padding-bottom:10px; }
+#footer .assinatura{ float:right; @include font-size(12px); line-height:18px; text-align:right; padding:10px 80px 0 0; background:url(../img/assinatura.png) no-repeat right center; }
+
+/* ☆  Responsivo ☆  */
+@media screen and(max-width:1440px){
+	body{ background-position:-300px bottom; }
+	#glitch{ width:500px; }
+}
+
+@media screen and(max-width:1140px){
+	#sobre .col h3{ @include font-size(24px); }
+}
+
+@media screen and(max-width:1024px){
+	#headlines li{ padding:60px 0; }
+	#glitch{ width:400px; height:690px; }
+
+	#sobre{ padding-bottom:60px; }
+	#sobre .col{ width:48%; margin-bottom:60px; }
+
+	#contato .col-left{ width:55%; }
+	#contato .col-right{ width:42%; margin:110px 0 0 2%; }
+}
+
+@media screen and(max-width:860px){
+	#header{ position:static; padding-top:20px 0 0; }
+	#menu{ display:none; }
+	#glitch{ display:none; }
+
+	#headlines{ margin:0 0 60px; min-height:0; }
+	#headlines li h2{ line-height:1.3em; }
+
+	#contato .col-left{ width:100%; }
+	#contato .col-right{ width:100%; margin:60px 0 0; }
+}
+
+@media screen and(max-width:640px){
+	#sobre{ padding-bottom:0; text-align:center; }
+	#sobre .col{ width:100%; margin:0 0 60px; }
+}
+
+@media screen and(max-width:440px){
+	body{ @include font-size(16px); text-align:center; }
+	h2{ @include font-size(40px); line-height:1.2em; margin-bottom:30px; }
+
+	#header h1{ float:none; }
+	#headlines li p{ margin-bottom:30px; }
+	#headlines .owl-dots{ bottom:0; }
+
+	#footer .assinatura{ float:none; text-align:center; padding:0; background:none; }
+}
+

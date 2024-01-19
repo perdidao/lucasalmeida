@@ -1,0 +1,20 @@
+.footer{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    background:$black url(../images/bkg-signature.jpg) no-repeat center center;
+    background-size:cover;
+    
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    &__signature{
+        width:rfs(315px);
+
+        img{
+            display:block;
+            max-width:100%;
+        }
+    }
+}

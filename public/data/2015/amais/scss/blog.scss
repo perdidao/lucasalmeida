@@ -1,0 +1,166 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import url(fonts.css);
+$FruBd:'FrutigerLTStd-BoldCn', -apple-system, '.SFNSText-Regular', 'Helvetica Neue', 'Roboto', 'Segoe UI', sans-serif;
+$FruLt:'FrutigerLT-LightCn', -apple-system, '.SFNSText-Regular', 'Helvetica Neue', 'Roboto', 'Segoe UI', sans-serif;
+$Univers:'UniversLT-CondensedBold', -apple-system, '.SFNSText-Regular', 'Helvetica Neue', 'Roboto', 'Segoe UI', sans-serif;
+
+// CORES
+$Azul:#309CCA;
+$Azul-a:rgba(48,156,202,0.8);
+
+$Laranja:#F58220;
+$Laranja-a:rgba(245,130,32,0.8);
+
+$Verde:#23B58A;
+$Verde-a:rgba(35,181,138,0.8);
+
+$Vermelho:#CF2D2D;
+$Vermelho-a:rgba(207,45,45,0.8);
+
+$Amarelo:#E0BC02;
+
+$Prata:#888;
+$Cinza:#666;
+$Chumbo:#333;
+
+// ESTILOS GLOBAIS
+body{ font-family:$FruLt; color:#666; @include font-size(18px); line-height:24px; }
+@include selection(#FFF,$Azul);
+
+// TOPO
+#parallax{ width:100%; height:200px; background:url(../img/bkg-sobre.jpg) repeat center top; border-top:5px solid $Azul; }
+
+// MENU
+#menu{ width:100%; padding:15px 0 5px; margin:0 0 75px; background:#FFF url(../img/sdw-menu.jpg) no-repeat center top; @include box-shadow(0 0 6px rgba(0,0,0,.2)); }
+#logo-wrapper{ position:absolute; top:-30px; left:0; width:140px; height:120px; background:url(../img/box-logo.png) no-repeat center top; }
+#logo-wrapper a{ display:block; width:91px; height:54px; margin:33px auto 0; background:url(../img/logo.png) no-repeat center center; @include removeText; }
+#menu ul{ float:left; margin-left:20%; }
+#menu ul li{ float:left; margin:0 40px; }
+#menu ul li a{ display:block; height:60px; line-height:60px; font-family:$Univers; text-transform:uppercase; @include font-smoothing(on); @include transition(all 300ms ease-in-out); }
+#menu ul li a.tudo:hover{ color:$Amarelo; }
+#menu ul li a.novidades:hover{ color:$Vermelho; }
+#menu ul li a.saude:hover{ color:$Verde; }
+#menu ul li a.treino:hover{ color:$Laranja; }
+#menu ul li a.equipe:hover{ color:$Azul; }
+
+// POSTS
+#conteudo .center{ max-width:820px; }
+#conteudo .col-left{ float:left; width:60%; margin-right:10%; }
+#conteudo .col-right{ float:left; width:30%; }
+
+#conteudo .post{ margin-bottom:60px; }
+#conteudo .post header{ padding:0 20px; margin-bottom:40px; }
+#conteudo .post header h2{ @include font-size(30px); font-style:italic; line-height:1.1em; color:$Azul; }
+#conteudo .post header .timestamp{ display:inline-block; @include font-size(12px); }
+#conteudo .post header .assunto{ display:inline-block; @include font-size(14px); padding:2px 15px; margin-left:10px; color:#FFF; line-height:1em; }
+#conteudo .post header .assunto.treino{ background-color:$Laranja; }
+#conteudo .post header .assunto.equipe{ background-color:$Azul; }
+#conteudo .post header .assunto.saude{ background-color:$Verde; }
+#conteudo .post header .assunto.novidades{ background-color:$Vermelho; }
+#conteudo figure{ width:100%; }
+#conteudo figure img{ display:block; width:100%; }
+#conteudo .texto{ padding:0 20px; margin:40px 0 0; @include font-size(14px); line-height:24px; text-align:justify; color:$Chumbo; }
+#conteudo .veja-mais{ display:block; float:right; padding-right:12px; text-transform:uppercase; color:$Prata; @include font-size(16px); background:url(../img/veja-mais.png) no-repeat right center; @include transition(all 300ms ease-in-out); }
+#conteudo .veja-mais:hover{ @include opacity(0.6); }
+
+#continue{ display:block; text-align:center; padding-bottom:8px; @include font-size(16px); text-transform:uppercase; color:$Prata; background:url(../img/arw-down.png) no-repeat center bottom; @include transition(all 300ms ease-in-out); }
+#continue:hover{ @include opacity(0.6) };
+
+// ASIDE
+#info{ width:100%; padding-top:210px; background:url(../img/selo.png) no-repeat center top; text-align:center; }
+#info h2{ @include font-size(25px); }
+#info p{ width:100%; margin-top:10px; @include font-size(14px); background:url(../img/linhas.png) no-repeat center center; }
+
+#backup{ margin-top:60px; }
+#backup h2{ text-transform:uppercase; font-family:$FruBd; font-style:italic; text-align:center; color:$Chumbo; margin-bottom:10px; }
+#backup .btn-datas{ display:block; width:100%; padding:15px; border:1px solid $Cinza; color:$Chumbo; text-transform:uppercase; @include font-size(16px); text-align:center; background:url(../img/arw-drop.png) no-repeat right center; }
+#arquivo{ display:none; width:100%; }
+#arquivo li a{ display:block; width:100%; text-align:center; padding:10px; border:1px solid $Cinza; border-top:0; text-transform:uppercase; @include transition(all 300ms ease-in-out); }
+#arquivo li a:hover{ background:#e4f0fc; }
+
+#facebook{ margin-top:60px; }
+#facebook h2{ text-align:center; @include font-size(28px); color:$Chumbo; font-style:italic; margin-bottom:20px; }
+#facebook h2 strong{ display:block; @include font-size(36px); color:#4260b4; font-style:normal; }
+
+// MATÉRIA
+#post{ margin-bottom:60px; }
+#post header{ padding:0 20px; margin-bottom:40px; }
+#post header .assunto{ display:inline-block; @include font-size(14px); padding:2px 15px; margin-bottom:30px; color:#FFF; line-height:1em; }
+#post header h2{ @include font-size(46px); font-style:italic; line-height:1.1em; color:$Azul; text-align:center; }
+#post header .timestamp{ @include font-size(12px); text-align:center; margin-top:20px; }
+#post header .assunto.treino{ background-color:$Laranja; }
+#post header .assunto.equipe{ background-color:$Azul; }
+#post header .assunto.saude{ background-color:$Verde; }
+#post header .assunto.novidades{ background-color:$Vermelho; }
+#post figure{ width:100%; }
+#post figure img{ display:block; width:100%; }
+#post figure .caption{ margin-top:15px; padding-top:5px; @include font-size(14px); line-height:24px; color:$Chumbo; background:url(../img/linha.png) no-repeat left top; }
+#post .conteudo p{ padding:0 20px; margin:30px 0; @include font-size(14px); line-height:24px; text-align:justify; color:$Chumbo; }
+#post .veja-mais{ display:block; float:right; padding-right:12px; text-transform:uppercase; color:$Prata; @include font-size(16px); background:url(../img/veja-mais.png) no-repeat right center; @include transition(all 300ms ease-in-out); }
+#post .veja-mais:hover{ @include opacity(0.6); }
+
+#conteudo .veja-tambem h2{ text-align:center; text-transform:uppercase; @include font-size(16px); color:$Prata; margin-bottom:20px; }
+#conteudo .veja-tambem .post{ display:block; float:left; width:48%; margin:0 4% 30px 0; position:relative; }
+#conteudo .veja-tambem .post.last{ margin-right:0; }
+#conteudo .veja-tambem .post img{ display:block; width:100%; }
+#conteudo .veja-tambem .post .assunto{ position:absolute; top:10px; left:10px; padding:2px 15px; @include font-size(14px); line-height:1em; color:#FFF; }
+#conteudo .veja-tambem .post .titulo{ position:absolute; bottom:0; left:0; width:100%; padding:5px 10px; @include font-size(14px); line-height:1em; color:#FFF; }
+
+#conteudo .veja-tambem .proximo{ display:block; float:left; width:33.33%; @include font-size(20px); text-transform:uppercase; text-align:right; padding-right:12px; background:url(../img/next.png) no-repeat right center; @include font-size(14px); color:$Prata; }
+#conteudo .veja-tambem .inicio{ display:block; float:left; width:33.33%; @include font-size(20px); text-transform:uppercase; text-align:center; @include font-size(14px); color:$Prata; }
+#conteudo .veja-tambem .anterior{ display:block; float:left; width:33.33%; @include font-size(20px); text-transform:uppercase; text-align:left; padding-left:12px; background:url(../img/prev.png) no-repeat left center; @include font-size(14px); color:$Prata; }
+
+#conteudo .veja-tambem .post.treino .assunto,
+#conteudo .veja-tambem .post.treino .titulo{ background-color:$Laranja-a; }
+#conteudo .veja-tambem .post.equipe .assunto,
+#conteudo .veja-tambem .post.equipe .titulo{ background-color:$Azul-a; }
+#conteudo .veja-tambem .post.saude .assunto,
+#conteudo .veja-tambem .post.saude .titulo{ background-color:$Verde-a; }
+#conteudo .veja-tambem .post.novidades .assunto,
+#conteudo .veja-tambem .post.novidades .titulo{ background-color:$Vermelho-a; }
+
+#share{ padding:5px 5px 0 10px; border:1px solid #CCC; margin:20px 0; }
+#share h2{ display:inline-block; float:left; text-transform:uppercase; @include font-size(14px); line-height:34px; margin-right:10px; }
+
+// FOOTER
+#footer{ width:100%; background-color:#003C53; color:#D8D9D8; padding:20px 0; margin-top:60px; }
+#bottom-logo{ float:left; width:76px; height:36px; background:url(../img/assinatura.png) no-repeat center center; }
+#bottom-menu{ float:right; }
+#bottom-menu li{ display:inline-block; @include font-size(14px); text-transform:uppercase; }
+#bottom-menu li.separador{ margin:0 10px; }
+#bottom-menu li a{ @include transition(all 300ms ease-in-out); }
+#bottom-menu li a:hover{ @include opacity(0.6); }
+#footer .redes{ float:right; margin-left:30px; }
+#footer .redes p{ float:left; @include font-size(14px); font-style:italic; line-height:22px; }
+#footer .redes .ico-facebook{ display:block; float:left; width:22px; height:22px; margin-left:10px; background:url(../img/fb.png) no-repeat center center; }
+
+// RESPONSIVO
+@media screen and(max-width:930px){
+	#menu ul li{ float:left; margin:0 25px; }
+}
+
+@media screen and(max-width:840px){
+	#bottom-menu{ display:none; }
+}
+
+@media screen and(max-width:800px){
+	#logo-wrapper{ left:50%; @include transform(translatex(-50%)); }
+	#menu ul{ display:none; }
+}
+
+@media screen and(max-width:720px){
+	#conteudo .col-left{ width:100%; margin-right:0; }
+	#conteudo .col-right{ display:none; }
+
+	#share{ padding:5px 5px 0; text-align:center; }
+	#share h2{ display:none; }
+}
+
+@media screen and(max-width:540px){
+	#conteudo .veja-tambem .post{ width:100%; margin:0 0 30px; }	
+}

@@ -1,0 +1,306 @@
+// ‡‡ Dependências ‡‡
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// ‡‡ Fontes ‡‡
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600');
+
+$Montserrat:'Montserrat', Helvetica, Arial, sans-serif;
+$Book:'Book Antiqua', 'Palatino', 'Palatino Linotype', 'Palatino LT STD', Georgia, serif;
+
+$regular:400;
+$semibold:600;
+
+// ‡‡ Cores ‡‡
+$preto:#000;
+$branco:#FFF;
+
+/* ‡‡ Regras gerais ‡‡ */
+body{ font-family:$Montserrat; font-weight:$regular; color:#000; @include font-size(12px); @include font-smoothing(on); }
+@include selection(#FFF,#000);
+
+/* ‡‡ Topo, menu e banners ‡‡ */
+#header{ width:100%; padding:7px 3%; position:fixed; z-index:1000; top:0; left:0; background-color:#FFF; overflow:hidden; }
+#btn-menu{
+    display:block;
+    float:left;
+    width:22px;
+    height:15px;
+    margin-top:10px;
+    position:relative;
+    @include transition(all 300ms ease-in-out);
+    & span,
+    &:before,
+    &:after{
+        content:" ";
+        display:block;
+        width:22px;
+        height:3px;
+        background-color:#000;
+        @include transform(rotate(0));
+        position:absolute;
+        left:0;
+        @include transition(all 300ms ease-in-out);
+    }
+        
+    &:before{ top:0; }
+    & span{ top:6px; @include opacity(1); }
+    &:after{ bottom:0; }
+    
+    &.active span{ @include opacity(0); }
+    &.active:before{ width:22px; top:6px; left:0; @include transform(rotate(45deg)); }
+    &.active:after{ width:22px; bottom:6px; left:0; @include transform(rotate(-45deg)); } 
+}
+#logo{ display:block; float:right; width:75px; height:34px; background:url(../img/logo.png) no-repeat center center; @include removeText; }
+
+#menu-wrapper{ display:none; position:fixed; z-index:999; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,.95); color:#FFF; }
+#menu-wrapper .inner{ position:absolute; top:50%; left:50%; @include transform(translate(-50%,-50%)); text-align:center; letter-spacing:0.2em; }
+#menu-wrapper .inner p{ text-transform:uppercase; margin-bottom:40px; }
+#menu{}
+#menu li{ margin:10px 0; }
+#menu li a{ display:block; @include font-size(35px); text-transform:uppercase; padding:10px 0; font-weight:$semibold; @include transition(all 300ms ease-in-out); }
+#menu li a:hover{ @include opacity(0.6); }
+#menu li a.active:before{ content:'_'; }
+
+#menu-wrapper .lower{ width:100%; position:absolute; left:0; bottom:30px; text-align:center; }
+#social{ margin-bottom:30px; }
+#social li{ display:inline-block; }
+#social li a{ display:block; width:18px; height:18px; margin:0 7px; background:no-repeat center center; @include transition(all 300ms ease-in-out); }
+#social li a:hover{ @include opacity(0.6); }
+#social li a.be{ background-image:url(../img/ico-be-b.png); }
+#social li a.in{ background-image:url(../img/ico-in-b.png); }
+#social li a.fb{ background-image:url(../img/ico-fb-b.png); }
+#menu-wrapper .lower p{ font-family:$Book; @include font-size(10px); letter-spacing:0.05em; }
+
+#banners{ position:relative; margin-bottom:100px; }
+#banners .owl-dots{ width:100%; position:absolute; left:0; bottom:70px; text-align:center; }
+#banners .owl-dots .owl-dot{ display:inline-block; width:8px; height:8px; margin:0 56px; border:1px solid #FFF; @include transition(all 300ms ease-in-out); }
+#banners .owl-dots .owl-dot.active{ background-color:#FFF; }
+#banners .scroll{ display:inline-block; position:absolute; z-index:10; left:15%; bottom:0; color:#FFF; text-transform:uppercase; letter-spacing:0.2em; @include transform(rotate(-90deg) translatex(49%)); }
+#banners .scroll:before{ content:' '; display:inline-block; width:260px; height:2px; margin-right:10px; background-color:#FFF; }
+
+/* ‡‡ Sobre ‡‡ */
+#sobre{ margin-bottom:170px; }
+#sobre .upper{ max-width:480px; margin:0 auto 100px; letter-spacing:0.2em; }
+#sobre .upper h1{ text-transform:uppercase; margin-bottom:40px; text-align:center; }
+#sobre .upper p{ text-align:justify; line-height:24px; letter-spacing:0.2em; margin-bottom:30px; }
+#sobre .lower{}
+#sobre .lower blockquote{ float:left; width:75%; text-align:justify; font-family:$Book; @include font-size(36px); line-height:48px; margin-bottom:20px; }
+#sobre .lower .social{ float:right; margin-top:8px; }
+#sobre .lower .social li{ margin-bottom:30px; }
+#sobre .lower .social li a{ display:block; width:18px; height:18px; background:no-repeat center center; @include transition(all 300ms ease-in-out); }
+#sobre .lower .social li a:hover{ @include opacity(0.6); }
+#sobre .lower .social li a.be{ background-image:url(../img/ico-be.png); }
+#sobre .lower .social li a.in{ background-image:url(../img/ico-in.png); }
+#sobre .lower .social li a.fb{ background-image:url(../img/ico-fb.png); }
+#sobre .lower p{ clear:both; letter-spacing:0.2em; }
+
+/* ‡‡ Projetos ‡‡ */
+#projetos{ margin-bottom:70px; }
+#lista-categorias{ width:100%; margin-bottom:50px; text-align:center; }
+#lista-categorias li{ display:inline-block; margin:0 70px; }
+#lista-categorias li a{ text-transform:uppercase; letter-spacing:0.2em; position:relative; }
+#lista-categorias li a.active:before{ content:' '; display:block; width:15px; height:1px; background-color:#000; position:absolute; bottom:4px; left:-23px; }
+
+#lista-projetos{}
+#lista-projetos li{ width:25%; padding:0 1px 1px 0; position:relative; }
+#lista-projetos li.hori{ width:50%; }
+#lista-projetos li img{ display:block; width:100%; }
+#lista-projetos li .hover{ @include opacity(0); position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,.95); @include transition(all 300ms ease-in-out); }
+#lista-projetos li:hover .hover{ @include opacity(1); }
+#lista-projetos li .hover .inner{ position:absolute; top:50%; left:50%; @include transform(translate(-50%,-50%)); color:#FFF; text-align:center }
+#lista-projetos li .hover .inner .cat{ display:inline-block; text-transform:uppercase; letter-spacing:0.2em; margin-bottom:20px; position:relative; }
+#lista-projetos li .hover .inner .cat:before{ content:' '; display:block; width:15px; height:1px; background-color:#FFF; position:absolute; bottom:4px; left:-23px; }
+#lista-projetos li .hover .inner .tit{ @include font-size(35px); text-transform:uppercase; letter-spacing:0.2em; font-weight:$semibold; margin-bottom:20px; }
+#lista-projetos li .hover .inner .link{ font-family:$Book; @include font-size(10px); letter-spacing:0.05em; }
+
+/* ‡‡ Serviços ‡‡ */
+#servicos{ margin-bottom:90px; overflow:hidden; }
+#servicos h2{ text-align:center; text-transform:uppercase; margin-bottom:100px; }
+#servicos h2:before{ content:'_'; }
+.info-box{ float:left; width:25%; min-height:300px; margin:0 25% 30px 0; letter-spacing:0.18em; }
+.info-box.alt{ margin:0 0 30px 25%; }
+.info-box h3{ text-transform:uppercase; text-align:center; padding-bottom:25px; border-bottom:1px solid #000; margin-bottom:20px; }
+.info-box h1{ text-transform:uppercase; text-align:center; padding-bottom:25px; }
+.info-box p{ line-height:24px; text-align:justify; }
+.info-box p a{ font-weight:$semibold; }
+
+.destaque{ float:left; width:50%; min-height:300px; margin-bottom:30px; }
+.destaque blockquote{ font-family:$Book; @include font-size(36px); line-height:48px; text-align:justify; margin-bottom:15px; }
+.destaque p{ line-height:24px; letter-spacing:0.2em; }
+
+/* ‡‡ Clientes ‡‡ */
+#clientes{ margin-bottom:180px; }
+#clientes h2{ text-align:center; text-transform:uppercase; margin-bottom:100px; }
+#clientes h2:before{ content:'_'; }
+#clientes ul{ width:90%; max-width:1220px; margin:0 auto; padding-bottom:100px; position:relative; }
+#clientes ul li{ padding:0 20px; }
+#clientes ul .owl-dots{ width:100%; position:absolute; left:0; bottom:0; text-align:center; }
+#clientes ul .owl-dots .owl-dot{ display:inline-block; width:8px; height:8px; margin:0 56px; border:1px solid #000; @include transition(all 300ms ease-in-out); }
+#clientes ul .owl-dots .owl-dot.active{ background-color:#000; }
+
+/* ‡‡ Projeto ‡‡ */
+#projeto{ padding-top:100px; overflow:hidden; }
+#projeto .btn-voltar{ display:inline-block; margin:0 0 30px 3%; text-transform:uppercase; letter-spacing:0.2em; }
+#projeto .info-box,
+#projeto .destaque{ margin-bottom:50px; }
+#projeto .imagem-principal{ clear:both; margin-bottom:70px; }
+#projeto .imagem-principal img{ display:block; max-width:100%; }
+#projeto .inspiracao{ width:75%; margin-left:25%; margin-bottom:70px; }
+#projeto .inspiracao blockquote{ font-family:$Book; @include font-size(36px); line-height:48px; text-align:justify; margin-bottom:15px; }
+#projeto .inspiracao p{ text-align:justify; max-width:66%; line-height:24px; letter-spacing:0.2em; }
+#projeto .processo{ position:relative; margin-bottom:15px; }
+#projeto .processo img{ display:block; max-width:100%; }
+#projeto .processo p{ display:inline-block; text-transform:uppercase; letter-spacing:0.2em; position:absolute; top:50%; right:-100px; @include transform(rotate(-90deg) translatey(-50%)); }
+#projeto .processo p:before{ content:'_'; }
+#projeto .imagem-principal2{ margin-bottom:15px; }
+#projeto .imagem-principal2 img{ display:block; max-width:100%; }
+#projeto .apresentacao{ width:75%; margin:0 0 80px 25%; }
+#projeto .apresentacao img{ display:block; max-width:100%; }
+#projeto .identidade{ width:100%; text-align:center; margin-bottom:100px; }
+#projeto .identidade img{ display:inline-block; max-width:90%; }
+#projeto a{ @include transition(all 300ms ease-in-out); }
+#projeto a:hover{ @include opacity(0.6); }
+#projeto .behance{ display:block; float:right; line-height:24px; letter-spacing:0.2em; padding-right:45px; margin:0 3% 50px 0; background:url(../img/ico-be.png) no-repeat right center; }
+#projeto .voltar{ clear:both; display:block; width:100%; padding:15px 0; margin-bottom:30px; background-color:#EEE; text-transform:uppercase; letter-spacing:0.2em; text-align:center; }
+
+/* ‡‡ Empresa ‡‡ */
+#empresa{ position:relative; margin-bottom:100px; }
+#empresa h1{ text-transform:uppercase; margin-bottom:40px; text-align:center; }
+#empresa p{ max-width:480px; margin:0 auto 30px; text-align:justify; line-height:24px; letter-spacing:0.2em; }
+#empresa blockquote{ width:75%; text-align:justify; font-family:$Book; @include font-size(36px); line-height:48px; margin-bottom:30px; }
+#empresa .social{ position:absolute; top:100px; right:0; }
+#empresa .social li{ margin-bottom:30px; }
+#empresa .social li a{ display:block; width:18px; height:18px; background:no-repeat center center; @include transition(all 300ms ease-in-out); }
+#empresa .social li a:hover{ @include opacity(0.6); }
+#empresa .social li a.be{ background-image:url(../img/ico-be.png); }
+#empresa .social li a.in{ background-image:url(../img/ico-in.png); }
+#empresa .social li a.fb{ background-image:url(../img/ico-fb.png); }
+
+#socios{ position:relative; margin-bottom:15px; }
+#socios img{ display:block; width:100%; }
+#socios .note{ position:absolute; top:30%; right:8%; padding-top:15px; border-top:1px solid #000; }
+#socios .note p{ line-height:24px; letter-spacing:0.2em; }
+#socios .note strong{ display:block; font-weight:$semibold; }
+
+#galeria{ width:90%; max-width:960px; margin:0 auto 100px; position:relative; }
+#galeria li{ padding:0 7px; }
+#galeria .owl-prev,
+#galeria .owl-next{ width:8px; height:8px; border:1px solid #000; position:absolute; top:50%; margin-top:-4px; @include transition(all 300ms ease-in-out); @include removeText; }
+#galeria .owl-prev:hover,
+#galeria .owl-next:hover{ background-color:#000; }
+#galeria .owl-prev{ left:-30px; }
+#galeria .owl-next{ right:-30px; }
+
+#servicos.empresa{ margin-bottom:0; }
+#servicos.empresa .info-box{ min-height:200px; }
+
+/* ‡‡ Contato ‡‡ */
+#contato{ margin-bottom:50px; overflow:hidden; }
+#contato h2{ text-align:center; text-transform:uppercase; margin-bottom:50px; }
+#contato h2:before{ content:'_'; }
+#mapa{ float:left; width:50%; height:940px; }
+#mapa iframe{ display:block; width:100%; height:100%; @include filter(grayscale(1)); }
+
+#contato .col-right{ float:left; width:40%; max-width:400px; margin:0 5%; padding-top:50px; }
+#contato .col-right .endereco{ font-family:$Book; @include font-size(36px); line-height:48px; margin-bottom:15px; }
+#contato .col-right .telefone{ margin-bottom:10px; letter-spacing:0.2em; }
+#contato .col-right .email{ display:block; margin-bottom:90px; letter-spacing:0.2em; }
+#contato .col-right input,
+#contato .col-right textarea{ display:block; width:100%; background:transparent; padding:5px 15px; border:1px solid #000; margin-bottom:10px; font-family:$Montserrat; @include font-size(12px); letter-spacing:0.2em; color:#000; }
+#contato .col-right textarea{ height:120px; resize:none; margin-bottom:50px; }
+#contato .col-right button{ display:block; width:100%; background:#000; padding:15px 0; border:0; margin-bottom:50px; font-family:$Montserrat; @include font-size(12px); letter-spacing:0.2em; color:#FFF; cursor:pointer; }
+#contato .col-right button:hover{ @include opacity(0.6); }
+
+#contato .social{ text-align:center; }
+#contato .social li{ display:inline-block; margin:0 8px; }
+#contato .social li a{ display:block; width:18px; height:18px; background:no-repeat center center; @include transition(all 300ms ease-in-out); }
+#contato .social li a:hover{ @include opacity(0.6); }
+#contato .social li a.be{ background-image:url(../img/ico-be.png); }
+#contato .social li a.in{ background-image:url(../img/ico-in.png); }
+#contato .social li a.fb{ background-image:url(../img/ico-fb.png); }
+
+/* ‡‡ Rodapé ‡‡ */
+#footer{ width:100%; padding:20px 0; background-color:#000; }
+#footer .assinatura{ width:103px; height:46px; background:url(../img/logo-alt.png) no-repeat center center; margin:0 auto; }
+
+/* ‡‡ Responsivo ‡‡ */
+@media screen and(max-width:1180px){
+	#lista-categorias li{ margin:0 20px; }
+
+	#socios .note{ position:static; margin-top:15px; padding-top:0; border-top:0; text-align:center; }
+}
+
+@media screen and(max-width:960px){
+	#lista-projetos li{ width:50%; padding:0; }
+	#lista-projetos li.hori{ width:100%; }
+
+	#empresa blockquote{ width:100%; }
+	#empresa .social{ position:static; text-align:center; margin-bottom:30px; }
+	#empresa .social li{ display:inline-block; margin:0 5px; }
+}
+
+@media screen and(max-width:860px){
+	#banners .scroll:before{ width:150px; }
+	#banners .owl-dots .owl-dot{ margin:0 20px; }
+
+	.info-box{ width:40%; margin:0 10% 30px 0; }
+	.info-box.alt{ margin:0 0 30px 10%; }
+}
+
+@media screen and(max-width:640px){
+	#banners .scroll{ left:0; }
+	#banners .scroll:before{ width:40px; }
+
+	#projetos{ margin-bottom:50px; }
+	#lista-categorias{ margin-bottom:20px; }
+	#lista-categorias li{ margin:0 20px 20px; }
+	#lista-projetos li{ width:100%; }
+
+	#servicos{ margin-bottom:0; }
+	#servicos h2{ margin-bottom:50px; }
+	.destaque,
+	.info-box{ float:none; width:100%; min-height:0; margin-bottom:50px; }
+	.info-box.alt{ margin:0 0 50px; }
+
+	#clientes{ margin-bottom:50px; }
+	#clientes h2{ margin-bottom:50px; }
+	#clientes ul{ padding-bottom:50px; }
+	
+	#mapa{ float:none; width:100%; height:300px; margin-bottom:50px; }
+	#contato .col-right{ float:none; width:90%; max-width:100%; margin:0 5%; padding-top:0; }
+
+	#projeto .inspiracao{ width:100%; margin-left:0; }
+	#empresa blockquote,
+	#projeto .inspiracao blockquote{ @include font-size(28px); line-height:36px; text-align:left; }
+	#projeto .inspiracao p{ max-width:100%; }
+	#projeto .processo p{ display:none; }
+	#projeto .apresentacao{ width:100%; margin:0 0 50px; }
+
+	#empresa{ margin-bottom:50px; }
+	#servicos.empresa .info-box{ min-height:0; }
+}
+
+@media screen and(max-width:420px){
+	#menu-wrapper .inner{ top:100px; left:50%; @include transform(translate(-50%,0)); }
+
+	#banners{ margin-bottom:50px; }
+	#banners .scroll{ display:block; width:100%; left:0; bottom:auto; top:70px; @include transform(rotate(0) translatex(0)); }
+	#banners .owl-dots{ bottom:20px; }
+
+	#sobre{ margin-bottom:50px; }
+	#sobre .upper{ margin:0 auto 50px; }
+	#sobre .lower blockquote{ float:none; width:100%; @include font-size(32px); line-height:44px; }
+	#sobre .lower .social{ float:none; margin:0 0 30px; text-align:center; }
+	#sobre .lower .social li{ display:inline-block; margin:0 8px; }
+	#sobre .lower p{ line-height:1.3em; }
+
+	#lista-categorias li{ display:block; margin:0 0 10px; }
+	#lista-categorias li a{ display:inline-block; padding:5px 0; }
+
+	.destaque blockquote{ @include font-size(32px); line-height:44px; }
+
+	#contato .col-right .endereco{ @include font-size(26px); line-height:34px; }
+	#contato .col-right .email{ margin-bottom:40px; }
+}

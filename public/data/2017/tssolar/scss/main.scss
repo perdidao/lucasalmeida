@@ -1,0 +1,561 @@
+// Dependências *
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// Fontes *
+@import url(../fonts/fonts.css);
+
+$Bebas:'Bebas', 'Arial Black', Helvetica, Arial, sans-serif;
+$Din:'DIN', Helvetica, Arial, sans-serif;
+
+$light:300;
+$regular:400;
+$bold:600;
+
+// Cores *
+// $laranja:#EC7E09;
+$laranja:#E65D0A;
+$petroleo:#155672;
+$marinho:#034461;
+$azul-claro:#DAE5E8;
+$petroleo-al:rgba(0,71,101,0.9);
+$preto:#33313D;
+
+/* ===============
+Estilos globais */
+body{ font:$light 18px $Din; @include font-smoothing(on); color:$preto; }
+@include selection(#FFF,$laranja);
+
+/* ======
+Header */
+#btn-menu{
+    display:none;
+    width:40px;
+    height:29px;
+    position:absolute;
+    z-index:999;
+    top:10px;
+    right:0;
+    @include transition(all 300ms ease-in-out);
+    & span,
+    &:before,
+    &:after{
+        content:" ";
+        display:block;
+        width:40px;
+        height:5px;
+        background-color:$laranja;
+        @include transform(rotate(0));
+        position:absolute;
+        left:0;
+        @include transition(all 300ms ease-in-out);
+    }
+        
+    &:before{ top:0; }
+    & span{ top:12px; @include opacity(1); }
+    &:after{ bottom:0; }
+    
+    &.active span{ @include opacity(0); top:12px; @include transform(rotate(90deg)); }
+    &.active:before{ width:40px; top:12px; left:0; @include transform(rotate(45deg)); }
+    &.active:after{ width:40px; bottom:12px; left:0; @include transform(rotate(-45deg)); } 
+}
+#header{ background-color:#FFF; padding:20px 0; border-top:3px solid $laranja; }
+#header .center{ max-width:1600px; overflow:hidden; }
+#logo{ display:block; float:left; }
+#menu{ float:right; margin-top:20px; }
+#menu li{ display:inline-block; margin-right:30px; }
+#menu li a{ display:block; color:$laranja; font-weight:$regular; position:relative; }
+#menu li a:after{ display:block; content:' '; position:absolute; bottom:-2px; left:0; width:0; height:3px; background-color:$laranja; @include transition(all 200ms ease-in-out); }
+#menu li a.active:after,
+#menu li a:hover:after{ width:20px; }
+
+/* ======
+Banner */
+#banner{ width:100%; }
+#banner li{ width:100%; height:800px; }
+#banner li .text{ float:left; max-width:480px; font-family:$Bebas; font-weight:$bold; color:#FFF; margin-top:500px; }
+#banner li h2{ @include font-size(52px); line-height:60px; position:relative; margin-bottom:40px; }
+#banner li h2:after{ display:block; content:' '; width:33.33%; height:4px; background-color:$laranja; position:absolute; left:0; bottom:-15px; }
+#banner li p{ @include font-size(24px); }
+
+/* ========
+Headline */
+#headline{ width:100%; background-color:$azul-claro; }
+#headline .center{ height:720px; }
+#headline img{ display:block; }
+#headline .img1{ position:absolute; z-index:10; top:0; left:0; }
+#headline .img2{ position:absolute; z-index:12; top:-80px; right:0; border-bottom:3px solid $laranja; }
+#headline .inner{ position:absolute; z-index:11; bottom:-100px; left:12.5%; right:12.5%; padding:80px 14%; background-color:$petroleo-al; color:#FFF; text-align:center; }
+#headline .inner h2{ @include font-size(32px); text-transform:uppercase; letter-spacing:0.02em; font-weight:$regular; }
+#headline .inner .separador{ display:block; width:90px; height:4px; background-color:$laranja; margin:20px auto 30px; }
+#headline .inner p{ line-height:40px; letter-spacing:0.02em; }
+
+/* ========
+Produtos */
+#produtos{ width:100%; background:$petroleo url(../img/bkg-produtos.jpg) no-repeat center center; }
+#produtos .center{ height:440px; max-width:960px; }
+#produtos h2{ float:left; margin-top:190px; max-width:360px; font-family:$Bebas; font-weight:$bold; @include font-size(70px); line-height:64px; position:relative; color:#FFF; }
+#produtos h2:after{ display:block; content:' '; width:90px; height:4px; background-color:$laranja; position:absolute; bottom:-10px; left:0; }
+#produtos .btn{ display:block; position:absolute; bottom:-35px; left:33%; width:33%; background-color:$laranja; padding:23px 0 17px; border-bottom:3px solid rgba(0,0,0,.1); @include font-size(24px); font-weight:$regular; text-transform:uppercase; letter-spacing:0.02em; text-align:center; color:#FFF; @include transition(all 200ms ease-in-out); }
+#produtos .btn:hover{ @include opacity(0.9); }
+
+/* =================
+Nossa experiência */
+#experiencia{ background-color:$azul-claro; overflow:hidden; }
+#experiencia .text{ float:left; width:60%; padding:100px 9% 100px 18%; }
+#experiencia .text h2{ font-family:$Bebas; @include font-size(96px); font-weight:$bold; line-height:100px; color:$laranja; max-width:300px; margin-bottom:30px; }
+#experiencia .text p{ @include font-size(19px); line-height:30px; letter-spacing:0.02em; }
+#experiencia img{ display:block; width:100%; }
+#experiencia .img1{ float:left; width:40%; }
+#experiencia .col3{ float:left; width:33.33%; }
+
+/* =======
+Cálculo */
+#calculo{ overflow:hidden; }
+#calculo .titulo{ font-family:$Bebas; padding:60px 0; font-weight:$bold; text-align:center; }
+#calculo .titulo h2{ @include font-size(70px); color:$laranja; line-height:0.9em; }
+#calculo .titulo p{ @include font-size(30px); color:$petroleo; }
+
+#calculo .obs{ float:left; width:50%; padding:80px 9% 80px 18%; background-color:$azul-claro; }
+#calculo .obs h3{ font-family:$Bebas; @include font-size(45px); font-weight:$bold; margin-bottom:20px; }
+#calculo .obs p{ @include font-size(20px); line-height:30px; }
+#calculo .obs p strong{ font-weight:$regular; }
+
+#calculo .calculo{ float:left; width:50%; text-align:center; padding:0 14% 0 7%; }
+#calculo .calculo h2{ font-family:$Bebas; @include font-size(30px); font-weight:$bold; margin:60px 0 10px; clear:both; }
+#calculo .calculo input[type="text"]{ display:inline-block; padding:23px 30px 17px; max-width:200px; text-align:center; font-family:$Din; color:$laranja; @include font-size(16px); outline:none; border:1px solid $laranja; }
+#calculo .calculo .por{ display:inline-block; @include font-size(20px); font-weight:$light; text-transform:uppercase; color:$laranja; padding-top:10px; margin:0 10px; }
+#calculo .calculo label{ display:inline-block; font-weight:$regular; color:$laranja; margin:0 20px; }
+
+#calculo .calculo .resultado{ margin-top:60px; }
+#calculo .calculo .resultado h3{ font-family:$Bebas; @include font-size(60px); font-weight:$bold; line-height:0.5em; color:$laranja; }
+#calculo .calculo .resultado p{ display:inline-block; background-color:$laranja; color:#FFF; @include font-size(30px); font-weight:$regular; padding:10px 30px; letter-spacing:0.02em; }
+#calculo .calculo .resultado p span{ @include font-size(70px); }
+
+/* ===========================
+Redes sociais e depoimentos */
+#social{ background-color:$petroleo; padding:100px 0 70px; color:#FFF; overflow:hidden; }
+#social .redes{ float:left; width:35%; }
+#social .redes h2{ font-family:$Bebas; @include font-size(70px); font-weight:$bold; position:relative; margin-bottom:40px; }
+#social .redes h2:after{ content:' '; display:block; width:2000px; height:4px; background-color:$laranja; position:absolute; bottom:-10px; right:0; }
+#social .redes ul{}
+#social .redes ul li{ display:inline-block; margin-right:30px; }
+#social .redes ul li a{ display:block; background:no-repeat left center; @include font-size(22px); font-weight:$regular; @include transition(all 200ms ease-in-out); }
+#social .redes ul li a:hover{ @include opacity(0.7); }
+#social .redes ul li a.fb{ background-image:url(../img/fb-w.png); padding-left:21px; }
+#social .redes ul li a.tw{ background-image:url(../img/tw-w.png); padding-left:33px; }
+#social .redes ul li a.in{ background-image:url(../img/in-w.png); padding-left:35px; }
+
+#depoimentos{ float:right; width:50%; position:relative; }
+#depoimentos h3{ font-family:$Bebas; @include font-size(45px); font-weight:$bold; position:absolute; left:160px; }
+#depoimentos ul{}
+#depoimentos ul li{ overflow:hidden; padding-bottom:10px; }
+#depoimentos ul li .img{ float:left; width:110px; height:110px; overflow:hidden; @include border-radius(50%); }
+#depoimentos ul li .img img{ display:block; width:100%; }
+#depoimentos ul li .texto{ float:left; margin-left:50px; position:relative; max-width:350px; margin-top:50px; }
+#depoimentos ul li .texto:before{ content:' '; display:block; width:22px; height:18px; background:url(../img/aspa1.png) no-repeat center center; position:absolute; top:-5px; left:-30px; }
+#depoimentos ul li .texto:after{ content:' '; display:block; width:22px; height:18px; background:url(../img/aspa2.png) no-repeat center center; position:absolute; bottom:-5px; right:0; }
+
+#depoimentos .owl-dots{ position:absolute; top:50%; right:0; @include transform(translatey(-50%)); }
+#depoimentos .owl-dots .owl-dot{ width:17px; height:17px; border:3px solid $laranja; margin:5px 0; @include border-radius(50%); }
+#depoimentos .owl-dots .owl-dot.active{ background-color:$laranja; }
+
+/* =======
+Contato */
+#contato{ float:right; width:66.66%; position:relative; background-color:$petroleo; padding:60px 0 50px; margin:100px 0 50px; position:relative; }
+#contato .img{ position:absolute; top:80px; right:88%; }
+#contato .img img{ display:block; }
+#contato .inner{ max-width:640px; margin:0 auto; color:#FFF; }
+#contato .inner > h2{ font-family:$Bebas; @include font-size(70px); font-weight:$bold; text-align:center; }
+#contato .inner > p{ font-family:$Bebas; @include font-size(24px); font-weight:$bold; text-align:center; margin-bottom:60px; }
+
+#contato .inner input,
+#contato .inner textarea{ display:block; width:100%; padding:5px 10px; border:0; border-bottom:1px solid #FFF; margin-bottom:20px; background-color:transparent; font-family:$Din; @include font-size(16px); color:#FFF; }
+#contato .inner textarea{ border:1px solid #FFF; height:250px; padding:10px; }
+#enviar{ display:block; width:100%; background-color:$laranja; font-family:$Bebas; @include font-size(24px); letter-spacing:0.4em; color:#FFF; border:0; padding:15px 0 8px; cursor:pointer; @include transition(all 200ms ease-in-out); }
+#enviar:hover{ @include opacity(0.7); }
+
+#contato .msg{ @include font-size(14px); color:#0CB840; text-align:center; margin:10px 0 0; }
+#contato .visite{ margin-top:60px; overflow:hidden; }
+#contato .visite h2{ float:left; font-family:$Bebas; @include font-size(30px); padding-top:40px; }
+#contato .visite p{ float:left; margin-left:30px; border-left:1px solid #FFF; padding-left:30px; @include font-size(20px); font-weight:$regular; line-height:36px; }
+#contato .visite p span{ @include font-size(16px); }
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Páginas internas
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/* =======
+Sobre */
+#sobre-empresa{ width:100%; height:760px; position:relative; }
+#sobre-empresa img{ display:block; width:100%; }
+#sobre-empresa .img1{ position:absolute; z-index:1; top:0; left:0; width:60%; }
+#sobre-empresa .img2{ position:absolute; z-index:2; top:450px; right:8%; width:50%; }
+#sobre-empresa h1{ position:absolute; z-index:4; top:190px; right:16%; font-family:$Bebas; font-weight:$bold; color:$laranja; @include font-size(70px); }
+#sobre-empresa h1:after{ content:' '; display:block; width:150px; height:4px; background-color:$laranja; }
+#sobre-empresa .inner{ position:absolute; z-index:3; top:550px; left:0; width:50%; padding:100px 0 100px 16%; background-color:$azul-claro; }
+#sobre-empresa .inner h2{ font-family:$Bebas; @include font-size(40px); font-weight:$bold; color:$marinho; margin-bottom:10px; }
+#sobre-empresa .inner p{ @include font-size(18px); line-height:24px; font-weight:$regular; margin-bottom:40px; max-width:480px; }
+#sobre-empresa .inner ul{}
+#sobre-empresa .inner ul li{ @include font-size(18px); line-height:24px; font-weight:$regular; margin-bottom:15px; position:relative; }
+#sobre-empresa .inner ul li span{ display:inline-block; background-color:$azul-claro; position:relative; z-index:3; padding-right:30px; }
+#sobre-empresa .inner ul li:after{ content:' '; display:block; width:100%; height:1px; background-color:$marinho; position:absolute; z-index:2; top:50%; left:0; }
+
+#qualidade{ width:100%; height:880px; position:relative; background:$petroleo url(../img/qualidade.jpg) no-repeat center center; }
+#qualidade .inner{ color:#FFF; position:absolute; width:32%; top:62%; right:14%; }
+#qualidade .inner h2{ font-family:$Bebas; @include font-size(70px); font-weight:$bold; margin-bottom:15px; }
+#qualidade .inner p{ font-weight:$regular; line-height:24px; }
+
+#producao{}
+#producao .title{ width:100%; padding:80px 0; text-align:center; }
+#producao .title h2{ font-family:$Bebas; font-weight:$bold; @include font-size(70px); line-height:73px; color:$laranja; max-width:620px; margin:0 auto; }
+#producao .title .separador{ display:inline-block; width:70px; height:4px; background-color:$laranja; margin:20px 0 25px; }
+#producao .title p{ @include font-size(24px); line-height:26px; font-weight:$regular; color:$marinho; max-width:840px; margin:0 auto; }
+#producao .passos{}
+#producao .passos li{ overflow:hidden; border-top:1px solid $azul-claro; }
+#producao .passos li .texto{ float:left; width:50%; min-height:390px; padding:0 8%; }
+#producao .passos li .texto .cell{ height:390px; }
+#producao .passos li .texto h3{ font-family:$Bebas; @include font-size(40px); color:$marinho; font-weight:$bold; margin-bottom:10px; }
+#producao .passos li .texto p{ line-height:35px; }
+#producao .passos li .img{ float:left; width:50%; }
+#producao .passos li .img img{ display:block; width:100%; }
+
+/* ========
+Produtos */
+#banner-produtos{ width:100%; height:620px; background:#FFF url(../img/topo-produtos.jpg) no-repeat center top; }
+.tit-produtos{ font-family:$Bebas; font-weight:$bold; @include font-size(125px); color:$laranja; text-align:center; margin:20px 0 40px; }
+
+#caracteristicas{ background:url(../img/coletores.jpg) no-repeat right top; }
+#caracteristicas .texto{ float:left; width:50%; }
+#caracteristicas .texto h2{ font-family:$Bebas; font-weight:$bold; @include font-size(40px); line-height:48px; letter-spacing:0.02em; color:$laranja; margin-bottom:20px; }
+#caracteristicas .texto p{ font-weight:$regular; line-height:28px; letter-spacing:0.02em; }
+#lista-caracteristicas{ margin:70px 0 120px; overflow:hidden; }
+#lista-caracteristicas li{ float:left; width:25%; padding:0 1%; text-align:center; }
+#lista-caracteristicas li .wrapper{ width:100px; height:100px; border:1px solid $preto; @include border-radius(50%); margin:0 auto 15px; }
+#lista-caracteristicas li .icone{ display:table-cell; width:100px; height:100px; vertical-align:middle; }
+#lista-caracteristicas li .icone img{ display:inline-block; margin:0; @include transform(translatey(5px)); }
+#lista-caracteristicas li p{ font-family:$Bebas; font-weight:$bold; @include font-size(24px); line-height:1em; color:#AAA8B5; min-height:70px; }
+
+#instalacao{ background:url(../img/bkg-instalacao.jpg) no-repeat center center; }
+#instalacao h2{ font-family:$Bebas; font-weight:$bold; @include font-size(70px); color:$marinho; text-align:center; margin-bottom:5px; }
+#instalacao .center > p{ font-family:$Bebas; font-weight:$bold; @include font-size(24px); line-height:28px; color:$marinho; text-align:center; }
+#lista-passos{ margin:80px 0; }
+#lista-passos li{ overflow:hidden; }
+#lista-passos li .passo{ float:left; width:50%; height:370px; }
+#lista-passos li .passo .cell{ height:370px; vertical-align:middle; }
+#lista-passos li .passo span{ display:block; float:left; width:60px; height:60px; background-color:$marinho; color:#FFF; @include border-radius(50%); @include font-size(40px); font-weight:$regular; text-align:center; line-height:65px; margin:0 20px 0 80px; }
+#lista-passos li .passo p{ float:left; @include font-size(20px); line-height:28px; font-weight:$regular; max-width:360px; }
+#lista-passos li .img{ float:left; width:50%; }
+#lista-passos li .img img{ display:block; max-width:100%; }
+
+/* ============
+Onde Comprar */
+#wrapper-produtos{ background:url(../img/bkg-comprar.jpg) no-repeat center top; }
+#topo-comprar{ height:480px; margin-bottom:80px; }
+#topo-comprar .inner{ float:right; width:40%; padding:130px 0 0; color:#FFF; }
+#topo-comprar .inner h1{ font-family:$Bebas; font-weight:$bold; @include font-size(70px); }
+#topo-comprar .inner h1:after{ content:' '; display:block; width:100%; height:1px; background-color:#FFF; }
+#topo-comprar .inner p{ max-width:480px; margin-top:20px; line-height:30px; }
+
+#form-comprar{ width:92%; max-width:640px; margin:0 auto 100px; }
+#form-comprar h2{ font-family:$Bebas; font-weight:$bold; @include font-size(24px); color:$laranja; text-align:center; margin-bottom:30px; }
+#form-comprar select,
+#form-comprar input,
+#form-comprar textarea{ display:block; width:100%; padding:5px 10px; border:0; border-bottom:1px solid $preto; margin-bottom:20px; background-color:transparent; font-family:$Din; text-align:center; @include font-size(16px); color:$preto; }
+#form-comprar textarea{ border:1px solid $preto; height:250px; padding:10px; text-align:left; }
+#form-comprar .msg{ @include font-size(14px); color:#0CB840; text-align:center; margin:10px 0 0; }
+
+/* ====================
+Perguntas Frequentes */
+#wrapper-perguntas{ background-color:$azul-claro; }
+#wrapper-perguntas .title{ width:100%; height:480px; background:url(../img/topo-perguntas.jpg) no-repeat right center; }
+#wrapper-perguntas .title h1{ font-family:$Bebas; font-weight:$bold; @include font-size(70px); color:$laranja; float:right; max-width:300px; margin:120px 20% 0 0; }
+
+#lista-perguntas{ width:83%; margin:0 auto; background-color:#FFF; padding:80px 8% 140px; @include transform(translatey(-100px)); }
+#lista-perguntas li{ display:block; margin-bottom:10px; }
+#lista-perguntas li a{ display:block; width:100%; padding:18px 20px 14px; border:1px solid $preto; font-weight:$regular; }
+#lista-perguntas li a.active{ background-color:$laranja; color:#FFF; }
+#lista-perguntas li .resp{ display:none; padding:30px 80px 10px; border:1px solid $preto; border-top:0; }
+#lista-perguntas li .resp p{ margin-bottom:20px; }
+
+#form-pergunta{ width:92%; max-width:640px; margin:0 auto; @include transform(translatey(-100px)); }
+#form-pergunta h2{ font-family:$Bebas; font-weight:$bold; @include font-size(60px); color:$laranja; max-width:390px; line-height:1em; @include transform(translate(-325px, -55px)); }
+#form-pergunta select,
+#form-pergunta input,
+#form-pergunta textarea{ display:block; width:100%; padding:5px 10px; border:0; border-bottom:1px solid $preto; margin-bottom:20px; background-color:transparent; font-family:$Din; text-align:center; @include font-size(16px); color:$preto; }
+#form-pergunta textarea{ border:1px solid $preto; height:250px; padding:10px; text-align:left; }
+#form-pergunta .msg{ @include font-size(14px); color:#0CB840; text-align:center; margin:10px 0 0; }
+
+/* =======
+Contato */
+#wrapper-contato{ background:url(../img/topo-contato.jpg) no-repeat center top; padding-top:470px; position:relative; }
+#wrapper-contato .img{ position:absolute; top:400px; left:0; width:40%; }
+#wrapper-contato .img img{ display:block; width:100%; }
+
+#form{ float:right; width:64%; background-color:$azul-claro; padding:0 16% 50px; }
+#form .tilt{ @include transform(translatey(-27px)); }
+#form h2{ font-family:$Bebas; font-weight:$bold; @include font-size(60px); color:$laranja; max-width:390px; line-height:1em; margin-bottom:20px; }
+#form p.sub{ font-family:$Bebas; font-weight:$bold; @include font-size(24px); margin-bottom:40px; max-width:450px; }
+#form select,
+#form input,
+#form textarea{ display:block; width:100%; padding:5px 10px; border:0; border-bottom:1px solid $preto; margin-bottom:20px; background-color:transparent; font-family:$Din; @include font-size(16px); color:$preto; }
+#form textarea{ border:1px solid $preto; height:250px; padding:10px; text-align:left; }
+#form .msg{ @include font-size(14px); font-weight:$regular; color:#0CB840; text-align:center; margin:10px 0 0; }
+
+#form .visite{ font-weight:$regular; @include font-size(24px); line-height:36px; color:#285498; position:relative; margin-top:60px; }
+#form .visite:before{ content:' '; display:block; width:50px; height:60px; background:url(../img/marker.png) no-repeat center center; position:absolute; top:15px; left:-65px; }
+#form .visite span{ @include font-size(16px); }
+
+/* =======
+Footer */
+#footer{ background-color:#F6F5F5; padding:50px 0 0; }
+#footer-menu{ text-align:center; margin-bottom:40px; }
+#footer-menu li{ display:inline-block; margin:0 10px; }
+#footer-menu li a{ font-weight:$regular; text-transform:uppercase; color:$laranja; }
+
+#redes{ text-align:center; }
+#redes li{ display:inline-block; margin:0 15px; }
+#redes li a{ display:block; height:28px; background:no-repeat center center; }
+#redes li a.fb{ width:14px; background-image:url(../img/fb-b.png); }
+#redes li a.tw{ width:26px; background-image:url(../img/tw-b.png); }
+#redes li a.in{ width:28px; background-image:url(../img/in-b.png); }
+
+#footer .lower{ margin-top:40px; padding:20px 0; background-color:$petroleo; @include font-size(12px); overflow:hidden; color:#FFF; }
+#footer .lower p{ float:left; line-height:24px; font-weight:$regular; }
+#ffw{ display:block; float:right; width:26px; height:24px; background:url(../img/ffw.png) no-repeat center center; @include transition(all 200ms ease-in-out); }
+#ffw:hover{ @include opacity(0.7); }
+
+/* ==========
+Responsivo */
+@media screen and(max-width:1720px){
+	#caracteristicas{ background:url(../img/coletores.jpg) no-repeat 800px top; }
+}
+
+@media screen and(max-width:1600px){
+	#calculo .obs{ padding:80px 6%; }
+	#calculo .calculo{ float:left; width:50%; padding:0 0 50px; }
+
+	#sobre-empresa .img1{ width:70%; }
+	#sobre-empresa .img2{ top:350px; width:50%; right:0; }
+	#sobre-empresa h1{ top:130px; right:8%; }
+	#sobre-empresa .inner{ top:450px; width:60%; }
+}
+
+@media screen and(max-width:1400px){
+	#experiencia .text{ width:45%; padding:100px 100px 50px; }
+	#experiencia .img1{ width:55%; }
+
+	#caracteristicas{ background:url(../img/coletores.jpg) no-repeat 620px top; }
+
+	#form-pergunta h2{ @include transform(translate(-115px, -55px)); }
+}
+
+@media screen and(max-width:1280px){
+	#headline img{ max-width:100%; }
+	#headline .img1{ width:70%; }
+	#headline .img2{ width:50%; }
+	#headline .inner{ padding:80px 10%; }
+
+	#experiencia .text{ width:40%; padding:50px 30px; }
+	#experiencia .img1{ width:60%; }
+
+	#social .redes{ width:40%; }
+	#social .redes ul li{ margin:0 30px 20px 0; }
+	#depoimentos{ width:55%; }
+
+	#contato .img{ right:95%; }
+
+	#sobre-empresa .img1{ width:80%; left:-8%; }
+	#sobre-empresa .img2{ top:250px; width:70%; right:0; }
+	#sobre-empresa .inner{ top:500px; width:70%; }
+
+	#producao .passos li .texto{ min-height:300px; padding:0 4%; }
+	#producao .passos li .texto .cell{ height:300px; }
+
+	#lista-passos li .passo,
+	#lista-passos li .passo .cell{ height:340px; }
+
+	#form{ padding:0 8% 50px; }
+}
+
+@media screen and(max-width:1140px){
+	#lista-passos li .passo{ text-align:center; padding:50px 0; height:auto; }
+	#lista-passos li .passo .cell{ height:auto; }
+	#lista-passos li .passo span{ float:none; margin:0 auto 20px; }
+	#lista-passos li .passo p{ float:none; max-width:92%; margin:0 auto; }
+}
+
+@media screen and(max-width:1080px){
+	#menu li{ margin:0 0 0 15px; }
+
+	#experiencia .text{ float:none; width:92%; margin:0 auto; padding:50px 0; }
+	#experiencia .img1{ width:100%; }
+
+	#calculo .obs{ width:100%; }
+	#calculo .calculo{ width:100%; padding:0 0 50px; }
+
+	#social .redes,
+	#depoimentos{ float:none; width:80%; margin:0 auto; }
+	#social .redes{ margin-bottom:40px; }
+
+	#contato{ width:100%; margin:0; padding-top:0; }
+	#contato .img{ position:static; width:100%; margin-bottom:30px; text-align:center; }
+	#contato .img img{ display:inline-block; max-width:100%; }
+	#contato .inner{ width:92%; }
+
+	#sobre-empresa{ height:auto; }
+	#sobre-empresa .img1, #sobre-empresa .img2, #sobre-empresa h1, #sobre-empresa .inner{ position:static; margin:0; }
+	#sobre-empresa .img1{ width:100%; margin-bottom:50px; }
+	#sobre-empresa .img2{ display:none; }
+	#sobre-empresa h1{ text-align:center; margin-bottom:50px; }
+	#sobre-empresa h1:after{ margin:0 auto; }
+	#sobre-empresa .inner{ width:100%; padding:100px 10%; text-align:center; }
+	#sobre-empresa .inner p{ margin:0 auto 40px; }
+	#sobre-empresa .inner ul li span{ padding:0 30px; }
+
+	#qualidade{ height:auto; padding:200px 3%; }
+	#qualidade .inner{ position:static; width:100%; text-align:center; }
+
+	#producao .passos li .texto{ width:100%; min-height:0; padding:50px 8%; }
+	#producao .passos li .texto .cell{ height:auto; }
+	#producao .passos li .img{ width:100%; }
+
+	#caracteristicas{ background:url(../img/coletores.jpg) no-repeat center top; padding-top:240px; }
+	#caracteristicas .texto{ width:100%; text-align:center; padding:0 3%; }
+
+	#wrapper-produtos{ background:url(../img/bkg-comprar.jpg) no-repeat right top; }
+	#topo-comprar .inner{ width:100%; padding:130px 3% 0; text-align:center; }
+	#topo-comprar .inner p{ margin:20px auto 0; }
+}
+
+@media screen and(max-width:980px){
+	#logo{ width:100%; text-align:center; }
+	#menu{ width:100%; text-align:center; }
+	#menu li{ margin:0 10px; }
+
+	#headline .center{ height:auto; }
+	#headline .img1{ position:static; float:left; width:50%; }
+	#headline .img2{ position:static; float:left; width:50%; @include transform(translatey(-40px)); }
+	#headline .inner{ position:static; bottom:0; left:0; right:0; padding:50px; }
+
+	#wrapper-perguntas .title h1{ float:right; max-width:100%; width:100%; margin:120px 0 0; text-align:center; }
+	#lista-perguntas{ width:94%; padding:50px 3% 100px; }
+	#lista-perguntas li .resp{ padding:30px 3% 10px; }
+
+	#form-pergunta h2{ @include transform(translate(0, -55px)); }
+
+	#wrapper-contato{ background-position:center -200px; padding-top:270px; }
+	#form{ width:100%; padding:0 8% 50px; }
+	#wrapper-contato .img{ display:none; }
+	#form .visite{ margin-left:60px; }
+}
+
+@media screen and(max-width:740px){
+	#btn-menu{ display:block; }
+	#header,
+	#header .center{ overflow:visible; }
+	#logo{ float:none; }
+	#menu{ display:none; margin:0; position:absolute; z-index:998; top:70px; left:0; width:100%; background-color:#FFF; padding:15px 0; }
+	#menu li{ display:block; margin:0; }
+	#menu li a{ width:100%; padding:15px 0; }
+	#menu li a:after{ height:2px; @include transition(all 400ms ease-in-out); }
+	#menu li a.active:after,
+	#menu li a:hover:after{ width:100%; }
+
+	#social .redes,
+	#depoimentos{ width:100%; }
+
+	#contato .visite h2{ float:none; padding:0; margin:0 0 20px; text-align:center; }
+	#contato .visite p{ float:none; margin:0; border:0; padding:0; text-align:center; }
+
+	#producao .title{ padding:80px 3%; }
+	#producao .title h2{ @include font-size(40px); line-height:0.9em; }
+	#producao .title p{ @include font-size(20px); line-height:1.1em; }
+
+	#lista-caracteristicas li{ width:50%; }
+}
+
+@media screen and(max-width:540px){
+	#banner li{ height:auto; padding:100px 0; overflow:hidden; }
+	#banner li .text{ margin-top:0; }
+
+	#headline{ background-color:$petroleo; }
+	#headline .inner{ background-color:transparent; }
+	#headline .img1,
+	#headline .img2{ display:none; }
+
+	#produtos .center{ height:auto; padding:100px 0; }
+	#produtos h2{ float:none; margin-top:0; max-width:100%; @include font-size(50px); line-height:1.1em; }
+	#produtos .btn{ left:10%; width:80%; }
+
+	#experiencia .text{ padding-top:70px; }
+	#experiencia .text h2{ @include font-size(70px); max-width:100%; margin-bottom:10px; line-height:1.1em; }
+	#experiencia .col3{ width:100%; }
+
+	#depoimentos h3{ position:static; }
+	#depoimentos ul li{ overflow:visible; padding:20px; }
+	#depoimentos ul li .img{ display:none; }
+	#depoimentos ul li .texto{ float:none; margin-left:0; max-width:90%; margin:0 auto; }
+
+	#footer-menu li{ display:block; margin:0 0 10px; }
+
+	#sobre-empresa .inner{ padding:50px 3%; }
+	#sobre-empresa .inner ul li span{ padding:0; }
+	#sobre-empresa .inner ul li:after{ display:none; }
+
+	#lista-passos li .passo,
+	#lista-passos li .img{ width:100%; }
+}
+
+@media screen and(max-width:440px){
+	#calculo .calculo input[type="text"]{ display:block; float:left; max-width:100%; width:45%; margin-bottom:50px; padding:23px 10px 17px; }
+	#calculo .calculo .por{ display:block; float:left; width:10%; margin:10px 0 0; }
+	#calculo .calculo label{ display:block; width:100%; margin:0 0 10px; }
+	#calculo .calculo .resultado p{ display:block; width:100%; padding:20px; }
+	#calculo .calculo .resultado p span{ @include font-size(50px); }
+
+	#qualidade{ padding:100px 3%; }
+
+	#lista-caracteristicas li{ width:100%; margin-bottom:30px; }
+	#lista-caracteristicas li p{ min-height:0; }
+
+	#form .visite{ @include font-size(18px); line-height:24px; margin:40px 0 0; }
+	#form .visite:before{ display:none; }
+}
+
+@media screen and(max-width:400px){
+	#logo{ float:left; width:70%; }
+	#logo img{ display:block; max-width:100%; }
+	#btn-menu{ top:10px; }
+	#menu{ top:60px; }
+	#banner{ clear:both; }
+
+	#headline .inner{ padding:50px 0; }
+
+	#contato .visite h2{ font-weight:$bold; }
+	#contato .visite p{ @include font-size(16px); line-height:1.3em; font-weight:$light; }
+
+	.tit-produtos{ @include font-size(70px); }
+	#caracteristicas .texto h2{ @include font-size(30px); line-height:36px; }
+
+	#topo-comprar .inner{ padding:50px 3% 0; }
+
+	#lista-perguntas{ width:100%; padding:20px 3% 20px; }
+	#lista-perguntas li .resp{ padding:30px 3% 10px; }
+	#form-pergunta{ @include transform(translatey(0)); padding-bottom:50px; }
+	#form-pergunta h2{ @include transform(translate(0, 0)); margin-bottom:30px; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

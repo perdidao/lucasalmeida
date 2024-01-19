@@ -1,0 +1,651 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+$Lato:'Lato', Helvetica, Arial, sans-serif;
+
+$light:300;
+$regular:400;
+$bold:700;
+
+// CORES
+$vermelho:#EE1C24;
+$verde:#47B100;
+$turquesa:#00A8D1;
+$laranja:#F6821F;
+$prata:#E5E5E5;
+$cinza:#9A9A9A;
+$grafite:#3C3C3C;
+$marrom:#624A42;
+$bege:#FFECD8;
+
+/* Definições globais */
+body{ font:$regular 16px $Lato; color:$grafite; @include font-smoothing(on); }
+@include selection(#FFF,$vermelho);
+
+// Títulos
+.centered-title{ width:100%; text-align:center; }
+.centered-title h2{ @include font-size(30px); color:$turquesa; }
+.centered-title h2 strong{ color:$vermelho; }
+.centered-title .separador{ display:block; width:100%; height:1px; margin:5px 0 8px; background:url(../img/bkg-titles.png) no-repeat center center; }
+.centered-title p{ @include font-size(14px); text-transform:uppercase; color:$cinza; letter-spacing:0.04em; }
+
+.verde{ color:$verde; }
+.amarelo{ color:$laranja; }
+.vermelho{ color:$vermelho; }
+
+// Formulários
+input, select, textarea, button{ font:$regular 16px $Lato; color:$grafite; @include font-smoothing(on); }
+
+// Wrappers
+#container{}
+
+/* ***** Cabeçalho */
+#header{ border-bottom:1px solid $vermelho; }
+#logo{ float:left; width:122px; height:96px; margin-top:20px; background:url(../img/logo.png) no-repeat center center; background-size:contain; @include removeText; }
+#header .right{ float:right; width:82%; }
+
+#select-cidade{ width:100%; height:40px; }
+#select-cidade label{ display:block; float:left; width:80%; height:40px; padding-right:40px; background:$vermelho url(../img/bkg-cidades.png) no-repeat left top; text-align:right; line-height:40px; color:#FFF; letter-spacing:0.09em; }
+#cidades{ display:block; width:20%; height:40px; border:0; margin:0; padding:0 10px; background-color:$turquesa; color:#FFF; text-transform:uppercase; letter-spacing:0.12em; }
+
+#menu{ float:left; margin:40px 0 0 50px; }
+#menu a{ display:inline-block; color:$vermelho; letter-spacing:0.09em; }
+#menu a:last-child{ border-right:0; }
+#menu span{ display:inline-block; width:1px; height:12px; margin:0 12px; background-color:$grafite; }
+
+#social{ float:left; margin:37px 0 0 20px; }
+#social a{ display:inline-block; width:25px; height:25px; background:$vermelho no-repeat center center; margin:0 3px; @include transition(all 200ms ease-in-out); }
+#social a:hover{ background-color:$laranja; }
+#social a.ico-fb{ background-image:url(../img/ico-fb.png); }
+#social a.ico-tw{ background-image:url(../img/ico-tw.png); }
+
+#ico-carrinho{ float:left; display:block; width:51px; height:37px; margin:32px 0 0 20px; background:url(../img/ico-cart.png) no-repeat center center; position:relative; }
+#ico-carrinho span{ display:block; width:20px; height:20px; background-color:$vermelho; @include border-radius(50%); @include font-size(12px); text-align:center; line-height:20px; color:#FFF; position:absolute; top:-10px; right:-10px; }
+
+#welcome{ float:right; width:20%; height:100px; padding:25px 10px 0; background-color:$vermelho; color:#FFF; position:relative; }
+#welcome .notlogged span{ color:$laranja; }
+#welcome .avatar{ float:left; width:55px; height:55px; margin-right:10px; @include border-radius(50%); overflow:hidden; }
+#welcome .avatar img{ display:block; width:100%; }
+#welcome .logged{ margin-top:5px; }
+#welcome .logged a{ display:block; padding-right:10px; background:url(../img/arw-down.png) no-repeat center right; position:relative; z-index:1001; }
+
+#submenu-conta{ display:none; position:absolute; right:0; top:80px; width:80%; padding:10px; background-color:#FFF; z-index:1000; }
+#submenu-conta:before{ content:' '; display:block; width:12px; height:9px; background:url(../img/arw-up.png) no-repeat center center; position:absolute; top:-9px; right:20px; }
+#submenu-conta li{ line-height:32px; }
+#submenu-conta li a{ color:#000; }
+.overlay{ display:none; width:100%; height:100%; background-color:rgba(0,0,0,.3); position:fixed; top:0; left:0; z-index:999; }
+
+/* ***** Banner */
+#banners{ position:relative; }
+#banners li{ position:relative; }
+#banners li img{}
+#banners li .inner{ width:100%; max-width:480px; position:absolute; top:50%; right:17.5%; @include transform(translatey(-50%)); background:rgba(0,0,0,.7); }
+#banners li .inner h2{ color:#FFF; @include font-size(40px); padding:40px 30px 40px; font-weight:$light; line-height:1.2em; }
+#banners li .inner .timing{ float:left; width:38%; height:55px; line-height:55px; background-color:$laranja; @include font-size(18px); color:#FFF; text-align:center; }
+#banners li .inner .desconto{ position:absolute; top:-72px; right:20px; width:90px; padding-top:23px; height:90px; background:rgba(246,130,31,.9); @include border-radius(50%); color:#FFF; text-align:center; @include font-size(26px); line-height:0.8em; font-weight:$light; }
+#banners li .inner .desconto span{ @include font-size(14px); font-weight:$regular; text-transform:uppercase; }
+#banners li .inner .depara{ float:left; width:37%; height:55px; padding:5px; background-color:$grafite; overflow:hidden; }
+#banners li .inner .depara .de,
+#banners li .inner .depara .por{ float:left; width:50%; padding:0 5px; color:#FFF; @include font-size(20px); }
+#banners li .inner .depara strong{ display:block; color:$turquesa; @include font-size(14px); }
+#banners li .inner .depara em{ @include font-size(16px); color:$laranja; }
+#banners li .inner .depara sup{ @include font-size(14px); vertical-align:super; }
+#banners li .inner .depara .de sup,
+#banners li .inner .depara .de span{ text-decoration:line-through; }
+#banners li .inner .comprar{ display:block; float:left; width:25%; height:55px; line-height:55px; text-align:center; background-color:$turquesa; color:#FFF; text-transform:uppercase; @include font-size(14px); font-weight:$bold; @include transition(all 200ms ease-in-out); }
+#banners li .inner .comprar:hover{ @include opacity(0.7); }
+#banners .owl-dots{ position:absolute; left:0; bottom:20px; width:100%; text-align:center; }
+#banners .owl-dots .owl-dot{ width:10px; height:10px; @include border-radius(50%); background-color:#FFF; display:inline-block; margin:0 10px; }
+#banners .owl-dots .owl-dot.active{ background-color:$vermelho; }
+
+/* ***** Navegação e pesquisa */
+#categorias{ float:left; position:relative; min-width:300px; }
+#btn-categorias{ display:inline-block; padding-left:40px; margin-top:50px; background:url(../img/nav.png) no-repeat left center; text-transform:uppercase; color:$cinza; }
+#lista-categorias{ display:none; position:absolute; top:80px; background-color:rgba(238,32,41,.9); color:#FFF; padding:25px 0; width:100%; }
+#lista-categorias h2{ width:87%; padding:0 0 10px 13%; border-bottom:1px solid $laranja; margin-bottom:10px; @include font-size(24px); text-transform:uppercase; letter-spacing:0.09em; }
+#lista-categorias ul{ padding:0 13%; }
+#lista-categorias ul li{ padding-bottom:15px; border-bottom:1px solid rgba(255,255,255,.3); margin-bottom:8px; }
+#lista-categorias ul li:last-child{ padding:0; border:0; margin-bottom:20px; }
+#lista-categorias ul li a{ @include transition(all 200ms ease-in-out); }
+#lista-categorias ul li a:hover{ @include opacity(0.7); }
+#lista-categorias ul li a.active{ font-weight:$bold; }
+#lista-categorias ul li a span{ display:inline-block; float:right; }
+#lista-categorias .fechar{ display:block; width:23px; height:23px; margin:0 auto; background:url(../img/fechar.png) no-repeat center center; @include transition(all 200ms ease-in-out); }
+#lista-categorias .fechar:hover{ @include opacity(0.7); }
+
+// Busca
+#busca{ float:right; width:50%; background-color:$vermelho; padding:40px 30px 40px 60px; margin-bottom:80px; }
+#busca input{ display:block; float:left; width:92%; height:40px; padding:0 20px; border:1px solid $cinza; background-color:#FFF; }
+#buscar{ display:block; float:left; width:8%; height:40px; border:1px solid $vermelho; background:url(../img/busca.png) no-repeat center center; cursor:pointer; @include removeText; @include transition(all 200ms ease-in-out); }
+#buscar:hover{ background-color:rgba(0,0,0,.2); }
+
+/* ***** Lista de Ofertas */
+#lista-ofertas{ overflow:hidden; margin:70px 0; }
+#lista-ofertas li{ float:left; width:23.5%; margin:0 2% 2% 0; position:relative; }
+#lista-ofertas li:nth-child(4n){ margin-right:0; }
+#lista-ofertas li > img{ display:block; width:100%; }
+#lista-ofertas li .descricao{ @include opacity(0); position:absolute; top:0; left:0; width:100%; height:55%; padding:80px 40px 0; background:rgba(0,168,209,.7); color:#FFF; @include transition(all 400ms ease-in-out); }
+#lista-ofertas li:hover .descricao{ @include opacity(1); }
+#lista-ofertas li .descricao h2{ @include font-size(22px); font-weight:$bold; margin-bottom:10px; }
+#lista-ofertas li .descricao p{ line-height:24px; }
+#lista-ofertas li .info{ position:absolute; left:0; bottom:0; width:70%; height:45%; padding:30px; min-height:260px; background-color:rgba(0,0,0,.7); color:$bege; text-align:center; }
+#lista-ofertas li .info img{ display:inline-block; max-width:100%; }
+#lista-ofertas li .info p{ @include font-size(18px); line-height:28px; margin:10px 0 20px; text-align:left; }
+#lista-ofertas li .info .timing{ width:100%; padding:7px 0; letter-spacing:0.04em; border-top:2px solid $laranja; border-bottom:2px solid $laranja; text-align:center; }
+#lista-ofertas li .buy{ position:absolute; right:0; bottom:0; width:30%; height:45%; min-height:260px; background-color:rgba(255,255,255,.7); color:$marrom; }
+#lista-ofertas li .buy .desconto{ position:absolute; top:-45px; right:20px; width:90px; padding-top:23px; height:90px; background:rgba(246,130,31,.9); @include border-radius(50%); color:#FFF; text-align:center; @include font-size(26px); line-height:0.8em; font-weight:$light; }
+#lista-ofertas li .buy .desconto span{ @include font-size(14px); font-weight:$regular; text-transform:uppercase; }
+#lista-ofertas li .buy .depara{ padding:70px 10px 0; }
+#lista-ofertas li .buy .depara .de,
+#lista-ofertas li .buy .depara .por{ @include font-size(18px); }
+#lista-ofertas li .buy .depara .por{ font-weight:$bold; }
+#lista-ofertas li .buy .depara .por span{ @include font-size(30px); text-decoration:line-through; }
+#lista-ofertas li .buy .depara .por sup{ text-decoration:line-through; }
+#lista-ofertas li .buy .depara sup{ @include font-size(14px); vertical-align:super; }
+#lista-ofertas li .buy .comprar{ display:block; position:absolute; bottom:0; left:0; width:100%; height:80px; line-height:80px; text-align:center; background-color:$turquesa; color:#FFF; text-transform:uppercase; @include font-size(20px); font-weight:$bold; @include transition(all 200ms ease-in-out); }
+#lista-ofertas li .buy .comprar:hover{ @include opacity(0.7); }
+
+#mais-ofertas{ display:block; width:100%; max-width:320px; padding:15px 0; margin:0 auto 70px;  background-color:$laranja; text-transform:uppercase; letter-spacing:0.09em; text-align:center; color:#FFF; @include transition(all 300ms ease-in-out); }
+#mais-ofertas:hover{ @include opacity(0.7); }
+
+/* ***** Lista de Ofertas */
+#parceiros{ background-color:$prata; padding:70px 0 120px; }
+#parceiros .setas{ margin:35px auto; width:100px; }
+#parceiros .setas a{ display:block; float:left; width:50px; height:50px; background:$grafite no-repeat center center; @include transition(all 300ms ease-in-out); }
+#parceiros .setas a:hover{ background-color:$turquesa; }
+#parceiros .setas a#prev-parc{ background-image:url(../img/arw-prev.png); }
+#parceiros .setas a#next-parc{ background-image:url(../img/arw-next.png); }
+#lista-parceiros{}
+#lista-parceiros ul{}
+#lista-parceiros ul li{ float:left; width:32%; padding:60px 0; border:1px solid #CFCFCF; margin:0 2% 2% 0; background-color:#FFF; text-align:center; }
+#lista-parceiros ul li:nth-child(3n){ margin-right:0; }
+#lista-parceiros ul li img{ display:inline-block; width:auto; max-width:100%; }
+
+/* ***** Newsletter */
+#newsletter{ padding:70px 0 90px; background-color:$grafite; }
+#newsletter .wrapper{ width:100%; max-width:640px; margin:60px auto 0; }
+#newsletter .wrapper input{ display:block; float:left; width:85%; height:40px; padding:0 20px; }
+#enviar-news{ display:block; float:left; width:15%; height:40px; border:0; background-color:$turquesa; color:#FFF; text-transform:uppercase; @include transition(all 300ms ease-in-out); cursor:pointer; }
+#enviar-news:hover{ @include opacity(0.7); }
+
+/* ***** Rodapé */
+#rodape{ background:$turquesa url(../img/bkg-grain.jpg) repeat center center; color:#FFF; padding:60px 0; margin-top:40px; }
+#rodape .center{ overflow:hidden; }
+#rodape .col1{ float:left; width:24%; margin-right:11%; }
+#rodape .col1 h3{ background-image:url(../img/ico-institucional.png); }
+#rodape .col2{ float:left; width:30%; margin-right:9%; }
+#rodape .col2 h3{ background-image:url(../img/ico-facebook.png); }
+#rodape .col3{ float:left; width:26%; }
+#rodape .col3 h3{ background-image:url(../img/ico-twitter.png); }
+#rodape h3{ @include font-size(30px); border-bottom:1px solid #FFF; padding:10px 0 10px 65px; margin-bottom:20px; background:no-repeat left top; }
+#rodape ul{ letter-spacing:0.09em; font-weight:$light; }
+#rodape ul li{ padding:7px 0; border-bottom:1px solid rgba(255,255,255,.3); }
+#rodape ul li:before{ content:'• '; }
+#rodape ul li:last-child{ border:0; }
+#rodape ul li a{ @include transition(all 200ms ease-in-out); }
+#rodape ul li a:hover{ @include opacity(0.7); }
+
+/* ***** Contato */
+#mini-contato{ padding:40px 0; text-align:center; }
+#mini-contato .logo{ margin-bottom:30px; }
+#mini-contato .logo img{ display:inline-block; }
+#mini-contato .fones{}
+#mini-contato .fones p{ display:inline-block; padding-top:50px; @include font-size(18px); letter-spacing:0.09em; color:$turquesa; background:no-repeat center top; margin:0 50px; }
+#mini-contato .fones .fixo{ background-image:url(../img/ico-fixo.png); }
+#mini-contato .fones .cel{ background-image:url(../img/ico-cel.png); }
+
+#assinatura{ width:100%; padding:20px 0; background-color:$vermelho; color:#FFF; }
+#assinatura .center{ overflow:hidden; }
+#assinatura p{ display:block; float:left; @include font-size(14px); line-height:20px; }
+#assinatura .assinatura{ display:block; float:right; width:22px; height:20px; background:url(../img/ffw.png) no-repeat center center; @include removeText; }
+
+/* ***** Página do Produto */
+#breadcrumbs{ margin:70px 0 30px; }
+#breadcrumbs li{ display:inline-block; @include font-size(15px); }
+#breadcrumbs li a{ color:$vermelho; }
+
+#galeria{ float:left; width:49%; }
+#galeria .owl-dots{ position:absolute; left:-36px; top:50%; @include transform(translatey(-50%)); }
+#galeria .owl-dots .owl-dot{ width:18px; height:18px; @include border-radius(50%); background-color:#FFF; margin:10px 0; border:2px solid $vermelho; }
+#galeria .owl-dots .owl-dot.active{ background-color:$vermelho; }
+
+#info{ float:left; width:49%; margin-left:2%; }
+#info h1{ @include font-size(30px); color:$turquesa; font-weight:$bold; }
+#info .estabelecimento{ @include font-size(18px); color:$vermelho; }
+#info .separador{ display:block; width:90px; height:1px; background-color:$laranja; margin:20px 0; }
+#info .descricao{ line-height:28px; margin-bottom:20px; }
+
+#info .pricetags{ width:100%; overflow:hidden; margin-bottom:30px; }
+#info .pricetags .de{ float:left; margin:30px 30px 0 0; @include font-size(32px); font-weight:$light; color:$vermelho; text-decoration:line-through; }
+#info .pricetags .de span{ display:block; float:left; @include font-size(15px); margin:8px 5px 0 0; line-height:0.9em; }
+#info .pricetags .por{ float:left; @include font-size(70px); color:$turquesa; }
+#info .pricetags .por span{ display:block; float:left; @include font-size(24px); text-align:center; margin:22px 5px 0 0; line-height:1em; }
+#info .pricetags .porcentagem{ float:right; width:90px; padding-top:23px; height:90px; background:$laranja; @include border-radius(50%); color:#FFF; text-align:center; @include font-size(26px); line-height:0.8em; font-weight:$light; }
+#info .pricetags .porcentagem span{ @include font-size(14px); font-weight:$regular; text-transform:uppercase; }
+
+#info .c-left{ float:left; width:50%; }
+#info .c-left .quantidade{ margin-bottom:70px; overflow:hidden; }
+#info .c-left .quantidade span{ display:block; text-align:center; color:$turquesa; margin-bottom:5px; }
+#info .c-left .quantidade .btn{ display:block; float:left; width:20%; height:60px; background-color:$turquesa; color:#FFF; @include font-size(35px); text-align:center; line-height:60px; @include transition(all 200ms ease-in-out); @include opacity(0.7); }
+#info .c-left .quantidade input{ display:block; float:left; width:60%; height:60px; text-align:center; @include font-size(24px); }
+#info .c-left .timing{ color:$vermelho; @include font-size(30px); text-transform:uppercase; }
+#info .c-left .timing span{ display:block; @include font-size(15px); text-transform:lowercase; }
+
+#info .c-right{ float:right; width:40%; text-align:right; }
+#info .c-right .compras{ display:inline-block; @include font-size(18px); color:$turquesa; text-align:left; margin-bottom:40px; }
+#info .c-right .compras strong{ @include font-size(28px); display:block; }
+#info .c-right .rendimento{ display:inline-block; min-width:162px; text-align:left; @include font-size(15px); margin-bottom:20px; }
+#info .c-right .rendimento strong{ display:block; @include font-size(25px); }
+#info .c-right .avaliacao{ @include font-size(15px); display:inline-block; min-width:162px; text-align:left; margin-bottom:24px; }
+#info .c-right .avaliacao strong{ display:block; float:right; width:100%; height:22px; background:url(../img/star-alt.png) repeat left center; }
+#info .c-right .avaliacao span{ display:block; width:70%; height:22px; background:url(../img/star.png) repeat left center; }
+#info .btn-comprar{ display:block; width:100%; padding:10px 0; background-color:$vermelho; color:#FFF; @include font-size(26px); text-transform:uppercase; font-weight:$light; text-align:center; @include transition(all 200ms ease-in-out); }
+#info .btn-comprar:hover{ @include opacity(0.7); }
+
+#adt-info{ background:url(../img/bkg-double.png) no-repeat center top; padding-bottom:70px; margin-top:70px; }
+#adt-info h2{ @include font-size(45px); line-height:100px; color:#FFF; margin-bottom:30px; }
+#adt-info p{ line-height:35px; }
+#adt-info ul{ line-height:35px; }
+#adt-info ul li:before{ content:'• '; }
+#adt-info .col-left{ float:left; width:37%; }
+#adt-info .col-right{ float:right; width:40%; }
+#estabelecimento{ padding:50px 0 0; background-color:$grafite; text-align:center; color:#FFF; }
+#estabelecimento .img{ text-align:center; margin-bottom:50px; }
+#estabelecimento p{ display:inline-block; padding-left:60px; background:no-repeat left center; vertical-align:middle; @include font-size(24px); line-height:35px; text-align:left; margin:0 35px; }
+#estabelecimento p strong{ font-weight:$bold; }
+#estabelecimento p span{ @include font-size(16px); }
+#estabelecimento p:first-child{ margin-left:0; }
+#estabelecimento p:last-child{ margin-right:0; }
+#estabelecimento p.endereco{ background-image:url(../img/ico-endereco.png); }
+#estabelecimento p.telefone{ background-image:url(../img/ico-telefone.png); padding:20px 0 20px 60px; }
+#estabelecimento p.horario{ background-image:url(../img/ico-horario.png); padding:20px 0 20px 60px; }
+#mapa{ width:100%; height:450px; margin-top:70px; }
+
+.inner-tit{ margin-top:40px; }
+#lista-ofertas.inner-list{ margin:40px 0; }
+
+/* ***** Carrinho */
+#carrinho{ @include font-size(18px); font-weight:$bold; margin-bottom:30px; }
+#carrinho img{ display:block; float:left; }
+#carrinho h2{ display:block; padding-top:60px; color:$turquesa; }
+#carrinho .qtd-box{ width:140px; margin:0 auto; }
+#carrinho .btn{ display:block; float:left; background-color:$turquesa; color:#FFF; width:30px; height:30px; line-height:30px; }
+#carrinho input{ display:block; float:left; width:60px; height:30px; text-align:center; }
+#carrinho .excluir{ display:inline-block; width:22px; height:29px; background:url(../img/ico-excluir.png) no-repeat center center; }
+
+table{ width:100%; }
+table td{ border:1px solid #CCC; border-collapse:collapse; text-align:center; vertical-align:middle; }
+table th{ @include font-size(14px); font-weight:$bold; padding-bottom:5px; }
+
+#actions{ float:right; margin-bottom:100px; }
+#actions p{ float:left; @include font-size(24px); font-weight:$bold; margin:40px 60px 0 0; }
+#actions p strong{ color:$turquesa; }
+#actions .btn-comprar{ display:block; float:left; padding:40px 20px; text-transform:uppercase; @include font-size(26px); font-weight:$light; background-color:$turquesa; color:#FFF; @include transition(all 200ms ease-in-out); }
+#actions .btn-comprar:hover{ @include opacity(0.7); }
+#actions .btn-continuar{ display:block; float:right; height:37px; padding-left:63px; margin:20px 25px 0 0; line-height:37px; @include font-size(18px); background:url(../img/ico-carrinho-s.png) no-repeat left center; @include transition(all 200ms ease-in-out); }
+#actions .btn-continuar:hover{ @include opacity(0.7); }
+
+#carrinho .centered-title{ margin:0 0 40px; }
+.confirmacao{ }
+.confirmacao td{ padding:20px 10px; font-weight:$bold; }
+.confirmacao td span{ color:$turquesa; }
+
+/* ***** Páginas centralizadas com formulários */
+.smcenter{ max-width:620px; margin:50px auto; }
+.smcenter .tit-passo{ text-align:center; @include font-size(15px); color:$vermelho; margin:30px 0 20px; }
+.smcenter .tit-passo span{ display:block; width:36px; height:36px; margin:0 auto; background-color:$vermelho; color:#FFF; line-height:36px; @include border-radius(50%); }
+.smcenter input[type=email],
+.smcenter input[type=password],
+.smcenter input[type=text],
+.smcenter select{ display:block; float:left; width:100%; text-align:center; border:0; padding:5px 0; border-bottom:1px solid $grafite; margin-bottom:15px; }
+.smcenter textarea{ width:100%; height:250px; padding:10px; resize:none; margin-bottom:15px; }
+.smcenter .btn{ display:block; width:100%; padding:7px 0; margin-bottom:10px; @include font-size(24px); text-transform:uppercase; color:#FFF; font-weight:$light; background-color:$turquesa; border:0; cursor:pointer; @include transition(all 300ms ease-in-out); }
+.smcenter .btn:hover{ @include opacity(0.7); }
+.smcenter .add-foto{ display:block; width:100%; padding-top:145px; margin-bottom:30px; text-align:center; background:url(../img/thumb.png) no-repeat center top; @include font-size(14px); @include transition(all 200ms ease-in-out); }
+.smcenter .add-foto:hover{ @include opacity(0.7); }
+.smcenter .add-foto span{ display:inline-block; background:url(../img/ico-foto.png) no-repeat left center; padding-left:18px; }
+#inp-file{ display:none; }
+.smcenter input.double,
+.smcenter select.double{ float:left; width:48%; margin-right:4%; }
+.smcenter input.double.last,
+.smcenter select.double.last{ margin-right:0; }
+.smcenter label{ display:block; margin-bottom:15px; }
+.smcenter input:focus,
+.smcenter select:focus{ border-color:$turquesa; }
+.smcenter .rec-senha{ display:block; float:left; padding-left:15px; background:url(../img/ico-locker.png) no-repeat left center; @include font-size(14px); @include transition(all 200ms ease-in-out); }
+.smcenter .rec-senha:hover{ color:$turquesa; }
+.smcenter .msg{ float:right; color:$vermelho; @include font-size(14px); }
+.smcenter .msg.sucesso{ color:$verde; }
+
+.big-title{ width:100%; padding:140px 0; margin-bottom:40px; background:$turquesa url(../img/bkg-big-title.jpg) no-repeat center center; text-align:center; color:#FFF; @include font-size(47px); }
+.centered-subtitle{ width:100%; text-align:center; margin:30px 0; @include font-size(14px); line-height:28px; }
+.centered-subtitle strong{ font-weight:$bold; }
+
+/* ***** Contato */
+.contato{ text-align:center; @include font-size(18px); margin-bottom:40px; }
+.contato .email{ display:inline-block; background:url(../img/ico-mail.png) no-repeat left center; padding:5px 0 5px 35px; margin-right:40px; }
+.contato .email strong{ font-weight:$bold; }
+.contato .telefone{ display:inline-block; background:url(../img/ico-fone.png) no-repeat left center; padding:5px 0 5px 35px; }
+.contato .telefone span{ @include font-size(28px); }
+
+#perguntas{ margin:40px 0 100px; }
+#perguntas li{ margin-bottom:20px; }
+#perguntas li a{ display:block; font-weight:$bold; line-height:30px; }
+#perguntas li a span{ display:block; float:left; width:30px; height:30px; margin-right:5px; background-color:$vermelho; color:#FFF; text-align:center; line-height:30px; @include border-radius(50%); }
+#perguntas li a span.mais{}
+#perguntas li a span.menos{ display:none; }
+#perguntas li .content{ display:none; padding:15px 30px 0; border:1px solid $cinza; margin-top:10px; }
+#perguntas li .content p{ margin-bottom:15px; line-height:1.3em; }
+
+/* ***** Dados Cadastrais */
+.tabs{ width:100%; max-width:940px; margin:0 auto 40px; overflow:hidden; }
+.tabs a{ display:block; float:left; width:33%; padding:15px 0; border:1px solid $turquesa; border-right:0; text-align:center; color:$turquesa; @include font-size(14px); @include transition(all 200ms ease-in-out); }
+.tabs a:last-child{ border-right:1px solid $turquesa; }
+.tabs a:hover,
+.tabs a.active{ background-color:$turquesa; color:#FFF; }
+
+.pedidos{ margin-top:40px; }
+.pedidos strong{ @include font-size(22px); font-weight:$bold; color:$turquesa; }
+table td span.verde{ color:$verde; font-weight:$regular; }
+table td span.amarelo{ color:$laranja; font-weight:$regular; }
+table td span.vermelho{ color:$vermelho; font-weight:$regular; }
+
+/* ***** Nova Empresa */
+.tabs.inner{ max-width:100%; }
+.tabs.inner a{ width:25%; }
+
+.painel{ margin:50px 0 30px; }
+.painel .logo{ display:block; float:left; width:18%; height:125px; margin-right:2%; padding-top:50px; background-color:$turquesa; color:#FFF; text-align:center; @include font-size(18px); }
+.painel label{ display:block; float:left; margin-bottom:1%; }
+.painel input,
+.painel select,
+.painel textarea{ display:block; float:left; width:100%; margin-bottom:2%; height:50px; border:1px solid $turquesa; padding:0 20px; @include border-radius(5px); }
+.painel textarea{ height:220px; resize:none; padding:10px 20px; }
+.painel .oito{ width:80%; }
+.painel .nove{ width:90%; margin-right:2%; }
+.painel .um{ width:8%; }
+.painel .cinco{ width:49%; margin-right:2%; }
+.painel .cinco.last{ margin-right:0; }
+.painel .tres{ width:32%; margin-right:2%; }
+.painel .tres.last{ margin-right:0; }
+.painel label .tmp{ width:32%; margin:0 2% 0 0; }
+.painel label .tmp.last{ margin:0; }
+.painel .closure{ clear:both; float:right; }
+.painel .closure a{ display:block; float:left; @include font-size(24px); font-weight:$light; margin:40px 20px 0 0; }
+.painel .closure .btn{ display:block; float:left; padding:40px 20px; margin-bottom:10px; text-transform:uppercase; @include font-size(26px); font-weight:$light; background-color:$turquesa; color:#FFF; border:0; @include transition(all 200ms ease-in-out); cursor:pointer; }
+.painel .closure .btn:hover{ @include opacity(0.7); }
+.painel .closure .msg{ text-align:right; color:$vermelho; }
+.painel .closure .msg.sucesso{ color:$verde; }
+
+.painel .imagens{ overflow:hidden; margin:2% 0; }
+.painel .imagens a{ display:block; float:left; width:18.4%; height:230px; margin-right:2%; background-color:$prata; @include transition(all 200ms ease-in-out); text-align:center; padding-top:100px; }
+.painel .imagens a:last-child{ margin-right:0; }
+.painel .imagens a span{ @include opacity(0); display:block; width:100%; background:url(../img/mais.png) no-repeat center top; padding-top:40px; @include font-size(12px); @include transition(all 200ms ease-in-out); }
+.painel .imagens a:hover,
+.painel .imagens a.active{ background-color:$turquesa; color:#FFF; }
+.painel .imagens a:hover span,
+.painel .imagens a.active span{ @include opacity(1); }
+
+/* ***** Empresas cadastradas */
+.filtros{ max-width:560px; margin:40px auto 80px; overflow:hidden; }
+.filtros select,
+.filtros input{ display:block; float:left; width:48%; margin-right:4%; border:1px solid $turquesa; padding:10px 20px; }
+.filtros input{ margin:0; background:url(../img/ico-busca.png) no-repeat right center; }
+#lista-empresas{ margin-bottom:30px; overflow:hidden; }
+#lista-empresas li{ float:left; width:23.4%; margin:0 2% 2% 0; position:relative; border:1px solid $turquesa; @include border-radius(10px); text-align:center; overflow:hidden; }
+#lista-empresas li:nth-child(4n){ margin-right:0; }
+#lista-empresas li a{ display:block; padding:10px 20px; }
+#lista-empresas li span{ display:block; position:absolute; top:0; left:0; width:100%; height:100%; background-color:rgba(0,161,190,0.8); padding-top:17.5%; color:#FFF; text-transform:uppercase; @include opacity(0); @include transition(all 200ms ease-in-out); }
+#lista-empresas li a:hover span{ @include opacity(1); }
+.pag{ text-align:center; margin-bottom:20px; }
+.pag li{ display:inline-block; margin:0 10px; }
+.pag li a{ @include transition(all 200ms ease-in-out); }
+.pag li a:hover,
+.pag li a.active{ color:$turquesa; }
+
+/* ***** Dados da empresa */
+.centered-logo{ width:100%; text-align:center; margin-bottom:40px; }
+#lista-dados{ width:100%; position:relative; }
+#lista-dados li{ position:relative; }
+#lista-dados li .header{ width:100%; border:1px solid $prata; overflow:hidden; }
+#lista-dados li .header img{ display:block; float:left; }
+#lista-dados li .header h3{ float:left; margin:55px 0 0 20px; @include font-size(18px); font-weight:$bold; color:$turquesa; }
+#lista-dados li .btn-dados{ display:block; position:absolute; top:0; right:0; width:70px; height:140px; background:$turquesa url(../img/seta-down.png) no-repeat center center; @include transition(all 200ms ease-in-out); }
+#lista-dados li .btn-dados:hover{ @include opacity(0.7); }
+#lista-dados li .btn-dados.active{ background-image:url(../img/seta-up.png); }
+
+#lista-dados li .info{ overflow:hidden; padding:30px; border:1px solid $prata; border-top:0; }
+#lista-dados li .info .col-left{ float:left; width:28%; padding-top:30px; }
+#lista-dados li .info .col-left p{ @include font-size(14px); margin-top:30px; }
+#lista-dados li .info .col-left p strong{ display:block; @include font-size(24px); color:$turquesa; }
+#lista-dados li .info .col-left .stars{ display:block; width:162px; height:22px; margin-top:5px; background:url(../img/star-alt.png) repeat left center; }
+#lista-dados li .info .col-left .stars .star{ display:block; width:70%; height:22px; background:url(../img/star.png) repeat left center; }
+
+#lista-dados li .info .col-right{ float:left; width:67%; }
+#lista-dados li .info .col-right .referencia{ color:$turquesa; margin-bottom:10px; }
+#lista-dados li .info .col-right .referencia label{ margin-right:20px; }
+#lista-dados li .info .col-right .dados{}
+#lista-dados li .info .col-right .dados li{ text-align:center; padding-right:1px; }
+#lista-dados li .info .col-right .dados li.active{}
+#lista-dados li .info .col-right .dados li h4{ color:#CDCDCD; margin-bottom:5px; }
+#lista-dados li .info .col-right .dados li.active h4{ color:$turquesa; @include transition(all 200ms ease-in-out); }
+#lista-dados li .info .col-right .dados li .wrapper{ width:100%; height:220px; background:#CDCDCD; position:relative; }
+#lista-dados li .info .col-right .dados li .wrapper .marcador{ position:absolute; bottom:0; left:0; width:100%; background-color:$turquesa; @include transition(all 200ms ease-in-out); }
+#lista-dados li .info .col-right .dados li.active .wrapper .marcador{ background-color:#007895; }
+#lista-dados li .info .col-right .dados li p{ color:$turquesa; @include transition(all 200ms ease-in-out); }
+#lista-dados li .info .col-right .dados li.active p{ color:#007895; }
+
+#lista-dados .owl-prev,
+#lista-dados .owl-next{ display:block; position:absolute; top:50%; @include transform(translatey(-50%)); width:22px; height:40px; backgroud:no-repeat center center; @include removeText; }
+#lista-dados .owl-prev{ left:-32px; background-image:url(../img/prev.png); }
+#lista-dados .owl-next{ right:-32px; background-image:url(../img/next.png); }
+
+// PAGAMENTO
+#formas-pagamento{ margin-top:50px; }
+#formas-pagamento .col{ float:left; width:32%; margin-right:2%; }
+#formas-pagamento .col.last{ margin-right:0; }
+#formas-pagamento .col h2{ @include font-size(18px); font-weight:$bold; margin:0 0 5px 20px; }
+#formas-pagamento .col .dados-usuario{ padding:40px 20px; background-color:$turquesa; color:#FFF; }
+#formas-pagamento .col .dados-usuario p{ line-height:52px; }
+#formas-pagamento .col .dados-usuario p strong{ color:$grafite; }
+#formas-pagamento .col .field{ padding:15px; border:1px solid $prata; margin-bottom:10px; @include font-size(18px); vertical-align:middle; }
+#formas-pagamento .col .field.novo{ margin-bottom:0; }
+#formas-pagamento .col .btn{ display:block; float:left; padding:10px 20px; width:100%; text-transform:uppercase; @include font-size(26px); font-weight:$light; background-color:$turquesa; color:#FFF; border:0; @include transition(all 200ms ease-in-out); cursor:pointer; }
+#formas-pagamento .col .btn:hover{ @include opacity(0.7); }
+#novo-endereco{ border:1px solid $prata; border-top:0; padding:10px 20px; }
+#formas-pagamento input[type=text],
+#formas-pagamento select{ display:block; width:100%; border:0; border-bottom:1px solid $prata; text-align:center; margin-bottom:10px; }
+#formas-pagamento .credito{ margin-top:25px; }
+#formas-pagamento .closure{ clear:both; float:right; }
+#formas-pagamento .closure a{ display:block; float:left; @include font-size(24px); font-weight:$light; margin:40px 20px 0 0; }
+#formas-pagamento .closure .btn{ display:block; float:left; padding:40px 20px; margin-bottom:10px; text-transform:uppercase; @include font-size(26px); font-weight:$light; background-color:$turquesa; color:#FFF; border:0; @include transition(all 200ms ease-in-out); cursor:pointer; }
+#formas-pagamento .closure .btn:hover{ @include opacity(0.7); }
+#formas-pagamento .closure .msg{ text-align:right; color:$vermelho; }
+#formas-pagamento .closure .msg.sucesso{ color:$verde; }
+
+/* ***** Responsivo */
+@media screen and(max-width:1400px){
+	#lista-ofertas li{ width:32%; margin:0 2% 2% 0; position:relative; }
+	#lista-ofertas li:nth-child(4n){ margin-right:2%; }
+	#lista-ofertas li:nth-child(3n){ margin-right:0; }
+}
+
+@media screen and(max-width:1280px){
+	#select-cidade label{ width:75%; }
+	#cidades{ width:25%; }
+	#menu span{ margin:0 5px; }
+	#social{ display:none; }
+	#welcome{ width:25%; }
+}
+
+@media screen and(max-width:1140px){
+	#menu{ float:right; width:100%; margin:20px 0; text-align:right; }
+	#ico-carrinho{ float:right; margin:30px 20px 20px; }
+
+	#banners li .inner{ width:100%; max-width:480px; top:50%; left:50%; @include transform(translate(-50%, -50%)); }
+	#banners li .inner .desconto{ top:-20px; right:-20px; }
+	#banners .owl-dots{ bottom:10px; }
+
+	#busca{ width:100%; margin-top:30px; }
+}
+
+@media screen and(max-width:1080px){
+	#lista-ofertas li{ width:49%; }
+	#lista-ofertas li:nth-child(4n){ margin-right:2%; }
+	#lista-ofertas li:nth-child(3n){ margin-right:2%; }
+	#lista-ofertas li:nth-child(2n){ margin-right:0; }
+
+	#galeria{ width:40%; }
+	#galeria .owl-dots{ left:10px; }
+	#info{ width:55%; margin-left:5%; }
+
+	#estabelecimento p{ @include font-size(18px); line-height:24px; margin:0 20px; }
+
+	.painel .nove{ width:49%; }
+	.painel .um{ width:49%; }
+}
+
+@media screen and(max-width:1080px){
+	#formas-pagamento .col{ width:48%; margin:0 1% 30px; }
+	#formas-pagamento .col.last{ width:100%; margin-right:0; }
+}
+
+@media screen and(max-width:860px){
+	#galeria{ width:70%; margin:0 15% 50px; }
+	#info{ width:70%; margin:0 15%; }
+}
+
+@media screen and(max-width:800px){
+	#header .right{ width:75%; }
+	#select-cidade label{ width:50%; }
+	#cidades{ width:50%; }
+	#welcome{ width:50%; }
+}
+
+@media screen and(max-width:760px){
+	#logo{ width:100%; margin-bottom:20px; }
+	#header .right{ width:100%; }
+	#menu{ text-align:center; }
+	#banners{ display:none; }
+
+	#ico-carrinho{ margin:0; position:absolute; top:20px; right:20px; }
+	#welcome{ width:100%; }
+
+	#rodape .col1, #rodape .col2, #rodape .col3{ width:100%; margin-bottom:20px; }
+
+	#estabelecimento p, #estabelecimento p.telefone, #estabelecimento p.horario{ display:block; width:100%; text-align:center; margin:0 0 30px; padding:60px 0 0; background-position:center top; }
+
+	.painel .tres{ width:100%; margin-right:0; }
+	.painel .imagens a{ width:100%; height:auto; margin-right:0; padding:20px 0; margin-bottom:2%; }
+
+	#lista-dados li .btn-dados{ display:none; }
+	#lista-dados li .info{ display:block !important; overflow:hidden; padding:30px; border:1px solid $prata; border-top:0; }
+	#lista-dados li .info .col-left{ float:left; width:100%; padding:0; margin-bottom:30px; }
+	#lista-dados li .info .col-right{ float:left; width:100%; }
+
+	#lista-dados .owl-prev,
+	#lista-dados .owl-next{ display:none !important; }
+}
+
+@media screen and(max-width:690px){
+	#lista-ofertas li{ width:100%; }
+	#lista-ofertas li:nth-child(4n){ margin-right:0; }
+	#lista-ofertas li:nth-child(3n){ margin-right:0; }
+	#lista-ofertas li:nth-child(2n){ margin-right:0; }
+
+	#lista-parceiros ul li{ width:49%; margin:0 2% 2% 0; }
+	#lista-parceiros ul li:nth-child(3n){ margin-right:2%; }
+	#lista-parceiros ul li:nth-child(2n){ margin-right:0; }
+
+	#galeria{ width:100%; margin:0 0 50px; }
+	#info{ width:100%; margin:0; }
+	#adt-info{ background:transparent; padding-bottom:0; margin-top:50px; }
+	#adt-info .col-left, #adt-info .col-right{ width:100%; padding-bottom:50px; }
+	#adt-info h2{ @include font-size(45px); background-color:$turquesa; line-height:1em; color:#FFF; padding:20px 0; text-align:center; }
+
+	.tabs.inner a{ width:50%; border:1px solid $turquesa; }
+	.painel .logo{ width:100%; height:auto; margin:0 0 2%; padding:20px 0; }
+	.painel .oito{ width:100%; }
+	.painel .nove{ width:100%; margin-right:0; }
+	.painel .um{ width:100%; }
+	.painel .cinco{ width:100%; margin-right:0; }
+	.painel .cinco.last{ margin-right:0; }
+	.painel .closure{ float:none; width:100%; }
+	.painel .closure a{ width:100%; text-align:center; margin:20px 0; }
+	.painel .closure .btn{ width:100%; padding:20px 0; }
+	.painel .closure .msg{ text-align:center; }
+}
+
+@media screen and(max-width:540px){
+	#newsletter .wrapper input,
+	#enviar-news{ width:100%; float:none; }
+
+	#actions{ width:100%; text-align:center; }
+	#actions p{ width:100%; margin:40px 0 20px; }
+	#actions .btn-comprar{ padding:30px 0; width:100%; }
+	#actions .btn-continuar{ margin:20px 0 0; padding:0; width:100%; }
+
+	.contato .email{ margin-right:0; }
+
+	.tabs a,
+	.tabs.inner a{ width:100%; }
+
+	#formas-pagamento .col{ width:100%; margin:0 0 30px; }
+	#formas-pagamento .col.last{ margin:0; }
+}
+
+@media screen and(max-width:460px){
+	#select-cidade{ height:auto; }
+	#select-cidade label{ width:100%; background-image:none; text-align:center; }
+	#cidades{ width:100%; text-align:center; }
+
+	#busca{ padding:20px 10px 20px 20px; }
+	#busca input{ width:80%; }
+	#buscar{ width:20%; }
+
+	#lista-ofertas li .descricao{ display:none; }
+	#lista-ofertas li .info{ top:0; bottom:auto; width:100%; height:50%; padding:30px; min-height:0; }
+	#lista-ofertas li .buy{ width:100%; height:50%; min-height:0; }
+
+	#mini-contato .fones p{ margin:0 50px 20px; }
+
+	#info .pricetags .por{ clear:left; }
+	#info .c-left{ width:100%; margin-bottom:20px; }
+	#info .c-right{ width:100%; text-align:left; }
+	#info .c-left .quantidade{ margin-bottom:20px; }
+	#info .c-right .compras{ margin-bottom:20px; }
+	#info .c-right .compras, #info .c-right .rendimento{ display:block; }
+
+	.smcenter input.double{ width:100%; margin-right:0; }
+	.big-title{ padding:80px 0; @include font-size(30px); }
+
+	.filtros select,
+	.filtros input{ width:100%; margin:5px 0; }
+	
+	#lista-dados li .header{ border-bottom:0; padding:20px; }
+	#lista-dados li .header img{ display:none; }
+	#lista-dados li .header h3{ margin:20px 0 0; }
+	#lista-dados li .info{ padding-top:0; }
+}
+
+@media screen and(max-width:360px){
+	#lista-ofertas li .info{ height:60%; }
+	#lista-ofertas li .buy{ height:40%; }
+	#lista-ofertas li .buy .depara{ padding:20px 10px 0; }
+
+	#lista-parceiros ul li{ width:100%; margin:0 0 2% 0; }
+	#lista-parceiros ul li:nth-child(3n){ margin-right:0; }
+
+	#assinatura p{ float:none; text-align:center; margin-bottom:10px; }
+	#assinatura .assinatura{ float:none; margin:0 auto; }
+
+	#info .pricetags{ position:relative; }
+	#info .pricetags .porcentagem{ position:absolute; top:0; right:0; }
+
+	#lista-dados li .info{ padding:10px; }
+	#lista-dados li .info .col-right .referencia label{ display:block; width:100%; margin:0 0 5px; }
+}

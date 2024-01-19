@@ -1,0 +1,202 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import url(../font/gotham.css);
+$Gotham:'Gotham', Helvetica, Arial, sans-serif;
+
+$book:300;
+$bold:600;
+$ultra:900;
+
+// CORES
+$claro:#86AABF;
+$petroleo:#2F404A;
+$ciano:#207CB3;
+$cinza:#2A2A2A;
+$branco:#DADADA;
+
+
+// ESTILOS GLOBAIS
+body{ font-family:$Gotham; font-weight:$book; @include font-size(14px); color:$branco; @include font-smoothing(on); }
+@include selection(#FFF,$petroleo);
+
+/* -=-=-=-=-=-=-=-=-=-=- Topo */
+#header{ width:100%; height:1080px; background:#01101F url(../img/bkg-topo.jpg) repeat center bottom; position:relative; z-index:1; overflow:hidden; }
+#logo{ float:left; margin:45px 0 0 8%; position:relative; z-index:4; }
+#logo img{ display:block; max-width:100%; }
+#menu{ float:right; width:40%; padding-bottom:20px; margin-top:50px; border-bottom:1px solid $claro; position:relative; z-index:3; }
+#menu li{ display:inline-block; margin-right:50px; }
+#menu li a{ @include font-size(18px); @include transition(all 300ms ease-in-out); }
+#menu li a:hover{ @include opacity(0.6); }
+#foto{ position:absolute; z-index:1; top:0; left:0; width:100%; height:100%; background:url(../img/foto.png) no-repeat center bottom; background-size:contain; }
+#texto{ position:absolute; z-index:2; top:0; left:0; width:100%; height:100%; background:url(../img/texto.png) no-repeat center center; background-size:contain; }
+
+/* -=-=-=-=-=-=-=-=-=-=- Discografia */
+#discografia{ width:100%; background:#E5E5E5 url(../img/bkg-discografia.jpg) no-repeat center top; padding-bottom:200px; position:relative; z-index:2; }
+#discografia .box{ position:absolute; width:6.25%; height:110%; z-index:7; bottom:0; left:0; border:1px solid $claro; border-width:1px 1px 0 0; }
+#discografia h2{ float:left; @include font-size(90px); line-height:92px; font-weight:$bold; text-transform:uppercase; color:$claro; margin:170px 0 0 135px; }
+#discografia h2 span{ display:block; }
+#discografia .capa{ float:left; margin:120px 0 0 6.75%; width:25%; }
+#discografia .capa img{ display:block; max-width:100%; }
+#lista-musicas{ float:left; width:27%; height:500px; overflow-x:hidden; overflow-y:scroll; margin:110px 0 0 3%; }
+#lista-musicas li{ width:100%; margin-bottom:30px; overflow:hidden; }
+#lista-musicas li h3{ float:left; width:37%; border-bottom:1px solid $branco; line-height:15px; padding-bottom:10px; margin-top:20px; }
+#lista-musicas li .player{ float:left; width:63%; }
+#lista-musicas li .player iframe{ display:block; width:100%; }
+
+/* -=-=-=-=-=-=-=-=-=-=- Sobre */
+#sobre{}
+#sobre .sobre-item{ width:100%; min-height:750px; background:repeat center top; overflow:hidden; }
+#sobre .sobre-item .foto{ float:left; width:50%; min-height:750px; background:no-repeat center bottom; }
+#sobre .sobre-item .texto{ float:left; width:37.5%; margin-top:100px; }
+#sobre .sobre-item .texto h2{ display:inline-block; @include font-size(70px); font-weight:$ultra; padding-bottom:30px; border-bottom:1px solid $branco; margin-bottom:30px; }
+#sobre .sobre-item .texto p{ line-height:28px; margin-bottom:90px; }
+#sobre .sobre-item .texto .numeros{ @include font-size(18px); color:$claro; float:left; }
+#sobre .sobre-item .texto .numeros strong{ font-weight:$bold; @include font-size(30px); color:$branco; }
+#sobre .sobre-item .texto .social{ float:right; }
+#sobre .sobre-item .texto .social li{ display:inline-block; margin-left:15px; }
+#sobre .sobre-item .texto .social li a{ display:block; height:30px; background:no-repeat center center; }
+#sobre .sobre-item .texto .social li a.fb{ width:14px; background-image:url(../img/ico-facebook.png) }
+#sobre .sobre-item .texto .social li a.tw{ width:31px; background-image:url(../img/ico-twitter.png) }
+#sobre .sobre-item .texto .social li a.yt{ width:30px; background-image:url(../img/ico-youtube.png) }
+#sobre .sobre-item .texto .social li a.sp{ width:26px; background-image:url(../img/ico-spotify.png) }
+
+#sobre .sobre-item.dupla{ background-image:url(../img/bkg-dupla.jpg); }
+#sobre .sobre-item.dupla .foto{ background-image:url(../img/foto-dupla.png); }
+#sobre .sobre-item.ygor{ background-image:url(../img/bkg-ygor.jpg); }
+#sobre .sobre-item.ygor .foto{ background-image:url(../img/foto-ygor.png); }
+#sobre .sobre-item.kelven{ background-image:url(../img/bkg-kelven.jpg); }
+#sobre .sobre-item.kelven .foto{ background-image:url(../img/foto-kelven.png); }
+
+#sobre .owl-nav{ position:absolute; bottom:90px; left:50%; }
+#sobre .owl-nav .owl-prev,
+#sobre .owl-nav .owl-next{ float:left; width:23px; height:10px; background:no-repeat center center; @include transition(all 300ms ease-in-out); @include removeText; cursor:pointer; }
+#sobre .owl-nav .owl-prev:hover,
+#sobre .owl-nav .owl-next:hover{ @include opacity(0.5); }
+#sobre .owl-nav .owl-prev{ background-image:url(../img/arw-prev.png); margin-right:20px; }
+#sobre .owl-nav .owl-next{ background-image:url(../img/arw-next.png); }
+
+/* -=-=-=-=-=-=-=-=-=-=- Agenda de shows */
+#agenda{ width:100%; padding:190px 0 120px; min-height:600px; overflow:hidden; background:#dedede url(../img/bkg-agenda.jpg) no-repeat center bottom; color:$petroleo; position:relative; }
+#agenda h2{ float:left; margin:25px 0 0 6.25%; @include font-size(70px); line-height:70px; font-weight:$ultra; text-transform:uppercase; max-width:400px; }
+#agenda ul{ float:right; width:42%; margin-right:12.5%; }
+#agenda ul li .dia,
+#agenda ul li .mes{ @include font-size(50px); line-height:40px; font-weight:$bold; margin-bottom:15px; }
+#agenda ul li .local{ font-weight:$bold; }
+#agenda ul li .local,
+#agenda ul li .evento{ @include font-size(20px); line-height:32px; color:$cinza; padding-right:20px; }
+#agenda ul li .separador{ width:50px; height:2px; background-color:$cinza; margin-top:10px; }
+
+#agenda .owl-dots{ position:absolute; bottom:-100px; left:0; }
+#agenda .owl-dots .owl-dot{ display:inline-block; margin:0 10px; width:10px; height:10px; @include transform(rotate(-45deg)); background-color:$petroleo; }
+#agenda .owl-dots .owl-dot.active{ background-color:$ciano; }
+
+/* -=-=-=-=-=-=-=-=-=-=- Central de fãs */
+#central{ width:100%; min-height:600px; padding:120px 0; background:$cinza url(../img/bkg-fas.jpg) no-repeat center bottom; }
+#central .inner{ width:90%; max-width:490px; margin-left:12.5%; }
+#central .inner h2{ @include font-size(50px); font-weight:$ultra; text-transform:uppercase; line-height:62px; margin-bottom:40px; }
+#central .inner input{ display:block; width:100%; border:0; border-bottom:1px solid $branco; padding:5px 0; margin-bottom:20px; font-family:$Gotham; @include font-size(16px); color:$branco; background-color:transparent; }
+#central .inner button{ display:inline-block; border:0; background-color:$branco; color:$petroleo; font-family:$Gotham; @include font-size(16px); text-transform:uppercase; padding:15px 25px 10px; @include transition(all 300ms ease-in-out); }
+#central .inner button:hover{ @include opacity(0.6); }
+
+/* -=-=-=-=-=-=-=-=-=-=- Contato */
+#contato{ width:100%; min-height:730px; padding:140px 0 100px; background:#2a2a2a url(../img/bkg-contato.jpg) no-repeat center center; }
+#contato .inner{ width:90%; max-width:960px; margin:0 auto; overflow:hidden; }
+#contato .col-left{ float:left; width:50%; margin-top:100px; }
+#contato .col-left h2{ @include font-size(50px); font-weight:$ultra; text-transform:uppercase; line-height:62px; margin-bottom:40px; }
+#contato .col-left h3{ @include font-size(18px); font-weight:$bold; line-height:32px; }
+#contato .col-left p{ @include font-size(18px); line-height:32px; margin-bottom:40px; }
+#contato .col-left p strong{ @include font-size(24px); font-weight:$bold; }
+#contato .col-left .btn-contratantes{ display:inline-block; padding:20px 20px 15px 65px; @include font-size(16px); text-transform:uppercase; color:$petroleo; background:$branco url(../img/ico-download.png) no-repeat 20px center; @include transition(all 300ms ease-in-out); }
+#contato .col-left .btn-contratantes:hover{ @include opacity(0.6); }
+
+#contato .col-right{ float:left; width:50%; }
+#contato .col-right input,
+#contato .col-right textarea{ display:block; width:100%; border:0; border-bottom:1px solid $branco; padding:5px 0; margin-bottom:20px; font-family:$Gotham; @include font-size(16px); color:$branco; background-color:transparent; }
+#contato .col-right textarea{ height:190px; resize:none; padding:10px; border:1px solid $branco; background-color:#2d2d2d; }
+#contato .col-right button{ display:inline-block; border:0; background-color:$branco; color:$petroleo; font-family:$Gotham; @include font-size(16px); text-transform:uppercase; padding:15px 50px 10px; @include transition(all 300ms ease-in-out); }
+#contato .col-right button:hover{ @include opacity(0.6); }
+
+/* -=-=-=-=-=-=-=-=-=-=- Footer */
+#footer{ width:100%; padding:35px 0; background-color:#202020; text-align:center; }
+#footer .assinatura{ display:inline-block; width:23px; height:30px; background:url(../img/rafa.png) no-repeat center center; margin-bottom:15px; }
+#footer p{ @include font-size(12px); }
+
+/* -=-=-=-=-=-=-=-=-=-=- Responsivo */
+@media screen and(max-width:1800px){
+	#menu{ width:50%; }
+
+	#sobre .sobre-item .foto{ background-size:contain; }
+}
+
+@media screen and(max-width:1400px){
+	#header{ height:800px; }
+	#menu li{ margin-right:25px; }
+
+	#sobre .sobre-item .texto{ width:40%; margin:50px 0 0 5%; }
+	#sobre .owl-nav{ left:55%; }
+}
+
+@media screen and(max-width:1120px){
+	#header{}
+	#logo{ float:none; max-width:214px; margin:45px auto 0; }
+	#menu{ float:none; width:100%; margin-top:30px; text-align:center; }
+	#menu li{ margin:0 12px; }
+
+	#discografia .capa{ display:none; }
+	#lista-musicas{ width:50%; margin:110px 0 0 3%; }
+
+	#sobre .sobre-item{ padding:50px 0 100px; }
+	#sobre .sobre-item .foto{ width:100%; min-height:0; height:400px; }
+	#sobre .sobre-item .texto{ width:80%; margin:50px 10% 0; }
+	#sobre .owl-nav{ position:absolute; bottom:90px; left:10%; }
+
+	#agenda{ padding:50px 0 100px; min-height:0; }
+	#agenda h2{ margin:0 0 50px; width:100%; text-align:center; @include font-size(50px); line-height:1.3em; max-width:100%; }
+	#agenda ul{ width:90%; margin:0 5%; text-align:center; }
+	#agenda ul li .local,
+	#agenda ul li .evento{ padding:0 10px; }
+	#agenda ul li .separador{ margin:10px auto 0; }
+	#agenda .owl-dots{ bottom:-50px; left:50%; @include transform(translatex(-50%)); }
+}
+
+@media screen and(max-width:760px){
+	#discografia{ background:$cinza; padding:50px 0; }
+	#discografia h2{ @include font-size(40px); line-height:1.2em; margin:50px 0; text-align:center; width:100%; }
+	#discografia h2 span{ display:inline; }
+	#lista-musicas{ float:none; width:90%; margin:0 auto; height:auto; overflow:visible; }
+}
+
+@media screen and(max-width:640px){
+	#header{ height:600px; background-position:center top; }
+	#menu{ display:none; }
+	#foto{ background-size:cover; }
+
+	#central{ min-height:0; background-position:left bottom; }
+	#central .inner{ max-width:100%; margin:0 5%; }
+
+	#contato{ min-height:0; padding:50px 0; background:#2a2a2a; }
+	#contato .col-left{ width:100%; margin:0 0 30px; }
+	#contato .col-right{ width:100%; }
+}
+
+@media screen and(max-width:420px){
+	#header{ height:400px; }
+	#logo{ margin-top:65%; }
+
+	#discografia .box{ display:none; }
+	#lista-musicas li h3{ width:100%; margin:0 0 20px; }
+	#lista-musicas li .player{ width:100%; }
+
+	#sobre .sobre-item .foto{ height:200px; }
+	#sobre .sobre-item .texto{ width:90%; margin:50px 5% 0; }
+	#sobre .owl-nav{ left:5%; }
+
+	#central{ padding:50px 0; }
+	#central .inner h2{ @include font-size(40px); font-weight:$bold; line-height:1.3em; margin-bottom:30px; }
+
+	#contato .col-left p strong{ @include font-size(20px); }
+}

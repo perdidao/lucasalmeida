@@ -1,0 +1,263 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import url(../fonts/univers.css);
+$Univers:'Univers', Helvetica, Arial, sans-serif;
+$UniversCon:'Univers Condensed', 'Arial Narrow', Helvetica, Arial, sans-serif;
+
+$light:300;
+$regular:400;
+$bold:600;
+
+// CORES
+$amarelo:#F2DF07;
+$chumbo:#231F20;
+$cinza:#747474;
+$preto:#27323C;
+$azul:#236EB9;
+$petroleo:#31455B;
+
+// ESTILOS GLOBAIS
+body{ font-family:$Univers; @include font-size(18px); @include font-smoothing(on); color:$chumbo; }
+@include selection($chumbo,$amarelo);
+
+// Navegação
+#nav{ width:100%; position:fixed; top:0; left:0; z-index:10; background-color:#FFF; }
+#nav .center{}
+#logo{ float:left; width:239px; height:43px; background:url(../img/logo.png) no-repeat center center; @include removeText; margin:20px 0; }
+#menu{ float:left; margin:25px 20px 0 80px; }
+#menu li{ display:inline-block; font-family:$UniversCon; font-weight:$regular; @include font-size(17px); line-height:22px; text-transform:uppercase; margin-right:10px; }
+#menu li a{ display:block; padding:8px; @include transition(all 300ms ease-in-out); }
+#menu li a:hover{ color:#FC0; }
+#menu li a.active{ color:$azul; }
+#lang{ float:right; margin:10px; }
+#lang li{ display:inline-block; }
+#lang li a{ display:block; width:17px; height:11px; background-repeat:no-repeat; background-position:center center; @include transition(all 300ms ease-in-out); }
+#lang li a:hover{ @include opacity(0.6); }
+#lang li a.pt{ background-image:url(../img/lang-pt.png); }
+#lang li a.es{ background-image:url(../img/lang-es.png); }
+#lang li a.en{ background-image:url(../img/lang-en.png); }
+
+// Banners
+#banners{ margin-top:65px; position:relative; }
+#banners .owl-controls{ position:absolute; bottom:30px; left:0; width:100%; text-align:center; }
+#banners .owl-controls .owl-dots{ width:100%; }
+#banners .owl-controls .owl-dots .owl-dot{ display:inline-block; width:10px; height:10px; border:1px solid $chumbo; @include border-radius(50%); margin:0 5px; @include transition(all 300ms ease-in-out); }
+#banners .owl-controls .owl-dots .owl-dot.active{ background-color:$chumbo; }
+
+// SAC + Locais
+#sac{ width:100%; height:70px; background:#231f20 url(../img/bkg-sac.jpg) no-repeat center center; text-align:center; }
+#sac a{ display:inline-block; line-height:70px; font-family:$UniversCon; font-weight:$light; color:#FFF; @include font-size(21px); letter-spacing:0.15em; @include transition(all 200ms ease-in-out); }
+#sac a:hover{ color:$amarelo; }
+
+#locais{ width:100%; padding:20px 0; background:#F4F4F4 url(../img/bkg-locais.jpg) no-repeat left center; }
+#locais ul{ font-family:$UniversCon; text-align:center; }
+#locais ul li{ float:left; width:33.33%; min-height:100px; padding:10px 0; border-right:1px solid #C8C8C8; text-transform:uppercase; }
+#locais ul li:last-child{ border:0; }
+#locais ul li h2{ font-weight:$bold; @include font-size(17px); letter-spacing:-0.03em; margin-bottom:10px; }
+#locais ul li p{ color:$cinza; @include font-size(13px); line-height:1.3em; }
+
+// Sobre
+#sobre{ width:100%; background:#206fbc url(../img/bkg-sobre.jpg) no-repeat center bottom; padding-bottom:23px; }
+#sobre .wrapper{ width:50%; min-height:473px; padding:60px 40px; background:url(../img/blur.jpg) repeat left bottom; color:#FFF; background-size:100%; }
+#sobre .wrapper h2{ font-weight:$bold; text-transform:uppercase; @include font-size(35px); margin-bottom:30px; }
+#sobre .wrapper p{ font-weight:$light; line-height:24px; margin-bottom:20px; }
+#sobre .wrapper p:last-child{ margin-bottom:0; }
+
+// Localização
+#localizacao{ width:100%; min-height:694px; padding-top:70px; background:url(../img/bkg-localizacao.jpg) no-repeat center center; color:#FFF; text-transform:uppercase; }
+#localizacao h2{ @include font-size(40px); font-weight:$bold; margin-bottom:10px; }
+#localizacao h3{ @include font-size(25px); font-weight:$bold; color:$amarelo; margin-bottom:5px; }
+#localizacao p{ @include font-size(14px); font-weight:$bold; line-height:1.3em; margin-bottom:10px; }
+
+// Clientes
+#clientes{ width:100%; }
+#tipos{ width:100%; text-align:center; font-family:$UniversCon; font-weight:$light; color:$petroleo; @include font-size(16px); text-transform:uppercase; }
+#tipos li{ display:inline-block; height:110px; margin:0 10px; border-bottom:10px solid #FFF; @include transition(all 300ms ease-in-out); }
+#tipos li.active{ border-color:$amarelo; }
+.table{ display:table; width:100%; height:100%; }
+.cell{ display:table-cell; vertical-align:middle; }
+#tipos li a{ }
+#tipos li.active a{ font-family:$Univers; font-weight:$bold; }
+
+#secoes{ position:relative; }
+#secoes .owl-nav{ position:absolute; left:0; top:50%; margin-top:-17px; width:100%; }
+#secoes .owl-nav .owl-prev,
+#secoes .owl-nav .owl-next{ position:absolute; width:20px; height:35px; background-repeat:no-repeat; background-position:center center; @include removeText; @include transition(all 300ms ease-in-out); }
+#secoes .owl-nav .owl-prev:hover,
+#secoes .owl-nav .owl-next:hover{ @include opacity(0.6); }
+#secoes .owl-nav .owl-prev{ left:20%; background-image:url(../img/arw-prev.png); }
+#secoes .owl-nav .owl-next{ right:20%; background-image:url(../img/arw-next.png); }
+
+// Notícias
+#noticias{ padding:45px 0; }
+#noticias h2{ @include font-size(40px); font-weight:$bold; text-transform:uppercase; margin-bottom:30px; }
+#noticias ul{}
+#noticias ul li{ float:left; width:30%; margin-right:5%; }
+#noticias ul li:last-child{ margin-right:0; }
+#noticias ul li img{ display:block; width:100%; margin-bottom:20px; }
+#noticias ul li h3{ font-weight:$bold; @include font-size(26px); margin-bottom:10px; }
+#noticias ul li p{ @include font-size(15px); line-height:19px; color:$cinza; }
+#noticias ul li .veja{ display:block; float:right; text-transform:uppercase; color:$petroleo; @include font-size(15px); font-weight:$bold; }
+#noticias .anteriores{ display:block; float:right; margin-top:30px; padding:13px 30px 8px; color:#FFF; text-transform:uppercase; background-color:$petroleo; font-weight:$bold; @include transition(all 300ms ease-in-out); }
+#noticias .anteriores:hover{ @include opacity(0.6); }
+
+// Serviços
+#servicos{ width:100%; background:url(../img/bkg-servicos.jpg) repeat center top; padding:50px 0 60px; }
+#servicos h2{ @include font-size(40px); font-weight:$bold; text-transform:uppercase; margin-bottom:30px; color:#FFF; }
+#servicos .servicos{ float:left; width:19.2%; height:265px; padding:15px; margin:70px 1% 0 0; position:relative; background-color:#FFF; @include border-radius(20px); }
+#servicos .servicos:last-child{ margin-right:0; }
+#servicos .servicos:nth-child(2n){ margin-top:40px; }
+#servicos .servicos .ico{ position:absolute; top:-47px; left:50%; margin-left:-47px; width:94px; height:94px; background-repeat:no-repeat; background-position:center center; }
+#servicos .servicos p{ text-align:center; @include font-size(17px); line-height:1.3em; color:$petroleo; }
+#servicos .servicos.func .ico{ background-image:url(../img/ico-func.png); }
+#servicos .servicos.equi .ico{ background-image:url(../img/ico-equi.png); }
+#servicos .servicos.alva .ico{ background-image:url(../img/ico-alva.png); }
+#servicos .servicos.manu .ico{ background-image:url(../img/ico-manu.png); }
+#servicos .servicos.segu .ico{ background-image:url(../img/ico-segu.png); }
+
+// Mensalistas
+#mensalistas{ padding-top:30px; }
+#mensalistas h2{ @include font-size(40px); font-weight:$bold; text-transform:uppercase; margin-bottom:5px; }
+#mensalistas .inner{ background-color:$azul; padding:20px 0; }
+#mensalistas .inner p{ display:inline-block; color:#FFF; width:20%; margin-right:4%; @include font-size(16px); }
+#mensalistas .inner input{ display:inline-block; width:30%; margin-right:1%; height:35px; @include border-radius(5px); border:0; color:$cinza; @include font-size(16px); padding:0 10px; }
+#mensalistas .inner #imprimir{ display:inline-block; width:12%; border:0; padding:3px 0; cursor:pointer; color:#FFF; text-transform:uppercase; @include font-size(12px); background-color:#27323C; @include transition(all 300ms ease-in-out); }
+#mensalistas .inner #imprimir:hover{ @include opacity(0.6); }
+
+// Contato
+#contato{ background-color:#F4F4F4; padding:30px 0 20px; margin-top:10px; @include font-size(12px); }
+#contato h2{ font-weight:$bold; text-transform:uppercase; margin-bottom:20px; }
+#contato h2:after{ content:' '; display:block; width:30px; height:3px; background-color:#323232; margin-top:5px; }
+#contato p{ line-height:20px; }
+#contato p strong{ font-weight:$bold; display:block; }
+#contato .col{ float:left; width:16%; }
+#contato .col nav{}
+#contato .col nav a{ display:block; line-height:25px; text-transform:uppercase; }
+#contato .col2{ float:left; width:38%; padding-right:30px; }
+#contato .col3{ float:left; width:30%; }
+
+// Rodapé
+#footer{ width:100%; background-color:$chumbo; padding:15px 0; @include font-size(12px); color:#FFF; line-height:18px; }
+#footer p{ float:left; }
+#footer .m2mp{ display:block; float:right; height:18px; background:url(../img/m2mp.png) no-repeat right center; padding-right:50px; }
+
+// Notícias
+#noticia{ width:96%; max-width:1000px; margin:120px auto 0; }
+#noticia header{ margin-bottom:40px; }
+#noticia .pgtit{ display:block; @include font-size(44px); text-transform:uppercase; font-weight:$bold; margin-bottom:25px; }
+#noticia h1{ @include font-size(34px); text-transform:uppercase; font-weight:$bold; }
+#noticia .img-wrapper{ width:100%; text-align:center; margin-bottom:25px; }
+#noticia .img-wrapper img{ display:inline-block; max-width:100%; }
+#noticia p{ @include font-size(20px); line-height:28px; margin-bottom:30px; text-align:justify; }
+#noticia p strong{ font-weight:$bold; }
+#noticia p em{ font-style:italic; }
+#noticia p a{ color:$azul; }
+#noticia p a:hover{ text-decoration:underline; }
+#noticia .footit{ text-align:center; text-transform:uppercase; margin-bottom:5px; }
+#noticia #share{ width:100%; text-align:center; padding-bottom:40px; border-bottom:1px solid $cinza; margin-bottom:20px; }
+#noticia #share li{ display:inline-block; margin:0 7px; }
+#noticia #share li a{ display:block; width:40px; height:40px; background:no-repeat center; @include transition(all 300ms ease-in-out); }
+#noticia #share li a:hover{ @include opacity(0.7); }
+#noticia #share li a.fb{ background-image:url(../img/ico-facebook.png); }
+#noticia #share li a.gp{ background-image:url(../img/ico-gplus.png); }
+#noticia #share li a.tw{ background-image:url(../img/ico-twitter.png); }
+#noticia .small-center{ max-width:660px; margin:0 auto; }
+#noticia #veja-tbm{ overflow:auto; margin-bottom:40px; }
+#noticia #veja-tbm .item{ float:left; width:48%; margin:20px 4% 0 0; }
+#noticia #veja-tbm .item:last-child{ margin-right:0; }
+#noticia #veja-tbm .item a{ color:inherit; display:block; text-decoration:none; @include transition(all 300ms ease-in-out); }
+#noticia #veja-tbm .item a:hover{ @include opacity(0.6); }
+#noticia #veja-tbm .item img{ display:block; width:100%; }
+#noticia #veja-tbm .item p{ margin-top:10px; line-height:24px; text-align:left; margin-bottom:0; }
+#noticia #links{ margin-bottom:40px; }
+#noticia #links a{ display:block; float:left; width:33.33%; height:26px; font-family:$UniversCon; @include font-size(20px); font-weight:$light; line-height:28px; text-transform:uppercase; text-align:center; @include transition(all 300ms ease-in-out); }
+#noticia #links a:hover{ @include opacity(0.6); }
+#noticia #links a.prev{ text-align:left; padding-left:25px; background:url(../img/prev.png) no-repeat left center; }
+#noticia #links a.next{ text-align:right; padding-right:25px; background:url(../img/next.png) no-repeat right center; }
+#noticia #comments{ margin-bottom:40px; }
+
+// Responsivo
+@media screen and (max-width:1160px){
+	#menu{ margin:25px 20px 0 40px; }
+	#lang{ margin:10px 0; }
+
+	#tipos{ display:none; }
+}
+
+@media screen and (max-width:1024px){
+	#logo{ float:none; width:100%; }
+	#menu{ float:none; margin:0 0 10px; text-align:center; }
+	#menu li{ margin:0 5px; }
+	#lang{ width:100%; margin-top:0; text-align:center; }
+
+	#banners{ display:none; }
+	#sac{ margin-top:160px; }
+
+	#sobre .wrapper{ width:75%; }
+
+	#localizacao{ background-image:url(../img/bkg-localizacao-1.jpg); background-repeat:repeat; text-align:center; }
+
+	#contato .col{ display:none; }
+	#contato .col2{ width:50%; }
+	#contato .col3{ width:50%; }
+
+	#noticia{ margin-top:180px; }
+}
+
+@media screen and (max-width:900px){
+	#servicos h2{ text-align:center; }
+	#servicos .servicos{ float:left; width:100%; height:100px; padding:50px 15px 15px; margin:70px 0 0; }
+	#servicos .servicos:nth-child(2n){ margin-top:70px; }
+	#servicos .servicos p{ width:100%; }
+
+	#mensalistas h2{ text-align:center; }
+	#mensalistas .inner p{ width:100%; margin:0 0 30px; text-align:center; }
+	#mensalistas .inner input{ width:40%; margin:0 4% 30px; }
+	#mensalistas .inner #imprimir{ width:100%; }
+}
+
+@media screen and (max-width:720px){
+	#menu{ display:none; }
+	#sac{ margin-top:110px; }
+
+	#locais ul li{ width:100%; border-right:0; padding:20px 0; min-height:0; border-bottom:1px solid #C8C8C8; }
+
+	#sobre .wrapper{ width:100%; }
+
+	#contato .col2,
+	#contato .col3{ width:100%; padding:0; margin:0 0 30px; }
+
+	#noticia{ margin-top:130px; }
+}
+
+@media screen and (max-width:620px){
+	#nav{ position:static; height:110px; }
+	#sac{ margin-top:0; }
+
+	#noticias ul li{ width:100%; margin:0 0 20px; }
+	#servicos .servicos{ height:160px; }
+
+	#mensalistas .inner input{ width:100%; margin:0 0 30px; }
+
+	#noticia{ margin-top:20px; }
+}
+
+@media screen and (max-width:530px){
+	#noticia #links a{ width:100%; margin:5px 0; }
+}
+
+@media screen and (max-width:460px){
+	#footer{ text-align:center; }
+	#footer p{ float:none; width:100%; margin-bottom:10px; }
+	#footer .m2mp{ display:inline-block; float:none; }
+}
+
+@media screen and (max-width:420px){
+	#sobre .wrapper{ padding:20px; }
+
+	#noticia #veja-tbm .item{ width:100%; margin:20px 0 0; }
+}

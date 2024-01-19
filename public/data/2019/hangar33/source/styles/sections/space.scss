@@ -1,0 +1,52 @@
+.space{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    background:$black url(../images/bkg-space.jpg) no-repeat center top;
+    background-size:cover;
+    background-attachment:fixed;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    @media screen and (max-width:$size-mobile-max){
+        padding:rfs(80px) 0;
+    }
+
+    &__content{
+        width:90%;
+        max-width:rfs(850px);
+        text-align:center;
+    }
+
+    &__logo{
+        width:100%;
+        max-width:rfs(315px);
+        margin:0 auto rfs(30px);
+
+        img{
+            display:block;
+            width:100%;
+        }
+
+        &:after{
+            content:' ';
+            display:block;
+            width:rfs(80px);
+            height:3px;
+            margin:rfs(30px) auto 0;
+            background-color:$orange;
+        }
+    }
+
+    &__text{
+        font-size:rfs(21px);
+        line-height:1.4;
+        margin-bottom:rfs(25px);
+
+        @media screen and (max-width:$size-mobile-max){
+            font-size:rfs(16px);
+        }
+    }
+}

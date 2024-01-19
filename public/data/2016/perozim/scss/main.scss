@@ -1,0 +1,168 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import 'https://fonts.googleapis.com/css?family=Caudex:400,700|Lato:400,700';
+
+$Lato:'Lato', Helvetica, Arial, sans-serif;
+$Caudex:'Caudex', Georgia, 'Times New Roman', serif;
+
+$regular:400;
+$bold:700;
+
+// CORES
+$branco:#F4F4F4;
+$prata:#C2C2C2;
+$cinza:#555;
+$chumbo:#3E3E3E;
+
+// ESTILOS GLOBAIS
+body{ background-color:$branco; font-family:$Lato; @include font-size(14px); color:$cinza; @include font-smoothing(on); }
+@include selection($branco,#245B7F);
+
+// Topo
+#header{ width:100%; text-align:center; }
+#topbar{ background-color:$cinza; padding:15px 0; color:$branco; }
+#topbar p span{ display:inline-block; padding:0 10px; }
+#logo{ display:inline-block; width:256px; height:63px; margin:7px 0; background:url(../img/logo.png) no-repeat center center; @include removeText; }
+
+// Navegação
+#menu{ position:fixed; z-index:999; top:50%; left:0; @include transform(translatey(-50%)); }
+#menu li{ display:block; }
+#menu li a{ display:block; width:58px; height:58px; @include removeText; background:$branco url(../img/spt-nav.png) no-repeat 0 0; @include transition(all 300ms ease-in-out); }
+#menu li a.active,
+#menu li a:hover{ background-color:$cinza; background-position-x:-58px !important; }
+#menu li a.home{ background-position:0 0; }
+#menu li a.sobre{ background-position:0 -58px; }
+#menu li a.proposta{ background-position:0 -116px; }
+#menu li a.contato{ background-position:0 -174px; }
+
+// Banners
+#banner{ position:relative; }
+#banner .owl-nav{ position:absolute; top:0; left:0; width:100%; height:100%; }
+#banner .owl-nav > div{ position:absolute; top:50%; @include transform(translatey(-50%)); width:42px; height:63px; background:no-repeat center center; @include removeText; }
+#banner .owl-nav .owl-prev{ background-image:url(../img/arw-prev.png); left:12.5%; }
+#banner .owl-nav .owl-next{ background-image:url(../img/arw-next.png); right:12.5%; }
+
+// Sobre
+#sobre{ width:100%; padding:40px 0; background:url(../img/bkg-sobre.jpg) no-repeat top center; }
+#sobre .logo{ text-align:center; margin-bottom:30px; }
+#sobre h2{ margin-bottom:30px; font-family:$Caudex; @include font-size(24px); font-weight:$bold; text-transform:uppercase; text-align:center; }
+#sobre article > p{ margin:0 7% 30px; text-align:center; @include font-size(18px); line-height:26px; letter-spacing:0.06em; }
+#sobre article > p strong{ font-weight:$bold; text-transform:uppercase; }
+
+#atuacao{ margin:70px 0; }
+#atuacao li{ float:left; width:25%; margin-bottom:50px; position:relative; }
+#atuacao li a{ display:block; width:100%; padding-top:115px; background:no-repeat top center; @include font-size(16px); font-weight:$bold; letter-spacing:0.05em; text-transform:uppercase; text-align:center; }
+#atuacao li .tooltip{ display:none; position:absolute; top:180px; left:50%; z-index:1; @include transform(translatex(-50%)); width:435px; background-color:$cinza; color:$branco; padding:25px 30px; }
+#atuacao li .tooltip:before{ content:' '; display:block; width:38px; height:20px; background:url(../img/tooltip.png) no-repeat center center; position:absolute; top:-20px; left:50%; @include transform(translatex(-50%)); }
+#atuacao li .tooltip .fechar{ display:block; width:13px; height:13px; padding:0; background:url(../img/ico-fechar.png) no-repeat center center; position:absolute; top:10px; right:15px; }
+#atuacao li .tooltip p{ line-height:1.2em; }
+
+#atuacao li a.bancario{ background-image:url(../img/ico-bancario.png); }
+#atuacao li a.civil{ background-image:url(../img/ico-civil.png); }
+#atuacao li a.consumidor{ background-image:url(../img/ico-consumidor.png); }
+#atuacao li a.empresarial{ background-image:url(../img/ico-empresarial.png); }
+#atuacao li a.familia{ background-image:url(../img/ico-familia.png); }
+#atuacao li a.imobiliario{ background-image:url(../img/ico-imobiliario.png); }
+#atuacao li a.trabalho{ background-image:url(../img/ico-trabalho.png); }
+#atuacao li a.tributario{ background-image:url(../img/ico-tributario.png); }
+
+// Proposta
+#proposta{ width:100%; padding:40px 0; background-color:#FFF; }
+#proposta h2{ margin-left:22%; font-family:$Caudex; @include font-size(28px); font-weight:$bold; text-transform:uppercase; margin-bottom:20px; }
+#proposta label{ display:block; width:100%; margin-bottom:15px; overflow:hidden; }
+#proposta label span{ display:block; float:left; width:20%; margin-right:2%; text-align:right; @include font-size(16px); color:#999; padding:13px 0; }
+#proposta label input,
+#proposta label textarea{ display:block; float:left; width:78%; border:1px solid $prata; background:transparent; font-family:$Lato; @include font-size(16px); color:$cinza; padding:10px; }
+#proposta label textarea{ height:160px; }
+#proposta label.proposta input{ width:40%; }
+#proposta label.proposta em{ float:left; padding:10px 15px 9px; border:1px solid $prata; border-left:0; @include font-size(21px); color:#999; background-color:#EEE; }
+#proposta .bottom{ width:78%; margin-left:22%; }
+.bottom p{ display:block; float:left; font-style:italic; }
+.bottom .btn{ display:block; float:right; border:0; background-color:$cinza; color:$branco; text-transform:uppercase; @include font-size(14px); font-family:$Lato; padding:8px 35px 10px; cursor:pointer; }
+
+// Contato
+#contato{ padding:40px 0 50px; }
+#contato h2{ font-family:$Caudex; @include font-size(28px); font-weight:$bold; text-transform:uppercase; margin-bottom:26px; }
+#contato .col1{ float:left; width:68%; }
+#contato .col1 label{ display:block; width:100%; border:1px solid $prata; margin-bottom:15px; color:#999; padding:10px; background:no-repeat center right; }
+#contato .col1 label.nome{ background-image:url(../img/ico-nome.png); }
+#contato .col1 label.email{ background-image:url(../img/ico-mail.png); }
+#contato .col1 label.telefone{ background-image:url(../img/ico-fone.png); }
+#contato .col1 label span{}
+#contato .col1 label input,
+#contato .col1 label textarea{ display:inline-block; width:60%; border:0; background:transparent; font-family:$Lato; @include font-size(14px); color:$cinza; }
+#contato .col1 label input{ margin-left:5px; }
+#contato .col1 label textarea{ width:100%; height:100px; margin-top:10px; resize:none; }
+#contato .col2{ float:left; width:29%; margin-left:3%; }
+#contato .col2 .box-info{ background-color:#D1D1D1; padding:15px; }
+#contato .col2 .box-info h3{ @include font-size(16px); font-weight:$bold; margin-bottom:15px; }
+#contato .col2 .box-info p{ height:18px; background:no-repeat left center; padding-left:30px; }
+#contato .col2 .box-info p.dias{ margin-bottom:15px; background-image:url(../img/ico-dias.png); }
+#contato .col2 .box-info p.horarios{ background-image:url(../img/ico-horas.png); }
+
+// Informações
+#infos{ width:100%; background-color:$chumbo; padding:25px 0; overflow:hidden; }
+#infos .col{ float:left; width:32%; margin-right:2%; color:$branco; text-align:center; line-height:1.3em; }
+#infos .col:last-child{ margin-right:0; }
+#infos .col .ico{ width:100%; height:70px; background:no-repeat center top; }
+#infos .col .ico.endereco{ background-image:url(../img/ico-endereco.png); }
+#infos .col .ico.fone{ background-image:url(../img/ico-telefone.png); }
+#infos .col .ico.mail{ background-image:url(../img/ico-email.png); }
+
+// Mapa
+#mapa{ width:100%; height:480px; position:relative; }
+#mapa iframe{ display:block; width:100%; height:100%; pointer-events:none; }
+
+// Consulta Processual
+#consulta{ width:100%; padding:40px 0; text-align:center; }
+#consulta h2{ font-family:$Caudex; @include font-size(28px); font-weight:$bold; text-transform:uppercase; margin-bottom:26px; }
+#consulta li{ display:inline-block; margin:0 40px; }
+#consulta li a:before{ content:'•  '; }
+
+// Footer
+#footer{ background-color:$chumbo; color:$branco; padding:20px 0; position:relative; }
+#voltar{ display:block; width:42px; height:42px; background:url(../img/ico-voltar.png) no-repeat center center; position:absolute; top:-21px; left:50%; @include transform(translatex(-50%)); @include transition(all 300ms ease-in-out); }
+#voltar:hover{ @include transform(translate(-50%,-5px)); }
+#footer p{ display:block; float:left; line-height:18px; @include font-size(12px); }
+#footer .assinatura{ display:block; float:right; width:43px; height:18px; background:url(../img/ico-m2mp.png) no-repeat center center; @include removeText; }
+
+// Responsivo
+@media screen and(max-width:720px){
+	#topbar{ display:none; }
+
+	#menu{ display:none; }
+
+	#sobre .logo{ display:none; }
+
+	#atuacao li{ width:50%; }
+	#atuacao li .tooltip{ width:100%; }
+
+	#contato .col1{ width:100%; margin-bottom:40px; }
+	#contato .col2{ width:100%; margin:0; }
+
+	#proposta label span,
+	#proposta label input,
+	#proposta label textarea{ width:100%; text-align:left; }
+
+	#infos .col{ width:100%; margin:0 0 20px; }
+	#infos .col .ico{ background-position:center center; }
+}
+
+@media screen and(max-width:540px){
+	#atuacao li{ width:100%; }
+	#atuacao li .tooltip{ display:block !important; position:static; background:transparent; color:$cinza; @include transform(translatex(0)); }
+	#atuacao li .tooltip:before{ display:none; }
+	#atuacao li .tooltip .fechar{ display:none; }
+
+	#proposta h2{ margin-left:0; }
+	#proposta .bottom{ width:100%; margin-left:0; }
+	.bottom p{ margin-bottom:10px; }
+
+	#footer{ text-align:center; }
+	#footer p{ width:100%; margin-bottom:10px; }
+	#footer .assinatura{ display:inline-block; float:none; }
+}

@@ -1,0 +1,148 @@
+// Dependências
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// Fontes
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,300,700,900);
+$Lato:'Lato', Helvetica, Arial, sans-serif;
+
+$thin:100;
+$light:300;
+$regular:400;
+$bold:700;
+$black:900;
+
+// Cores
+$amarelo:#FDDD46;
+$vermelho:#D9443C;
+$verde:#19753B;
+$roxo:#8606B1;
+$lima:#E1E657;
+$azul:#0066B3;
+$laranja:#E8860D;
+$cinza:#6A6A6B;
+$grafite:#444;
+$prata:#878787;
+
+// Estilos Globais
+body{ font-family:$Lato; @include font-size(16px); font-weight:$regular; color:$grafite; @include font-smoothing(on); }
+@include selection(#FFF,$azul);
+
+// Header
+#header{ position:fixed; z-index:10; top:0; left:0; width:100%; }
+#top-header{ width:100%; background-color:#E9E8E8; padding:7px 0; }
+#top-header .f-right{ float:right; }
+#top-header .f-right p{ float:left; text-transform:uppercase; line-height:27px; @include font-size(12px); color:$cinza; }
+#top-header .f-right ul{ float:left; }
+#top-header .f-right ul li{ float:left; margin:0 10px; }
+#top-header .f-right ul li a{ display:block; height:27px; background-repeat:no-repeat; background-position:center center; @include removeText; }
+#top-header .f-right ul li a.corrida{ width:117px; background-image:url(../img/serv-megafeira.png); }
+#top-header .f-right ul li a.acia{ width:45px; background-image:url(../img/serv-acia.png); }
+#top-header .f-right ul li a.scpc{ width:54px; background-image:url(../img/serv-scpc.png); }
+#top-header .f-right ul li a.scpcheque{ width:60px; background-image:url(../img/serv-scpcheque.png); }
+#low-header{ height:90px; background-color:#FFF; @include box-shadow(0 6px 6px rgba(0,0,0,.22)); }
+#low-header #logo{ float:left; width:139px; height:78px; margin-top:-15px; background:url(../img/acia.png) no-repeat center center; @include removeText; }
+#low-header #menu{ float:right; margin:38px 40px 0 0; }
+#low-header #menu ul{}
+#low-header #menu ul li{ display:inline-block; margin-right:45px; }
+#low-header #menu ul li:last-child{ margin-right:0; }
+#low-header #menu ul li a{ display:block; @include font-size(14px); font-weight:$black; color:$cinza; @include transition(all 300ms ease-in-out); }
+#low-header #menu ul li a:hover{ color:$azul; }
+
+// Início
+#inicio{ width:100%; padding:60px 0 70px; margin-top:130px; background:url(../img/bkg-inicio.jpg) repeat center top; }
+#inicio .mega-feira{ position:absolute; z-index:1; top:-40px; left:0; width:508px; height:375px; background:url(../img/queima.png) no-repeat center center; }
+#inicio .col-right{ float:right; width:100%; max-width:300px; margin-right:80px; }
+#inicio .col-right h2{ @include font-size(26px); font-weight:$bold; letter-spacing:-0.08em; color:#59595C; margin-bottom:10px; }
+#inicio .col-right h3{ @include font-size(21px); font-weight:$black; letter-spacing:-0.01em; color:$vermelho; margin-bottom:10px; }
+#inicio .col-right p{ @include font-size(18px); line-height:32px; letter-spacing:-0.01em; }
+
+// Inscreva-se
+#inscreva{ width:100%; min-height:400px; background:#F7F6F6 url(../img/bkg-inscreva.jpg) no-repeat center top; padding:25px 0 0; }
+#inscreva h2{ width:100%; height:332px; background:url(../img/selo-inscreva.png) no-repeat center center; background-size:contain; @include removeText; }
+#inscreva .btn{ position:absolute; top:200px; left:100px; display:block; width:246px; height:79px; background:url(../img/btn-inscreva.png) no-repeat center center; @include removeText; @include transition(all 300ms ease-in-out); }
+#inscreva .btn:hover{ @include opacity(0.7); }
+
+// Apoio
+#apoio{ padding:10px 0; background-color:#FFF; }
+#apoio h2{ float:left; @include font-size(12px); text-transform:uppercase; letter-spacing:-0.05em; }
+#apoio ul{ float:left; }
+#apoio ul li{ display:inline-block; margin-left:60px; }
+#apoio ul li a{ display:block; height:80px; background-repeat:no-repeat; background-position:center center; @include removeText; @include filter(grayscale(1)); @include transition(all 300ms ease-in-out); }
+#apoio ul li a:hover{ @include filter(grayscale(0)); }
+#apoio ul li a.ara{ width:175px; background-image:url(../img/par-arapongas.png); }
+#apoio ul li a.sesi{ width:165px; background-image:url(../img/par-sesi.png); }
+#apoio ul li a.unopar{ width:98px; background-image:url(../img/par-unopar.png); }
+#apoio ul li a.obr{ width:130px; background-image:url(../img/par-obrigado.png); }
+
+// Pagamento
+#pagamento{ width:100%; background:#F4F4F4; padding:70px 0 40px; }
+#pagamento .col{ float:left; width:31.3%; margin-right:2%; }
+#pagamento .col:last-child{ margin-right:0; }
+#pagamento .col h2{ @include font-size(21px); background:url(../img/linha.jpg) repeat-x center center; margin-bottom:20px; }
+#pagamento .col h2 span{ display:inline-block; background-color:#F4F4F4; padding:0 10px 3px 0; }
+#pagamento .col img{ display:block; width:100%; }
+#pagamento .col p{ @include font-size(12px); color:$prata; margin-top:10px; }
+
+// Sobre
+#sobre{ width:100%; padding:40px 0; background:$vermelho url(../img/ptn-vermelho.png) repeat center top; color:#FFF; @include font-size(21px); letter-spacing:-0.05em; }
+#sobre h2{ margin-bottom:40px; @include font-size(48px); font-weight:$black; position:relative; }
+#sobre h2:after{ content:' '; display:block; width:85%; height:1px; background-color:#FFF; position:absolute; top:28px; right:0; }
+#sobre h3{ @include font-size(32px); font-weight:$black; color:$amarelo; margin-bottom:20px; }
+#sobre h4{ font-weight:$bold; color:$amarelo; }
+#sobre p{ line-height:1.2em; margin-bottom:30px; }
+#sobre .wrapper{ padding:10px; background-color:#CB352F; }
+#sobre .wrapper iframe{ display:block; width:100%; height:520px; }
+
+// Horários
+#horarios{ background:url(../img/ptn-cinza.png) repeat center top; padding:50px 0; }
+#horarios h2{ background:$vermelho; padding:10px 10px 25px; text-align:center; text-transform:uppercase; color:#FFF; @include font-size(32px); font-weight:$black; }
+#horarios .horarios{ margin:-15px auto 0; width:98%; }
+#horarios .horarios li{ float:left; background-color:#FFF; padding:8px 0; text-align:center; @include font-size(28px); letter-spacing:-0.04em; }
+#horarios .horarios li.hor3{ width:33%; margin:0 0.5% 0.5% 0; }
+#horarios .horarios li.hor2{ width:49.5%; margin:0 0.5% 0.5% 0; }
+#horarios .horarios li.last{ margin-right:0; }
+#horarios p{ width:98%; margin:0 auto; background-color:$verde; padding:10px 0; color:#FFF; text-transform:uppercase; text-align:center; @include font-size(24px); font-weight:$bold; }
+
+// Mapa
+#mapa{ width:100%; height:490px; margin-bottom:15px; }
+
+// Para você
+#voce{ width:100%; padding:40px 0; background:$amarelo url(../img/bkg-voce.png) repeat center top; }
+#voce h2{ @include font-size(32px); font-weight:$black; color:$roxo; margin-bottom:15px; }
+#voce p{ @include font-size(21px); line-height:1.3em; }
+
+// Corrida
+#corrida{ background:$roxo url(../img/bkg-corrida.jpg) repeat center top; color:#FFF; padding:35px 0 30px; }
+#corrida .center{ background:url(../img/ico-corrida.png) no-repeat 0 40px; }
+#corrida .c-left{ float:right; width:100%; max-width:700px; }
+#corrida .c-left h2{ @include font-size(32px); font-weight:$black; color:$lima; margin-bottom:20px; }
+#corrida .c-left p{ @include font-size(21px); line-height:1.3em; margin-bottom:20px; }
+#corrida .c-left p strong{ font-weight:$bold; }
+#corrida .inner{ width:100%; max-width:620px; margin:0 auto; }
+#corrida .inner h3{ @include font-size(32px); font-weight:$black; color:$lima; margin-bottom:10px; text-align:center; }
+#corrida .inner img{ display:block; width:100%; margin-bottom:15px; }
+#corrida .inner img:last-child{ margin-bottom:0; }
+
+// Serviços
+#servicos{}
+
+#top-servicos{ padding:20px 0; text-align:center; }
+#lista-servicos{}
+#lista-servicos li{ display:inline-block; margin:0 5px; }
+#lista-servicos li a{ display:block; }
+#lista-servicos li a img{ display:block; @include filter(grayscale(1)); @include transition(all 300ms ease-in-out); }
+#lista-servicos li a:hover img,
+#lista-servicos li a.active img{ @include filter(grayscale(0)); }
+
+#bottom-servicos{ padding:40px 0 100px; background:url(../img/bkg-servicos.png) repeat center top; color:#FFF; }
+#bottom-servicos h2{ @include font-size(34px); font-weight:$bold; margin-bottom:20px; }
+#det-servicos{}
+#det-servicos li{}
+#det-servicos li .icone{}
+#det-servicos li .icone img{}
+#det-servicos li .content{}
+#det-servicos li .content h3{}
+#det-servicos li .content p{}
+#det-servicos li .content p strong{}

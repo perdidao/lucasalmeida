@@ -1,0 +1,436 @@
+// Biblioteca de mixins
+@import 'mixins.scss';
+
+/* Reset */
+@import 'reset.scss';
+
+
+// Cores
+$amarelo:#FFD200;
+
+// Fontes
+@font-face {
+  font-family: 'Moreno';
+  src: url('../fonts/MorenoRustTwo-XThin.eot?#iefix') format('embedded-opentype'),  url('../fonts/MorenoRustTwo-XThin.otf')  format('opentype'),
+	     url('../fonts/MorenoRustTwo-XThin.woff') format('woff'), url('../fonts/MorenoRustTwo-XThin.ttf')  format('truetype'), url('../fonts/MorenoRustTwo-XThin.svg#MorenoRustTwo-XThin') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Museo';
+  src: url('../fonts/Museo300-Regular-webfont.woff2') format('woff2'),
+       url('../fonts/Museo300-Regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$Moreno:'Moreno', 'Museo', Helvetica, Arial, sans-serif;
+$Museo:'Museo', Helvetica, Arial, sans-serif;
+
+/* Estilos globais */
+body{ font-family:$Moreno; font-size:28px; color:#FFF; background-color:#000; @include font-smoothing(on); }
+@include selection(#FFF,$amarelo);
+
+.clear{ clear:both; }
+
+// Propósito
+#header{
+  position:absolute;
+  top:30px;
+  left:20%;
+  z-index:10;
+
+  #logo{
+    display:block;
+    max-width:270px;
+    margin-bottom:45px;
+
+    img{
+      display:block;
+      width:100%;
+    }
+  }
+
+  ul{
+    
+    li{
+
+      a{
+        font-size:36px;
+        text-transform:uppercase;
+        line-height:1.2;
+        transition:all 300ms ease-in-out;
+
+        &:hover{
+          color:$amarelo;
+        }
+      }
+    }
+  }
+}
+
+#container{
+  padding:1px;
+  min-height:100vh;
+
+  &.proposito{
+    background:url(../img/bkg-proposito.jpg) no-repeat bottom right;
+
+    .inner{
+      max-width:880px;
+      margin:370px auto 100px;
+    }
+  }
+
+  &.contato{
+    background:url(../img/bkg-contato.jpg) no-repeat top center;
+    
+    .inner{
+      max-width:790px;
+      margin:640px auto 0;
+
+      .left{
+        float:left;
+        width:48%;
+        margin-right:4%;
+      }
+
+      form{
+        position:relative;
+        overflow:hidden;
+      }
+
+      input,
+      textarea,
+      button{
+        display:block;
+        width:100%;
+        float:left;
+        border:5px solid #FFF;
+        padding:5px 10px;
+        margin-bottom:20px;
+        font:400 24px $Moreno;
+        color:#FFF;
+        background:transparent;
+      }
+
+      textarea{
+        width:48%;
+        height:185px;
+      }
+
+      button{
+        cursor:pointer;
+        transition:all 300ms ease-in-out;
+        width:48%;
+        position:absolute;
+        bottom:0;
+        left:0;
+
+        &:hover{
+          background-color:#FFF;
+          color:#000;
+        }
+      }
+    }
+  }
+
+  &.trabalhos{
+    background:url(../img/bkg-trabalhos.jpg) repeat top right;
+
+    .inner{
+      width:100%;
+      background:rgba(0,0,0,.9);
+      padding:90px 0 30px;
+      margin:320px auto 0;
+    }
+
+    &.interna{
+
+      .inner{
+        padding:0;
+        background:#FFF;
+      }
+    }
+  }
+
+  .inner{
+    width:90%;
+    margin:0 auto;
+  }
+
+  p{
+    font-family:$Museo;
+    font-size:30px;
+    line-height:1.2;
+  }
+}
+
+#social{
+  float:right;
+  margin-top:20px;
+
+  li{
+    display:inline-block;
+    margin:0 10px;
+
+    a{
+      display:block;
+      width:70px;
+      height:70px;
+      background:no-repeat center center;
+      transition:all 300ms ease-in-out;
+
+      &:hover{
+        opacity:0.6;
+      }
+
+      &.fb{ background-image:url(../img/ico-fb.png); }
+      &.ig{ background-image:url(../img/ico-ig.png); }
+      &.yt{ background-image:url(../img/ico-yt.png); }
+      &.be{ background-image:url(../img/ico-be.png); }
+    }
+  }
+}
+
+#projetos{
+  width:90%;
+  max-width:650px;
+  margin:0 auto;
+  overflow:hidden;
+
+  li{
+    float:left;
+    width:30%;
+    margin:0 5% 5% 0;
+
+    a{
+      display:block;
+      transition:all 300ms ease-in-out;
+
+      &:hover{
+        opacity:0.6;
+      }
+    }
+
+    img{
+      display:block;
+      width:100%;
+    }
+
+    &:nth-child(3n){
+      margin-right:0;
+    }
+  }
+}
+
+#projeto{
+  li{
+    transform:scale(0.8);
+    transition:all 300ms ease-in-out;
+
+    img,
+    iframe{
+      display:block;
+    }
+  }
+
+  .center{
+    li{
+      transform:scale(1);
+    }
+  }
+
+  .owl-prev,
+  .owl-next{
+    position:absolute;
+    top:50%;
+    transform:translatey(-50%);
+    width:70px;
+    height:70px;
+    background:no-repeat center center;
+    @include removeText;
+    transition:all 300ms ease-in-out;
+
+    &:hover{
+      opacity:0.6;
+    }
+  }
+
+  .owl-prev{
+    background-image:url(../img/arw-prev.png);
+    left:25%;
+  }
+
+  .owl-next{
+    background-image:url(../img/arw-next.png);
+    right:25%;
+  }
+}
+
+#cats{
+  width:100%;
+  margin:50px auto;
+  text-align:center;
+
+  li{
+    display:inline-block;
+    margin:0 20px 20px;
+
+    a{
+      text-transform:uppercase;
+      transition:all 300ms ease-in-out;
+
+      &:hover{
+        color:$amarelo;
+      }
+    }
+  }
+}
+
+#footer{
+  position:static;
+  max-width:780px;
+  border:1px solid #FFF;
+  border-bottom:0;
+  padding:20px 35px;
+  margin:120px auto 0;
+
+  p{}
+}
+
+// Responsivo
+@media screen and(max-width:1024px){
+  #header{
+    position:static;
+    width:90%;
+    margin:30px auto;
+  
+    ul{
+      
+      li{
+  
+        a{
+          font-size:24px;
+        }
+      }
+    }
+  }
+  
+  #container{
+    position:static;
+    min-height:1px;
+
+    &.proposito{
+      background:transparent;
+    }
+
+    &.contato{
+      background-position:bottom center;
+      .inner{
+        margin:50px auto 0;
+      }
+    }
+
+    &.trabalhos{
+      .inner{
+        background:transparent;
+        margin:0 auto;
+      }
+    }
+  
+    .inner{
+      width:90%;
+      margin:50px auto 100px;
+    }
+
+    p{
+      font-size:20px;
+      line-height:1.5;
+    }
+  }
+  
+  #footer{
+
+    p{
+      font-size:18px;
+    }
+  }
+}
+
+@media screen and(max-width:740px){
+  #container{
+    &.contato{
+      .inner{
+        .left{
+          width:100%;
+          margin-right:0;
+        }
+
+        textarea{
+          width:100%;
+        }
+
+        button{
+          position:static;
+          width:100%;
+        }
+      }
+    }
+
+    #social{
+      width:100%;
+      text-align:center;
+    
+      li{
+        margin:0 5px;
+    
+        a{
+          width:40px;
+          height:40px;
+          background-size:contain;
+        }
+      }
+    }
+  }
+  
+}
+
+@media screen and(max-width:520px){
+  #projetos{
+    li{
+      width:47.5%;
+      margin:0 5% 5% 0;
+  
+      &:nth-child(3n){
+        margin-right:5%;
+      }
+
+      &:nth-child(2n){
+        margin-right:0;
+      }
+    }
+  }
+  
+  #cats{
+    li{
+      a{
+        font-size:20px;
+      }
+    }
+  }
+}
+
+@media screen and(max-width:360px){
+  #projetos{
+    li{
+      width:100%;
+      margin:0 0 5%;
+  
+      &:nth-child(3n){
+        margin-right:0;
+      }
+    }
+  }
+}

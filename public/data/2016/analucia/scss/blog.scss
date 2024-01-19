@@ -1,0 +1,157 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import 'https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i';
+$Noto:'Noto Sans', Helvetica, Arial, sans-serif;
+$regular:400;
+$bold:600;
+
+// CORES
+$turquesa:#008A91;
+$marinho:#005359;
+$roxo:#7669B8;
+$lilas:#9f97CB;
+$azul:#094F79;
+
+$cinza:#5F5F5F;
+$prata:#9B9B9B;
+
+// ESTILOS GLOBAIS
+body{ font-family:$Noto; @include font-size(16px); @include font-smoothing(on); color:#FFF; }
+@include selection(#FFF,$turquesa);
+
+// Topo
+#header{ width:100%; height:290px; background:url(../img/bkg-topo-blog.png) repeat center top; border-bottom:5px solid #CCCDCF; }
+#header .center{ height:290px; }
+#logo{ display:block; position:absolute; z-index:1; bottom:-100px; left:-100px; width:320px; height:130px; background:url(../img/logo.jpg) no-repeat center center; }
+#header h1{ float:left; font-family:$Noto; @include font-size(70px); margin:170px 0 0 210px; }
+#header .voltar{ display:block; float:right; padding:10px; border:2px solid #FFF; margin-top:60px; @include font-size(20px); font-weight:$bold; text-transform:uppercase; @include transition(all 300ms ease-in-out); }
+#header .voltar:hover{ background-color:#FFF; color:$azul; }
+
+// Categorias
+#categorias{ width:100%; text-align:center; margin:30px 0 130px; }
+#categorias li{ display:inline-block; margin:0 10px; color:$roxo; text-transform:uppercase; @include font-size(18px); font-weight:$bold; }
+#categorias li a{ @include transition(all 300ms ease-in-out); }
+#categorias li a:hover{ @include opacity(0.8); }
+
+// Posts
+#container{}
+#col-left{ float:left; width:66%; }
+#posts{}
+#posts li{ padding-bottom:20px; border-bottom:1px solid #CCC; margin-bottom:30px; }
+#posts li h2{ @include font-size(30px); font-weight:$bold; line-height:1.2em; text-transform:uppercase; color:$cinza; }
+#posts li p.data{ @include font-size(15px); font-style:italic; text-transform:uppercase; color:$cinza; margin:10px 0; }
+#posts li img{ display:block; width:100%; margin-bottom:15px; }
+#posts li p{ @include font-size(18px); font-style:italic; line-height:1.2em; color:$cinza; margin-bottom:20px; }
+#posts li .leia-mais{ display:block; float:right; padding:8px 30px 10px; background-color:$marinho; font-weight:$bold; font-style:italic; }
+.fb-comments, .fb-comments span, .fb-comments iframe { width: 100% !important; }
+
+#continue-lendo{ display:block; margin:30px 0 70px; text-align:center; color:$cinza; text-transform:uppercase; @include font-size(20px); font-style:italic; padding-bottom:30px; background:url(../img/arw-down.png) no-repeat center bottom; }
+
+#share{ margin-top:60px; padding-bottom:20px; border-bottom:1px solid $cinza; color:$cinza; }
+#share h3{ text-transform:uppercase; font-family:$Noto; @include font-size(20px); text-align:center; color:$turquesa; font-weight:$bold; }
+#share ul{ text-align:center; margin-top:10px; }
+#share ul li{ display:inline-block; margin:0 6px; }
+#share ul li a{ display:block; width:40px; height:40px; background-repeat:no-repeat; background-position:center center; }
+#share ul li a.fb{ background-image:url(../img/i-facebook.png); }
+#share ul li a.tw{ background-image:url(../img/i-twitter.png); }
+#share ul li a.gp{ background-image:url(../img/i-gplus.png); }
+
+.veja-tambem{ margin:40px 0; color:$cinza; }
+.veja-tambem h3{ text-align:center; text-transform:uppercase; @include font-size(20px); font-family:$Noto; margin:0 0 20px; color:$cinza; font-weight:$bold; }
+.veja-tambem .post{ display:block; float:left; width:48%; margin:0 4% 30px 0; }
+.veja-tambem .post.last{ margin-right:0; }
+.veja-tambem .post .image{ margin-bottom:10px; }
+.veja-tambem .post .image img{ display:block; width:100%; }
+.veja-tambem .post h4{ @include font-size(20px); text-transform:uppercase; line-height:1.2em; font-family:$Noto; font-weight:$bold; }
+.veja-tambem .anterior{ display:block; float:left; width:33.33%; height:25px; line-height:25px; @include font-size(20px); font-style:italic; padding-left:30px; background:url(../img/prev.png) no-repeat left center; }
+.veja-tambem .inicio{ display:block; float:left; width:33.33%; height:25px; line-height:25px; @include font-size(20px); font-style:italic; text-align:center; }
+.veja-tambem .proximo{ display:block; float:left; width:33.33%; height:25px; line-height:25px; @include font-size(20px); font-style:italic; text-align:right; padding-right:30px; background:url(../img/next.png) no-repeat right center; }
+
+// Coluna direita
+#col-right{ float:left; width:32%; margin-left:2%; }
+#backup{ font-family:$Noto; margin:30px 0; }
+#backup h2{ display:block; width:100%; padding:15px; border:1px solid $roxo; color:$roxo; text-transform:uppercase; @include font-size(20px); text-align:center; margin-bottom:10px; }
+#backup .btn-datas{ display:block; width:100%; padding:15px; border:1px solid $roxo; color:$roxo; text-transform:uppercase; @include font-size(20px); text-align:center; background:url(../img/arw-archive.png) no-repeat center center; }
+#arquivo{ display:none; width:100%; }
+#arquivo li a{ display:block; width:100%; color:$roxo; text-align:center; padding:10px; border:1px solid $roxo; border-top:0; text-transform:uppercase; @include transition(all 300ms ease-in-out); }
+#arquivo li a:hover{ background:#e4f0fc; }
+
+// Newsletter
+#newsletter{ width:100%; padding:50px 0; margin-top:100px; background:url(../img/bkg-newsletter.png) repeat center center; }
+#newsletter .f-left{ float:left; margin-left:8%; font-weight:$bold; }
+#newsletter .f-left h2{ @include font-size(40px); text-transform:uppercase; }
+#newsletter .f-left p{ @include font-size(22px); font-style:italic; }
+#newsletter .f-right{ float:right; width:50%; margin-top:10px; }
+#newsletter .f-right input{ display:block; float:left; width:72%; height:45px; border:2px solid #CCC; background-color:#FFF; font-weight:$bold; font-style:italic; @include font-size(20px); font-family:inherit; color:$cinza; text-align:center; @include font-smoothing(on); }
+#newsletter .f-right #assinar{ display:block; float:left; width:28%; height:45px; border:0; background-color:$azul; font-family:$Noto; @include font-size(20px); font-style:italic; font-weight:$bold; color:#FFF; cursor:pointer; @include transition(all 300ms ease-in-out); }
+#newsletter .f-right #assinar:hover{ @include opacity(0.8); }
+
+// Contato
+#contato{ width:100%; padding:80px 0; background-color:$azul; }
+#contato h2{ @include font-size(37px); text-transform:uppercase; font-weight:$bold; margin-bottom:30px; padding-bottom:30px; border-bottom:1px solid #FFF; }
+#contato .f-left{ float:left; width:55%; }
+#contato .f-left input,
+#contato .f-left textarea{ display:block; float:left; width:100%; height:40px; background:#FFF; border:0; padding:0 10px; color:$cinza; font-family:$Noto; @include font-size(14px); font-style:italic; margin-bottom:10px; }
+#contato .f-left textarea{ height:260px; resize:none; padding:5px 10px; }
+#contato .f-left input.mail{ width:60%; margin-right:2%; }
+#contato .f-left input.tel{ width:38%; }
+#contato .f-left #enviar{ display:block; width:100%; height:40px; background-color:$turquesa; border:0; color:#FFF; font-family:$Noto; font-weight:$bold; @include font-size(25px); font-style:italic; text-transform:uppercase; cursor:pointer; @include transition(all 300ms ease-in-out); }
+#contato .f-left #enviar:hover{ @include opacity(0.8); }
+#contato .f-left p{ @include font-size(12px); margin-top:10px; }
+#contato .f-right{ float:left; width:33%; margin-left:4%; line-height:1.2em; }
+#contato .f-right h3{ @include font-size(18px); margin-bottom:5px; }
+#contato .f-right p{ @include font-size(14px); margin-bottom:20px; }
+#contato .f-right p strong{ @include font-size(28px); font-weight:$bold; display:block; }
+#contato .f-right p strong span{ @include font-size(18px); }
+#contato .f-right h4{ @include font-size(18px); font-style:italic; font-weight:$bold; text-transform:uppercase; margin:10px 0 15px; }
+
+// Responsivo
+
+@media screen and(max-width:860px){
+	#logo{ bottom:-20px; }
+
+	#newsletter .f-left{ width:100%; margin:0 0 30px; text-align:center; }
+	#newsletter .f-right{ width:100%; }
+
+	#navig li{ margin:0 5%; }
+}
+
+@media screen and(max-width:660px){
+	#header{ height:240px; }
+	#header .center{ height:240px; }
+	#logo{ bottom:-60px; left:0; width:100%; }
+	#header h1{ margin:40px 0 0; }
+	#header .voltar{ display:none; }
+
+	#categorias{ margin:100px 0 50px; }
+
+	#col-left{ width:100%; margin:0; }
+	#col-right{ display:none; }
+
+	#contato .f-left{ width:100%; margin:0 0 30px; }
+	#contato .f-right{ width:100%; margin:0; text-align:center; }
+
+	#constelacao .sobre{ margin:100px 0 0; }
+	#constelacao #lista-const{ margin-top:40px; }
+	#constelacao #lista-const .img{ width:100%; margin:0 0 20px; }
+	#constelacao #lista-const .texto{ width:100%; }
+
+	#constelacao #logo{ position:static; float:none; width:240px; margin:0 auto; }
+	#constelacao #header h1{ display:none; }
+}
+
+@media screen and(max-width:460px){
+	#header{ margin-bottom:100px; }
+	#header h1{ margin:20px 0 0; }
+	#categorias{ display:none; }
+
+	#newsletter .f-right input,
+	#newsletter .f-right #assinar{ width:100%; }
+
+	#contato .f-left input.mail,
+	#contato .f-left input.tel{ width:100%; margin:0 0 10px; }
+}

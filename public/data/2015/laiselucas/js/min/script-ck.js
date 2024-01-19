@@ -1,0 +1,1 @@
+function tamanho(){var n=$(window).height(),t=$(window).width();$("#container").css({width:t,height:n})}$(document).ready(function(){tamanho()}),$(document).resize(function(){tamanho()});

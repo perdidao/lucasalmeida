@@ -1,0 +1,18 @@
+// Setup
+@import 'general/reset';
+@import 'general/mixins';
+@import 'general/fonts';
+@import 'general/variables';
+@import 'general/layout';
+
+// Libs
+@import 'libs/slick';
+
+// Sections
+@import 'sections/header';
+@import 'sections/highlight';
+@import 'sections/space';
+@import 'sections/stores';
+@import 'sections/gifts';
+@import 'sections/map';
+@import 'sections/footer';

@@ -1,0 +1,111 @@
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+*{ @include box-sizing(border-box); }
+a{ text-decoration:none; color:inherit; }
+
+// FONTES
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400italic,700,700italic);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,600);
+
+$Droid:'Droid Serif', 'Times New Roman', Serif;
+$Raleway:'Raleway', Helvetica, Arial, Sans-serif;
+
+// CORES
+$lightBrown:#793500;
+$darkBrown:#2B1001;
+$brown:#2B1001;
+$nut:#C58520;
+
+// GLOBAL
+body{ font-family:$Raleway; @include font-size(14px); color:$brown; }
+
+// HEADER
+
+#menu{ position:fixed; z-index:10; top:0; left:0; width:100%; height:145px; background:transparent url(../img/bkg-menu.png) no-repeat center top; }
+#menu.fixed{ height:60px; background:transparent url(../img/bkg-menu-fixed.png) no-repeat center top; @include transition(all 300ms ease-in-out); }
+#menu.fixed #logo{ height:60px; }
+
+#logo{ display:block; float:left; width:180px; height:140px; margin-left:10px; }
+#nav{ margin-left:205px; }
+#nav li a{ display:block; float:left; height:60px; line-height:60px; color:$nut; text-transform:uppercase; margin-right:25px; background:transparent url(../img/bkg-menu-hover.png) no-repeat center -50px; @include transition(all 200ms linear); }
+#nav li a:hover,
+#nav li a.current{ background-position:center center; }
+
+// INICIAL
+#inicial{ width:100%; height:790px; background:transparent url(../img/bkg-inicial.jpg) no-repeat center top; margin-top:60px; }
+
+// SOBRE
+#sobre{ width:100%; height:530px; background:transparent url(../img/bkg-sobre.jpg) no-repeat center center; }
+#sobre .center{ width:650px; }
+.subnav{}
+.subnav li{}
+.subnav li a{ display:block; float:left; height:60px; padding-top:30px; font-family:$Droid; font-weight:$black; @include font-size(16px); @include font-smoothing(on); font-style:italic; color:$lightBrown; margin-right:15px; background:transparent url(../img/blt-active.png) no-repeat center -18px; @include transition(all 200ms linear); }
+.subnav li a:hover,
+.subnav li a.current{ color:$darkBrown; background-position:center top; }
+
+.abas-sobre{ width:100%; height:340px; margin-top:40px; overflow:hidden; }
+.abas-sobre p{ margin:20px 40px 0 0; line-height:1.4em; }
+
+.lista-produtos{}
+.lista-produtos li{ height:340px; margin-bottom:20px; }
+.lista-produtos li .col-image{ float:left; width:260px; }
+.lista-produtos li .col-info{ float:right; width:335px; margin-top:30px; }
+.lista-produtos li .col-info h2{ text-transform:uppercase; font-weight:$bold; }
+
+.lista-premios li{ margin-bottom:30px; }
+.lista-premios li .col-image{ float:left; width:165px; }
+.lista-premios li .col-info{ float:right; width:450px; }
+.lista-premios li .col-info h2{ text-transform:uppercase; font-weight:$bold; }
+
+// LOJA
+#loja{ width:100%; height:900px; background:transparent url(../img/bkg-loja.jpg) no-repeat center center; position:relative; }
+#nossal-loja{ position:absolute; top:50%; left:50%; margin-top:-(437px/2); margin-left:-(626px/2); display:block; width:626px; height:437px; background:transparent url(../img/btn-loja.png) no-repeat center 0; cursor:default; }
+
+// ONDE ESTAMOS
+#endereco{ width:100%; height:530px; background:transparent url(../img/bkg-endereco.jpg) no-repeat center center; }
+.abas-endereco{ width:100%; height:340px; overflow:hidden; }
+.aba-producao{ margin-top:40px; }
+.aba-producao img{ margin-bottom:10px; }
+.aba-producao h2{ font-weight:$bold; }
+.aba-producao p{ margin:20px 40px 0 0; line-height:1.4em; }
+
+.aba-pdv .desc-pdv{ font-family:$Droid; font-style:italic; @include font-smoothing(on); color:#793500; margin:20px 0 10px; }
+.aba-pdv h2{ font-weight:$bold; text-transform:uppercase; margin-bottom:7px; }
+.aba-pdv ul{ margin-bottom:20px; }
+.aba-pdv ul li{ margin-bottom:10px; float:left; width:30%; margin-righ:3%; }
+.aba-pdv ul li h3{ font-weight:$bold; }
+
+.aba-parceiros .desc-parceiros{ font-family:$Droid; font-style:italic; @include font-smoothing(on); color:#793500; margin:20px 0 10px; }
+.aba-parceiros h2{ font-weight:$bold; text-transform:uppercase; margin-bottom:7px; }
+.aba-parceiros ul{ margin-bottom:20px; }
+.aba-parceiros ul li{ margin-bottom:10px; float:left; width:30%; margin-righ:3%; }
+.aba-parceiros ul li h3{ font-weight:$bold; }
+
+// CONTATO
+#contato{ width:100%; height:748px; padding-top:120px; background:transparent url(../img/bkg-contato.jpg) no-repeat center center; @include font-smoothing(on); line-height:1.5em; }
+#contato .center{ width:940px; }
+#contato .col-info{ width:330px; float:left; }
+#contato .col-info h2{ font-family:$Droid; @include font-size(24px); font-style:italic; color:#FFF; letter-spacing:.1em; margin-bottom:10px; }
+#contato .col-info h3{ @include font-size(16px); color:#FFF; margin:15px 0; }
+#contato .col-info h3 span{ color:#fff200; }
+#contato .col-info p{ color:#FFF; margin-bottom:15px; }
+#contato .col-info p span{ color:#fff200; @include font-size(16px); }
+
+#contato .col-form{ width:460px; float:left; margin-left:60px; }
+#contato .col-form label{ display:block; width:100%; margin-bottom:10px; color:#FFF; }
+#contato .col-form label.i-full{ width:100%; }
+#contato .col-form label.i-60{ width:57%; float:left; }
+#contato .col-form label.i-40{ width:37%; float:left; margin-left:6%; }
+#contato .col-form label input,
+#contato .col-form label textarea{ display:block; width:100%; padding:5px; margin-top:10px; border:0; @include border-radius(10px); @include font-size(16px); font-family:$Raleway; color:#FFF; background:transparent url(../img/bkg-input.png) repeat; @include font-smoothing(on); }
+#contato .col-form label textarea{ height:165px; resize:none; }
+#enviar{ display:block; float:right; border:0; padding-left:40px; font-family:$Droid; color:#FFF; letter-spacing:.11em; @include font-size(18px); @include font-smoothing(on); background:transparent url(../img/ico-b.png) no-repeat left center; cursor:pointer; @include transition(all 300ms ease-in-out); }
+#enviar:hover{ background-image:url(../img/ico-b-hover.png); }
+
+#footer{ width:100%; height:180px; background:transparent url(../img/bkg-footer.jpg) no-repeat center top; }
+#footer .center{ width:940px; }
+#footer address{ color:#ffce9e; letter-spacing:.11em; line-height:24px; padding-top:30px; @include font-smoothing(on); }
+#footer p{ margin-top:35px; }
+#footer p span{ display:block; float:left; line-height:30px; color:#6e5e50; @include font-size(12px); font-style:italic; }
+#footer p #oapo{ display:block; float:left; margin-left:10px; width:103px; height:30px; background:transparent url(../img/oap.png) no-repeat center center; }

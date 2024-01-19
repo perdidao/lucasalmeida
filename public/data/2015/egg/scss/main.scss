@@ -1,0 +1,249 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import url("http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic");
+$Open:"Open Sans Condensed", "Arial Narrow", Helvetica, Arial, Sans-serif;
+
+// CORES
+$Laranja:#FFA700;
+$SobreL:#A37200;
+$Preto:#000;
+
+// ESTILOS GLOBAIS
+body{ font-family:$Open; color:#000; @include font-smoothing(on); }
+@include selection($SobreL, $Laranja);
+
+.page{ background:#000 no-repeat center center; background-size:hover; position:relative; z-index:1; }
+.sectitle{ position:absolute; z-index:22; top:45px; left:150px; @include font-size(40px); font-weight:$light; font-style:italic; color:#FFF; letter-spacing:0.1em; }
+#logo{ display:block; z-index:10; position:fixed; z-index:9; top:50px; left:60px; }
+#egg{ display:block; z-index:10; position:fixed; z-index:9; bottom:50px; right:60px; }
+
+// PRELOADER
+$offset: 187;
+$duration: 1.5s;
+#preloader{ position:fixed; z-index:19999; top:0; left:0; background-color:#000; width:100%; height:100%; display: flex; align-items: center; justify-content: center; }
+.spinner { animation: rotator $duration linear infinite; }
+@keyframes rotator { 0% { transform: rotate(0deg); } 100% { transform: rotate(270deg); } }
+.path { stroke-dasharray: $offset; stroke-dashoffset: 0; transform-origin: center; animation: dash $duration ease-in-out infinite, colors ($duration*4) ease-in-out infinite; }
+.egg{ fill: #FFCC00; }
+@keyframes colors { 0% { stroke: #FFFFFF; } 100% { stroke: #FFFFFF; } }
+@keyframes dash { 0% { stroke-dashoffset: $offset; } 50% { stroke-dashoffset: $offset/4; transform:rotate(135deg); } 100% { stroke-dashoffset: $offset; transform:rotate(450deg); } }
+
+// Inicial
+#inicial{ background-image:url(../img/bkg-inicial.jpg); }
+#prev,
+#next{ display:block; width:85px; height:171px; background-repeat:no-repeat; background-position:center center; position:absolute; z-index:3; top:50%; margin-top:-85px; }
+#prev{ background-image:url(../img/arw-left.png); left:0; }
+#next{ background-image:url(../img/arw-right.png); right:0; }
+
+// BANNERS
+#banners{  }
+#banners li{  }
+#banners li #banner1-box{ position:absolute; top:50%; margin-top:-275px; left:50%; margin-left:-390px; width:550px; height:550px; padding:140px 105px; background:rgba(220,155,49,.9); @include border-radius(50%); text-align:center; font-weight:$bold; @include font-size(36px); line-height:42px; color:#543B00; }
+#banners li #nos-move{ position:absolute; top:50%; margin-top:-10px; left:50%; margin-left:95px; width:306px; height:294px; background:url(../img/banners/nos-move.png) no-repeat center center; }
+#banners li #banner2-box{ position:absolute; top:50%; margin-top:-230px; left:50%; margin-left:-430px; width:460px; height:460px; padding:115px 90px; background:rgba(255,255,255,.9); @include border-radius(50%); font-weight:$bold; @include font-size(36px); line-height:42px; }
+#banners li #casca{ position:absolute; top:50%; margin-top:-230px; left:50%; margin-left:-15px; width:460px; height:460px; background:url(../img/banners/casca.png) no-repeat center center; }
+#banners li #banner3-box{ position:absolute; top:50%; margin-top:-282px; left:50%; margin-left:-375px; width:313px; height:313px; background:url(../img/banners/mkt.png) no-repeat center center; @include font-size(42px); line-height:50px; text-align:center; color:#FFF; text-transform:uppercase; font-weight:$bold; padding:110px 50px 0; }
+#banners li #mkt-direto{ position:absolute; top:50%; margin-top:-275px; left:50%; margin-left:-195px; width:551px; height:550px; background:url(../img/banners/mkt-direto.png) no-repeat center center; }
+.box1, .box2{ @include transition(all 100ms ease-in-out); }
+
+// MENU
+#btn-menu{
+    display:block;
+    width:50px;
+    height:36px;
+    position:fixed;
+    z-index:1993;
+	top:40px;
+	right:40px;
+    & span,
+    &:before,
+    &:after{
+        content:" ";
+        display:block;
+        width:50px;
+        height:6px;
+        @include border-radius(3px);
+        background-color:#DD9B31;
+        @include transform(rotate(0));
+        position:absolute;
+        left:0;
+        @include transition(all 300ms ease-in-out);
+    }
+        
+    &:before{ top:0; }
+    & span{ top:15px; @include opacity(1); }
+    &:after{ bottom:0; }
+        
+    &.active span{ @include opacity(0); top:25px; }
+    &.active:before{ width:45px; top:15px; left:3px; @include transform(rotate(45deg)); background-color:#000; }
+    &.active:after{ width:45px; bottom:15px; left:3px; @include transform(rotate(-45deg)); background-color:#000; } 
+}
+#menu{ position:fixed; z-index:1992; top:0; right:-680px; width:680px; height:100%; padding-left:40px; background:url(../img/menu.png) repeat-y left center; @include transition(all 300ms ease-in-out); text-align:center; }
+#menu.active{ right:0; }
+#logo-menu{ margin:50px 0 0; }
+#logo-menu path{ fill:$SobreL; }
+#links{ margin:50px 0 0; }
+#links li{ margin:30px 0; }
+#links li a{ @include font-size(36px); font-weight:$bold; text-transform:uppercase; @include opacity(1); @include transition(all 300ms ease-in-out); }
+#links li a:hover{ @include opacity(0.6); }
+#menu address{ @include font-size(21px); font-weight:$bold; line-height:31px; text-transform:uppercase; color:$SobreL; margin-top:40px; }
+#social{ margin-top:40px; }
+#social li{ display:inline-block; margin:0 10px; }
+#social li a{ display:inline-block; width:53px; height:53px; background-repeat:no-repeat; background-position:center center; }
+#social li a.i-facebook{ background-image:url(../img/i-facebook.png); }
+#social li a.i-twitter{ background-image:url(../img/i-twitter.png); }
+#social li a.i-instagram{ background-image:url(../img/i-instagram.png); }
+
+// EQUIPE
+#equipe{ background-image:url(../img/bkg-equipe.jpg); position:relative; padding-bottom:120px; }
+.listaFunc{ margin:200px auto 0; max-width:1080px; }
+.listaFunc li{ float:left; margin:20px; @include border-radius(50%); width:140px; height:140px; position:relative; @include box-shadow(0 0 0 0 $Laranja); @include transition(all 300ms ease-in-out); }
+.listaFunc li.vazio{ border:6px solid #FFF; }
+.listaFunc li.vazio:hover{ @include box-shadow(0 0 0 0 $Laranja); }
+.listaFunc li:hover{ @include box-shadow(0 0 0 6px $Laranja); }
+.listaFunc li .img-box{ position:absolute; z-index:2; top:0; left:0; width:100%; height:100%; @include border-radius(50%); width:140px; height:140px; overflow:hidden; backface-visibility: hidden; @include transform(rotate3d(0,1,0,180deg)); @include transition(all 300ms ease-in-out); }
+.listaFunc li .img-box img{ display:block; width:100%; }
+.listaFunc li:hover .img-box{ @include transform(rotate3d(0,1,0,0)); @include transform(scale(0.9)); }
+.listaFunc li .info-box{ position:absolute; z-index:1; top:0; left:0; width:100%; height:100%; @include border-radius(50%); width:140px; height:140px; overflow:hidden; backface-visibility: hidden; @include transition(all 300ms ease-in-out); background-color:#FFF; @include transform(rotate3d(0,1,0,0)); text-align:center; }
+.listaFunc li:hover .info-box{ @include transform(rotate3d(0,1,0,-180deg)); }
+.listaFunc li .info-box h3{ @include font-size(21px); font-weight:$light; text-transform:uppercase; margin-top:50px; }
+.listaFunc li .info-box p{ @include font-size(14px); font-weight:$light; letter-spacing:0.1em; color:$Laranja; margin-top:5px; text-transform:lowercase; }
+#nav-equipe{ width:344px; margin:100px auto 0; }
+#nav-equipe a{ display:block; float:left; width:144px; height:47px; padding-top:57px; background:url(../img/ico-equipe.png) no-repeat center top; @include font-size(18px); font-weight:$bold; text-transform:uppercase; text-align:center; color:#4D4118; @include transition(all 300ms ease-in-out); }
+#nav-equipe a:first-child{ margin-right:56px; }
+#nav-equipe a.active,
+#nav-equipe a:hover{ color:$Laranja; background-image:url(../img/ico-equipe-ativo.png); }
+
+// PORTFÓLIO
+#portfolio{ background-image:url(../img/bkg-equipe.jpg); position:relative; padding:220px 0; }
+#prev-job,
+#next-job{ display:block; width:85px; height:171px; background-repeat:no-repeat; background-position:center center; position:absolute; z-index:3; top:50%; margin-top:-85px; }
+#prev-job{ background-image:url(../img/arw-left.png); left:0; }
+#next-job{ background-image:url(../img/arw-right.png); right:0; }
+#lista-jobs{ float:left; }
+#lista-jobs li{ border-width:10px 5px; border-style:solid; border-color:rgba(0,0,0,.6); position:relative; }
+#lista-jobs li img{ display:block; width:100%; }
+#lista-jobs li .hover{ display:none; position:absolute; top:0; left:0; width:100%; height:100%; background-color:rgba(255,167,0,.8); text-align:center; padding-top:220px; cursor:crosshair; }
+#lista-jobs li .hover h3{ @include font-size(36px); font-weight:$bold; letter-spacing:0.07em; color:#FFF; }
+#lista-jobs li .hover p{ @include font-size(25px); font-weight:$light; letter-spacing:0.05em; text-transform:uppercase; margin-top:10px; }
+
+// CASES
+#cases{ background-color:#FFF; }
+#cases .sectitle{ color:#000; }
+#rotatescroll{ position:absolute; top:200px; right:15%; }
+#case-info{ position:absolute; top:300px; left:15%; max-width:375px; }
+#case-info h3{ @include font-size(42px); font-weight:$bold; text-transform:uppercase; color:$Laranja; margin-bottom:10px; }
+#case-info p{ @include font-size(26px); font-weight:$bold; line-height:42px; color:#320; }
+
+#case-hover{ display:none; position:fixed; top:0; left:0; width:100%; height:100%; overflow:hidden; z-index:1994; }
+#navigation{ position:absolute; z-index:1995; top:200px; right:20%; width:375px; height:375px; background-color:rgba(255,167,0,.8); @include border-radius(50%); text-align:center; }
+#fechar{ display:block; width:34px; height:34px; background:url(../img/ico-fechar.png) no-repeat center center; position:absolute; z-index:1995; top:40px; right:40px; }
+#navigation p{ @include font-size(26px); font-weight:$bold; line-height:42px; color:#320; max-width:245px; margin:70px auto 0; }
+#prev-foto,
+#next-foto{ display:block; float:left; width:25px; height:35px; background-position:center center; background-repeat:no-repeat; }
+#prev-foto{ background-image:url(../img/arw-prev.png); margin:20px 45px 0 85px; }
+#next-foto{ background-image:url(../img/arw-next.png); margin:20px 85px 0 45px; }
+#prev-foto:hover{ background-image:url(../img/arw-prev-active.png); }
+#next-foto:hover{ background-image:url(../img/arw-next-active.png); }
+#pages{ width:65px; margin-top:10px; float:left; @include font-size(42px); color:$SobreL; font-weight:$bold; background:url(../img/bkg-pages.png) no-repeat center center; }
+#current{ float:left; }
+#total{ float:right; margin-top:20px; }
+#lista-fotos-case{}
+#lista-fotos-case li{ width:100%; }
+#lista-fotos-case li img{ display:block; width:100%; }
+
+// TIMELINE
+#timeline{ background-image:url(../img/bkg-equipe.jpg); padding-bottom:200px; position:relative; }
+#eventos{ float:left; height:408px; width:100%; margin-top:10%; }
+#eventos li{ float:left; width:202px; height:404px; }
+#eventos .owl-item{ margin:0 1px; }
+#eventos li .box{ width:200px; height:200px; margin:1px 0 2px; text-align:center; }
+
+#eventos .owl-item{ overflow:hidden; width:auto !important; }
+
+#eventos li .box.box-data{ background-color:$Laranja; }
+#eventos li .box.box-data .mes{ display:block; float:left; width:100%; @include font-size(74px); font-weight:$light; text-transform:uppercase; letter-spacing:0.07em; margin-top:40px; }
+#eventos li .box.box-data .ano{ @include font-size(33px); font-weight:$bold; color:$SobreL; }
+
+#eventos li .box.box-foto{ overflow:hidden; }
+#eventos li .box.box-foto img{ display:block; width:100%; }
+
+#eventos li .box.box-conteudo{ background-color:#FFF; }
+#eventos li .box.box-conteudo.box-twitter{ background-color:#0089D7; color:#FFF; }
+#eventos li .box.box-conteudo p{ display:block; float:left; width:76%; margin:40px 12%; @include font-size(21px); font-weight:$light; line-height:31px; }
+#eventos li .box.box-conteudo p strong{ font-weight:$bold; }
+
+#timeline .owl-pagination{ width:100%; text-align:center; margin-top:100px; }
+#timeline .owl-pagination .owl-page{ display:inline-block; width:20px; height:20px; margin:0 14px; background-color:$Laranja; @include border-radius(50%); @include box-shadow(0 0 0 0 #FFF); @include transition(all 300ms ease-in-out); }
+#timeline .owl-pagination .owl-page.active{ background-color:transparent; @include box-shadow(0 0 0 10px #FFF); }
+
+// CLIENTES
+#clientes{ background-color:#FFF; }
+#clientes .sectitle{ color:#000; }
+#lista-clientes{ width:801px; height:361px; margin:200px auto; border-left:1px dashed $Laranja; }
+#lista-clientes li{ width:200px; height:361px; float:left; border-width:0 1px 1px 0; border-style:dashed; border-color:$Laranja; }
+#lista-clientes li .cliente{ width:200px; height:180px; border-width:1px 0 0 0; border-style:dashed; border-color:$Laranja; }
+#lista-clientes li .cliente img{ display:block; width:100%; }
+#clientes .owl-pagination{ width:100%; text-align:center; margin-top:100px; }
+#clientes .owl-pagination .owl-page{ display:inline-block; width:20px; height:20px; margin:0 14px; background-color:$Laranja; @include border-radius(50%); @include box-shadow(0 0 0 0 #FFF); @include transition(all 300ms ease-in-out); }
+#clientes .owl-pagination .owl-page.active{ background-color:transparent; @include box-shadow(0 0 0 10px #FFF); }
+#clientes .owl-pagination .owl-page.active{ @include box-shadow(0 0 0 10px #000); }
+
+// CONTATO
+#contato{ }
+#mapa{ background-color:#F00; position:absolute; z-index:10; top:0; left:0; width:100%; height:75%; }
+#overlay-mapa{ position:absolute; z-index:11; top:0; left:0; width:100%; height:75%; background-color:rgba(0,0,0,.66); }
+#form{ width:800px; margin:200px auto 0; }
+#form .col-left{ float:left; width:380px; }
+#form .col-right{ float:right; width:380px; }
+#form input,
+#form textarea{ display:block; width:100%; padding:15px 30px; background-color:rgba(0,0,0,.8); color:$Laranja; @include font-size(18px); font-family:$Open; font-weight:$bold; border:0; @include border-radius(30px); margin-bottom:35px; @include box-shadow(0 0 0 0 #000); @include transition(all 300ms ease-in-out); }
+#form textarea{ height:150px; }
+#form input:focus{ @include box-shadow(0 0 0 6px #FFF); color:#FFF; }
+#form textarea:focus{ background-color:#FFF; color:#31184D; }
+#enviar{ display:block; width:100%; padding:15px 30px; background-color:$Laranja; color:#000; @include font-size(25px); font-family:$Open; font-weight:$bold; border:0; @include border-radius(30px); margin-bottom:35px; text-transform:uppercase; cursor:pointer; }
+.msg{ display:block; width:100%; padding:15px 30px; background-color:#39914A; color:#000; @include font-size(25px); font-family:$Open; font-weight:$bold; border:0; @include border-radius(30px); text-transform:uppercase; text-align:center; }
+@include placeholder($Laranja);
+
+#footer{ position:absolute; z-index:12; bottom:0; left:0; width:100%; height:25%; background-color:$Laranja; text-align:center; }
+#map-toggle{ display:block; width:100px; height:50px; margin:-25px auto 0; @include border-radius(25px); background-color:#FFF; position:relative; @include box-shadow(0 3px 0 1px rgba(0,0,0,.1)); }
+#map-toggle span{ display:block; width:30px; height:30px; background-color:$Laranja; @include border-radius(50%); position:absolute; top:10px; left:15px; @include transition(all 300ms ease-in-out); }
+#map-toggle.active span{ left:55px; }
+#footer .mapa-title{ @include font-size(18px); font-weight:$bold; color:#FFF; text-transform:uppercase; margin-top:25px; }
+#footer address{ @include font-size(21px); font-weight:bold; color:$SobreL; text-transform:uppercase; margin-top:35px; }
+#footer address span{ margin:0 15px; }
+
+// RESPONSIVO
+
+@media screen and(max-width:800px){
+    #menu{ width:540px; padding-left:0; background-position:right center; }
+
+    #banners li #banner1-box{ top:100px; margin-top:0; left:20px; margin-left:0; width:500px; height:500px; padding:100px 80px; }
+    #banners li #nos-move{ position:absolute; top:500px; margin-top:0; left:50%; margin-left:-153px; }
+    #banners li #banner2-box{ top:100px; margin-top:0; left:60px; margin-left:0; width:420px; height:420px; padding:100px 30px; text-align:center; }
+    #banners li #casca{  position:absolute; top:430px; margin-top:0; left:50%; margin-left:-150px; width:300px; height:300px; background-size:100%; }
+    #banners li #banner3-box{ margin-top:-155px; margin-left:-155px; }
+    #banners li #mkt-direto{ margin-top:-275px; margin-left:-275px; }
+
+    .listaFunc{ margin:100px auto 0; }
+    .listaFunc li{ margin:10px 20px; }
+    #nav-equipe{ margin:30px auto 0; }
+
+    #lista-jobs{ margin-top:100px; }
+
+    #case-info{ top:auto; bottom:100px; }
+
+    #eventos{ margin-top:30%; }
+
+    #lista-clientes,
+    #form{ width:80%; }
+    #form .col-left,
+    #form .col-right{ width:100%; }
+}
+
+
+

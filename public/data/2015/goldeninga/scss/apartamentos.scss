@@ -1,0 +1,68 @@
+// DEPENDÊNCIAS
+@import "compass";
+@import "tools.scss";
+
+// CORES
+$Azul:#1D334D;
+$Amarelo:#F3CA31;
+$Vermelho:#F77;
+$Cinza:#777;
+
+// FONTES
+@import "fonts.scss";
+
+// APES
+#apes{}
+#apes li{ float:left; width:20%; height:850px; text-align:center; color:#FFF; @include transition(all 300ms ease-in-out); position:relative; }
+#apes li:after{ content:' '; display:block; z-index:1; width:100%; height:100%; position:absolute; top:0; left:0; background:url(../img/bkg-apes.png) repeat; @include opacity(0); @include transition(all 300ms ease-in-out); }
+#apes li.single{ background:$Azul url(../img/apes/single.jpg) no-repeat center center; }
+#apes li.duplo{ background:$Azul url(../img/apes/duplo.jpg) no-repeat center center; }
+#apes li.tematico{ background:$Azul url(../img/apes/tematico.jpg) no-repeat center center; }
+#apes li.luxo{ background:$Azul url(../img/apes/luxo.jpg) no-repeat center center; }
+#apes li.presidencial{ background:$Azul url(../img/apes/presidencial.jpg) no-repeat center center; }
+#apes li h2{ margin-top:430px; font-family:$Dh; @include font-size(50px); @include transition(all 300ms ease-in-out); position:relative; z-index:2; }
+#apes li .ilustra{ display:block; width:100%; height:51px; background:url(../img/separador-apes.png) no-repeat center center; margin:30px 0 20px; @include transition(all 300ms ease-in-out); @include opacity(0); position:relative; z-index:2; }
+#apes li .btn-mais{ display:block; max-width:200px; height:50px; border:2px solid #FFF; text-align:center; line-height:50px; font-family:$Fbi; margin:0 auto; @include transition(all 300ms ease-in-out); @include opacity(0); position:relative; z-index:2; }
+#apes li .btn-mais:hover{ background-color:#FFF; color:$Azul; }
+
+#apes li.active h2{ margin-top:355px; }
+#apes li.active .ilustra,
+#apes li.active .btn-mais{ @include opacity(1); }
+#apes li.active:after{ @include opacity(1); }
+
+#btn-voltar{ display:block; width:80px; height:50px; color:#FFF; @include font-size(18px); line-height:50px; font-family:$Fbi; overflow:hidden; padding-left:80px; background:$Azul url(../img/ico-voltar.png) no-repeat 33px center; @include border-radius(0 25px 25px 0); @include transition(all 300ms ease-in-out); margin-top:60px; }
+#btn-voltar:hover{ width:150px; padding-left:60px; }
+h2.titulo{ display:block; width:100%; text-align:center; @include font-size(45px); font-family:$Dh; line-height:1.3em; margin:0 0 60px; }
+#col-imagens{ width:50%; float:left; }
+#col-imagens img{ display:block; float:left; width:96%; margin:0 2% 15px; }
+#col-imagens img.half{ width:47%; margin:0 2% 15px; }
+#col-imagens img.half.right{ margin-left:0; }
+#col-info{ width:50%; float:right; }
+#col-info .box-texto{ width:63%; min-height:455px; float:left; text-align:center; padding-top:60px; }
+#col-info .box-texto p{ color:$Cinza; max-width:420px; margin:0 auto; @include font-size(25px); line-height:30px; }
+#col-info .box-texto h3{ display:block; padding-bottom:15px; border-bottom:1px solid $Azul; font-family:$Dr; @include font-size(35px); margin:80px 0 25px 0; }
+#col-info .box-texto ul{ color:$Cinza; }
+#col-info .box-texto ul li{ display:block; float:left; width:50%; padding-left:15%; text-align:left; background:url(../img/bullet.png) no-repeat 22% center; margin-top:20px; }
+#col-info img{ display:block; float:left; width:63%; }
+#col-info img.pipe{ width:33%; margin:0 2%; }
+#col-info img.second{ margin-top:45px; }
+#col-info img.third{ margin-top:18px; }
+
+#footer{ margin-top:0; }
+
+
+@media screen and(max-width:1350px){
+	#apes li h2{ @include font-size(40px); }
+}
+
+@media screen and(max-width:1130px){
+	#apes li h2{ @include font-size(30px); }
+}
+
+@media screen and(max-width:900px){
+	#apes li{ width:100% !important; height:300px; }
+	#apes li h2{ margin-top:120px; }
+	#apes li.active h2{ margin-top:60px; }
+	#col-imagens,
+	#col-info{ width:100%; }
+}

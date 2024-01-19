@@ -1,0 +1,128 @@
+.result {
+  padding: rel(220) 0 rel(100);
+
+  @media (max-width: $size-notebook) {
+    padding: rel(300) 0 rel(140);
+  }
+
+  @media (max-width: $size-mobile) {
+    padding: rel(80, true) 0;
+  }
+
+  &-title {
+    text-align: center;
+    margin-bottom: rel(10);
+    font-size: rem(25);
+
+    @media (max-width: $size-mobile) {
+      max-width: 90%;
+      margin: 0 auto rel(10, true);
+      font-size: rem(50);
+    }
+  }
+
+  &-subtitle {
+    text-align: center;
+    margin-bottom: rel(40);
+    font-size: rem(22);
+    font-weight: $light;
+
+    @media (max-width: $size-mobile) {
+      max-width: 90%;
+      margin: 0 auto rel(40, true);
+      font-size: rem(44);
+    }
+  }
+
+  &-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: rel(10);
+
+    @media (max-width: $size-mobile) {
+      margin-bottom: rel(10, true);
+    }
+
+    &__block {
+      width: 49%;
+      height: rel(90);
+      border-radius: rel(5);
+      background-color: $royal;
+      color: $white;
+      font-size: rem(40);
+      font-weight: $bold;
+
+      @media (max-width: $size-mobile) {
+        height: rel(90, true);
+        border-radius: rel(5, true);
+        font-size: rem(80);
+      }
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:first-child {
+        background-color: $cyan;
+      }
+    }
+  }
+
+  &-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: rel(10);
+
+    @media (max-width: $size-mobile) {
+      margin-bottom: rel(10, true);
+    }
+
+    &__tile {
+      width: 49%;
+      height: rel(60);
+      border-radius: rel(5);
+      background-color: #f3f6fa;
+      font-size: rem(17);
+      font-weight: $regular;
+
+      @media (max-width: $size-mobile) {
+        height: rel(60, true);
+        border-radius: rel(5, true);
+        font-size: rem(34);
+      }
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:first-child {
+        background-color: #effaff;
+        color: $cyan;
+      }
+    }
+
+    &:first-of-type {
+      .result-block__tile {
+        font-size: rem(20);
+        font-weight: $bold;
+
+        @media (max-width: $size-mobile) {
+          font-size: rem(40);
+        }
+      }
+    }
+
+    &:nth-child(odd) {
+      .result-block__tile {
+        background-color: $white;
+        border: 1px solid #e7edf4;
+
+        &:first-child {
+          border-color: #d1efff;
+        }
+      }
+    }
+  }
+}

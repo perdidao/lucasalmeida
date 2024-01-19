@@ -1,0 +1,193 @@
+// Dependências
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// Fontes
+@import url(../font/lora.css);
+$Lora:'Lora', 'Georgia', 'Times New Roman', serif;
+
+$regular:300;
+$bold:700;
+
+// Cores
+$azul:#0871B9;
+$petroleo:#374E59;
+$laranja:#FFA061;
+$verde:#3EA648;
+$cinza:#787878;
+
+// Estilos globais
+body{ @include font-size(14px); font-family:$Lora; color:$cinza; }
+@include selection(#FFF,$azul);
+
+// Barra de traduções
+#translations{ width:100%; padding:10px 0; text-align:right; background-color:$petroleo; }
+#translations .inner{ max-width:1440px; margin:0 auto; padding:0 40px; }
+#translations a{ display:inline-block; width:37px; height:29px; background-repeat:no-repeat; background-position:center center; @include transition(all 300ms ease-in-out); }
+#translations a:hover{ @include opacity(0.7); }
+#translations a.pt{ background-image:url(../img/pt.png); margin-right:15px; }
+#translations a.en{ background-image:url(../img/en.png); }
+
+// Header
+#header{ max-width:1440px; padding:0 40px; margin:0 auto; }
+#logo{ float:left; width:193px; height:72px; margin:10px 0; background:url(../img/logo.png) no-repeat center center; @include removeText; }
+#header .col-right{ float:right; text-align:right; }
+#header .fone{ display:inline-block; padding-left:30px; margin-top:10px; line-height:20px; background:url(../img/ico-fone.png) no-repeat left center; color:$verde; @include font-size(17px); }
+#menu{ margin-top:15px; @include font-size(18px); }
+#menu a{ display:inline-block; margin-left:25px; @include transition(all 300ms ease-in-out); }
+#menu a:hover,
+#menu a.active{ color:$azul; }
+
+// Banners
+#banners{ width:100%; position:relative; }
+#banners li{ width:100%; text-align:center; }
+#banners li{ display:block; width:100%; }
+#banners li img{ max-width:100%; }
+
+#banners .owl-pagination{ position:absolute; bottom:35px; left:0; width:100%; text-align:center; }
+#banners .owl-pagination .owl-page{ display:inline-block; width:10px; height:10px; margin:0 15px; @include border-radius(50%); background-color:#FFF; @include transition(all 300ms ease-in-out); }
+#banners .owl-pagination .owl-page.active{ background-color:$azul; }
+
+// Quem somos
+#sobre{ padding:65px 0; text-align:center; }
+#sobre h2{ text-transform:uppercase; @include font-size(36px); padding-bottom:20px; border-bottom:1px solid #CCC; margin-bottom:30px; @include font-smoothing(on); }
+#sobre h3{ @include font-size(24px); color:$petroleo; @include font-smoothing(on); margin-bottom:30px; }
+#sobre p{ max-width:800px; margin:0 auto 20px; line-height:30px; }
+
+// Serviços
+#servicos{ background:$petroleo url(../img/bkg-servicos.png) repeat 0 0; color:#FFF; padding:65px 0 50px; }
+#servicos h2{ text-transform:uppercase; @include font-size(36px); margin-bottom:30px; @include font-smoothing(on); text-align:center; }
+#servicos .servicos{ border-top:1px solid #FFF; border-bottom:1px solid #FFF; padding:20px 0 0; }
+#servicos .servicos li{ float:left; width:49%; margin:0 2% 2% 0; text-transform:uppercase; @include font-smoothing(on); }
+#servicos .servicos li:nth-child(2n){ margin-right:0; }
+#servicos .servicos li a{ display:block; background-color:#2C404A; padding:80px 0; text-align:center; @include font-size(18px); @include transition(all 300ms ease-in-out); }
+#servicos .servicos li a:hover{ @include opacity(0.7); }
+#servicos .servicos li a strong{ display:block; @include font-size(30px); font-weight:$bold; }
+.hide{ display:none; }
+
+.inner-servicos{ width:1024px; height:460px; padding:60px 120px; background:url(../img/bkg-fancy.png) no-repeat right bottom; color:$cinza; }
+.inner-servicos h3{ @include font-size(24px); text-transform:uppercase; @include font-smoothing(on); margin-bottom:25px; }
+.inner-servicos h3 strong{ display:block; @include font-size(40px); font-weight:$bold; color:#448FB4; }
+.inner-servicos p{ @include font-size(14px); line-height:30px; margin-bottom:20px; }
+.inner-servicos ul{}
+.inner-servicos ul li{ @include font-size(14px); line-height:30px; }
+.inner-servicos ul li:before{ content:'•'; padding-right:30px; }
+
+// Clientes
+#clientes{ padding:65px 0 50px; }
+#clientes h2{ text-transform:uppercase; @include font-size(36px); padding-bottom:25px; border-bottom:1px solid #CCC; margin-bottom:50px; @include font-smoothing(on); text-align:center; }
+#lista-clientes{ width:100%; }
+#lista-clientes li{ width:100%; text-align:center; }
+#lista-clientes li a{ display:block; }
+#lista-clientes li a img{ max-width:100%; @include filter(grayscale(1)); @include transition(all 300ms ease-in-out); }
+#lista-clientes li a:hover img{ @include filter(grayscale(0)); }
+#clientes .arrows{ display:block; width:52px; height:52px; background-repeat:no-repeat; background-position:center center; position:absolute; top:35px; }
+#clientes #prev{ left:40px; background-image:url(../img/prev.png); }
+#clientes #next{ right:40px; background-image:url(../img/next.png); }
+
+// Orçamento
+#orcamento{ background:url(../img/bkg-orcamento.jpg) repeat-x center bottom; position:relative; margin-top:50px; }
+#orcamento .center{ background-color:#ECECEC; padding:80px 80px 0; }
+#orcamento h2{ position:absolute; top:-45px; left:0; width:100%; z-index:1; text-transform:uppercase; @include font-size(36px); line-height:88px; @include font-smoothing(on); text-align:center; color:#FFF; height:103px; background:url(../img/bkg-title.png) no-repeat center center; }
+#form{ background-color:#FFF; padding:40px 80px; color:#787878; }
+#form input,
+#form select{ display:block; width:98%; height:40px; padding:0 15px; @include font-size(14px); font-family:inherit; font-style:italic; color:inherit; border:1px solid #ececec; color:#ababab; }
+@include placeholder(#ababab);
+#form .x1{ float:left; width:23%; margin:0 1% 2%; }
+#form .x2{ float:left; width:48%; margin:0 1% 2%; }
+#form .x3{ float:left; width:73%; margin:0 1% 2%; }
+#form .x4{ float:left; width:98%; margin:0 1% 2%; }
+#form .arquivo{ height:40px; }
+#form .arquivo p{ float:left; width:92%; height:40px; padding:15px; @include font-size(14px); font-family:inherit; font-style:italic; color:inherit; border:1px solid #ececec; }
+#form .arquivo a{ display:block; float:left; width:8%; height:40px; background:$laranja url(../img/ico-arquivo.png) no-repeat center center; }
+#form .checkBig{ display:block; height:150px; text-align:center; border:1px solid #ececec; @include font-size(16px); font-weight:$bold; line-height:1.2em; padding:45px 15px 0; @include font-smoothing(on); background:url(../img/checkBig.png) no-repeat center 86px; @include transition(all 300ms ease-in-out); }
+#form .checkBig:hover,
+#form .checkBig.active{ background-color:$laranja; background-image:url(../img/checkBig-active.png); color:#FFF; }
+#form .subt{ float:left; width:98%; margin:10px 1% 10px; }
+#form .fancyCheck{ display:block; float:left; width:50%; padding:10px 0; }
+#form .fancyCheck input{ width:auto; height:auto; display:inline-block; }
+#form .obg{ @include font-size(13px); font-style:italic; color:#ababab; }
+#solicitar{ display:block; width:98%; margin:0 1%; height:40px; background-color:$verde; color:#FFF; text-transform:uppercase; font-family:inherit; cursor:pointer; border:0; @include font-size(18px); font-weight:$bold; letter-spacing:0.1em; @include font-smoothing(on); @include transition(all 300ms ease-in-out); }
+#solicitar:hover{ @include opacity(0.7); }
+
+#hover{ display:none; position:fixed; top:0; left:0; z-index:11000; width:100%; height:100%; background-color:rgba(0,0,0,.9); }
+#hover .inner{ width:524px; height:263px; padding:120px 40px 0; background:#FFF url(../img/bkg-hover.png) no-repeat center center; position:absolute; top:50%; left:50%; @include transform(translate(-50%,-50%)); text-align:center; }
+#hover .inner h3{ @include font-size(26px); color:#2c404a; letter-spacing:-0.02em; @include font-smoothing(on); margin-bottom:15px; }
+#hover .inner p{ @include font-size(18px); color:$cinza; letter-spacing:-0.02em; @include font-smoothing(on); line-height:1.2em; }
+
+// Contato
+#contato{ width:100%; padding:65px 0 50px; background:#448fb4 url(../img/bkg-contato.png) repeat-x center bottom; color:#FFF; @include font-smoothing(on); }
+#contato h2{ text-transform:uppercase; @include font-size(36px); padding-bottom:20px; border-bottom:1px solid #FFF; margin-bottom:30px; }
+#contato .col-left{ float:left; width:60%; margin-right:4%; }
+#contato .col-left input,
+#contato .col-left textarea{ display:block; float:left; width:100%; height:40px; padding:0 15px; margin-bottom:2%; @include font-size(14px); font-family:inherit; font-style:italic; color:inherit; border:1px solid #d2d6d5; color:#ababab; background-color:#FFF; }
+#contato .col-left input.c-email{ width:55%; margin-right:2%; }
+#contato .col-left input.c-tel{ width:43%; }
+#contato .col-left textarea{ height:130px; padding:15px; resize:none; }
+#enviar{ display:block; width:100%; height:40px; background-color:$laranja; color:#FFF; text-transform:uppercase; font-family:inherit; cursor:pointer; border:0; @include font-size(18px); font-weight:$bold; letter-spacing:0.1em; @include font-smoothing(on); @include transition(all 300ms ease-in-out); }
+#enviar:hover{ @include opacity(0.7); }
+#contato .col-left .obg{ font-style:italic; }
+#contato .col-right{ float:left; width:36%; }
+#contato .col-right p{ @include font-size(16px); margin-bottom:20px; line-height:1.2em; }
+#contato .col-right p strong{ @include font-size(24px); font-weight:$bold; }
+
+// Footer
+#footer{ width:100%; background-color:#367EA2; padding:20px 0; color:#FFF; text-align:center; @include font-smoothing(on); @include font-size(12px); }
+
+// RESPONSIVO
+@media screen and(max-width:1120px){
+	.inner-servicos{ width:100%; padding:60px; }
+}
+
+@media screen and(max-width:980px){
+	#translations{ text-align:center; }
+	#translations a{ margin:0 8px; }
+	#translations a.pt{ margin-right:8px; }
+	#logo{ float:none; width:100%; }
+	#header .col-right{ float:none; width:100%; text-align:center; }
+	#menu a{ margin:0 13px 10px; }
+
+	#orcamento .center{ padding:80px 20px 0; }
+	#form{ padding:30px 20px; }
+
+	#contato .col-left{ width:50%; margin-right:4%; }
+	#contato .col-right{ width:46%; }
+}
+
+@media screen and(max-width:680px){
+	#servicos .servicos li{ width:100%; margin:0 0 2%;}
+
+	#form .x1,
+	#form .x3{ width:48%; }
+	#form .fancyCheck{ width:100%; }
+
+	#contato .col-left input.c-email,
+	#contato .col-left input.c-tel{ width:100%; margin-right:0; }
+}
+
+@media screen and(max-width:540px){
+	#logo{ margin-top:30px; }
+	#menu{ display:none; }
+	#banners{ display:none !important; }
+
+	#clientes .arrows{ display:none; }
+
+	#orcamento .center{ padding:50px 0 0; }
+	#form{ padding:10px; }
+	#form .x1, #form .x2, #form .x3, #form .x4{ width:98%; }
+	#form .arquivo p{ width:80%; }
+	#form .arquivo a{ width:20%; }
+
+	#contato .col-left{ width:100%; margin:0 0 40px; }
+	#contato .col-right{ width:100%; }
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,42 @@
+@import "compass";
+@import "tools.scss";
+@import url(../font/geared.css);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,700);
+
+// VARIÁVEIS
+$verde:#8BC441;
+$verde-escuro:#509622;
+$Raleway:'Raleway', Helvetica, Arial, Sans-serif;
+$Geared:'Geared', Helvetica, Arial, Sans-serif;
+
+
+// CONTEÚDO
+body{ background:#FFF url(../img/bkg-pag-produtos.png) repeat-y center top; }
+#container{ margin-top:140px; min-height:300px; }
+
+// NAVEGAÇÃO
+#categorias{ width:230px; float:left; padding-top:70px; @include font-smoothing(on); }
+#categorias h2{ font-family:$Geared; @include font-size(24px); text-transform:uppercase; color:#000; letter-spacing:0.11em; margin-bottom:15px; }
+#categorias h3{ font-family:$Geared; @include font-size(18px); text-transform:uppercase; letter-spacing:0.11em; color:#FFF; margin-bottom:5px; }
+#categorias h3.active{ color:#000; }
+#categorias ul{ margin-bottom:20px; }
+#categorias ul li{ margin-bottom:3px; }
+#categorias ul li a{ @include font-size(12px); font-weight:$bold; color:#FFF; }
+#categorias ul li a.active{ color:#000; }
+
+// PRODUTO
+#produto{ width:710px; float:right; padding:70px 0 100px; }
+#fotos-produto{ width:380px; float:left; }
+#foto-ativa{ border:5px solid #FFF; }
+#foto-ativa img{ display:block; width:100%; }
+#miniaturas{ width:380px; margin-top:20px; }
+#miniaturas li{ float:left; width:80px; height:80px; border:5px solid #FFF; margin:0 20px 20px 0; }
+#miniaturas li:nth-child(4n){ margin-right:0; }
+#miniaturas li a img{ display:block; width:100%; }
+#fotos-produto a.btn{ display:block; width:100%; height:36px; text-align:center; line-height:36px; color:#FFF; letter-spacing:0.14em; @include box-shadow(0 2px 4px rgba(0,0,0,.3)); @include font-size(12px); }
+#fotos-produto a.btn.btn-cinza{ background:transparent url(../img/btn-produto.png) no-repeat center center; }
+
+#info-produto{ width:310px; float:right; @include font-smoothing(on); }
+#info-produto h2{ font-family:$Geared; @include font-size(24px); color:$verde-escuro; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:15px; }
+#info-produto h3{ @include font-size(14px); margin:5px 0; font-weight:$bold; color:$verde-escuro; }
+#info-produto p{ line-height:1.4em; }

@@ -1,0 +1,77 @@
+.header{
+    position:fixed;
+    z-index:1001;
+    top:0;
+    left:0;
+    width:100%;
+    padding:rfs(100px) 0 0;
+    text-align:center;
+    transition:all 300ms ease-in-out;
+
+    &-scrolled{
+        background-color:$black;
+        padding:rfs(20px) 0;
+
+        .header__logo{
+            height:rfs(45px);
+            top:rfs(12px);
+        }
+    }
+
+    @media screen and (max-width:$size-mobile-max){
+        background-color:transparent;
+        height:15vh;
+
+        &-scrolled{
+            background-color:$black;
+        }
+
+        .header__logo{
+            height:11vh;
+            top:2vh;
+        }
+    }
+
+    &__nav{
+
+        &--link{
+            display:inline-block;
+            font-weight:$medium;
+            font-size:rfs(23px);
+            font-family:$Solido;
+            letter-spacing:0.42em;
+            text-transform:uppercase;
+            margin:0 rfs(30px);
+            transition:all 300ms ease-in-out;
+
+            &:nth-child(2){
+                margin-right:rfs(345px);
+            }
+
+            &:hover,
+            &.active{
+                color:$orange;
+            }
+        }
+
+        @media screen and (max-width:$size-mobile-max){
+            display:none;
+        }
+    }
+
+    &__logo{
+        display:block;
+        width:rfs(315px);
+        height:rfs(202px);
+        background:transparent url(../images/logo-orange.png) no-repeat center center;
+        background-size:contain;
+        
+        @include removeText;
+
+        position:absolute;
+        top:rfs(100px);
+        left:50%;
+        transform:translateX(-50%);
+        transition:all 300ms ease-in-out;
+    }
+}

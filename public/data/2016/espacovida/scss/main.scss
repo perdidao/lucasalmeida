@@ -1,0 +1,214 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import url(fonts.css);
+$GothamLt:'Gotham Light', Helvetica, Arial, Sans-serif;
+$GothamRg:'Gotham Medium', Helvetica, Arial, Sans-serif;
+$GothamBd:'Gotham Black', Helvetica, Arial, Sans-serif;
+$Intro:'Intro', Helvetica, Arial, Sans-serif;
+
+// CORES
+$Prata:#C3C7D2;
+$Cinza:#414042;
+$Turquesa:#5EBFBF;
+$Laranja:#F78322;
+
+// ESTILOS GLOBAIS
+body{ @include font-size(15px); font-family:$GothamRg; color:$Cinza; @include font-smoothing(on); }
+@include selection(#FFF,$Laranja);
+
+// TOPO
+#menu-wrapper{ width:100%; height:100px; padding-bottom:8px; background:url(../img/bkg-menu.png) no-repeat center top; position:fixed; z-index:10; top:0; left:0; }
+#logo{ float:left; width:84px; height:73px; margin:10px 0 0 60px; background:url(../img/logo.png) no-repeat center center; @include removeText; }
+#menu{ float:right; margin-right:50px; font-family:$GothamBd; @include font-size(20px); color:#FFF; text-transform:uppercase; }
+#menu a{ display:block; float:left; height:92px; border-bottom:4px solid transparent; margin-right:40px; line-height:92px; @include transition(all 300ms ease-in-out); }
+#menu a:hover,
+#menu a.active{ border-bottom-color:$Laranja; }
+
+// BANNERS
+#banner-wrapper{ width:100%; height:500px; margin-top:92px; }
+#banner-wrapper .center{ position:relative; z-index:1; }
+#banners .banner{ width:100%; height:500px; background-repeat:no-repeat; background-position:center; background-size:cover; }
+#banner-wrapper .seta{ display:block; width:20px; height:35px; position:absolute; top:232px; background-repeat:no-repeat; background-position:center center; @include transition(all 300ms ease-in-out); }
+#banner-wrapper .seta:hover{ @include opacity(0.7); }
+#banner-wrapper .seta.s-prev{ left:0; background-image:url(../img/arw-prev.png); }
+#banner-wrapper .seta.s-next{ right:0; background-image:url(../img/arw-next.png); }
+
+#banner-wrapper .owl-pagination{ position:absolute; z-index:1; left:0; bottom:10px; width:100%; text-align:center; }
+#banner-wrapper .owl-pagination .owl-page{ display:inline-block; width:12px; height:12px; margin:0 10px; @include border-radius(50%); background-color:$Prata; }
+#banner-wrapper .owl-pagination .owl-page.active{ background-color:$Laranja; }
+
+// SOBRE
+#sobre{ width:100%; height:586px; background:url(../img/bkg-sobre.jpg) no-repeat center top; }
+#sobre .inner{ width:100%; max-width:570px; height:586px; padding:40px 60px 0 20px; margin-left:36px; background:url(../img/bkg-conteudo.png) no-repeat center top; color:#FFF; }
+#sobre .inner h2{ text-align:center; font-family:$Intro; @include font-size(60px); line-height:0.8em; }
+#sobre .inner h3{ text-align:center; text-transform:uppercase; @include font-size(22px); letter-spacing:-0.03em; margin-bottom:35px; }
+#sobre .inner p{ @include font-size(14px); line-height:1.2em; margin-bottom:20px; }
+#sobre .inner p strong{ font-family:$GothamBd; }
+
+// SERVIÇOS
+#servicos{ width:100%; padding-top:50px; background:url(../img/bkg-servicos.jpg) no-repeat center top; }
+#servicos h2{ text-align:center; font-family:$Intro; @include font-size(60px); line-height:0.8em; color:$Turquesa; }
+#servicos ul{ margin-top:40px; text-align:center; }
+#servicos li{ display:inline-block; width:250px; height:250px; margin:0 38px 40px; @include border-radius(50%); text-align:center; color:#FFF; text-transform:uppercase; }
+#servicos li .table{ width:100%; height:250px; }
+#servicos li .table .table-cell{ vertical-align:middle; }
+#servicos li.linha1{ background-color:$Turquesa; }
+#servicos li.linha2{ background-color:#459090; }
+#servicos li.linha3{ background-color:#1D6161; }
+#servicos li h3{ @include font-size(24px); line-height:1.2em; }
+#servicos li p{ @include font-size(15px); line-height:20px; }
+#plantao{ width:100%; height:290px; margin-top:-90px; background:url(../img/plantao.jpg) no-repeat center bottom; }
+
+// BLOG
+#blog{ width:100%; padding:50px 0; background:url(../img/bkg-servicos.jpg) no-repeat center top; }
+#blog h2{ text-align:center; font-family:$Intro; @include font-size(60px); line-height:0.8em; color:$Laranja; }
+#posts{ margin-top:40px; }
+#posts li{ float:left; width:32%; margin-right:2%; }
+#posts li:nth-child(3n){ margin-right:0; }
+#posts li .box-image{ margin-bottom:15px; }
+#posts li .box-image img{ display:block; width:100%; }
+#posts li p.date{ text-transform:uppercase; margin-bottom:10px; }
+#posts li h3{ @include font-size(25px); text-transform:uppercase; font-family:$GothamBd; line-height:1.2em; min-height:60px; margin-bottom:10px; }
+#posts li p{}
+#posts li .leia-mais{ display:block; text-align:right; text-transform:uppercase; color:$Laranja; margin-top:5px; }
+#blog .mais-posts{ display:block; float:right; padding:10px 60px 10px 20px; margin-top:20px; color:#FFF; text-transform:uppercase; @include font-size(25px); background:$Laranja url(../img/posts.png) no-repeat right center; @include transition(all 300ms ease-in-out); }
+#blog .mais-posts:hover{ @include opacity(0.7); }
+
+// ESTRUTURA
+#estrutura{ width:100%; background:url(../img/bkg-estrutura.jpg) repeat center top; padding:50px 0; border-top:16px solid #6CD6D1; border-bottom:16px solid #6CD6D1; }
+#estrutura h2{ text-align:center; font-family:$Intro; @include font-size(60px); line-height:0.8em; color:#FFF; }
+#estrutura ul{ width:100%; margin-top:40px; }
+#estrutura ul li{ float:left; width:23.5%; margin:0 2% 2% 0; }
+#estrutura ul li:nth-child(4n){ margin-right:0; }
+#estrutura ul li a{ display:block; background-color:$Laranja; }
+#estrutura ul li a img{ display:block; width:100%; @include transition(all 300ms ease-in-out); }
+#estrutura ul li a:hover img{ @include opacity(0.3); }
+#estrutura ul li p{ text-align:center; color:#FFF; text-transform:uppercase; margin-top:10px; }
+
+// CONTATO
+#contato{ width:100%; background:url(../img/bkg-contato.jpg) repeat center top; padding:30px 0 0; }
+#contato .center{ height:660px; background:url(../img/box-contato.png) no-repeat center center; background-size:contain; padding:270px 120px 0; color:#555E7E; }
+#contato h2{ text-align:center; font-family:$Intro; @include font-size(60px); line-height:0.8em; color:$Laranja; margin-bottom:40px; }
+#contato .col-left{ float:left; width:40%; }
+#contato p,
+#contato label{ @include font-size(22px); line-height:37px; margin-bottom:20px; }
+#contato label{ display:block; margin-bottom:10px; }
+#contato .col-right{ float:right; width:55%; }
+#contato .col-right p{ margin-bottom:5px; }
+#contato .col-right .ico-facebook{ display:inline-block; width:46px; height:46px; margin-bottom:20px; background:url(../img/ico-facebook.png) no-repeat center center; @include transition(all 300ms ease-in-out); }
+#contato .col-right .ico-facebook:hover{ @include opacity(0.7); }
+#contato .col-right form input{ display:block; float:left; width:70%; height:46px; border:2px solid #E9E5DC; font-family:$GothamLt; font-size:inherit; padding:0 20px; }
+#contato .col-right #enviar{ display:block; float:left; width:30%; height:46px; border:0; background:$Turquesa; color:#FFF; font-family:inherit; text-transform:uppercase; @include font-size(20px); cursor:pointer; @include transition(all 300ms ease-in-out); }
+#contato .col-right #enviar:hover{ background-color:$Laranja; }
+
+#mapa{ width:100%; height:280px; background-color:#E9E5DC; }
+
+// FOOTER
+#footer{ width:100%; padding:20px 0; background-color:#7D7D7D; }
+#logo-alt{ float:left; width:84px; height:73px; margin-left:20px; background:url(../img/logo-alt.png) no-repeat center center; }
+#info{ float:right; width:850px; color:#E1E1E1; margin-top:20px; }
+#info a{ @include transition(all 300ms ease-in-out); }
+#info a:hover{ @include opacity(0.7); }
+#info .lower-menu{ float:left; }
+#info .lower-menu li{ display:inline-block; margin:0 5px;  }
+#info .lower-menu li a{ text-transform:uppercase; font-family:$GothamBd; }
+#info .facebook{ display:block; float:right; @include font-size(12px); height:22px; padding-right:29px; line-height:22px; text-transform:uppercase; background:url(../img/ico-facebook-alt.png) no-repeat right center; }
+#info .copy{ float:left; margin-top:20px; @include font-size(12px); font-family:$GothamBd; text-transform:uppercase; }
+#info .assinatura{ display:block; float:right; margin-top:15px; @include font-size(12px); text-transform:uppercase; height:17px; line-height:21px; padding-right:44px; background:url(../img/m2mp.png) no-repeat right center; }
+
+// RESPONSIVO
+@media screen and(max-width:1080px){
+	#servicos li{ margin:0 20px 40px; }
+
+	#logo-alt{ margin-left:0; }
+	#info{ float:left; width:70%; margin:0 0 0 5%; }
+	#info .facebook{ float:left; margin-top:20px; }
+	#info .copy{ width:100%; }
+	#info .assinatura{ float:left; margin-top:20px; }
+}
+
+@media screen and(max-width:1000px){
+	#logo{ margin-left:0; }
+	#menu{ margin-right:0; }
+	#menu a{ margin:0 0 0 20px; }
+
+	#contato{ padding:50px 0; }
+	#contato .center{ padding:40px; height:auto; background:#FFF; }
+	#contato h2{ margin-bottom:20px; }
+}
+
+@media screen and(max-width:830px){
+	#logo-alt{ float:none; margin:0 auto 20px; }
+	#info{ width:100%; margin:0; }
+	#info .lower-menu{ width:100%; }
+}
+
+@media screen and(max-width:760px){
+	#logo{ float:none; margin:10px auto 0; }
+	#menu{ display:none; }
+
+	#sobre .inner{ margin:0; }
+
+	#plantao{ height:200px; background-size:cover; }
+
+	#posts li{ float:none; width:70%; margin:0 15% 4%; }
+	#posts li:nth-child(3n){ margin-right:15%; }
+	#posts li h3{ min-height:0; }
+
+	#contato{ text-align:center; }
+	#contato .col-left{ width:100%; margin-bottom:40px; }
+	#contato .col-right{ float:left; width:100%; }
+}
+
+@media screen and(max-width:640px){
+	#banner-wrapper{ height:300px; }
+	#banners .banner{ height:300px; background-size:cover; }
+	#banner-wrapper .seta{ top:132px; }
+
+	#sobre{ height:auto; background-color:#E6E6E6; }
+	#sobre .inner{ background:$Laranja; padding:40px; height:auto; }
+	#sobre .inner h2{ @include font-size(45px); }
+
+	#estrutura ul li{ width:48%; margin:0 4% 4% 0; }
+	#estrutura ul li:nth-child(4n){ margin-right:0; }
+	#estrutura ul li:nth-child(2n){ margin-right:0; }
+
+	#info{ text-align:center; }
+	#info .lower-menu{ display:none; }
+	#info .facebook,
+	#info .assinatura{ display:inline-block; float:none; }
+}
+
+@media screen and(max-width:480px){
+	#sobre .inner h2{ @include font-size(30px); text-align:left; }
+	#sobre .inner h3{ @include font-size(20px); text-align:left; }
+
+	#plantao{ height:180px; }
+}
+
+@media screen and(max-width:420px){
+	#banner-wrapper{ height:200px; }
+	#banners .banner{ height:200px; background-size:cover; }
+	#banner-wrapper .seta{ top:82px; }
+
+	#sobre .inner{ padding:20px; }
+
+	#servicos h2{ @include font-size(50px); }
+	#servicos li{ margin:0 0 40px; }
+	#plantao{ height:140px; }
+
+	#posts li{ float:none; width:90%; margin:0 5% 4%; }
+	#posts li:nth-child(3n){ margin-right:5%; }
+
+	#estrutura h2{ @include font-size(40px); }
+
+	#contato h2{ @include font-size(40px); }
+	#contato p,
+	#contato label{ @include font-size(18px); line-height:1.2em; }
+	#contato .col-right form input{ width:100%; text-align:center; }
+	#contato .col-right #enviar{ width:100%; }
+}

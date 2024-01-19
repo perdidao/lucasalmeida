@@ -1,0 +1,172 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import url(https://fonts.googleapis.com/css?family=Rosario:400,700,400italic,700italic);
+$Rosario:'Rosario', 'Tahoma', Arial, sans-serif;
+$Regular:400;
+$Bold:700;
+
+// CORES
+$Vermelho:#E74C3C;
+$Verde:#2ECC71;
+$Laranja:#F39C12;
+$Ciano:#569BCA;
+$Azul:#035580;
+$Amarelo:#F9D53D;
+$Cinza:#666;
+$Prata:#F7F7F7;
+
+// ESTILOS GLOBAIS
+body{ font-family:$Rosario; @include font-size(16px); color:$Cinza; @include font-smoothing(on); }
+@include selection(#FFF,$Azul);
+
+// MENU
+#menu-wrapper{ width:100%; height:50px; background-color:$Prata; text-align:center; }
+#menu{}
+#menu li{ display:inline-block; }
+#menu li a{ display:block; height:50px; padding:0 15px; line-height:50px; @include transition(all 200ms ease-in-out); }
+#menu li a:hover{ color:$Azul; }
+#menu-wrapper .right{ position:absolute; top:0; right:0; }
+#social{ float:left; }
+#social a{ display:block; float:left; width:50px; height:50px; background-repeat:no-repeat; background-position:0 0; @include transition(all 200ms ease-in-out); }
+#social a:hover{ background-position:-50px 0; }
+#social a.i-facebook{ background-image:url(../img/ico-facebook.png); }
+#social a.i-facebook:hover{ background-color:#4C679F; }
+#social a.i-instagram{ background-image:url(../img/ico-instagram.png); }
+#social a.i-instagram:hover{ background-color:#000; }
+#btn-busca{ display:block; float:left; width:50px; height:50px; background:url(../img/ico-busca.png) no-repeat 0 0; @include transition(all 200ms ease-in-out); }
+#btn-busca:hover,
+#btn-busca.active{ background-color:$Cinza; background-position:-50px 0; }
+#busca{ display:none; position:absolute; top:50px; right:0; }
+#busca input{ display:block; border:0; background-color:$Cinza; color:#FFF; font-family:inherit; font-size:inherit; padding:15px; }
+
+#logo{ width:240px; height:94px; margin:20px auto; background:url(../img/logo.png) no-repeat center center; @include removeText; }
+
+// DESTAQUES
+#destaques{}
+#destaques li{ width:33.33%; float:left; }
+#destaques li .post{ position:relative; border-right:1px solid #FFF; border-bottom:1px solid #FFF; }
+#destaques li .post img{ display:block; width:100%; }
+#destaques li .post .hover{ position:absolute; bottom:0; left:0; right:0; color:#FFF; background:transparent url(../img/gradient.png) repeat-x center bottom; padding:15px; @include transition(all 300ms ease-in-out); }
+#destaques li .post:hover .hover{ background-color:$Azul; background-position:0 100px; }
+#destaques li .post .hover h2{ font-weight:$Bold; @include font-size(15px); margin-bottom:5px; }
+#destaques li .post .hover p{ display:none; @include font-size(12px); }
+#destaques li .post .hover p a{ color:$Amarelo; text-transform:uppercase; }
+
+#destaques .owl-pagination{ width:100%; margin:10px 0; text-align:center; }
+#destaques .owl-page{ display:inline-block; width:10px; height:10px; margin:0 10px; background-color:#DADADA; @include border-radius(50%); }
+#destaques .owl-page.active{ background-color:$Ciano; }
+
+// POSTS
+#container{ margin-top:20px; border-top:1px solid #CCC; padding-top:30px; }
+
+#posts{ float:left; width:68%; }
+#posts li{ width:100%; background-color:$Prata; margin-bottom:20px; }
+#posts li article{}
+#posts li article figure{ float:left; width:50%; }
+#posts li article figure img{ display:block; width:100%; }
+#posts li article .content{ float:left; width:50%; padding:30px 40px; }
+#posts li article .content h2{ @include font-size(30px); font-weight:$Bold; }
+#posts li article .content .tag{ display:inline-block; margin-top:15px; background-color:$Vermelho; color:#FFF; padding:2px 5px; }
+#posts li article .content .tag strong{ font-weight:$Bold; }
+#posts li article .content .date{ margin-top:5px; }
+#posts li article .content .texto{ margin-top:15px; line-height:1.2em; }
+#posts li article .content .leia{ display:block; float:right; margin-top:20px; color:$Vermelho; text-transform:uppercase; font-weight:$Bold; }
+
+// ASIDE
+#aside{ float:left; width:30%; margin-left:2%; }
+#aside h3{ @include font-size(24px); font-weight:$Bold; padding:0 0 15px 25px; border-bottom:1px solid #DADADA; margin-bottom:20px; color:$Ciano; }
+#aside h4.t-tags{ margin-left:25px; font-weight:$Bold; color:$Azul; }
+#aside h4.inner{ @include font-size(18px); font-weight:$Bold; padding:0 0 15px 25px; border-bottom:1px solid #DADADA; margin-bottom:20px; color:#A2A2A2; }
+#aside .tags{ margin:0 0 30px 25px; }
+#aside .tags li{ line-height:1.2em; }
+#aside .tags li a{ @include transition(all 300ms ease-in-out); }
+#aside .tags li a:hover{ color:$Ciano; }
+
+#aside .publicidade{ margin-top:20px; }
+#aside .publicidade .banner{ width:280px; height:280px; background-color:$Prata; margin:0 auto 20px; }
+
+#aside .parceiros{ margin-top:20px; }
+#aside .parceiros .parceiro{ float:left; width:48%; height:85px; margin:0 4% 4% 0; background-color:$Prata; }
+#aside .parceiros .parceiro:nth-child(odd){ margin-right:0; }
+
+#aside .newsletter{ border:1px solid #DADADA; padding:10px; line-height:1.2em; }
+#aside .newsletter h4{ @include font-size(18px); font-weight:$Bold; color:$Ciano; }
+#aside .newsletter label{ display:block; }
+#aside .newsletter label span{ display:block; margin:5px 0; }
+#aside .newsletter label input{ display:block; float:left; width:85%; height:34px; border:2px solid $Vermelho; padding:0 10px; font-family:inherit; @include font-size(14px); font-style:italic; }
+#aside .newsletter label .btn{ display:block; float:left; width:15%; height:34px; border:0; background:$Vermelho url(../img/ico-mail.png) no-repeat center center; cursor:pointer; @include transition(all 300ms ease-in-out); }
+#aside .newsletter label .btn:hover{ @include opacity(0.7); }
+
+.carregando{ max-width:220px; padding:25px 0; margin:30px auto; text-align:center; background-color:#9A9A9A; color:#FFF; text-transform:uppercase; font-weight:$Bold; }
+
+// POST
+#post{ float:left; width:68%; }
+#post .header{ padding-bottom:15px; border-bottom:1px solid #CCC; margin-bottom:30px; }
+#post .header h1{ @include font-size(53px); font-weight:$Bold; }
+#post .header .tag{ display:inline-block; margin-top:15px; background-color:$Vermelho; color:#FFF; padding:2px 5px; }
+#post .header .tag strong{ font-weight:$Bold; }
+#post .header .date{ @include font-size(16px); margin-top:10px; }
+#post main p{ margin-bottom:15px; line-height:1.2em; }
+#post main p em{ font-style:italic; }
+#post main p strong{ font-weight:$Bold; }
+#post main figure{ margin-bottom:15px; }
+#post main img{ display:block; max-width:100%; }
+#post main iframe{ display:block; width:620px; max-width:100%; height:320px; margin-bottom:15px; }
+
+#share{ width:100%; margin:20px 0; text-align:center; }
+#share li{ display:inline-block; }
+#share li a{ display:block; width:32px; height:32px; margin:0 10px; background:url(../img/spt-social-share.png) no-repeat 0 0; }
+#share li a.tw{ background-position:0 0; }
+#share li a.fb{ background-position:-32px 0; }
+#share li a.gp{ background-position:-64px 0;}
+
+.veja-tambem{ }
+.veja-tambem h2{ background-color:$Prata; @include font-size(20px); font-weight:$Bold; color:$Azul; text-align:center; padding:10px; }
+.veja-tambem .post{ float:left; width:49%; margin-right:2%; }
+.veja-tambem .post:nth-child(3n){ margin-right:0; }
+.veja-tambem .post img{ display:block; width:100%; }
+.veja-tambem .post h3{ text-align:center; @include font-size(20px); margin-top:5px; color:#959595; }
+
+#related{ margin-top:20px; }
+#related li{ display:block; float:left; width:33.33%; text-align:center; }
+#related li a{ display:block; height:26px; line-height:26px; color:$Ciano; @include font-size(20px); font-weight:$Bold; font-style:italic; }
+#related li a.prev{ background:url(../img/prev.png) no-repeat left center; }
+#related li a.next{ background:url(../img/next.png) no-repeat right center; }
+
+.comentarios{ margin-top:50px; }
+.fb_iframe_widget,
+.fb_iframe_widget span,
+.fb_iframe_widget span iframe[style] {
+  min-width: 100% !important;
+  width: 100% !important;
+}
+
+// FOOTER
+#footer{ width:100%; padding:20px 0; text-align:center; color:#FFF; background-color:$Azul; }
+
+// RESPONSIVO
+@media screen and(max-width:960px){
+	#post,
+	#posts{ float:left; width:100%; }
+	#aside{ display:none; }
+}
+
+@media screen and(max-width:680px){
+	#destaques{ display:none !important; }
+	#social{ display:none; }
+}
+
+@media screen and(max-width:540px){
+	#menu{ display:none; }
+	#posts li article figure{ width:100%; }
+	#posts li article .content{ width:100%; }	
+}
+
+@media screen and(max-width:400px){
+	.veja-tambem .post{ width:100%; margin-right:0; margin-bottom:20px; }
+	#related{ display:none; }
+}

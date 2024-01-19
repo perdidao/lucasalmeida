@@ -1,0 +1,185 @@
+// Dependências
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// Fontes
+@import url(../fonts/fonts.css);
+
+$Din:'Din Condensed', 'Arial Narrow', Helvetica, Arial, sans-serif;
+$Brandon:'Brandon', Helvetica, Arial, sans-serif;
+
+$light:300;
+$regular:500;
+$bold:600;
+$black:700;
+
+// Cores
+$vermelho:#E94E3C;
+$ver_m1:#D74233;
+$ver_m2:#E33E2E;
+$vinho:#7C0D0D;
+$azul:#1978BE;
+
+// Global
+body{ background:$vermelho url(../img/bkg-body.png) repeat-x left top; color:#FFF; font-family:$Brandon; @include font-size(18px); @include font-smoothing(on); font-weight:$light; }
+@include selection(#FFF,$azul);
+
+// Header
+#header{ font-family:$Din; }
+#header .center{ min-height:185px; }
+#logo{ width:30%; height:231px; background:url(../img/logo.png) no-repeat center center; background-size:contain; position:absolute; z-index:9; top:20px; left:0; @include removeText; }
+#real{ float:left; margin:70px 0 0 31%; font-weight:$regular; text-transform:uppercase; @include font-size(15px); }
+#real span{ display:block; float:left; margin:33px 15px 0 0; }
+#real a{ display:block; float:left; width:141px; height:62px; background:url(../img/improvement.png) no-repeat center center; }
+#fones{ float:right; text-align:right; min-height:185px; padding-top:50px; background:url(../img/castelo.png) no-repeat right bottom; font-weight:$light; @include font-size(28px); line-height:1.1em; }
+#fones em{ text-transform:uppercase; }
+#fones strong{ font-weight:$black; @include font-size(38px); }
+#fones span{ display:inline-block; width:29px; height:29px; background:url(../img/ico-whats.png) no-repeat center center; }
+#fones a{ font-weight:$regular; }
+
+// Banners
+#banners{ width:100%; @include border-radius(10px); overflow:hidden; @include box-shadow(10px 10px 15px rgba(0,0,0,.3)); position:relative; }
+#banners .owl-controls{ position:absolute; top:50%; margin-top:-62px; left:0; width:100%; }
+#banners .owl-controls .owl-prev,
+#banners .owl-controls .owl-next{ position:absolute; top:0; width:67px; height:124px; background-repeat:no-repeat; background-position:center center; @include removeText; @include transition(all 300ms ease-in-out); }
+#banners .owl-controls .owl-prev{ left:0; background-image:url(../img/arw-prev.png); }
+#banners .owl-controls .owl-next{ right:0; background-image:url(../img/arw-next.png); }
+#banners .owl-controls .owl-prev:hover,
+#banners .owl-controls .owl-next:hover{ @include opacity(0.6); }
+
+// Conteúdo
+#container{ margin:100px auto 40px; }
+#container h2{ @include font-size(36px); font-weight:$bold; text-transform:uppercase; margin-bottom:30px; }
+#container h3{ @include font-size(30px); font-weight:$bold; text-transform:uppercase; margin-bottom:25px; }
+#container p{ line-height:24px; margin-bottom:20px; }
+#container p strong{ font-weight:$bold; }
+#container p.subtitle{ display:inline-block; @include font-size(24px); text-transform:uppercase; padding:5px 10px; background-color:$ver_m1; line-height:30px; margin-bottom:0; }
+
+// Inicial
+#menu{ width:100%; text-align:center; font-family:$Din; @include font-size(25px); font-weight:$regular; text-transform:uppercase; }
+#menu li{ display:inline-block; margin:0 35px; }
+#menu li a .ico{ display:block; height:72px; margin-bottom:10px; background:no-repeat center center; @include transition(all 300ms ease-in-out); }
+#menu li a:hover .ico{ @include opacity(0.6); }
+#menu li a.destino .ico{ background-image:url(../img/ico-destino.png); }
+#menu li a.programacao .ico{ background-image:url(../img/ico-programacao.png); }
+#menu li a.inscricao .ico{ background-image:url(../img/ico-inscricao.png); }
+#menu li a.noticias .ico{ background-image:url(../img/ico-noticias.png); }
+#menu li a.pagamento .ico{ background-image:url(../img/ico-pagamento.png); }
+
+// Destino
+.dest{ margin-top:50px; }
+.dest .img{ float:left; width:35%; margin:0 3% 0 2%; @include border-radius(12px); overflow:hidden; }
+.dest .img img{ display:block; width:100%; }
+.dest .info{ float:left; width:58%; }
+.dest .info p{ text-transform:uppercase; }
+
+// Roteiro
+#container .wrapper{ width:100%; padding:40px 0; }
+#container .wrapper.odd{ background-color:$ver_m2; }
+#container .wrapper.even{}
+#container .wrapper .dest{ margin:0; }
+#container .wrapper .dest .img.multi img{ margin:0 auto 10px; @include border-radius(13px); width:auto; max-width:100%; }
+#container .wrapper p{ text-transform:none; }
+#container .wrapper p.upper{ text-transform:uppercase; }
+#container .wrapper p em{ display:block; text-transform:uppercase; }
+#container p.contato{ width:100%; margin-top:40px; text-align:center; font-weight:$bold; text-transform:none; @include font-size(30px); line-height:1.4em; }
+#container .contato .bigger{ @include font-size(48px); }
+#container .contato .big{ display:block; @include font-size(36px); }
+
+// Inscrição
+#container.inscricao{ max-width:1024px; }
+#container.inscricao h2{ @include font-size(28px); line-height:30px; }
+#container.inscricao h2 span{ display:block; @include font-size(18px); }
+
+#container.inscricao .ccf-form{ background-image:url(../img/lines.png); position:relative; }
+#container.inscricao .field{ float:left; width:100%; text-transform:uppercase; color:#FFF; font-family:$Brandon; font-weight:$bold; @include font-size(18px); }
+
+@include placeholder(#FFF);
+#container.inscricao input[type=text]{ display:block; width:100%; background-color:transparent; border:0; padding:5px; font-family:$Brandon; font-weight:$bold; @include font-size(18px); text-transform:uppercase; color:#FFF; }
+#container.inscricao .radio{ display:inline-block; }
+#container.inscricao .field-type-radio{ padding:9px 5px; }
+#container.inscricao .doub{ width:50%; }
+#container.inscricao .trip{ width:33.33%; }
+#container.inscricao .btn-enviar input{ display:block; position:absolute; bottom:-60px; right:0; display:block; color:#FFF; font-family:$Brandon; @include font-size(18px); font-weight:$bold; text-transform:uppercase; border:0; background-color:$vinho; padding:6px 50px; @include border-radius(10px); cursor:pointer; }
+
+// Notícias
+#container .noticia{ margin-bottom:50px; }
+#container .noticia .img{ float:left; width:37.5%; margin-right:2%; }
+#container .noticia .img img{ display:block; width:100%; }
+#container .noticia .info{ float:left; width:55.5%; }
+#container .noticia .info h2{ text-transform:none; }
+#container .noticia .info p{}
+#container .noticia .info a{ display:block; float:right; font-weight:$bold; }
+
+// Formas de Pagamento
+#container.pagamento{ padding:50px 0; }
+#container p.valores{ text-align:center; @include font-size(30px); font-weight:$bold; line-height:1.3em; margin-bottom:30px; }
+#container p.valores strong{ display:block; @include font-size(25px); text-transform:uppercase; color:$vinho; }
+#container p.valores span{ display:block; @include font-size(25px); }
+
+// Rodapé
+#footer{ text-align:center; font-family:$Din; text-transform:uppercase; @include font-size(31px); }
+#footer .wrapper{ position:relative; display:inline-block; }
+#footer .wrapper .bkg{ display:block; width:104%; height:70%; position:absolute; z-index:1; top:15%; left:-2%; background-color:$ver_m1; @include transition(all 300ms ease-in-out); }
+#footer .wrapper:hover .bkg{ width:100%; height:100%; top:0; left:0; }
+#e-book{ display:inline-block; font-weight:$regular; padding:10px 20px; border:3px solid #FFF; position:relative; z-index:2; }
+#e-book strong{ font-weight:$bold; }
+#e-book strong span{ text-transform:lowercase; }
+#footer .lower{ width:100%; min-height:225px; padding-top:170px; margin-top:35px; background:url(../img/bkg-footer.png) no-repeat center top; font-weight:$black; }
+#footer .lower span{ display:inline-block; width:360px; }
+
+// Responsivo
+@media screen and (max-width:1024px){
+	#footer .lower{ padding:180px 0 20px; }
+	#footer .lower span{ display:none; }
+}
+
+@media screen and (max-width:860px){
+	#logo{ width:50%; background-position:left center; }
+	#real{ float:right; margin:70px 0 0; }
+	#fones{ width:100%; }
+
+	#menu li{ margin-bottom:40px; }
+
+	.dest .img{ width:46%; margin:0 4% 0 0; }
+	.dest .info{ width:50%; }
+
+	#container .noticia .img{ width:46%; margin-right:4%; }
+	#container .noticia .info{ width:50%; }
+}
+
+@media screen and (max-width:580px){
+	#logo{ float:left; position:static; width:100%; background-position:center center; }
+	#real{ float:none; max-width:230px; margin:30px auto 0; }
+	#fones{ text-align:center; }
+
+	.dest .img{ width:100%; margin:0 0 30px; }
+	.dest .info{ width:100%; }
+
+	#container.inscricao .doub,
+	#container.inscricao .trip{ width:100%; }
+	#container.inscricao .btn-enviar input{ width:100%; }
+
+	#container .noticia .img{ width:100%; margin:0 0 30px; }
+	#container .noticia .info{ width:100%; }
+}
+
+@media screen and (max-width:480px){
+	#footer .wrapper .bkg{ display:none; }
+	#e-book{ display:inline-block; font-weight:$regular; padding:10px 20px; border:3px solid #FFF; position:relative; z-index:2; }
+
+	#container h2{ @include font-size(30px); }
+	#container h3{ @include font-size(24px); }
+
+	#container.inscricao .ccf-form{ background:none; }
+	#container.inscricao .btn-enviar input{ position:static; margin-top:20px; }
+}
+
+@media screen and (max-width:380px){
+	#fones strong{ @include font-size(28px); }
+
+	#banners .owl-controls .owl-prev, #banners .owl-controls .owl-next{ display:none !important; }
+	
+	#footer .lower{ padding-top:200px; @include font-size(26px); }
+}

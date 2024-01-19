@@ -1,0 +1,135 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+$Open:'Open Sans', Helvetica, Arial, Sans-serif;
+
+$regular:400;
+$bold:700;
+
+// CORES
+$verde:#9C3;
+$cinza:#666;
+$preto:#252525;
+
+// ESTILOS GLOBAIS
+body{ font-family:$Open; @include font-size(16px); color:$cinza; @include font-smoothing(on); }
+@include selection(#FFF,$verde);
+
+// HEADER
+#header{ width:100%; height:600px; background:url(../img/bkg-topo.jpg) no-repeat center bottom; padding-top:1px; }
+#nav{ position:fixed; top:0; left:0; z-index:9; width:100%; height:80px; text-align:center; color:#FFF; @include font-size(20px); text-transform:uppercase; background:url(../img/bkg-nav.png) repeat-x center -80px; @include transition(all 300ms ease-in-out); }
+#nav.scrolled{ background-position:center 0; }
+#nav a{ display:inline-block; padding:3px 0; margin:20px 25px 5px; border-bottom:0 solid #FFF; @include transition(all 100ms ease-in-out); }
+#nav a:hover,
+#nav a.active{ color:$verde; border-bottom:4px solid #FFF; }
+#logo{ width:100%; height:152px; background:url(../img/logo.png) no-repeat center center; background-size:contain; margin-top:210px; @include removeText; }
+#scroll{ width:135px; height:51px; margin:140px auto 0; background:url(../img/scroll.png) no-repeat left center; padding:15px 0 0 33px; color:#FFF; }
+
+// SOBRE
+#sobre-wrapper{ background:url(../img/bkg-sobre.png) repeat-y center top; }
+#sobre{ float:left; width:49%; padding-top:1px; }
+#sobre h2{ @include font-size(20px); font-weight:$bold; text-transform:uppercase; color:#FFF; padding:7px 0 10px 15px; margin:30px 0 15px; background:url(../img/tit-sobre.png) no-repeat left center; }
+#sobre p{ line-height:1.2em; }
+#sobre img{ display:block; width:100%; margin:10px 0 30px; }
+#relacionamentos{ display:none; }
+
+// SERVIÇOS
+#servicos{ float:right; width:49%; }
+#servicos h2{ @include font-size(20px); font-weight:$bold; text-transform:uppercase; color:$verde; padding:7px 0 10px 15px; margin:30px 0 50px; background:url(../img/tit-servicos.png) no-repeat left center; }
+#servicos ul{ width:76%; margin:0 auto; }
+#servicos ul li{ position:relative; margin-bottom:30px; }
+#servicos ul li > a{ display:block; padding:24px 0px; border:3px solid #FFF; @include font-size(18px); font-weight:$bold; text-align:center; @include transition(all 300ms ease-in-out); }
+#servicos ul li > a:hover,
+#servicos ul li > a.active{ background-color:#FFF; color:$verde; }
+#servicos ul li .tooltip{ display:none; position:absolute; z-index:1; top:90px; left:-30%; width:160%; padding:30px; background-color:$preto; @include font-size(15px); line-height:1.2em; color:#FFF; }
+#servicos ul li .tooltip:before{ content:' '; display:block; width:36px; height:18px; position:absolute; top:-18px; left:50%; margin-left:-18px; background:url(../img/tooltip.png) no-repeat center center; }
+#servicos ul li .tooltip .fechar{ display:block; position:absolute; top:10px; right:10px; width:20px; height:20px; background:url(../img/fechar.png) no-repeat center center; }
+
+// SÓCIOS
+#socios{ padding:60px 0 40px; }
+#socios h2{ @include font-size(20px); font-weight:$bold; text-transform:uppercase; color:#FFF; padding:7px 0 10px 15px; margin:0 0 90px; background:url(../img/tit-sobre.png) no-repeat left center; }
+#socios ul{ width:100%; }
+#socios ul li{ display:block; float:left; max-width:130px; margin-right:15px; text-align:center; font-weight:$bold; line-height:1.1em; color:$verde; }
+#socios ul li:last-child{ margin-right:0; }
+#socios ul li .image{ width:130px; height:130px; @include border-radius(50%); margin-bottom:10px; border:0 solid $verde; @include transition(all 200ms ease-in-out); }
+#socios ul li:hover .image{ border-width:10px; background-color:$verde; }
+#socios ul li .image img{ display:block; width:100%; @include transition(all 200ms ease-in-out); }
+#socios ul li:hover .image img{ @include opacity(0.6); }
+#socios ul li h3{ @include font-size(15px); }
+#socios ul li p{ @include font-size(11px); }
+
+// LISTA DE SÓCIOS
+#lista-socios{}
+#lista-socios .socio{ display:none; background-color:$preto; color:#FFF; @include font-size(15px); line-height:20px; }
+#lista-socios .socio .center{ position:relative; padding:60px 0 40px; }
+#lista-socios .socio .center:before{ content:' '; display:block; width:36px; height:18px; position:absolute; top:-18px; left:46px; background:url(../img/tooltip.png) no-repeat center center; }
+#lista-socios #kiyohara .center:before{ left:196px; }
+#lista-socios #maringoni .center:before{ left:336px; }
+#lista-socios #kovacs .center:before{ left:486px; }
+#lista-socios #stella .center:before{ left:626px; }
+#lista-socios #dorveaux .center:before{ left:771px; }
+#lista-socios #kunii .center:before{ left:921px; }
+#lista-socios .socio .fechar{ display:block; position:absolute; top:20px; right:0; width:20px; height:20px; background:url(../img/fechar.png) no-repeat center center; }
+#lista-socios .socio p{ margin-bottom:20px; }
+#lista-socios .socio h3{ font-weight:$bold; }
+#lista-socios .socio .telefones{ float:left; padding-left:40px; margin:40px 0 0 100px; height:35px; font-weight:$bold; background:url(../img/ico-telefone.png) no-repeat left center; }
+#lista-socios .socio .e-mail{ float:left; padding-left:60px; margin:45px 0 0 170px; height:30px; line-height:26px; font-weight:$bold; background:url(../img/ico-mail.png) no-repeat left center; }
+#lista-socios .socio .e-mail a{}
+
+// CONTATO
+#contato{ width:100%; height:430px; padding:40px 0 100px; background:$preto url(../img/bkg-contato.png) no-repeat center top; @include font-size(20px); color:#FFF; }
+#contato h2{ @include font-size(20px); font-weight:$bold; text-transform:uppercase; padding:7px 0 10px 15px; margin:0 0 70px; background:url(../img/tit-sobre.png) no-repeat left center; }
+#contato h3{ font-weight:$bold; text-transform:uppercase; line-height:1.2em; }
+#contato p{ line-height:1.2em; margin-bottom:30px; }
+#contato p strong{ font-weight:$bold; }
+#contato p a{ color:$verde; }
+
+// FOOTER
+#footer{ width:100%; padding:25px 0; background-color:$preto; color:#FFF; @include font-size(12px); line-height:18px; }
+#footer p{ float:left; }
+#footer a{ display:block; float:right; width:43px; height:18px; background:url(../img/m2mp.png) no-repeat center center; @include removeText; }
+
+// RESPONSIVO
+@media screen and(max-width:1110px){
+	#servicos ul li .tooltip{ position:static; width:100%; }
+	#servicos ul li .tooltip:before{ display:none; }
+	#servicos ul li .tooltip .fechar{ position:static; float:right; margin:0 0 10px 10px; }
+
+	#lista-socios .socio .center:before{ display:none; }
+}
+
+@media screen and(max-width:900px){
+	#socios ul li{ height:200px; }
+	#lista-socios .socio .telefones,
+	#lista-socios .socio .e-mail{ margin-left:30px; }
+}
+
+@media screen and(max-width:720px){
+	#nav{ display:none; }
+	#logo{ width:90%; margin:210px auto 0; }
+	#scroll{ display:none; }
+
+	#sobre-wrapper{ background:transparent; }
+	#sobre{ width:100%; }
+	#servicos{ width:100%; background-color:$verde; }
+
+	#lista-socios .socio .telefones,
+	#lista-socios .socio .e-mail{ width:100%; margin-left:0; }
+}
+
+@media screen and(max-width:640px){
+	#servicos ul{ width:90%; }
+
+	#socios ul li{ width:50%; max-width:100%; margin-right:0; }
+	#socios ul li .image{ margin:0 auto 10px; }
+
+}
+
+@media screen and(max-width:360px){
+	#footer p{ float:none; width:100%; text-align:center; }
+	#footer a{ float:none; margin:10px auto 0; }
+}

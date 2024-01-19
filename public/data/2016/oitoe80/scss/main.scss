@@ -1,0 +1,215 @@
+// Dependências
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// Fontes
+@import url('din.css');
+$Din:'DIN', Helvetica, Arial, sans-serif;
+
+$light:300;
+$medium:500;
+
+// Cores
+$amarelo:#FFF100;
+$preto:#212121;
+
+// Estilos globais
+body{ font-family:$Din; font-weight:$light; color:$preto; @include font-smoothing(on); }
+@include selection($preto,$amarelo);
+
+h2.tit{ @include font-size(40px); text-transform:uppercase; line-height:40px; letter-spacing:0.04em; position:relative; }
+h2.tit span{ font-weight:$medium; }
+h2.tit:after{ content:' '; display:block; width:120px; height:10px; position:relative; bottom:0px; left:-35px; background-color:$preto; }
+
+// Header
+#header{ width:100%; background:url(../img/bkg-topo.jpg) no-repeat center top; background-size:cover; }
+#menu{ position:fixed; z-index:999; top:0; left:0; width:100%; padding-bottom:20px; @include transition(all 200ms ease-in-out); }
+#menu #logo{ float:left; width:96px; height:80px; margin-top:20px; background:url(../img/logo.png) no-repeat center center; background-size:contain; @include removeText; @include transition(all 200ms ease-in-out); }
+#menu ul{ float:right; }
+#menu ul li{ display:inline-block; }
+#menu ul li a{ display:block; @include font-size(18px); text-transform:uppercase; color:$amarelo; padding:0 15px; border-top:20px solid transparent; line-height:80px; letter-spacing:0.04em; @include transition(all 200ms ease-in-out); }
+#menu ul li a:hover,
+#menu ul li a.active{ border-top:20px solid $amarelo; }
+
+#menu.scrolled{ background-color:$preto; padding-bottom:10px; }
+#menu.scrolled #logo{ height:40px; margin-top:10px; }
+#menu.scrolled ul li a{ line-height:40px; border-top-width:10px; }
+
+#header h1{ position:relative; top:50%; @include transform(translatey(-50%)); @include font-size(50px); }
+#header h1 span{ display:inline-block; padding:30px; margin-bottom:20px; background-color:rgba(255,240,1,0.75); opacity:0; }
+#header h1 span.s1{ @include animation(500ms ease-in 1500ms 1 normal both running Mostrar); }
+#header h1 span.s2{ @include animation(500ms ease-in 2500ms 1 normal both running Mostrar); }
+#header h1 span.s3{ @include animation(500ms ease-in 3500ms 1 normal both running Mostrar); }
+#header h1 span.s4{ @include animation(500ms ease-in 4500ms 1 normal both running Mostrar); }
+#header #scroll{ width:70px; height:71px; background:url(../img/ico-scroll.png) no-repeat center center; position:absolute; bottom:70px; left:50%; @include transform(translatex(-50%)); @include opacity(0); @include animation(500ms ease-in 5500ms 1 normal both running Mostrar); }
+
+@keyframes Mostrar{
+    0% { opacity:0; }
+    100% { opacity:1; }
+}
+
+// O que fazemos
+#sobre{ background:$amarelo url(../img/pnt-amarelo.jpg) repeat 0 0; height:1080px; }
+#sobre .center{ padding-top:70px; height:1080px; }
+#sobre h2 span{ display:block; }
+
+#cogs{ width:960px; height:600px; margin:150px auto 0; position:relative; }
+#cogs .cw1{ width:308px; height:308px; position:absolute; background:no-repeat center center; }
+#cogs .cw2{ width:240px; height:240px; position:absolute; background:no-repeat center center; }
+#cogs .texto{ position:absolute; @include font-size(16px); }
+#cogs .texto h3{ text-transform:uppercase; font-weight:$medium; margin-bottom:5px; }
+#cogs .texto p{ line-height:18px; }
+#cogs .cw1 .cog{ width:308px; height:308px; background:no-repeat center center; }
+#cogs .cw2 .cog{ width:240px; height:240px; background:no-repeat center center; }
+
+#cogs #c1{ background-image:url(../img/ci1.png); top:101px; left:3px; }
+#cogs #c1 .cog{ background-image:url(../img/c1.png); }
+#cogs #c1 .texto{ width:245px; height:260px; background:url(../img/cl1.png) no-repeat bottom left; top:-172px; left:63px; }
+#cogs #c2{ background-image:url(../img/ci2.png); top:0; right:284px; }
+#cogs #c2 .cog{ background-image:url(../img/c2.png); }
+#cogs #c2 .texto{ width:290px; padding-right:130px; background:url(../img/cl2.png) no-repeat top right; top:41px; right:117px; }
+#cogs #c3{ background-image:url(../img/ci3.png); top:36px; right:9px; }
+#cogs #c3 .cog{ background-image:url(../img/c3.png); }
+#cogs #c3 .texto{ width:180px; height:210px; background:url(../img/cl3.png) no-repeat bottom center; top:-122px; left:65px; }
+#cogs #c4{ background-image:url(../img/ci4.png); bottom:0; left:146px; }
+#cogs #c4 .cog{ background-image:url(../img/c4.png); }
+#cogs #c4 .texto{ width:340px; padding-right:130px; background:url(../img/cl4.png) no-repeat top right; top:95px; right:170px; }
+#cogs #c5{ background-image:url(../img/ci5.png); bottom:84px; right:319px; }
+#cogs #c5 .cog{ background-image:url(../img/c5.png); }
+#cogs #c5 .texto{ width:236px; height:272px; padding-top:190px; background:url(../img/cl5.png) no-repeat top left; top:220px; left:65px; }
+#cogs #c6{ background-image:url(../img/ci6.png); bottom:48px; right:114px; }
+#cogs #c6 .cog{ background-image:url(../img/c6.png); }
+#cogs #c6 .texto{ width:292px; padding-left:100px; background:url(../img/cl6.png) no-repeat top left; top:95px; left:170px; }
+
+// Nossa equipe
+#equipe{ background:$preto url(../img/ptn-preto.jpg) repeat center center; }
+#equipe .center{ padding-top:70px; }
+#equipe h2.tit{ color:$amarelo; }
+#equipe h2.tit:after{ background-color:$amarelo; }
+
+#equipe .inner{ position:relative; top:40%; @include transform(translatey(-50%)); overflow:hidden; }
+#equipe .inner .prox1,
+#equipe .inner .prox2,
+#equipe .inner .prox3{ width:72px; height:72px; background:url(../img/ico-prox.png) no-repeat center center; position:absolute; top:250px; @include transform(translatex(-50%)); @include opacity(0); }
+#equipe .inner .prox1{ left:25%; }
+#equipe .inner .prox2{ left:50%; }
+#equipe .inner .prox3{ left:75%; }
+
+#etapas{}
+#etapas li{ float:left; width:24%; margin:0.5%; @include opacity(0); }
+#etapas li .icone{ width:100%; height:300px; background:no-repeat center center; background-size:contain; margin-bottom:70px; }
+#etapas li h3{ width:100%; padding:6px 0 3px; border:1px solid $amarelo; @include font-size(26px); text-transform:uppercase; color:$amarelo; text-align:center; }
+#etapas li.atendimento .icone{ background-image:url(../img/ico-atendimento.png); }
+#etapas li.planejamento .icone{ background-image:url(../img/ico-planejamento.png); }
+#etapas li.criacao .icone{ background-image:url(../img/ico-criacao.png); }
+#etapas li.midia .icone{ background-image:url(../img/ico-midia.png); }
+
+// Animações
+#equipe .inner.onscreen li.atendimento{ @include animation(300ms ease-in 0ms 1 normal both running Mostrar); }
+#equipe .inner.onscreen .prox1{ @include animation(300ms ease-in 500ms 1 normal both running Mostrar); }
+#equipe .inner.onscreen li.planejamento{ @include animation(300ms ease-in 1000ms 1 normal both running Mostrar); }
+#equipe .inner.onscreen .prox2{ @include animation(300ms ease-in 1500ms 1 normal both running Mostrar); }
+#equipe .inner.onscreen li.criacao{ @include animation(300ms ease-in 2000ms 1 normal both running Mostrar); }
+#equipe .inner.onscreen .prox3{ @include animation(300ms ease-in 2500ms 1 normal both running Mostrar); }
+#equipe .inner.onscreen li.midia{ @include animation(300ms ease-in 3000ms 1 normal both running Mostrar); }
+
+// Nietzsche
+#nietzsche{ width:100%; padding:70px 0; background:$amarelo url(../img/bkg-nietzsche.png) no-repeat center center; text-align:center; }
+#nietzsche p{ @include font-size(50px); line-height:54px; letter-spacing:0.04em; max-width:1160px; margin:0 auto 40px; }
+#nietzsche span{ @include font-size(30px); text-transform:uppercase; font-weight:$medium; letter-spacing:0.04em; }
+
+// Contato
+#contato{ padding:70px 0 20px; background:$preto url(../img/pnt-preto.jpg) repeat center center; }
+#contato h2.tit{ color:$amarelo; }
+#contato h2.tit:after{ background-color:$amarelo; }
+#contato .inner{ max-width:840px; margin:90px auto 0; }
+#contato input,
+#contato textarea{ display:block; width:100%; background-color:transparent; border:0; border-bottom:1px solid $amarelo; font-family:$Din; @include font-size(18px); font-weight:$light; text-transform:uppercase; color:$amarelo; margin-bottom:20px; letter-spacing:0.04em; resize:none; }
+#contato #enviar{ display:block; width:100%; background-color:$amarelo; padding:8px 0 5px; font-family:$Din; @include font-size(18px); font-weight:$light; text-transform:uppercase; color:$preto; border:0; cursor:pointer; @include transition(all 200ms ease-in-out); }
+#contato #enviar:hover{ @include opacity(0.7); }
+#contato .col{ width:33.33%; float:left; text-align:center; padding-top:50px; margin-top:100px; background:no-repeat top center; color:$amarelo; @include font-size(18px); letter-spacing:0.04em; }
+#contato .col strong{ font-weight:$medium; }
+#contato .col.fixo{ background-image:url(../img/ico-fixo.png); }
+#contato .col.cel{ background-image:url(../img/ico-cel.png); }
+#contato .col.mail{ background-image:url(../img/ico-mail.png); }
+#contato .endereco{ width:100%; text-align:center; padding-top:50px; margin-top:50px; background:url(../img/ico-endereco.png) no-repeat top center; color:$amarelo; @include font-size(18px); letter-spacing:0.04em; }
+
+#mapa{ width:100%; height:400px; background-color:$amarelo; }
+
+// Rodapé
+#footer{ background-color:$preto; padding:20px 0; overflow:hidden; }
+#footer p{ float:left; @include font-size(12px); color:$amarelo; line-height:24px; }
+#footer p strong{ font-weight:$medium; }
+#footer #ffw{ display:block; float:right; width:26px; height:24px; background:url(../img/ffw.png) no-repeat center center; @include removeText; }
+
+// Responsivo
+@media screen and(max-width:1280px){
+	#header h1{ @include font-size(36px); }
+}
+
+@media screen and(max-width:1210px){
+	#sobre{ height:auto; overflow:hidden; }
+	#cogs{ width:100%; height:auto; margin:150px auto 0; }
+	#cogs .cw1,
+	#cogs .cw2{ float:left; width:33.33%; height:auto; min-height:300px; position:static; background-position:center top; text-align:center; }
+	#cogs .cw1{ padding:160px 30px 40px; }
+	#cogs .cw2{ padding:130px 30px 70px; }
+	#cogs .texto{ position:static; }
+	#cogs .cw1 .cog,
+	#cogs .cw2 .cog{ display:none; }
+	#cogs #c1 .texto, #cogs #c2 .texto, #cogs #c3 .texto, #cogs #c4 .texto, #cogs #c5 .texto, #cogs #c6 .texto{ width:100%; height:auto; padding:0; background:transparent; }
+
+	#nietzsche p{ @include font-size(36px); }
+}
+
+@media screen and(max-width:860px){
+	#equipe .inner .prox1, #equipe .inner .prox2, #equipe .inner .prox3{ display:none; }
+	#etapas li{ width:40%; margin:0 5% 5%; }
+	#etapas li .icone{ height:200px; margin-bottom:20px; }
+	#etapas li h3{ padding:0; border:0; }
+
+	#nietzsche{ background-repeat:repeat; background-position:left center; background-size:cover }
+	#nietzsche p{ @include font-size(32px); line-height:1.3em; margin-bottom:20px; }
+	#nietzsche span{ @include font-size(18px); }
+}
+
+@media screen and(max-width:760px){
+	#header h1{ @include font-size(28px); }
+
+	#cogs{ margin-top:50px; }
+	#cogs .cw1,
+	#cogs .cw2{ width:50%; }
+}
+
+@media screen and(max-width:640px){
+	#menu{ position:absolute; }
+	#menu ul{ display:none; }
+	#menu.scrolled{ background-color:transparent; }
+	#menu.scrolled #logo{ height:80px; margin-top:20px; }
+	#header h1{ @include font-size(32px); }
+	#header h1 span{ padding:0; margin-bottom:0; line-height:1.3em; background-color:transparent; color:$amarelo; font-weight:$medium; }
+
+	#etapas li{ @include opacity(1); }
+}
+
+@media screen and(max-width:520px){
+	#cogs .cw1,
+	#cogs .cw2{ width:100%; }
+
+	#etapas li{ width:100%; margin:0 0 5%; }
+	#equipe .inner{ position:static; top:0; padding:50px 0; @include transform(translatey(0)); }
+}
+
+@media screen and(max-width:420px){
+	#header h1{ @include font-size(26px); }
+
+	#cogs .cw1,
+	#cogs .cw2{ min-height:0; padding-bottom:50px; }
+
+	#contato{ padding-bottom:50px; }
+	#contato .col{ width:100%; margin-top:50px; }
+
+	#footer p{ width:100%; text-align:center; margin-bottom:10px; }
+	#footer #ffw{ float:none; margin:0 auto; }
+}

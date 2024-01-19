@@ -1,0 +1,56 @@
+// CLASSES E ATRIBUTOS GLOBAIS
+.f-left{ float:left; }
+.f-right{ float:right; }
+.center{ max-width:640px; width:96%; margin:80px auto; }
+.clear{ clear:both; }
+*{ @include box-sizing(border-box); }
+a{ color:inherit; text-decoration:none; }
+
+// PESOS PADRÃO
+$light:300;
+$regular:400;
+$bold:700;
+
+// TAMANHOS DE FONTE RELATIVOS
+@function calculateRem($size) {
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+}
+
+// SUAVIZAÇÃO DE FONTES
+// Fontes escuras em fundos claros(off) e fontes claras em fundos escuros(on)
+@mixin font-smoothing($value: on) {
+    @if $value == on {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    @else {
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
+    }
+}
+
+// SELEÇÃO PERSONALIZADA
+@mixin selection($texto, $fundo){
+    ::-moz-selection { color:$texto; background-color:$fundo; }
+    ::selection { color:$texto; background-color:$fundo; }
+}
+
+// ESCONDE TEXTO
+@mixin removeText{
+    text-indent:-9999em;
+    overflow:hidden;
+}
+
+// COR NOS PLACEHOLDERS
+@mixin placeholder($color){
+    ::-webkit-input-placeholder { color:$color; }
+    :-moz-placeholder { color:$color; opacity:  1; }
+    ::-moz-placeholder{ color:$color; opacity:  1; }
+    :-ms-input-placeholder{ color:$color; }
+}

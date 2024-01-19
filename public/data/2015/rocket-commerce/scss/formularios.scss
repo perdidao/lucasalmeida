@@ -1,0 +1,24 @@
+// FONTES
+$Oswald: 'Oswald', 'Arial Narrow', Helvetica, Arial, sans-serif;
+$Default: Tahoma, Verdana, Segoe, sans-serif;
+
+// CORES
+$Primaria:#233741;
+$Secundaria:#C40C42;
+
+label{ display:block; font-family:$Oswald; @include font-size(15px); font-weight:300; }
+label input[type='text'],
+label input[type='password'],
+label select,
+label textarea{ width:100%; padding:5px; border:1px solid $Primaria; color:$Primaria; @include font-size(12px); outline:none; margin-top:5px; resize:none; font-family:$Default; }
+label input[type='text'],
+label select{ height:28px; }
+
+button{ display:block; margin-top:5px; padding:5px 20px; border:0; background-color:$Secundaria; font-family:$Oswald; text-transform:uppercase; color:#FFF; @include font-size(15px); @include font-smoothing(on); cursor:pointer; }
+.btn-secundario{ background-color:$Primaria; @include font-size(13px); padding:5px 10px; }
+
+.box-botoes{ width:100%; border-top:1px solid $Primaria; padding-top:5px; margin-top:30px; }
+
+// Fixes
+label.half{ width:50%; }
+.required{ color:#F00; }

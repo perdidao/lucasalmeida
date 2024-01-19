@@ -1,0 +1,244 @@
+// Configurações iniciais
+@import 'compass';
+@import 'mixins';
+/* Reset Global */
+@include global-reset;
+
+// Cores
+$highlight:#03e4e4;
+$mint:#f6f9fa;
+$text:#3b464e;
+
+// Fontes
+@font-face {
+  font-family: 'Apercu';
+  src: url('../fonts/Apercu-Medium.eot?#iefix') format('embedded-opentype'),  url('../fonts/Apercu-Medium.otf')  format('opentype'),
+	     url('../fonts/Apercu-Medium.woff') format('woff'), url('../fonts/Apercu-Medium.ttf')  format('truetype'), url('../fonts/Apercu-Medium.svg#Apercu-Medium') format('svg');
+  font-weight:500;
+  font-style:normal;
+}
+
+@font-face {
+  font-family: 'Apercu';
+  src: url('../fonts/Apercu-Bold.eot?#iefix') format('embedded-opentype'),  url('../fonts/Apercu-Bold.otf')  format('opentype'),
+	     url('../fonts/Apercu-Bold.woff') format('woff'), url('../fonts/Apercu-Bold.ttf')  format('truetype'), url('../fonts/Apercu-Bold.svg#Apercu-Bold') format('svg');
+  font-weight:600;
+  font-style:normal;
+}
+
+$Apercu:'Apercu', Helvetica, Arial, sans-serif;
+$regular:400;
+$bold:600;
+
+/* Estilos globais */
+body{
+  font:$regular 18px $Apercu;
+  color:$text;
+  @include font-smoothing(on);
+}
+
+@include selection(#FFF,$highlight);
+
+.el{
+  display:block;
+}
+
+#container{
+  width:100vw;
+  height:100vh;
+  position:relative;
+
+  #logo{
+    position:fixed;
+    top:15%;
+    left:15%;
+    z-index:3;
+    width:80px;
+    pointer-events:none;
+
+    svg{
+      fill:$highlight;
+    }
+  }
+
+  #about{
+    position:fixed;
+    bottom:15%;
+    left:15%;
+    z-index:2;
+    max-width:400px;
+    pointer-events:none;
+
+    h1{
+      font-size:40px;
+      font-weight:$bold;
+      line-height:1.4;
+      letter-spacing:-0.04em;
+      margin-bottom:30px;
+    }
+
+    p{
+      line-height:1.5;
+    }
+
+  }
+
+  #contact{
+    position:fixed;
+    bottom:15%;
+    right:15%;
+    z-index:4;
+    text-align:right;
+    line-height:1.5;
+    cursor:help;
+
+    .linkedin{
+      text-decoration:none;
+      color:inherit;
+      transition:color 300ms ease-in-out;
+
+      &:hover{
+        color:$highlight;
+      }
+    }
+  }
+
+  #aur{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1;
+    width:38.54vw;
+    height:100vh;
+    background-color:$mint;
+    pointer-events:none;
+  }
+
+  #shapes{
+    .shape{
+      position:absolute;
+      z-index:1;
+      pointer-events:none;
+      
+      &.c{
+        width:62px;
+        top:15%;
+        right:15%;
+        transform:translateX(72px);
+        
+        svg{
+          fill:$mint;
+        }
+      }
+
+      &.l{
+        width:47px;
+        top:15%;
+        right:15%;
+        transform:translateY(56px);
+
+        svg{
+          fill:$highlight;
+        }
+      }
+
+      &.v{
+        width:66px;
+        bottom:15%;
+        right:15%;
+        transform:translateX(86px);
+
+        svg{
+          fill:$mint;
+        }
+      }
+
+      &.u{
+        width:73px;
+        bottom:15%;
+        right:15%;
+        transform:translateY(56px);
+
+        svg{
+          fill:$highlight;
+        }
+      }
+
+      &.o{
+        width:73px;
+        top:30%;
+        right:38.54%;
+
+        svg{
+          fill:$mint;
+        }
+      }
+
+      &.a{
+        width:73px;
+        top:30%;
+        right:38.54%;
+        transform:translate(100%,100%);
+
+        svg{
+          fill:$highlight;
+        }
+      }
+
+      &.w{
+        width:234px;
+        bottom:30%;
+        right:38.54%;
+        transform:translateY(-50%);
+
+        svg{
+          fill:$mint;
+        }
+      }
+    }
+  }
+}
+
+@media screen and(max-width:860px){
+  #container{
+    width:100%;
+    height:auto;
+  
+    #logo{
+      position:static;
+      margin:50px 0 50px 10%;
+    }
+  
+    #about{
+      position:static;
+      margin:0 0 50px 10%;
+      width:80%;
+  
+      h1{
+        font-size:30px;
+      }
+  
+      p{
+        font-size:16px;
+      }
+    }
+  
+    #contact{
+      position:static;
+      margin:0 0 50px 10%;
+      width:80%;
+      text-align:left;
+      font-size:16px;
+    }
+  
+    #aur{
+      display:none;
+    }
+  
+    #shapes{
+      .shape{
+        display:none;
+      }
+    }
+  } 
+}

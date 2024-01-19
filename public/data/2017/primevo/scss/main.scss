@@ -1,0 +1,436 @@
+// +=+=+=+ Dependências +=+=+=+
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// +=+=+=+ Fontes +=+=+=+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,800');
+
+$Montserrat:'Montserrat', Helvetica, Arial, sans-serif;
+$regular:400;
+$semibold:600;
+$bold:800;
+
+// +=+=+=+ Cores +=+=+=+
+$vermelho:#A03021;
+$ouro:#86754E;
+$prata:#E8E4DE;
+$cinza:#898989;
+$cinza2:#656565;
+$cinza3:#D2CFCA;
+$preto:#1D1D1B;
+
+/* +=+=+=+ Global +=+=+=+ */
+body{ font-family:$Montserrat; @include font-size(14px); font-weight:$regular; color:$preto; @include font-smoothing(on); background-color:$prata; }
+@include selection(#FFF,$vermelho);
+
+/* +=+=+=+ Header +=+=+=+ */
+#header{ background-color:$preto; position:relative; padding:40px 0; color:$prata; }
+#logo{ display:block; width:151px; height:57px; background:url(../img/logo.png) no-repeat center center; margin:0 auto 30px; }
+#social{ position:absolute; top:80px; right:1.5%; }
+#social li{ display:inline-block; margin-left:35px; }
+#social li a{ display:block; height:16px; background:no-repeat center center; @include transition(all 200ms ease-in-out); }
+#social li a:hover{ @include opacity(0.6); }
+#social li a.fb{ width:7px; background-image:url(../img/ico-fb.png); }
+#social li a.in{ width:16px; background-image:url(../img/ico-in.png); }
+#social li a.gp{ width:20px; background-image:url(../img/ico-gp.png); }
+
+#menu{ width:97%; margin:0 auto; border-top:2px solid #434343; }
+#menu ul{ text-align:center; }
+#menu ul li{ display:inline-block; width:32%; position:relative; }
+#menu ul li a{ display:block; text-transform:uppercase; font-weight:$bold; letter-spacing:0.2em; @include transition(all 200ms ease-in-out); padding-top:20px; }
+#menu ul li a:before{ content:' '; display:block; width:32px; height:5px; background-color:transparent; position:absolute; top:-3px; left:50%; @include transform(translatex(-50%)); @include transition(all 200ms ease-in-out); }
+#menu ul li a:hover,
+#menu ul li a.active{ color:$vermelho; }
+#menu ul li a:hover:before,
+#menu ul li a.active:before{ background-color:$vermelho; }
+
+#banners{ position:relative; }
+#banners .owl-dots{ position:absolute; bottom:30px; left:50%; @include transform(translatex(-50%)); }
+#banners .owl-dots .owl-dot{ display:inline-block; width:12px; height:12px; background-color:$preto; @include border-radius(50%); margin:0 75px; }
+#banners .owl-dots .owl-dot.active{ background-color:$vermelho; }
+
+/* +=+=+=+ Sobre +=+=+=+ */
+#sobre{ padding:100px 0 60px; position:relative; }
+#sobre:after{ content:' '; display:block; width:100%; height:290px; background-color:$vermelho; position:absolute; z-index:1; bottom:0; left:0; }
+#sobre .center{ position:relative; z-index:2; }
+#sobre .tit-wrapper{ text-align:center; margin-bottom:50px; }
+#sobre h2{ display:inline-block; position:relative; @include font-size(36px); text-transform:uppercase; font-weight:$bold; letter-spacing:0.1em; }
+#sobre h2:after{ content:'Primevo'; display:block; position:absolute; bottom:3px; right:-105px; @include font-size(15px); font-weight:$regular; color:$cinza; text-transform:capitalize; }
+#sobre p{ line-height:25px; letter-spacing:0.1em; }
+#sobre .sub{ max-width:680px; margin:0 auto 100px; }
+
+#sobre .col-left{ float:left; width:50%; }
+#sobre .col-left h3{ @include font-size(27px); font-weight:$bold; line-height:46px; letter-spacing:0.1em; color:$cinza; margin-bottom:30px; position:relative; }
+#sobre .col-left h3:after{ content:' '; display:block; width:75px; height:5px; background-color:$preto; position:absolute; bottom:-22px; left:-125px; }
+#sobre .col-left p{ max-width:340px; text-align:justify; margin:30px 0; }
+#sobre .col-left .sep{ width:100%; max-width:340px; height:1px; background-color:$preto; }
+
+#sobre .col-right{ float:left; width:50%; margin-top:160px; }
+#sobre .col-right .escolhas{ position:relative; margin-bottom:25px; }
+#sobre .col-right .escolhas span{ display:block; position:absolute; z-index:2; right:-28px; top:-80px; @include font-size(140px); font-weight:$bold; letter-spacing:0.1em; color:$vermelho; }
+#sobre .col-right .escolhas ul{ position:relative; z-index:1; }
+#sobre .col-right .escolhas img{ display:block; width:100%; }
+#sobre .col-right .trabalho{ width:100%; min-height:111px; padding:12px 185px 0 20px; background:url(../img/bkg-trabalho.png) no-repeat center center; line-height:25px; text-align:justify; }
+
+#sobre .cutelo{ width:346px; height:287px; background:url(../img/cutelo.png) no-repeat center center; position:absolute; left:100px; bottom:100px; }
+
+/* +=+=+=+ Procedência +=+=+=+ */
+#procedencia{ padding:110px 0 65px; background:$preto url(../img/bkg-procedencia.jpg) no-repeat center center; color:$prata; position:relative; }
+#procedencia .tomilho{ width:448px; height:266px; background:url(../img/tomilho.png) no-repeat center center; position:absolute; z-index:1; top:-430px; left:12%; }
+#procedencia .tomilho2{ width:154px; height:443px; background:url(../img/tomilho2.png) no-repeat center center; position:absolute; z-index:1; top:200px; right:0; }
+#procedencia .center{ position:relative; z-index:2; }
+#procedencia .inner{ max-width:340px; }
+#procedencia .inner h2{ text-align:center; @include font-size(35.8px); font-weight:$bold; letter-spacing:0.1em; margin-bottom:40px; text-transform:uppercase; }
+#procedencia .inner p{ line-height:25.12px; letter-spacing:0.1em; }
+#procedencia .inner .texto{ border:1px solid $prata; border-width:1px 0 1px 0; padding:35px 0; margin-bottom:25px; text-align:justify; }
+#procedencia .inner .since{ text-align:center; font-weight:$bold; text-transform:uppercase; }
+#procedencia .carne{ width:704px; height:532px; background:url(../img/carne.png) no-repeat center center; position:absolute; right:-125px; bottom:-220px; }
+
+/* +=+=+=+ Valores +=+=+=+ */
+#valores{ padding:180px 0 180px; position:relative; overflow:hidden; }
+#valores .col-left{ float:left; width:50%; position:relative; }
+#valores .col-left .tit-wrapper{ width:55%; margin:35px 0 0 45%; margin-bottom:130px; }
+#valores .col-left .tit-wrapper h2{ display:inline-block; @include font-size(35.8px); font-weight:$bold; letter-spacing:0.1em; text-transform:uppercase; position:relative; }
+#valores .col-left .tit-wrapper h2:after{ content:'Primevo'; display:block; position:absolute; bottom:3px; right:-115px; @include font-size(15px); font-weight:$regular; color:$cinza; text-transform:capitalize; }
+#valores .col-left .equipe{ position:relative; margin-bottom:25px; }
+#valores .col-left .equipe span{ display:block; position:absolute; right:-18px; top:-80px; @include font-size(140px); font-weight:$bold; letter-spacing:0.1em; color:$vermelho; }
+#valores .col-left .equipe img{ display:block; width:100%; }
+#valores .col-left p{ float:right; max-width:340px; line-height:25.12px; letter-spacing:0.1em; color:$cinza; text-align:justify; }
+#valores .col-left .louro{ width:354px; height:206px; background:url(../img/louro.png) no-repeat center center; position:absolute; bottom:220px; left:23%; }
+#valores .col-left .boi{ width:39px; height:29px; background:url(../img/boi.png) no-repeat center center; position:absolute; bottom:-55px; left:32%; }
+
+#valores .col-right{ float:left; margin-left:8.8%; max-width:340px; }
+#valores .col-right .selo{ width:147px; height:96px; background:url(../img/selo.png) no-repeat center center; margin:0 auto 110px; @include removeText; }
+#valores .col-right p{ line-height:25.12px; letter-spacing:0.1em; text-align:justify; margin-bottom:80px; }
+#valores .col-right .sep{ width:100%; height:1px; background-color:$preto; margin-bottom:45px; }
+#valores .col-right .assinatura{ width:148px; height:27px; background:url(../img/assinatura.png) no-repeat center center; margin:0 auto; }
+#valores .garfo{ width:401px; height:168px; background:url(../img/garfo.png) no-repeat center center; position:absolute; bottom:400px; right:15%; }
+
+/* +=+=+=+ Onde Estamos +=+=+=+ */
+#onde-estamos{ overflow:hidden; padding-bottom:80px; }
+#onde-estamos .tit-wrapper{ text-align:center; margin-bottom:50px; }
+#onde-estamos .tit-wrapper h2{ display:inline-block; position:relative; @include font-size(36px); text-transform:uppercase; font-weight:$bold; letter-spacing:0.1em; }
+#onde-estamos .tit-wrapper h2:after{ content:'Cedro Frigor'; display:block; position:absolute; bottom:3px; right:-165px; @include font-size(15px); font-weight:$regular; color:$cinza; text-transform:capitalize; }
+
+#onde-estamos .mapa{ float:left; width:58%; height:600px; background-color:$cinza3; position:relative; }
+#onde-estamos .mapa:after{ content:' '; display:block; width:100%; height:100%; position:absolute; top:0; left:0; }
+#onde-estamos .mapa iframe{ display:block; width:100%; height:100%; @include filter(grayscale(1)); }
+
+#onde-estamos .col-right{ float:left; width:42%; height:600px; background-color:$cinza3; padding:190px 0 0 120px; }
+#onde-estamos .col-right .inner{ max-width:220px; line-height:25.12px; letter-spacing:0.1em; position:relative; }
+#onde-estamos .col-right .inner h3{ font-weight:$bold; }
+#onde-estamos .col-right .inner p{ margin-bottom:30px; }
+#onde-estamos .col-right .inner .social{ margin-bottom:30px; }
+#onde-estamos .col-right .inner .social li{ display:inline-block; margin-right:15px; }
+#onde-estamos .col-right .inner .social li a{ display:block; height:16px; background:no-repeat center center; @include transition(all 200ms ease-in-out); }
+#onde-estamos .col-right .inner .social li a:hover{ @include opacity(0.6); }
+#onde-estamos .col-right .inner .social li a.fb{ width:7px; background-image:url(../img/ico-fb.png); }
+#onde-estamos .col-right .inner .social li a.in{ width:16px; background-image:url(../img/ico-in.png); }
+#onde-estamos .col-right .inner .social li a.gp{ width:20px; background-image:url(../img/ico-gp.png); }
+#onde-estamos .col-right .inner .sep{ width:100%; height:1px; background-color:$preto; }
+#onde-estamos .col-right .inner .carneiro{ width:41px; height:32px; background:url(../img/carneiro.png) no-repeat center center; position:absolute; bottom:0; right:-100px; }
+
+/* +=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+ */
+/* +=+=+=+=+=+=+ Internas +=+=+=+=+=+=+ */
+/* +=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+ */
+
+/* +=+=+=+ Carnes +=+=+=+ */
+.topo{ width:100%; height:300px; background:$preto url(../img/topo-carnes.jpg) no-repeat center center; }
+
+#nossas-carnes{ padding:80px 0; background-color:$ouro; overflow:hidden; }
+#nossas-carnes .col-left{ float:left; margin-left:16%; max-width:340px; }
+#nossas-carnes .col-left h2{ @include font-size(35.8px); font-weight:$bold; letter-spacing:0.04em; text-transform:uppercase; text-align:center; margin-bottom:20px; }
+#nossas-carnes .col-left .sub{ display:block; width:100%; text-align:center; color:$cinza3; margin-bottom:60px; }
+#nossas-carnes .col-left p{ line-height:25.12px; letter-spacing:0.09em; text-align:justify; margin-bottom:25px; }
+#nossas-carnes .col-left .sep{ width:100%; height:1px; background-color:$preto; margin:80px 0 40px; }
+#nossas-carnes .col-left .assinatura{ width:148px; height:27px; background:url(../img/assinatura.png) no-repeat center center; margin:0 auto; }
+#nossas-carnes .img{ float:right; margin-top:15px; max-width:320px; }
+#nossas-carnes .img img{ display:block; width:100%; }
+
+#bovino{ padding:160px 0; position:relative; }
+#bovino .center{ overflow:hidden; line-height:25.12px; letter-spacing:0.1em; text-align:justify; }
+#bovino .col-left{ float:left; max-width:172px; margin:460px 0 0 16.6%; }
+#bovino .col-left p{ color:$cinza; }
+
+#bovino .col-right{ float:right; max-width:340px; margin-right:16.6%; }
+#bovino .col-right h2{ @include font-size(74.83px); line-height:80px; font-weight:$bold; text-transform:uppercase; color:$vermelho; margin-bottom:130px; }
+#bovino .col-right p{ margin-bottom:30px; }
+#bovino .col-right .sep{ width:100%; height:1px; background-color:$preto; }
+
+#bovino .bovino-tomilho,
+#bovino .bovino,
+#bovino .bovino-bisteca,
+#bovino .bovino-cozinha,
+#bovino .bovino-carne,
+#suino .suino-bisteca,
+#suino .selo,
+#suino .suino,
+#suino .suino-tomilho,
+#ovino .ovino,
+#ovino .ovino-carre,
+#ovino .ovino-tomilho,
+#ovino .ovino-alho{ position:absolute; background:no-repeat center center; }
+
+#bovino .bovino-tomilho{ width:456px; height:265px; background-image:url(../img/bovino-tomilho.png); /*top:-100px;*/ top:-200px; left:13%; }
+#bovino .bovino{ width:786px; height:679px; background-image:url(../img/bovino.png); top:140px; left:0; }
+#bovino .bovino-bisteca{ width:238px; height:238px; background-image:url(../img/bovino-bisteca.png); /*top:320px;*/ top:220px; right:15.6%; }
+#bovino .bovino-cozinha{ width:248px; height:34px; background-image:url(../img/bovino-cozinha.png); bottom:40px; right:5.2%; }
+#bovino .bovino-carne{ width:106px; height:814px; background-image:url(../img/bovino-carne.png); /*top:-280px;*/ top:-380px; right:0; }
+
+#suino{ padding:60px 0 250px; background-color:$cinza3; position:relative; }
+#suino .col-left{ max-width:320px; letter-spacing:0.1em; }
+#suino .col-left h2{ @include font-size(74.83px); font-weight:$bold; color:$vermelho; text-transform:uppercase; text-align:center; }
+#suino .col-left p{ line-height:25.12px; text-align:justify; margin-top:45px; }
+#suino .col-left .sep{ width:100%; height:1px; background-color:$preto; margin-top:50px; }
+#suino .col-left span{ display:block; text-align:center; font-weight:$bold; text-transform:uppercase; margin-top:20px; }
+
+#suino .suino-bisteca{ width:277px; height:134px; background-image:url(../img/suino-bisteca.png); /*bottom:35px;*/ bottom:265px; left:18.75%; }
+#suino .selo{ width:147px; height:96px; background-image:url(../img/selo.png); top:55px; right:28.5%; }
+#suino .suino{ width:736px; height:429px; background-image:url(../img/suino.png); bottom:55px; right:14.5%; }
+#suino .suino-tomilho{ width:150px; height:300px; background-image:url(../img/suino-tomilho.png); /*bottom:-100px;*/ bottom:0; left:0; }
+
+#ovino{ padding:180px 0 210px; letter-spacing:0.1em; position:relative; }
+#ovino h2{ display:inline-block; @include font-size(74.83px); font-weight:$bold; color:$vermelho; text-transform:uppercase; text-align:center; position:relative; }
+#ovino h2:after{ content:'Primevo'; display:block; position:absolute; bottom:27px; right:-85px; @include font-size(15px); font-weight:$regular; color:$cinza; text-transform:capitalize; }
+#ovino .proposta{ position:absolute; top:50px; right:1%; @include font-size(47.49px); font-weight:$bold; text-transform:uppercase; line-height:81.11px; letter-spacing:0.1em; }
+#ovino .proposta span{ display:block; }
+#ovino p{ letter-spacing:0.1em; text-align:justify; line-height:25.12px; }
+#ovino .col-left{ float:right; max-width:340px; margin-top:180px; }
+#ovino .col-left p{ margin-bottom:30px; }
+#ovino .col-right{ float:right; max-width:170px; margin-top:640px; }
+#ovino .col-right p{ color:$cinza; }
+
+#ovino .ovino{ width:629px; height:627px; background-image:url(../img/ovino.png); top:330px; left:17.5%; }
+#ovino .ovino-carre{ width:335px; height:255px; background-image:url(../img/ovino-carre.png); /*bottom:160px;*/ bottom:470px; right:18%; }
+#ovino .ovino-tomilho{ width:134px; height:883px; background-image:url(../img/ovino-tomilho.png); /*top:100px;*/ top:-200px; right:0; }
+#ovino .ovino-alho{ width:296px; height:208px; background-image:url(../img/ovino-alho.png); /*bottom:-90px;*/ bottom:210px; right:11%; }
+
+/* +=+=+=+ Contato +=+=+=+ */
+.topo-contato{ width:100%; height:308px; background:$preto url(../img/topo-contato.jpg) no-repeat center center; }
+#content{ padding:70px 0 100px; position:relative; }
+#content .center{ overflow:hidden; position:relative; z-index:2; }
+#content h1{ @include font-size(35.8px); font-weight:$bold; letter-spacing:0.1em; text-transform:uppercase; text-align:center; margin-bottom:50px; }
+
+#content .col-left{ float:left; width:66.6% }
+#content .col-left label{ display:block; width:100%; overflow:hidden; margin-bottom:20px; }
+#content .col-left label p{ float:left; width:16%; font-weight:$semibold; letter-spacing:0.1em; }
+#content .col-left label input,
+#content .col-left label textarea{ display:block; float:left; width:84%; border:0; background-color:$cinza3; font-family:$Montserrat; @include font-size(14.71px); color:$preto; padding:5px; }
+#content .col-left label input{ height:38px; }
+#content .col-left label textarea{ height:168px; resize:none; }
+#enviar{ display:block; float:right; border:0; background-color:$preto; padding:10px 20px; font-family:$Montserrat; letter-spacing:0.1em; @include font-size(14.71px); font-weight:$semibold; color:$prata; cursor:pointer; @include transition(all 200ms ease-in-out); }
+#enviar:hover{ background-color:$vermelho; }
+
+#content .col-right{ float:right; width:24%; line-height:25.12px; }
+#content .col-right h2{ font-weight:$semibold; }
+#content .col-right p{ margin-bottom:20px; }
+#content .col-right .cedro{ width:109px; height:98px; background:url(../img/cedrofrigor-c.png) no-repeat center center; }
+
+#content .tomilho{ width:236px; height:488px; background:url(../img/tomilho3.png) no-repeat center center; position:absolute; z-index:1; top:440px; left:0; }
+#content .carne{ width:123px; height:428px; background:url(../img/carne2.png) no-repeat center center; position:absolute; z-index:1; top:180px; right:0; }
+
+/* +=+=+=+ Rodapé +=+=+=+ */
+#news{ padding:70px 0 80px; background-color:$vermelho; }
+#news h2{ float:left; @include font-size(35.8px); text-transform:uppercase; font-weight:$bold; letter-spacing:0.1em; }
+#news p{ float:left; color:#FFF; line-height:35.8px; margin-left:30px; letter-spacing:0.1em; }
+#news .inner{ width:100%; max-width:680px; margin:40px auto 0; overflow:hidden; }
+#news .inner input{ display:block; float:left; width:85%; height:36px; border:0; padding:0 10px; background-color:#87291C; }
+#news .inner .btn{ display:block; float:left; width:15%; height:36px; border:0; background-color:$preto; }
+
+#news .inner input,
+#news .inner .btn{ font-family:$Montserrat; @include font-size(14.71px); letter-spacing:0.1em; color:#FFF; }
+
+#closing{ padding-top:45px; background-color:$preto; color:$cinza2; letter-spacing:0.1em; }
+#closing .col{ width:50%; max-width:340px; text-align:center; }
+#closing .col.col-left{ float:left; }
+#closing .col.col-right{ float:right; }
+#closing .col h2{ font-weight:$bold; text-transform:uppercase; color:#FFF; }
+#closing .col .sep{ width:20px; height:5px; background-color:$vermelho; margin:20px auto 25px; }
+#closing .col p{ line-height:24px; }
+#closing .social{ width:100%; text-align:center; margin:50px 0; }
+#closing .social li{ display:inline-block; margin:0 25px; }
+#closing .social li a{ display:block; height:39px; background:no-repeat center center; @include transition(all 200ms ease-in-out); }
+#closing .social li a:hover{ @include opacity(0.6); }
+#closing .social li a.fb{ width:17px; background-image:url(../img/ico-fb-big.png); }
+#closing .social li a.in{ width:38px; background-image:url(../img/ico-in-big.png); }
+#closing .social li a.gp{ width:49px; background-image:url(../img/ico-gp-big.png); }
+
+#closing .lower{ width:97%; margin:0 auto; border-top:2px solid #434343; padding:30px; }
+#closing .lower .center{ overflow:hidden; }
+#closing .lower .third{ float:left; width:33.33%; text-align:center; }
+#closing .lower .third p{ line-height:20px; @include font-size(12px); margin-top:10px; }
+#closing .lower .third strong{ display:block; @include font-size(14.71px); }
+
+/* +=+=+=+ Responsivo +=+=+=+ */
+@media screen and(max-width:1400px){
+	#bovino .col-right h2{ margin-bottom:30px; }
+	#bovino .bovino{ left:auto; right:65%; }
+	#bovino .bovino-bisteca{ top:auto; bottom:50px; right:28%; }
+
+	#suino .suino-bisteca{ left:14%; }
+	#suino .suino{ right:3%; }
+
+	#ovino .proposta{ line-height:50px; }
+	#ovino .ovino{ left:3%; }
+	#ovino .ovino-carre{ right:8%; }
+}
+
+@media screen and(max-width:1300px){
+	#procedencia .tomilho{ left:0; }
+	#valores .col-left .louro{ left:-12%; }
+	#valores .col-left .boi{ left:5%; }
+	#valores .garfo{ right:2%; }
+}
+
+@media screen and(max-width:1279px){
+	#sobre .cutelo{ bottom:20px; }
+	#procedencia .tomilho{ top:-100px; }
+	#procedencia .tomilho2{ top:380px; }
+	#valores .col-left .louro{ display:none; }
+	#valores .col-left .boi{ bottom:20px; }
+	#valores .garfo{ bottom:40px; }
+
+	#procedencia .carne{ width:60%; height:532px; background-size:contain; right:0; }
+}
+
+@media screen and(max-width:1180px){
+	#suino{ overflow:hidden; }
+	#suino .suino-bisteca{ left:5%; }
+	#suino .suino-tomilho{ display:none; }
+	#suino .suino{ right:auto; left:40%; }
+
+	#ovino .proposta{ right:5%; }
+	#ovino .ovino{ left:auto; right:50%; }
+	#ovino .ovino-carre{ right:2%; }
+	#ovino .ovino-tomilho{ display:none; }
+}
+
+@media screen and(max-width:1024px){
+	#sobre .col-right .trabalho{ padding:0; background:none; }
+	#sobre .cutelo{ bottom:-50px; }
+
+	#banners .owl-dots .owl-dot{ margin:0 25px; }
+
+	#onde-estamos .col-right{ padding:190px 5% 0; }
+	#onde-estamos .col-right .inner{ max-width:100%; }
+	#onde-estamos .col-right .inner .carneiro{ position:static; margin:30px auto 0; }
+
+	#news h2,
+	#news p{ float:none; text-align:center; margin-left:0; }
+
+	#nossas-carnes .col-left{ margin-left:0; width:50%; max-width:100%; }
+	#nossas-carnes .img{ width:40%; max-width:100%; }
+
+	#bovino .col-left{ float:none; max-width:100%; margin:0 0 30px; }
+	#bovino .col-right{ float:none; max-width:100%; margin-right:0; }
+	#bovino .bovino-tomilho{ left:0; width:100%; background-size:contain; }
+	#bovino .bovino,
+	#bovino .bovino-carne{ display:none; }
+	#bovino .bovino-bisteca{ position:static; width:100%; margin-bottom:30px; }
+	#bovino .bovino-cozinha{ right:0; width:100%; }
+
+	#suino{ padding:50px 0; }
+	#suino .col-left{ margin:0 auto; }
+	#suino .suino-bisteca{ position:static; width:100%; margin-top:30px; }
+	#suino .selo,
+	#suino .suino,
+	#suino .suino-tomilho{ display:none; }
+
+	#ovino{ padding:50px 0 100px; }
+	#ovino h2{ display:block; text-align:center; margin-bottom:20px; }
+	#ovino h2:after{ position:static; text-align:center; margin-top:10px; }
+	#ovino .proposta{ position:static; @include font-size(20px); line-height:1.2em; text-align:justify; max-width:340px; margin:0 auto 30px; }
+	#ovino .proposta span{ display:inline; }
+	#ovino .col-left{ float:none; max-width:340px; margin:0 auto; }
+	#ovino .col-right{ float:none; max-width:170px; margin:0 auto 30px; }
+	#ovino .ovino,
+	#ovino .ovino-tomilho,
+	#ovino .ovino-alho{ display:none; }
+	#ovino .ovino-carre{ position:static; width:100%; }
+}
+
+@media screen and(max-width:860px){
+	#sobre h2:after{ position:static; margin-top:10px; }
+	#sobre .sub{ margin:0 auto 50px; }
+	#sobre .col-left{ float:none; width:100%; max-width:680px; margin:0 auto 50px; }
+	#sobre .col-left p,
+	#sobre .col-left .sep{ max-width:100%; }
+	#sobre .col-right{ float:none; width:100%; max-width:420px; margin:100px auto 0; }
+	#sobre .cutelo{ display:none; }
+
+	#procedencia{ background-repeat:repeat; }
+	#procedencia .tomilho{ top:-130px; left:50%; @include transform(translatex(-50%)); }
+	#procedencia .inner{ margin:0 auto; }
+	#procedencia .carne{ position:static; width:100%; height:300px; }
+
+	#valores{ padding:100px 0; }
+	#valores .col-left{ float:none; width:100%; margin-bottom:50px; }
+	#valores .col-left .tit-wrapper{ width:100%; margin:0 0 80px; text-align:center; }
+	#valores .col-left p{ float:none; width:90%; max-width:340px; margin:0 auto 20px; }
+	#valores .col-left .boi{ position:static; margin:0 auto; }
+	#valores .col-right{ float:none; width:90%; margin:0 auto; max-width:340px; }
+	#valores .col-right .selo{ margin:0 auto 50px; }
+	#valores .garfo{ position:static; width:100%; margin:30px 0 0; background-size:contain; }
+
+	#onde-estamos .tit-wrapper h2:after{ position:static; margin-top:10px; }
+	#onde-estamos .mapa{ float:none; width:100%; height:300px; }
+	#onde-estamos .col-right{ float:none; width:100%; height:auto; padding:50px 5%; }
+	#onde-estamos .col-right .inner{ text-align:center; }
+	#onde-estamos .col-right .inner .social li{ margin:0 5px; }
+
+	#content .col-left{ float:none; width:100%; margin-bottom:30px; }
+	#enviar{ float:none; width:100%; }
+	#content .col-right{ float:none; width:100%; text-align:center; }
+	#content .col-right .cedro{ width:100%; }
+}
+
+@media screen and(max-width:620px){
+	#sobre .col-right .escolhas span{ right:0; }
+
+	#procedencia .tomilho{ left:auto; right:0; @include transform(translatex(0)); }
+
+	#closing .col{ width:100%; max-width:100%; margin-bottom:50px; }
+	#closing .social{ margin:0 0 50px; }
+	#closing .lower .third{ width:100%; margin-bottom:20px; }
+}
+
+@media screen and(max-width:540px){
+	#news .inner input,
+	#news .inner .btn{ width:100%; text-align:center; }
+
+	#nossas-carnes .col-left{ width:100%; margin-bottom:50px; }
+	#nossas-carnes .img{ width:100%; }
+}
+
+@media screen and(max-width:460px){
+	#logo{ margin:0 auto 20px; }
+	#social{ position:static; width:100%; text-align:center; margin-bottom:30px; }
+	#social li{ margin:0 10px; }
+
+	#banners .owl-dots .owl-dot{ margin:0 10px; }
+
+	#sobre{ padding-top:50px; }
+
+	#procedencia{ padding-bottom:0; }
+	#procedencia .inner h2{ @include font-size(30px); }
+	#procedencia .tomilho2{ display:none; }
+	#procedencia .carne{ height:200px; margin:20px 0; }
+
+	#valores{ padding:50px 0; }
+	#valores .col-left .tit-wrapper h2:after{ position:static; margin-top:10px; }
+	#valores .col-right p{ margin-bottom:30px; }
+	#valores .col-right .sep{ margin-bottom:20px; }
+	#valores .garfo{ height:100px; }
+
+	#news{ padding:30px 0; }
+	#news .inner{ margin-top:0; }
+
+	#bovino .col-right h2{ @include font-size(60px); }
+
+	#content .col-left label p{ float:none; width:100%; margin-bottom:5px; }
+	#content .col-left label input,
+	#content .col-left label textarea{ float:none; width:100%; }
+	#content .tomilho,
+	#content .carne{ display:none; }
+}

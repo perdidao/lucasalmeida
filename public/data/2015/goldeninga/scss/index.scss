@@ -1,0 +1,122 @@
+// DEPENDÊNCIAS
+@import "compass";
+@import "tools.scss";
+
+// CORES
+$Azul:#1D334D;
+$Amarelo:#F3CA31;
+$Vermelho:#F77;
+$Cinza:#777;
+
+// FONTES
+@import "fonts.scss";
+
+// BANNER
+#banner{ width:100%; position:relative; }
+#banners{}
+#banners li{ float:left; width:100%; min-height:827px; background-repeat:no-repeat; background-position:center top; }
+#banners li h2{ display:block; float:left; width:100%; text-align:center; margin-top:270px; font-family:$Dh; color:#FFF; @include font-size(55px); background:url(../img/linha-banner.png) no-repeat center center; }
+#banners li p{ display:block; float:left; width:100%; text-align:center; margin-top:30px; font-family:$Di; @include font-size(25px); color:#FFF; }
+#banner-nav{ width:100%; text-align:center; position:absolute; z-index:10; left:0; bottom:125px; }
+#banner-nav a{ display:inline-block; width:30px; height:30px; margin:0 5px; background:url(../img/bullet-banner.png) no-repeat center center; @include removeText; }
+#banner-nav a.activeSlide{ background-image:url(../img/bullet-banner-alt.png); }
+#banner-seta{ display:block; width:132px; height:132px; background:url(../img/seta-banner.png) no-repeat center center; position:absolute; z-index:8; bottom:-47px; left:50%; margin-left:-(132px/2); }
+
+// ESTRUTURA
+.wrapper-estrutura{ background:url(../img/bkg-estrutura.jpg) repeat center bottom; }
+#estrutura{ height:840px; margin-top:90px; position:relative; }
+#estrutura h2{ display:block; max-width:560px; margin:0 auto 30px; padding:0 30px 30px; border-bottom:1px solid $Azul; font-family:$Dr; text-align:center; @include font-size(45px); }
+#estrutura p{ display:block; max-width:770px; margin:0 auto; text-align:center; line-height:29px; color:$Cinza; }
+
+#opcoes-estrutura{ position:relative; z-index:12; width:488px; height:488px; margin:70px auto 0; }
+#opcoes-estrutura a{ display:block; width:244px; height:244px; background:url(../img/estrutura/quad.png) no-repeat center center; @include font-size(24px); line-height:245px; text-align:center; color:#FFF; position:absolute; @include transition(all 300ms ease-in-out); }
+#opcoes-estrutura a:hover,
+#opcoes-estrutura a.active{ background-image:url(../img/estrutura/quad-active.png); color:$Azul; }
+#opcoes-estrutura a.q-apa{ top:0; left:50%; margin-left:-(244px/2); }
+#opcoes-estrutura a.q-eve{ top:50%; left:0; margin-top:-(244px/2); }
+#opcoes-estrutura a.q-laz{ top:50%; right:0; margin-top:-(244px/2); }
+#opcoes-estrutura a.q-res{ bottom:0; left:50%; margin-left:-(244px/2); }
+#opcoes-estrutura:after{ content:" "; display:block; width:56px; height:56px; background-color:$Amarelo; border:2px solid #FFF; @include border-radius(50%); position:absolute; top:50%; margin-top:(-56px/2); left:50%; margin-left:(-56px/2); }
+
+.complementar{ display:none; position:absolute; z-index:10; bottom:0; left:0; width:0; height:1071px; background:url(../img/estrutura/complementar.png) no-repeat right bottom; @include transition(all 300ms ease-in-out); }
+.foto-estrutura{ display:none; position:absolute; z-index:11; bottom:0; right:0; width:0; height:1027px; background:url(../img/estrutura/apartamentos.png) no-repeat left bottom; @include transition(all 300ms ease-in-out); }
+.complementar.active{ width:50%; }
+.foto-estrutura.active{ width:55.5%; }
+
+// SOBRE
+#sobre{ width:100%; height:420px; padding:90px 0; text-align:center; font-family:$Di; color:#FFF; background:url(../img/bkg-sobre.jpg) no-repeat center top; }
+#sobre h2{ display:block; @include font-size(45px); margin-bottom:45px; }
+#sobre p{ @include font-size(25px); line-height:35px; max-width:940px; margin:25px auto; }
+#sobre p.width-fix{ max-width:860px; }
+
+// RESERVAS
+#reservas{ width:100%; }
+#header-reserva{ float:left; width:33.3%; height:732px; padding-top:230px; background:url(../img/bkg-header-reserva.jpg) no-repeat center center; color:#FFF; text-align:center; }
+#header-reserva h2{ @include font-size(45px); font-family:$Dr; }
+#header-reserva .separador{ width:100%; height:15px; background:url(../img/separador-reservas.png) no-repeat center center; margin:40px auto; }
+#header-reserva p{ display:block; max-width:350px; margin:0 auto; @include font-size(24px); line-height:29px; }
+#header-reserva a{ display:inline-block; padding:10px 50px; border:2px solid #FFF; font-family:$Fbi; margin-top:40px; @include transition(all 300ms ease-in-out); }
+#header-reserva a:hover{ background-color:#FFF; color:$Azul; }
+#reservas .passos{ float:left; width:66.7%; border-left:1px solid #FFF; }
+#reservas .passos .passo{ float:left; width:50%; height:244px; border:1px solid #FFF; border-top:0; border-left:0; background-color:$Azul; position:relative; @include transition(all 300ms ease-in-out); }
+#reservas .passos .passo:nth-child(2n){ border-right:0; }
+#reservas .passos .passo .quad-interno{ position:absolute; top:15%; left:15%; width:70%; height:70%; border:1px solid #FFF; background-color:rgba(29,51,77,0.5); }
+#reservas .passos .passo .passo-id{ display:block; width:36px; height:36px; padding-top:10px; background-color:#FFF; color:$Azul; text-align:center; font-family:$Dr; @include font-size(26px); position:absolute; top:-16px; left:50%; margin-left:-16px; @include border-radius(50%); }
+#reservas .passos .passo h3{ @include font-size(30px); font-family:$Dr; text-align:center; color:#FFF; margin-top:50px; }
+#reservas .passos .passo input,
+#reservas .passos .passo select{ display:block; width:80%; margin:10px auto 0; height:40px; @include font-size(30px); font-family:$Di; color:#FFF; border:0; border-bottom:1px solid #FFF; background:transparent; text-align:center; }
+@include placeholder(#FFF);
+
+#reservas .passos .passo.passo1{ background:$Azul url(../img/bkg-passo4.jpg) no-repeat center center; }
+#reservas .passos .passo.passo2{ background:$Azul url(../img/bkg-passo2.jpg) no-repeat center center; }
+#reservas .passos .passo.passo3{ background:$Azul url(../img/bkg-passo3.jpg) no-repeat center center; }
+#reservas .passos .passo.passo4{ background:$Azul url(../img/bkg-passo4.jpg) no-repeat center center; }
+#reservas .passos .passo.passo1:hover,
+#reservas .passos .passo.passo2:hover,
+#reservas .passos .passo.passo3:hover,
+#reservas .passos .passo.passo4:hover{ background-position:center 300px; }
+
+#reservas .passos .passo.passo5{ width:100%; border:0; }
+#reservas .passos .passo.passo5 .passo-id{ top:50px; }
+#reservas .passos .passo.passo5 h3{ margin-top:110px; }
+#reservas .passos .passo.passo5 select{ max-width:470px; margin-top:25px; }
+
+// APARTAMENTOS
+#apartamentos{}
+#apartamentos header{ width:100%; height:210px; background:#FFF url(../img/linha-apartamentos.png) no-repeat center center; }
+#apartamentos header h2{ display:block; float:left; @include font-size(44px); font-family:$Dh; padding:5px 10px; background-color:#FFF; margin:87px 0 0 10%; }
+
+#lista-apartamentos{}
+#lista-apartamentos li{ float:left; width:25%; position:relative; }
+#lista-apartamentos li img{ display:block; width:100%; }
+#lista-apartamentos li .hover{ display:none; position:absolute; top:0; left:0; width:100%; height:100%; background-color:rgba(29,51,77,0.8); text-align:center; color:#FFF; padding-top:100px; }
+#lista-apartamentos li .hover h3{ display:block; max-width:80%; padding:0 30px 20px; margin:0 auto; font-family:$Dr; @include font-size(30px); line-height:1em; border-bottom:1px solid #FFF; }
+#lista-apartamentos li .hover p{ @include font-size(18px); line-height:35px; max-width:60%; margin:20px auto; }
+#lista-apartamentos li .hover .lupa{ width:80px; height:80px; background:url(../img/ico-lupa.png) no-repeat center center; margin:0 auto; }
+
+#mais-galerias{ display:block; width:100%; height:130px; background:url(../img/mais.png) no-repeat center center; margin:90px 0; }
+
+// LOCALIZAÇÃO
+#localizacao{}
+#mapa{ float:left; width:55%; height:470px; background:url(../img/mapa.jpg) no-repeat center center; background-size:cover; }
+#mapa-info{ float:left; width:45%;  }
+#mapa-info h2{ display:block; max-width:300px; padding-bottom:15px; border-bottom:1px solid $Azul; font-family:$Dr; @include font-size(30px); margin:35px 0 0 40px; }
+#mapa-info .lugares{ margin:20px 0 0 40px; }
+#mapa-info .lugares li{ @include font-size(18px); line-height:30px; }
+#mapa-info .gmaps{ display:block; max-width:340px; height:70px; background:$Amarelo url(../img/ico-seta.png) no-repeat 94% center; color:$Azul; font-family:$Di; @include font-size(24px); line-height:70px; padding-left:40px; margin-top:50px; }
+
+// RESPONSIVO
+@media screen and(max-width:900px){
+	#header-reserva{ width:50%; }
+	#reservas .passos{ width:50%; }
+	#reservas .passos .passo{ width:100%; }
+	#lista-apartamentos li{ width:50%; }
+
+	#mapa{ width:100%; }
+	#mapa-info{ width:100%;  }
+}
+
+@media screen and(max-width:660px){
+	#header-reserva{ width:100%; }
+	#reservas .passos{ width:100%; }	
+}

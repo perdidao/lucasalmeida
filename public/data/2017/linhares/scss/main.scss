@@ -1,0 +1,507 @@
+// Dependências
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// Fontes
+@import url('../fonts/fonts.css');
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+
+$Bebas:'Bebas', 'Impact', 'Arial Narrow', sans-serif;
+$Quicksand:'Quicksand', Helvetica, Arial, sans-serif;
+
+$regular:400;
+$bold:700;
+
+// Cores
+$amarelo:#D6CF1D;
+$marinho:#232b47;
+$ciano:#5798C5;
+$cinza:#444;
+$prata:#E5E5E5;
+
+/* =================================== */
+/* ================= Estilos globais = */
+
+body{ padding-top:180px; background-color:#FFF; font-weight:$regular; @include font-size(14px); font-family:$Quicksand; color:$cinza; @include font-smoothing(on); }
+@include selection(#FFF,$marinho);
+
+#main{ margin:100px auto; overflow:hidden; }
+
+.hidden{ @include opacity(0); }
+
+.btn-wrapper{ width:100%; text-align:center; margin:20px 0 70px; }
+.btn{ padding:10px 25px; border:1px solid $marinho; background-color:#FFF; @include border-radius(40px); @include transition(all 300ms ease-in-out); }
+.btn:hover{ color:#FFF; background-color:$marinho; }
+
+#btn-menu{
+    display:none;
+    width:40px;
+    height:30px;
+    position:fixed;
+    z-index:1001;
+    top:30px;
+    right:4%;
+    @include transition(all 300ms ease-in-out);
+    & span,
+    &:before,
+    &:after{
+        content:" ";
+        display:block;
+        width:40px;
+        height:3px;
+        background-color:#FFF;
+        @include transform(rotate(0));
+        position:absolute;
+        left:0;
+        @include transition(all 300ms ease-in-out);
+    }
+        
+    &:before{ top:0; }
+    & span{ top:14px; @include opacity(1); }
+    &:after{ bottom:0; }
+    
+    &.active span{ @include opacity(0); top:12px; @include transform(rotate(90deg)); }
+    &.active:before{ width:40px; top:14px; left:0; @include transform(rotate(45deg));}
+    &.active:after{ width:40px; bottom:14px; left:0; @include transform(rotate(-45deg));} 
+}
+
+/* ========================== */
+/* ================= Header = */
+
+#header{ width:100%; min-height:180px; padding:15px 0; position:fixed; z-index:999; top:0; left:0; background:$marinho url(../img/bkg-menu.jpg) repeat center top; }
+#header .center{ overflow:hidden; }
+#logo{ display:block; float:left; width:145px; @include transition(all 300ms ease-in-out); }
+#logo img{ display:inline-block; max-width:100%; }
+
+body.smaller{ padding-top:90px; }
+#header.smaller{ min-height:0; }
+#header.smaller #logo{ width:70px; }
+#header.smaller #busca{ margin:25px 0 0 50px; }
+#header.smaller #menu-principal{ margin-top:30px; }
+
+#busca{ float:left; width:100%; max-width:240px; margin:62px 0 0 50px; @include transition(all 300ms ease-in-out); }
+#busca input{ display:block; float:left; width:80%; height:30px; padding:0 20px; border:0; background-color:transparent; font-family:$Quicksand; @include font-size(18px); color:#656C84; }
+#btn-busca{ display:block; float:left; width:20%; height:30px; border:0; background:transparent url(../img/ico-busca.png) no-repeat center center; @include removeText; cursor:pointer; }
+
+#menu-principal{ float:right; margin-top:65px; font-family:$Bebas; font-weight:$regular; @include font-size(24px); color:#FFF; @include transition(all 300ms ease-in-out); }
+#menu-principal li{ display:inline-block; margin-left:50px; }
+#menu-principal li:first-child{ margin-left:0; }
+#menu-principal li a{ @include transition(all 300ms ease-in-out); }
+#menu-principal li a:hover{ color:$amarelo; }
+#menu-principal li a.active{ font-weight:$bold; color:$amarelo; }
+
+#foto-principal{ width:100%; position:relative; z-index:9; }
+#foto-principal img{ display:block; width:100%; }
+#foto-principal .background-color{ position:relative; z-index:1; }
+#foto-principal .jogador{ position:absolute; top:70px; left:8%; width:52%; @include animation(jogador 2s ease-in-out infinite alternate); }
+#foto-principal .wrapper{ position:absolute; top:0; right:0; width:16%; height:100%; overflow:hidden; }
+#foto-principal .bola{ position:absolute; top:20px; right:0; width:100%; @include animation(bola 2s ease-in-out infinite alternate); }
+
+@include keyframes(jogador){
+	0%  { @include transform(rotate(0deg)); }
+	100%{ @include transform(rotate(-2deg)); }
+}
+
+@include keyframes(bola){
+	0%  { @include transform(translate(0,0)); }
+	100%{ @include transform(translate(25px, -20px)); }
+}
+
+/* ===================================== */
+/* ================= Últimas Postagens = */
+
+#ultimas{ width:100%; background:$prata url(../img/bkg-ultimas.jpg) repeat center top; }
+#ultimas .center{ position:relative; }
+#ultimas h2{ display:inline-block; font-family:$Bebas; font-weight:$bold; @include font-size(70px); line-height:1em; color:$marinho; @include transform(rotate(-90deg) translate(-50%,-50%)); position:absolute; z-index:3; top:145px; left:-172px; }
+
+#lista-ultimas{}
+#lista-ultimas li{ position:relative; overflow:hidden; padding-bottom:50px; }
+#lista-ultimas li .imagem{ position:absolute; z-index:2; top:0; left:0; width:50%; }
+#lista-ultimas li .imagem img{ display:block; width:100%; }
+#lista-ultimas li .imagem span{ display:block; padding:10px 15px; background-color:rgba(255,255,255,.7); position:absolute; bottom:0; right:0; }
+#lista-ultimas li .texto{ float:right; width:55%; background-color:$prata; padding:35px 120px 30px 200px; margin-top:190px; position:relative; z-index:1; }
+#lista-ultimas li .texto h3{ font-family:$Bebas; font-weight:$bold; @include font-size(35px); line-height:40px; color:$marinho; margin-bottom:30px; }
+#lista-ultimas li .texto p{ line-height:25px; margin-bottom:30px; }
+#lista-ultimas li .texto .btn-leia{ position:absolute; bottom:0; left:50%; @include transform(translate(-20%,50%)); }
+
+#lista-ultimas .owl-dots{ position:absolute; top:77%; left:42%; }
+#lista-ultimas .owl-dot{ width:12px; height:12px; margin-bottom:20px; @include border-radius(50%); border:1px solid $marinho; @include transition(all 300ms ease-in-out); }
+#lista-ultimas .owl-dot.active{ background-color:$marinho; }
+
+/* ============================ */
+/* ================= Notícias = */
+
+#noticias{}
+#tit-noticia{ width:100%; height:657px; margin-bottom:40px; background:url(../img/bkg-tit-noticias.jpg) no-repeat center top; position:relative; overflow:hidden; }
+#oca, #goleiro, #ntiis{ position:absolute; top:0; left:0; width:100%; height:100%; background:no-repeat center center; background-size:contain; }
+#oca{ z-index:1; background-image:url(../img/tit-noticias1.png); @include animation(parallax1 3s ease-in-out infinite alternate); }
+#goleiro{ z-index:2; background-image:url(../img/tit-noticias2.png); @include animation(parallax2 3s ease-in-out infinite alternate); @include removeText; }
+#ntiis{ z-index:3; background-image:url(../img/tit-noticias3.png); @include animation(parallax3 3s ease-in-out infinite alternate); }
+
+@include keyframes(parallax1){
+	0%  { @include transform(translatex(-20px)); }
+	100%{ @include transform(translatex(20px)); }
+}
+
+@include keyframes(parallax2){
+	0%  { @include transform(translatex(-40px)); }
+	100%{ @include transform(translatex(40px)); }
+}
+
+@include keyframes(parallax3){
+	0%  { @include transform(translatex(-60px)); }
+	100%{ @include transform(translatex(60px)); }
+}
+
+#lista-noticias{ overflow:hidden; }
+#lista-noticias li{ width:50%; float:left; margin-bottom:70px; position:relative; overflow:hidden; }
+#lista-noticias li .imagem{ position:absolute; z-index:2; top:0; left:0; width:83.33%; background-color:$marinho; }
+#lista-noticias li .imagem img{ display:block; width:100%; @include transition(all 300ms ease-in-out); }
+#lista-noticias li .imagem a:hover img{ @include opacity(0.3); }
+#lista-noticias li .conteudo{ width:83.33%; padding:120px 16.66% 30px 16%; margin:240px 0 0 16.66%; background-color:$prata; }
+#lista-noticias li .conteudo h3{ font-family:$Bebas; @include font-size(35px); font-weight:$bold; color:$marinho; margin-bottom:30px; }
+#lista-noticias li .conteudo p{ line-height:25px; }
+
+/* ================================ */
+/* ================= Curiosidades = */
+
+#curiosidades{}
+#tit-curiosidades{ width:100%; margin-bottom:60px; background:url(../img/bkg-tit-curiosidades.jpg) repeat center center; }
+#tit-curiosidades .center{ height:610px; position:relative; overflow:hidden; }
+#tit-curiosidades h2{ width:483px; height:134px; position:absolute; top:50%; left:0; @include transform(translatey(-50%)); }
+#tit-curiosidades h2 span{ display:none; }
+#tit-curiosidades1, #tit-curiosidades2{ position:absolute; top:0; left:0; width:100%; height:100%; background:no-repeat center center; }
+#tit-curiosidades1{ background-image:url(../img/tit-curiosidades1.png); }
+#tit-curiosidades2{ background-image:url(../img/tit-curiosidades2.png); @include animation(diagonal 2s linear infinite alternate); }
+
+@include keyframes(diagonal){
+	0%  { @include opacity(0.7); @include transform(rotate(-1deg)); }
+	100%{ @include opacity(0.4); @include transform(rotate(1deg)); }
+}
+
+.col-left{ float:left; width:83.33%; }
+#lista-curiosidades{}
+#lista-curiosidades li{ float:left; width:40%; margin:0 10% 5% 0; }
+#lista-curiosidades li .imagem{ display:block; background-color:$marinho; position:relative; margin-bottom:30px; }
+#lista-curiosidades li .imagem span{ display:block; position:absolute; z-index:1; top:50%; left:50%; @include transform(translate(-50%,-50%)); width:70px; height:70px; border:2px solid #FFF; @include border-radius(50%); @include opacity(0); @include transition(all 300ms ease-in-out); }
+#lista-curiosidades li .imagem:hover span{ @include opacity(1); }
+#lista-curiosidades li .imagem span:before,
+#lista-curiosidades li .imagem span:after{ content:' '; display:block; width:35px; height:2px; background-color:#FFF; position:absolute; top:50%; left:50%; @include transform(translate(-50%,-50%)); }
+#lista-curiosidades li .imagem span:after{ @include transform(rotate(90deg)); left:23%; }
+#lista-curiosidades li .imagem img{ display:block; width:100%; @include transition(all 300ms ease-in-out); }
+#lista-curiosidades li .imagem:hover img{ @include opacity(0.82); }
+#lista-curiosidades li h3{ font-family:$Bebas; font-weight:$bold; @include font-size(35px); line-height:1.3em; margin-bottom:25px; }
+#lista-curiosidades li h3:after{ content:' '; display:block; width:100%; max-width:190px; height:1px; background-color:$marinho; margin-top:15px; }
+#lista-curiosidades li p{ line-height:30px; }
+
+.col-right{ float:left; width:16.66%; }
+.col-right .utilidade{ width:100%; height:500px; background-color:$prata; margin-bottom:70px; }
+
+/* ============================= */
+/* ================= Parceiros = */
+
+#parceiros{ background-color:$prata; padding:90px 0; }
+#parceiros h2{ font-family:$Bebas; font-weight:$bold; @include font-size(45px); color:$marinho; text-align:center; position:relative; }
+#parceiros h2 span{ display:inline-block; padding:0 40px; background-color:$prata; position:relative; z-index:2; }
+#parceiros h2:after{ content:' '; display:block; width:100%; height:1px; background-color:$marinho; position:absolute; z-index:1; top:45%; left:0; }
+#lista-parceiros{ margin-top:90px; text-align:center; }
+#lista-parceiros li{ display:inline-block; margin:0 45px 40px; vertical-align:middle; }
+#lista-parceiros li:first-child{ margin-left:0; }
+#lista-parceiros li:last-child{ margin-right:0; }
+
+/* ============================= */
+/* ================= Categoria = */
+
+#lista-interna{ max-width:90%; }
+#lista-interna li{ width:100%; padding-bottom:60px; border-bottom:1px solid $prata; margin-bottom:60px; overflow:hidden; }
+#lista-interna li .imagem{ float:left; width:43%; position:relative; background-color:$marinho; }
+#lista-interna li .imagem img{ display:block; width:100%; }
+#lista-interna li .imagem img{ display:block; width:100%; @include transition(all 300ms ease-in-out); }
+#lista-interna li .imagem:hover img{ @include opacity(0.5); }
+#lista-interna li .imagem span{ display:block; position:absolute; z-index:1; top:50%; left:50%; @include transform(translate(-50%,-50%)); width:70px; height:70px; border:2px solid #FFF; @include border-radius(50%); @include opacity(0); @include transition(all 300ms ease-in-out); }
+#lista-interna li .imagem:hover span{ @include opacity(1); }
+#lista-interna li .imagem span:before,
+#lista-interna li .imagem span:after{ content:' '; display:block; width:35px; height:2px; background-color:#FFF; position:absolute; top:50%; left:50%; @include transform(translate(-50%,-50%)); }
+#lista-interna li .imagem span:after{ @include transform(rotate(90deg)); left:23%; }
+#lista-interna li .info{ float:left; width:54%; margin-left:3%; }
+#lista-interna li .info .meta{ @include font-size(16px); margin-bottom:30px; }
+#lista-interna li .info .meta a{ color:$marinho; }
+#lista-interna li .info .meta a:hover{ text-decoration:underline; }
+#lista-interna li .info h3{ font-family:$Bebas; color:$marinho; @include font-size(35px); line-height:40px; margin-bottom:20px; font-weight:$bold; }
+#lista-interna li .info .excerpt{ @include font-size(14px); line-height:25px; margin-bottom:50px; }
+#lista-interna li .info .btn-fb{ display:block; width:33px; height:32px; background:url(../img/btn-facebook.png) no-repeat center center; @include transition(all 300ms ease-in-out); }
+#lista-interna li .info .btn-fb:hover{ @include opacity(0.6); }
+
+#paginacao{ overflow:hidden; text-align:center; }
+#paginacao li{ display:inline-block; margin:0 4px 10px; }
+#paginacao li a{ display:block; padding:15px 20px; background-color:$marinho; color:#FFF; @include transition(all 200ms ease-in-out); }
+#paginacao li a:hover,
+#paginacao li a.active{ background-color:$amarelo; color:$marinho; }
+
+/* ======================== */
+/* ================= Post = */
+
+.scenter .col-left{ width:66.66%; }
+.scenter .col-right{ width:22.22%; margin-left:11.11%; }
+
+#post{}
+#post .meta{ overflow:hidden; line-height:44px; margin-bottom:40px; }
+#post .meta .data{ display:block; float:left; @include font-size(16px); }
+#post .meta .compartilhar{ display:block; float:right; }
+#post .meta .compartilhar em{ display:block; float:left; margin:3px 20px 0 0; }
+#post .meta .compartilhar a{ display:block; float:left; width:147px; height:44px; background:url(../img/btn-facebook2.png) no-repeat center center; @include transition(all 200ms ease-in-out); }
+#post .meta .compartilhar a:hover{ @include opacity(0.6); }
+#post h1{ font-family:$Bebas; font-weight:$bold; @include font-size(45px); line-height:50px; color:$marinho; margin-bottom:25px; }
+#post img{ display:block; width:100%; margin-bottom:40px; }
+#post p{ @include font-size(14px); line-height:30px; margin-bottom:20px; }
+#post p strong{ font-weight:$bold; }
+#post p em{ font-style:italic; }
+#post p a{ color:$marinho; text-decoration:underline; }
+#post .video{ margin-top:50px; }
+#post .video h2{ font-family:$Bebas; @include font-size(25px); color:$marinho; margin-bottom:10px; }
+#post .video iframe{ display:block; width:100%; height:410px; }
+#comentarios{ padding:50px 0; background-color:#f0f0f0; }
+#comentarios h2{ font-family:$Bebas; @include font-size(35px); font-weight:$bold; margin-bottom:20px; color:$cinza; }
+
+/* ========================= */
+/* ================= Sobre = */
+
+#top-wrapper{ width:100%; height:540px; background:$marinho url(../img/bkg-sobre.jpg) no-repeat center top; position:relative; }
+#top-wrapper .foto{ position:absolute; left:50%; bottom:-130px; width:80%; max-width:960px; @include transform(translatex(-50%)); }
+#top-wrapper .foto img{ display:block; width:100%; position:relative; z-index:2; }
+#top-wrapper .foto .barra{ width:126%; height:6px; background-color:#FFF; position:absolute; z-index:1; left:50%; bottom:127px; @include transform(translatex(-50%)); }
+
+#sobre{ background-color:$ciano; padding:230px 0 140px; overflow:hidden; }
+#erre{ float:left; width:38%; margin-left:8%; }
+#erre img{ display:block; width:100%; }
+#sobre .texto{ float:left; width:33.33%; margin:60px 0 0 2%; }
+#sobre .texto h1{ font-family:$Bebas; @include font-size(84px); font-weight:$bold; line-height:0.8em; color:$amarelo; @include transform(translatex(-25%)); margin-bottom:45px; }
+#sobre .texto p{ @include font-size(14px); line-height:31px; color:#FFF; margin-bottom:20px; }
+#sobre .texto .social{ overflow:hidden; }
+#sobre .texto .social h2{ float:left; font-family:$Bebas; @include font-size(24px); font-weight:$bold; color:$amarelo; margin:10px 15px 0 0; }
+#sobre .texto .social ul{ float:left; }
+#sobre .texto .social ul li{ display:inline-block; margin-right:15px; }
+#sobre .texto .social ul li a{ display:block; width:35px; height:35px; background:no-repeat center center; @include transition(all 200ms ease-in-out); }
+#sobre .texto .social ul li a:hover{ @include opacity(0.7); }
+#sobre .texto .social ul li a.fb{ background-image:url(../img/btn-fb.png); }
+#sobre .texto .social ul li a.yt{ background-image:url(../img/btn-yt.png); }
+
+#fotos-sobre{ width:100%; overflow:hidden; background-color:$ciano; }
+#fotos-sobre li{ float:left; width:25%; }
+#fotos-sobre li a{ @include transition(all 200ms ease-in-out); }
+#fotos-sobre li a:hover{ @include opacity(0.4); }
+#fotos-sobre li img{ display:block; width:100%; }
+
+/* ====================================== */
+/* ================= Baixar entrevistas = */
+
+#topo-baixar{ width:100%; height:710px; background:url(../img/bkg-baixar.jpg) no-repeat center top; }
+#jogador2{ float:left; width:50%; height:710px; background:url(../img/jogador2.png) no-repeat right top; }
+#topo-baixar h2{ float:left; width:50%; height:480px; background:url(../img/baixar-entrevistas.png) no-repeat left center; @include removeText; }
+
+#baixar{ width:90%; }
+#baixar li{ margin-bottom:50px; overflow:hidden; }
+#baixar li .meta{ @include font-size(12px); margin-bottom:15px; }
+#baixar li .imagem{ float:left; width:33.33%; }
+#baixar li .imagem img{ display:block; width:100%; }
+#baixar li .info{ float:left; width:66.66%; padding-left:3%; }
+#baixar li .info h2{ font-family:$Bebas; @include font-size(24px); font-weight:$bold; line-height:30px; color:$marinho; margin-bottom:20px; }
+#baixar li .info .player{ margin-bottom:30px; }
+#baixar li .info .player p{ @include font-size(18px); margin-bottom:10px; }
+#baixar li .info .download{ overflow:hidden; }
+#baixar li .info .download .btn-download{ display:block; float:left; padding:12px 20px 12px 45px; background:$amarelo url(../img/ico-download.png) no-repeat 18px center; @include font-size(15px); color:$marinho; @include transition(all 200ms ease-in-out); }
+#baixar li .info .download .btn-download:hover{ @include opacity(0.7); }
+#baixar li .info .download p{ float:left; margin:10px 0 0 10px; @include font-size(13px); color:$marinho; }
+#baixar li .info .download p a{ font-weight:$bold; }
+
+/* =========================== */
+/* ================= Contato = */
+
+#topo-contato{ width:100%; height:700px; background:url(../img/bkg-contato.jpg) no-repeat right top; }
+#topo-contato h1{ width:100%; max-width:720px; height:700px; background:url(../img/contato.png) no-repeat right center; @include removeText; }
+
+#contato{ width:94%; max-width:720px; margin:50px auto 100px; }
+#contato h2{ font-family:$Bebas; @include font-size(35px); font-weight:$bold; color:$marinho; text-align:center; margin-bottom:50px; }
+#contato input,
+#contato select,
+#contato textarea{ display:block; width:100%; padding:5px 0; border:0; border-bottom:1px solid $marinho; margin-bottom:25px; font-family:$Quicksand; @include font-size(14px); text-align:center; }
+#contato textarea{ border:1px solid $marinho; text-align:left; padding:10px 20px; height:260px; resize:none; }
+#contato button{ display:block; width:100%; height:60px; border:0; background-color:$marinho; color:#FFF; font-family:$Quicksand; @include font-size(14px); text-transform:uppercase; cursor:pointer; @include transition(all 200ms ease-in-out); }
+#contato button:hover{ background-color:$amarelo; color:$marinho; }
+
+/* ========================== */
+/* ================= Rodapé = */
+
+#footer{ padding:75px 0 70px; background:$marinho url(../img/bkg-footer.jpg) no-repeat center bottom; color:#FFF; }
+#footer h2{ font-family:$Bebas; font-weight:$bold; @include font-size(45px); text-align:center; margin-bottom:60px; }
+
+#sociais{ overflow:hidden; margin-bottom:130px; }
+#sociais li{ float:left; width:23.5%; margin-right:2%; position:relative; }
+#sociais li:last-child{ margin-right:0; }
+#sociais li.facebook{ background-color:#3C5B9B; }
+#sociais li.youtube{ background-color:#DE3232; }
+#sociais li a{ display:block; }
+#sociais li img{ display:block; width:100%; @include opacity(0.2); @include transition(all 300ms ease-in-out); }
+#sociais li a:hover img{ @include opacity(0.6); }
+#sociais li .icone{ display:block; width:100%; height:30px; background:no-repeat center center; @include removeText; position:absolute; top:50px; left:0; }
+#sociais li .post{ @include font-size(18px); line-height:31px; width:80%; text-align:center; position:absolute; top:50%; left:10%; @include transform(translatey(-50%)); }
+#sociais li .mais{ display:block; width:31px; height:29px; background:url(../img/ico-mais.png) no-repeat center center; position:absolute; bottom:50px; left:50%; @include transform(translatex(-50%)); }
+
+#sociais li.facebook .icone{ background-image:url(../img/ico-facebook.png); }
+#sociais li.youtube .icone{ background-image:url(../img/ico-youtube.png); }
+
+#footer-nav{ width:100%; text-align:center; margin-bottom:80px; }
+#footer-nav li{ display:inline-block; font-family:$Bebas; font-weight:$regular; @include font-size(24px); margin:0 25px; }
+#footer-nav li a{ @include transition(all 300ms ease-in-out); }
+#footer-nav li a:hover{ color:$amarelo; }
+#footer-nav li a.active{ color:$amarelo; font-weight:$bold; }
+#ffw{ display:block; width:26px; height:24px; margin:0 auto 15px; background:url(../img/ffw.png) no-repeat center center; @include removeText; @include transition(all 300ms ease-in-out); }
+#ffw:hover{ @include opacity(0.6); }
+#copy{ width:100%; text-align:center; @include font-size(12px); letter-spacing:0.08; }
+#voltar{ display:block; position:absolute; bottom:100px; right:0; display:block; width:94px; height:94px; padding-top:50px; background:#FFF url(../img/arw-up.png) no-repeat center 10px; @include font-size(16px); font-weight:$bold; color:$cinza; text-align:center; @include transition(all 300ms ease-in-out); }
+#voltar:hover{ background-position:center 5px; }
+
+/* ============================== */
+/* ================= Responsivo = */
+
+@media screen and(max-width:1520px){
+	#busca{ margin:62px 0 0 15px; }
+	#menu-principal li{ margin-left:15px; }
+
+	#lista-ultimas li .texto{ padding:35px 120px; }
+}
+
+@media screen and(max-width:1280px){
+	body{ padding-top:220px; }
+	#busca{ margin:62px 0 0; float:right; }
+	#menu-principal{ width:100%; margin-top:30px; text-align:center; }
+	#menu-principal li{ margin:0 10px; }
+
+	#foto-principal .jogador{ top:40px; left:3%; }
+
+	#lista-noticias li{ width:44%; margin:0 3% 5%; }
+	#lista-noticias li .imagem{ position:static; width:100%; }
+	#lista-noticias li .conteudo{ width:100%; padding:40px; margin:0; }
+
+	#sociais li .icone{ top:20px; }
+	#sociais li .mais{ bottom:20px; }
+
+	#footer-nav li{ margin:0 15px 15px; }
+	#voltar{ bottom:0; }
+
+	#top-wrapper{ height:340px; }
+	#top-wrapper .foto{ width:60%; }
+}
+
+@media screen and(max-width:1000px){
+	#ultimas h2{ @include font-size(50px); margin:50px 0 20px; @include transform(rotate(0) translate(0,0)); position:static; width:100%; text-align:center; }
+	#lista-ultimas li .imagem{ position:relative; width:100%; }
+	#lista-ultimas li .texto{ float:none; width:100%; padding:30px 5%; margin-top:0; }
+	#lista-ultimas .owl-dots{ display:none !important; }
+	#lista-ultimas li .texto .btn-leia{ @include transform(translate(-50%,50%)); }
+
+	#tit-noticia{ height:350px; background-position:center bottom; }
+
+	.scenter .col-left,
+	.col-left{ float:none; width:100%; }
+	#lista-curiosidades li{ margin:0 5% 5%; }
+	#baixar{ width:100%; }
+	#lista-interna{ max-width:100%; }
+	.scenter .col-right,
+	.col-right{ display:none; }
+
+	#lista-parceiros li:first-child{ margin-left:40px; }
+	#lista-parceiros li:last-child{ margin-right:40px; }
+
+	#sociais li{ width:49%; margin-bottom:2%; }
+	#sociais li:nth-child(2n){ margin-right:0; }
+
+	#topo-contato{ height:600px; background-position:right -50px; }
+	#topo-contato h1{ height:600px; max-width:100%; background-position:center center; }
+}
+
+@media screen and(max-width:860px){
+	body{ padding-top:180px; }
+	#btn-menu{ display:block; }
+	#menu-principal{ display:none; position:fixed; z-index:1000; top:0; left:0; width:100%; height:100%; padding-top:20%; margin:0; background-color:$marinho; }
+	#menu-principal li{ display:block; margin:25px 0; }
+
+	#top-wrapper{ height:auto; padding:50px 3%; }
+	#top-wrapper .foto{ position:static; width:100%; @include transform(translatex(0)); }
+	#top-wrapper .foto .barra{ display:none; }
+
+	#sobre{ padding:100px 0; }
+	#erre{ width:40%; margin-left:0; }
+	#sobre .texto{ width:58%; }
+	#fotos-sobre li{ width:50%; }
+
+	#topo-baixar{ height:480px; }
+	#jogador2{ display:none; }
+	#topo-baixar h2{ width:100%; background-position:center center; }
+}
+
+@media screen and(max-width:640px){
+	#lista-noticias li{ width:100%; margin:0 0 30px; }
+
+	#lista-curiosidades li{ width:100%; margin:0 0 60px; }
+
+	#sociais{ margin-bottom:40px; }
+
+	#lista-interna li .imagem{ width:100%; margin-bottom:20px; }
+	#lista-interna li .info{ width:100%; margin:0; }
+
+	#topo-contato{ background-position:80% -50px; }
+	#topo-contato h1{ background-size:80%; }
+}
+
+@media screen and(max-width:540px){
+	#tit-curiosidades .center{ height:300px; }
+	#tit-curiosidades h2{ width:100%; }
+	#tit-curiosidades1, #tit-curiosidades2{ background-size:100%; }
+
+	#sociais li{ width:100%; margin:0 0 4%; }
+	#footer-nav{ margin-bottom:20px; }
+	#voltar{ position:static; width:100%; height:74px; margin-bottom:30px; }
+
+	#sobre{ padding:70px 0; }
+	#erre{ width:100%; margin:0; }
+	#sobre .texto{ width:100%; margin-top:-30px; }
+	#sobre .texto h1{ @include transform(translatex(0)); margin-bottom:25px; }
+
+	#baixar li .imagem{ width:100%; margin-bottom:20px; }
+	#baixar li .info{ width:100%; padding:0; }
+	#baixar li .info .player p{ text-align:center; }
+	#baixar li .info .download .btn-download{ width:100%; text-align:center; padding:12px 20px; }
+	#baixar li .info .download p{ width:100%; margin:10px 0 0; text-align:center; }
+
+	#topo-baixar h2{ background-size:80%; }
+}
+
+@media screen and(max-width:420px){
+	#main{ margin:30px auto; }
+	body{ padding-top:90px; }
+	#header{ min-height:0; }
+	#btn-menu{ top:35px; }
+	#header.smaller #logo,
+	#logo{ width:20%; }
+	#header.smaller #busca,
+	#busca{ float:left; width:65%; max-width:100%; margin:20px 0 0; }
+	#header.smaller #menu-principal{ margin-top:0; }
+
+	#foto-principal .jogador{ top:10px; left:-30px; width:60%; }
+
+	#tit-noticia{ height:140px; }
+
+	#post .meta .data{ width:100%; text-align:center; }
+	#post .meta .compartilhar{ width:100%; text-align:center; }
+	#post .meta .compartilhar em{ display:none; }
+	#post .meta .compartilhar a{ display:inline-block; float:none; }
+
+	#fotos-sobre li{ width:100%; }
+
+	#topo-baixar,
+	#topo-baixar h2{ height:300px; }
+
+	#topo-contato{ background-position:70% -50px; }
+}

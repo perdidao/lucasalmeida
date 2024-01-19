@@ -1,0 +1,219 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import url(https://fonts.googleapis.com/css?family=Lato:300,300i,400,700);
+
+$Lato:'Lato', Helvetica, Arial, sans-serif;
+
+$light:300;
+$regular:400;
+$bold:700;
+
+// CORES
+$azul:#3368F0;
+$preto:#2A2A2A;
+$branco:#F8F9FB;
+
+/* Global */
+body{ font:$light 18px $Lato; color:$preto; @include font-smoothing(on); background-color:$branco; }
+@include selection(#FFF,$azul);
+
+.titulo{}
+.titulo h2{ @include font-size(32px); line-height:36px; font-weight:$bold; position:relative; }
+.titulo h2:after{ content:' '; display:block; width:30px; height:2px; background-color:$azul; position:absolute; bottom:-15px; left:0; }
+.titulo p{ @include font-size(16px); line-height:18px; font-weight:$light; font-style:italic; margin-top:30px; }
+
+/* Topo */
+#header{ padding:15px 0; background-color:#FFF; }
+#logo{ float:left; width:86px; height:90px; background:url(../img/logo.png) no-repeat center center; @include removeText; }
+#header .right{ float:right; margin-top:35px; }
+#minicontato{ float:left; }
+#minicontato p{ float:left; background:no-repeat center left; }
+#minicontato p.email{ padding-left:33px; background-image:url(../img/ico-mail.png); }
+#minicontato p.fone{ padding-left:22px; margin-left:40px; background-image:url(../img/ico-telefone.png); }
+#social{ float:left; margin-left:30px; }
+#social li{ display:inline-block; margin-left:30px; }
+#social li a{ display:block; height:17px; background:no-repeat center center; @include transition(all 200ms ease-in-out); }
+#social li a:hover{ @include opacity(0.7); }
+#social li a.fb{ width:8px; background-image:url(../img/ico-facebook.png); }
+#social li a.in{ width:18px; background-image:url(../img/ico-instagram.png); }
+#social li a.yt{ width:18px; background-image:url(../img/ico-youtube.png); }
+
+/* Banner */
+#banner{ width:100%; height:750px; position:relative; background:#F1DBD3 url(../img/banner.jpg) no-repeat center bottom; }
+#banner .container{ float:right; text-align:right; margin-top:350px; text-transform:uppercase; @include font-size(62px); line-height:1.1em; }
+#banner .container h2{ font-weight:$bold;}
+#banner .container p{ font-weight:$light; }
+#banner .container .btn{ display:inline-block; padding:15px 50px; background-color:$azul; color:#FFF; font-weight:$bold; @include font-size(18px); line-height:1em; @include transition(all 300ms ease-in-out); }
+#banner .container .btn:hover{ @include opacity(0.5); }
+#continuar{ width:100%; height:35px; background:url(../img/continuar.png) no-repeat center top; position:absolute; bottom:0; left:0; }
+
+/* Sobre */
+#sobre{ padding:100px 0; overflow:hidden; }
+#sobre .titulo{ float:left; width:32%; }
+#sobre .titulo h2{ }
+#sobre .titulo p{}
+#sobre .col1{ float:left; width:25%; margin-left:9%; }
+#sobre .col2{ float:left; width:27%; margin-left:7%; }
+#sobre .col1 p,
+#sobre .col2 p{ line-height:26px; margin-bottom:26px; }
+
+#parallax{ width:100%; height:600px; background:url(../img/parallax.jpg) no-repeat center center; }
+
+/* Serviços */
+#servicos{ padding:110px 0 130px; }
+#servicos .titulo{ float:left; width:25%; margin-top:30px; }
+#servicos .col{ float:left; width:25%; }
+#servicos .col .ico{ width:100%; height:67px; margin-bottom:20px; background:no-repeat center left; }
+#servicos .col h3{ font-weight:$bold; }
+#servicos .col .texto{ border-right:1px solid $preto; padding-right:20px; margin-right:20px; min-height:100px; line-height:26px; }
+#servicos .col.last .texto{ border:0; }
+
+#servicos .col .ico.adm{ background-image:url(../img/ico-adm.png); }
+#servicos .col .ico.age{ background-image:url(../img/ico-age.png); }
+#servicos .col .ico.com{ background-image:url(../img/ico-com.png); }
+
+/* Casting */
+#casting{ padding:80px 0 90px; background-color:$preto; color:#FFF; }
+#casting .titulo{ margin-bottom:30px; }
+
+#casting ul li .foto{ float:left; width:62%; }
+#casting ul li .foto img{ display:block; width:100%; }
+#casting ul li .texto{ float:left; width:35%; min-height:570px; margin-left:3%; position:relative; }
+#casting ul li .texto h3{ text-transform:uppercase; font-weight:$bold; line-height:29px; position:relative; }
+#casting ul li .texto h3:after{ content:' '; display:block; width:30px; height:2px; background-color:$azul; position:absolute; bottom:-15px; left:0; }
+#casting ul li .texto p{ margin-top:30px; @include font-size(16px); line-height:26px; }
+#casting ul li .texto .btn{ display:inline-block; padding:25px 80px; text-transform:uppercase; background-color:$azul; font-weight:$bold; position:absolute; bottom:0; left:0; @include transition(all 300ms ease-in-out); }
+#casting ul li .texto .btn:hover{ @include opacity(0.5); }
+
+.owl-controls{ float:left; width:62%; text-align:center; position:relative; margin-top:25px; }
+.owl-controls .owl-prev,
+.owl-controls .owl-next{ position:absolute; top:4px; width:15px; height:15px; border-bottom:2px solid #DADCDC; @include removeText; @include transition(all 200ms ease-in-out); }
+.owl-controls .owl-prev{ left:25%; border-left:2px solid #DADCDC; @include transform(rotate(45deg)); }
+.owl-controls .owl-next{ right:25%; border-right:2px solid #DADCDC; @include transform(rotate(-45deg)); }
+.owl-controls .owl-prev:hover,
+.owl-controls .owl-next:hover{ border-color:$azul; }
+
+.owl-controls .owl-dot{ display:inline-block; width:10px; height:10px; background-color:#FFF; border:3px solid #DADCDC; @include transform(rotate(45deg)); margin:0 7px; @include transition(all 300ms ease-in-out); }
+.owl-controls .owl-dot.active{ background-color:$azul; border-color:$azul; }
+
+/* Contato */
+#contato{ width:100%; padding:50px 0 40px; background:url(../img/bkg-contato.jpg) repeat-x center top; }
+#contato .titulo{ margin-bottom:30px; }
+
+#formulario{ float:left; width:45%; }
+#formulario input,
+#formulario select,
+#formulario textarea{ display:block; width:100%; border:0; border-bottom:1px solid $preto; font-family:$Lato; @include font-size(18px); font-weight:$light; color:$preto; margin-bottom:15px; padding:2px 5px; }
+#formulario textarea{ height:150px; resize:none; }
+#enviar{ display:block; float:right; padding:20px 100px; background-color:$azul; color:#FFF; @include font-size(18px); text-transform:uppercase; font-weight:$bold; border:0; cursor:pointer; @include transition(all 300ms ease-in-out); }
+#enviar:hover{ @include opacity(0.6); }
+
+@include placeholder($preto);
+
+#end{ float:right; width:45%; color:$branco; }
+#end h3{ text-transform:uppercase; font-weight:$bold; letter-spacing:0.08em; color:$azul; margin-bottom:10px; }
+#end p{ line-height:24px; letter-spacing:0.024em; margin-bottom:30px; vertical-align:middle; }
+#end p .ico{ display:block; padding-left:40px; }
+#end p .ico.fone{ background:url(../img/ico-fone-con.png) no-repeat center left; }
+#end p .ico.mensagem{ background:url(../img/ico-mail-con.png) no-repeat center left; }
+
+/* Rodapé */
+#footer{ position:relative; }
+#mapa{ width:100%; height:700px; }
+
+#lower{ position:absolute; bottom:0; left:0; width:100%; height:403px; padding:130px 0 20px; background:url(../img/bkg-footer.png) no-repeat center bottom; }
+#lower .center{ position:relative; overflow:hidden; }
+#lower .left{ float:left; }
+#lower .left .logo{ width:86px; height:90px; margin-bottom:40px; background:url(../img/logo-az.png) no-repeat center center; }
+#lower .left .social{ margin-bottom:50px; }
+#lower .left .social h3{ @include font-size(16px); text-transform:uppercase; font-weight:$regular; margin-bottom:10px; color:#FFF; }
+#lower .left .social ul{}
+#lower .left .social ul li{ display:inline-block; margin-right:30px; }
+#lower .left .social ul li a{ display:block; height:17px; background:no-repeat center center; @include transition(all 300ms ease-in-out); }
+#lower .left .social ul li a:hover{ @include opacity(0.6); }
+#lower .left .social ul li a.fb{ width:8px; background-image:url(../img/ico-fb-br.png); }
+#lower .left .social ul li a.in{ width:18px; background-image:url(../img/ico-in-br.png); }
+#lower .left .social ul li a.yt{ width:18px; background-image:url(../img/ico-yt-br.png); }
+#lower .left p{ @include font-size(12px); letter-spacing:0.08em; color:$azul; }
+
+#footer .assinatura{ display:block; position:absolute; bottom:0; right:0; width:86px; height:36px; background:url(../img/rafa-borges.png) no-repeat center center; @include removeText; @include transition(all 300ms ease-in-out); }
+#footer .assinatura:hover{ @include opacity(0.6); }
+
+/* Responsivo */
+@media screen and(max-width:1360px){
+	#casting ul li .texto{ min-height:0; }
+	#casting ul li .texto .btn{ position:static; margin-top:30px; }
+}
+
+@media screen and(max-width:1024px){
+	#sobre .titulo{ width:100%; margin:0 0 30px; }
+	#sobre .col1,
+	#sobre .col2{ float:right; width:100%; margin:0; }
+
+	#servicos .titulo{ width:100%; margin:0 0 30px; }
+	#servicos .col{ width:33.33%; }
+}
+
+@media screen and(max-width:860px){
+	#casting ul li .foto{ width:100%; margin-bottom:20px; }
+	#casting ul li .texto{ width:100%; margin:0 0 30px; }
+	.owl-controls{ width:100%; }
+
+	#casting ul li .texto{ text-align:center; }
+	#casting ul li .texto h3{ text-align:left; }
+	#casting ul li .texto p{ text-align:justify; }
+}
+
+@media screen and(max-width:800px){
+	#logo{ width:100%; }
+
+	#contato{ padding:60px 0 0; background:#FFF; }
+	#contato .center{ max-width:100%; width:100%; }
+	#contato .titulo{ width:94%; margin:0 3% 30px; }
+	#formulario{ width:94%; margin:0 3% 30px; }
+	#end{ width:100%; padding:60px 0; text-align:center; background:url(../img/bkg-enderecos.jpg) no-repeat center center; background-size:cover; }
+	#end p .ico{ padding:0; }
+	#end p .ico.fone,
+	#end p .ico.mensagem{ background:none; }
+}
+
+@media screen and(max-width:740px){
+	#banner{ height:auto; padding:150px 0; }
+	#banner .container{ float:none; width:100%; margin:0; @include font-size(48px); text-align:center; }
+}
+
+@media screen and(max-width:690px){
+	#header .right{ width:100%; text-align:center; }
+
+	#minicontato{ width:100%; }
+	#minicontato p{ float:none; display:inline-block; margin-bottom:20px; }
+	#social{ float:none; margin:0; }
+	#social li{ margin:0 15px; }
+
+	#sobre{ padding:60px 0; }
+
+	#servicos{ padding:60px 0; }
+	#servicos .col{ width:100%; margin-bottom:30px; }
+	#servicos .col .texto{ border:0; min-height:0; padding:0; margin:0; text-align:justify; }
+}
+
+@media screen and(max-width:460px){
+	#minicontato p.fone{ margin-left:0; }
+
+	.owl-controls .owl-prev{ left:10%; }
+	.owl-controls .owl-next{ right:10%; }
+
+	#casting ul li .texto .btn{ width:100%; }
+	#enviar{ width:100%; }
+
+	#mapa{ height:400px; }
+	#lower{ background:$preto; border-top:10px solid $azul; padding:60px 0; text-align:center; position:static; }
+	#lower .left{ float:none; width:100%; margin-bottom:20px; }
+	#lower .left .logo{ margin:0 auto 40px; }
+	#lower .left .social ul li{ margin:0 15px; }
+	#footer .assinatura{ position:static; margin:0 auto; }
+}

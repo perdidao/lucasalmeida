@@ -1,0 +1,117 @@
+.products {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: rel(80) auto rel(140);
+
+  @media (max-width: $size-mobile) {
+    margin: rel(50, true) auto;
+    flex-direction: column;
+  }
+}
+
+.product {
+  width: 23%;
+  margin-bottom: rel(50);
+
+  @media (max-width: $size-mobile) {
+    width: 100%;
+    margin-bottom: rel(50, true);
+  }
+
+  &-logo {
+    background-color: $silver;
+    padding: rel(10);
+    text-align: center;
+    border-radius: rel(5) rel(5) 0 0;
+
+    @media (max-width: $size-mobile) {
+      padding: rel(10, true);
+      border-radius: rel(5, true) rel(5, true) 0 0;
+    }
+
+    img {
+      display: inline-block;
+      max-width: 100%;
+    }
+  }
+
+  &-block {
+    border: 2px solid $silver;
+    border-top: 0;
+    border-bottom: 1px solid $silver;
+    padding: rel(15) rel(10);
+    text-align: center;
+
+    @media (max-width: $size-mobile) {
+      padding: rel(15, true) rel(10, true);
+    }
+  }
+
+  &-title {
+    text-transform: uppercase;
+    color: $cyan;
+    font-size: rem(12);
+    margin-bottom: rel(5);
+
+    @media (max-width: $size-mobile) {
+      font-size: rem(24);
+      margin-bottom: rel(5, true);
+    }
+  }
+
+  &-value {
+    font-size: rem(20);
+    font-weight: $bold;
+    margin-bottom: rel(5);
+
+    @media (max-width: $size-mobile) {
+      font-size: rem(40);
+      margin-bottom: rel(5, true);
+    }
+  }
+
+  &-first {
+    font-size: rem(13);
+
+    @media (max-width: $size-mobile) {
+      font-size: rem(26);
+    }
+  }
+
+  &-text {
+    font-size: 14px;
+
+    strong {
+      font-size: 16px;
+    }
+  }
+
+  &-button {
+    display: block;
+    padding: rel(15) rel(20);
+    border-radius: 0 0 rel(5) rel(5);
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: $bold;
+    background-color: $cyan;
+    color: $white;
+    transition: $default-transition;
+
+    @media (max-width: $size-mobile) {
+      font-size: rem(32);
+      padding: rel(15, true) rel(20, true);
+      border-radius: 0 0 rel(5, true) rel(5, true);
+    }
+
+    &:hover {
+      background-color: $royal;
+    }
+
+    &--disabled {
+      pointer-events: none;
+      background-color: #cfd2d9;
+    }
+  }
+}

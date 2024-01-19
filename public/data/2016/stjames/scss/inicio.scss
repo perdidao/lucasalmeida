@@ -1,0 +1,87 @@
+///* Dependências */
+@import 'compass';
+@import 'tools.scss';
+
+///* Fontes */
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400';
+$OpenSans:'Open Sans', Helvetica, Arial, sans-serif;
+
+@include font-face('Caviar Dreams', font-files('CaviarDreams.eot','CaviarDreams.svg','CaviarDreams.ttf','CaviarDreams.woff'));
+$Caviar:'Caviar Dreams', Helvetica, Arial, sans-serif;
+
+$light:300;
+$regular:400;
+
+///* Cores */
+$amarelo:#F4B10A;
+$verdeF1:#B9CF2A;
+$verdeF2:#A5C538;
+$azul:#0380BD;
+
+$verdeR:#9FBB18;
+$verdeRst:#89A90E;
+
+$cinza:#5D5D5D;
+
+///* Serviços */
+#graus{ margin:50px 0; overflow:hidden; }
+#graus .col{ float:left; width:22.75%; margin-right:3%; }
+#graus .col.ei{ background-color:$amarelo; }
+#graus .col.f1{ background-color:$verdeF1; }
+#graus .col.f2{ background-color:$verdeF2; }
+#graus .col.em{ background-color:$azul; margin-right:0; }
+#graus .col img{ display:block; width:100%; @include opacity(0.7); }
+#graus .col h2 a{ display:block; padding:20px; color:#FFF; @include font-size(20px); font-style:italic; text-transform:uppercase; @include font-smoothing(on); }
+
+///* Vídeo Institucional */
+.media{ overflow:hidden; margin-bottom:50px; }
+.media h2{ @include font-size(30px); text-transform:uppercase; padding-left:50px; margin-bottom:7px; line-height:42px; @include font-smoothing(on); background:no-repeat left center; }
+#video{ float:left; width:74%; margin-right:3%; }
+#video h2{ background-image:url(../img/ico-video.png); }
+#video iframe{ display:block; width:100%; height:370px; }
+
+///* Revista */
+#revista{ float:left; width:23%; }
+#revista h2{ background-image:url(../img/ico-revista.png); }
+#revista img{ display:block; width:100%; }
+
+///* Tour */
+#tour{ width:100%; padding:160px 0 100px; background:transparent; }
+#tour .wrapper{ max-width:440px; margin:0 auto; text-align:center; color:#FFF; @include font-smoothing(on); }
+#tour h2{ @include font-size(39px); line-height:1.2em; text-transform:uppercase; margin-bottom:30px; }
+#tour a{ display:block; padding:30px 0; border:2px solid #FFF; @include font-size(20px); font-weight:$regular; text-transform:uppercase; max-width:390px; margin:0 auto; @include transition(all 150ms ease-in-out); }
+#tour a:hover{ background-color:#FFF; color:$cinza; }
+
+///* Notícias */
+#noticias{ overflow:hidden; padding:60px 0 75px; }
+#noticias h2{ text-align:center; text-transform:uppercase; @include font-size(39px); margin-bottom:40px; }
+#noticias li{ float:left; width:26.66%; margin-right:10%; @include font-smoothing(on); }
+#noticias li:last-child{ margin-right:0; }
+#noticias li .data{ @include font-size(14px); margin-bottom:5px; }
+#noticias li img{ display:block; width:100%; margin-bottom:20px; }
+#noticias li h3{ text-transform:uppercase; margin-bottom:10px; @include font-size(18px); font-weight:$regular; }
+#noticias li p{ line-height:1.2em; }
+
+///* Responsivo */
+@media screen and(max-width:1030px){
+	#graus .col h2 a{ @include font-size(18px); padding:20px 10px; }
+}
+
+@media screen and(max-width:860px){
+	#graus .col{ width:48.5%; margin-bottom:3%; }
+	#graus .col.f1{ margin-right:0; }
+
+	#video{ width:100%; margin:0 0 30px; }
+	#revista{ width:100%; max-width:263px; }
+}
+
+@media screen and(max-width:790px){
+	#noticias li{ float:none; width:100%; max-width:400px; margin:0 auto 30px; }
+	#noticias li:last-child{ margin-right:auto; }
+}
+
+@media screen and(max-width:420px){
+	#graus .col{ width:100%; margin:0 0 3%; }
+
+	#video h2{ @include font-size(24px); line-height:1.2em; }
+}

@@ -1,0 +1,27 @@
+// Setup
+@import "general/reset";
+@import "general/mixins";
+@import "general/fonts";
+@import "general/variables";
+@import "general/layout";
+
+// Libs
+@import "libs/slick";
+
+// Sections
+@import "sections/header";
+@import "sections/hero";
+@import "sections/page-heading";
+@import "sections/simulator-heading";
+@import "sections/filters";
+@import "sections/products";
+@import "sections/simulate";
+@import "sections/step";
+@import "sections/result";
+@import "sections/people";
+@import "sections/taxes";
+@import "sections/advantages";
+@import "sections/comparative";
+@import "sections/banner";
+@import "sections/company";
+@import "sections/footer";

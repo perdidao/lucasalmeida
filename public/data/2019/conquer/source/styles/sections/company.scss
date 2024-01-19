@@ -1,0 +1,140 @@
+.company {
+  padding: rel(170) 0 rel(150);
+  background: url("../images/company-background.jpg") no-repeat center center;
+  background-size: cover;
+  text-align: center;
+  overflow: hidden;
+
+  @media (max-width: $size-mobile) {
+    padding: rel(100, true) 0;
+  }
+
+  &-delivery {
+    margin-bottom: rel(150);
+
+    @media (max-width: $size-mobile) {
+      margin-bottom: rel(80, true);
+    }
+
+    &__title {
+      font-size: rem(33);
+      font-weight: $bold;
+      margin-bottom: rel(14);
+
+      @media (max-width: $size-mobile) {
+        font-size: rem(36);
+        margin-bottom: rel(14, true);
+      }
+    }
+
+    &__description {
+      font-size: rem(28);
+      font-weight: $light;
+      margin-bottom: rel(50);
+
+      @media (max-width: $size-mobile) {
+        font-size: rem(40);
+        margin-bottom: rel(50, true);
+      }
+    }
+
+    &__quantity {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: $light;
+      color: $cyan;
+
+      span {
+        display: block;
+        width: rel(160);
+        height: rel(160);
+        border-radius: rel(5);
+        margin-right: rel(10);
+        background-color: $cyan;
+        color: $white;
+        font-size: rem(120);
+
+        @media (max-width: $size-notebook) {
+          font-size: rem(80);
+          line-height: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        @media (max-width: $size-mobile) {
+          font-size: rem(100);
+          width: rel(80, true);
+          height: rel(80, true);
+          border-radius: rel(5, true);
+          margin-right: rel(10, true);
+        }
+      }
+
+      em {
+        margin-left: rel(30);
+        font-style: normal;
+        font-size: rem(60);
+      }
+    }
+  }
+
+  &-testimonial {
+    position: relative;
+
+    &:before {
+      content: " ";
+      display: block;
+      width: rel(56);
+      height: rel(50);
+      background: url("../images/quote.png") no-repeat center center;
+      background-size: contain;
+      position: absolute;
+      top: 33%;
+      left: 22%;
+
+      @media (max-width: $size-mobile) {
+        width: rel(56, true);
+        height: rel(50, true);
+        left: 15%;
+      }
+    }
+
+    &__avatar {
+      display: block;
+      width: rel(70);
+      height: rel(70);
+      margin: 0 auto rel(20);
+      border-radius: 50%;
+      overflow: hidden;
+
+      @media (max-width: $size-notebook) {
+        width: rel(70, true);
+        height: rel(70, true);
+        margin: 0 auto rel(20, true);
+      }
+    }
+
+    &__title {
+      margin-bottom: rel(10);
+
+      @media (max-width: $size-notebook) {
+        margin-bottom: rel(10, true);
+      }
+    }
+
+    &__text {
+      max-width: 420px;
+      margin: 0 auto;
+      font-size: rem(14);
+      font-weight: $light;
+      line-height: 1.8;
+
+      @media (max-width: $size-notebook) {
+        max-width: 80%;
+        font-size: rem(28);
+      }
+    }
+  }
+}

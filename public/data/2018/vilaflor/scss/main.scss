@@ -1,0 +1,1012 @@
+// Biblioteca de mixins
+@import 'mixins.scss';
+
+/* Reset */
+@import 'reset.scss';
+
+// Cores
+$bege:#EFD294;
+$azul:#0d3e64;
+$marinho:#063254;
+
+$branco:#FFF;
+$offwhite:#F6F8F9;
+$cinza:#DDDCDC;
+$preto:#000;
+
+// Tipografia
+$taile:'Taile', Helvetica, Arial, sans-serif;
+$prata:'Prata', 'Times New Roman', serif;
+
+$regular:400;
+$bold:600;
+
+$sz-title:32px;
+$sz-content:13px;
+
+/* Estilos globais */
+body{ color:$preto; background-color:$branco; font:$regular $sz-content $taile; letter-spacing:0.05em; @include font-smoothing(on); }
+@include selection($preto,$bege);
+.clear{ clear:both; }
+
+// Patterns
+h2{ font:$regular $sz-title $prata; line-height:47px; }
+p{ line-height:2em; }
+
+.seta{
+  content:' ';
+  display:block;
+  width:42px;
+  height:23px;
+  background:url(../img/arw-down.png) no-repeat center center;
+
+  &.seta-capa{
+    position:absolute;
+    bottom:180px;
+    left:25%;
+  }
+
+  &.seta-marca{
+    position:absolute;
+    bottom:180px;
+    left:50%;
+    transform:translatex(-50%);
+  }
+
+  &.seta-parallax{
+    position:absolute;
+    bottom:180px;
+    left:25%;
+    z-index:3;
+  }
+
+  &.seta-revendedora{
+    position:absolute;
+    bottom:180px;
+    left:59%;
+  }
+}
+
+// Navegação e capa
+#menu{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:10;
+  width:100%;
+  height:40px;
+  background-color:$branco;
+
+  text-align:center;
+
+  a{
+    display:inline-block;
+    font-family:$prata;
+    line-height:40px;
+    margin:0 140px;
+    transition:all 200ms ease-in-out;
+
+    &.btn-revenda{
+      display:block;
+      position:absolute;
+      top:0;
+      right:0;
+      height:40px;
+      padding:0 35px;
+      margin:0;
+      background-color:$bege;
+    }
+
+    &:hover{
+      opacity:0.6;
+    }
+  }
+}
+
+#header{
+  width:100%;
+  position:relative;
+  z-index:1;
+  overflow:hidden;
+  
+  #logo{
+    position:fixed;
+    z-index:1;
+    top:70px;
+    left:50%;
+    transform:translatex(-50%);
+    width:205px;
+    height:125px;
+    background:url(../img/logo.png) no-repeat center center;
+    background-size:contain;
+  }
+  
+  #capa{
+    min-height:1080px;
+  }
+
+  #capa-mobile{
+    display:none;
+
+    img{
+      display:block;
+      width:100%;
+    }
+  }
+}
+
+// A marca
+#marca{
+  position:relative;
+  z-index:2;
+  float:left;
+  width:50%;
+  height:1180px;
+  padding:400px 70px 0 0;
+  background-color:$bege;
+  transform:translatey(-100px);
+  
+  .social{
+    position:absolute;
+    top:520px;
+    left:0;
+    
+    li{
+      margin-bottom:5px;
+      
+      a{
+        display:block;
+        width:70px;
+        height:70px;
+        background:$branco no-repeat center center;
+        transition:all 300ms ease-in-out;
+        
+        &.i-fb{ background-image:url(../img/i-fb.png); }
+        &.i-tw{ background-image:url(../img/i-tw.png); }
+        &.i-ig{ background-image:url(../img/i-ig.png); }
+
+        &:hover{
+          opacity:0.6;
+        }
+      }
+    }
+  }
+
+  .inner{
+    max-width:340px;
+    width:90%;
+    float:right;
+
+    h2{
+      margin-bottom:60px;
+      text-align:center;
+    }
+
+    p{
+      margin-bottom:30px;
+      text-align:justify
+    }
+  }
+}
+
+#fotos-marca{
+  float:left;
+  width:50%;
+
+  .owl-dots{
+    position: absolute;
+    top:50%;
+    left:25px;
+    transform:translatey(-50%);
+
+    .owl-dot{
+      width:14px;
+      height:14px;
+      margin:20px 0;
+      border-radius:50%;
+      border:1px solid $branco;
+      position:relative;
+
+      span{
+        display:block;
+        width:8px;
+        height:8px;
+        position:absolute;
+        top:2px;
+        left:2px;
+        background-color:#FFF;
+        border-radius:50%;
+        opacity:0;
+        transition:all 300ms ease-in-out;
+      }
+
+      &.active span{
+        opacity:1;
+      }
+    }
+  }
+}
+
+// Vídeo da coleção
+#player{
+  position:relative;
+  z-index:2;
+  width:100%;
+  height:1090px;
+  padding-top:160px;
+  background:url(../img/video.jpg) no-repeat center center;
+  background-size:cover;
+  transform:translatey(-100px);
+  
+  h2{
+    max-width:520px;
+    text-align:center;
+    margin:0 auto;
+  }
+
+  .play{
+    display:block;
+    width:157px;
+    height:96px;
+    background:url(../img/play.png) no-repeat center center;
+
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+  }
+
+  .overlay{
+    display:none;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:rgba(255,255,255,.7);
+
+    .fechar{
+      display:block;
+      position:absolute;
+      top:20px;
+      right:20px;
+      width:30px;
+      height:30px;
+      background-color:$bege;
+      color:$preto;
+      font-size:16px;
+      text-align:center;
+      line-height:30px;
+    }
+    
+    .video{
+      width:100%;
+      max-width:640px;
+      height:420px;
+      
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+
+      iframe{
+        display:block;
+        width:100%;
+        height:100%;
+      }
+    }
+  }
+}
+
+// Produtos
+#produtos{
+  position:relative;
+  z-index:2;
+  padding-bottom:90px;
+
+  &:before{
+    content:'';
+    display:block;
+    width:65px;
+    height:65px;
+    background:url(../img/marca.png) no-repeat center center;
+
+    position:absolute;
+    top:0;
+    right:8%;
+  }
+
+  .top{
+    width:90%;
+    margin:0 auto 50px;
+
+    h2{
+      text-align:center;
+      margin-bottom:10px;
+    }
+
+    p{
+      text-align:justify;
+      text-align-last:center;
+      max-width:370px;
+      margin:0 auto;
+    }
+  }
+
+  #lista-produtos{
+    width:84%;
+    max-width:1620px;
+    margin:0 auto 90px;
+
+    .owl-item{
+      filter:grayscale(1);
+      opacity:0.6;
+      transition:all 300ms ease-in-out;
+
+      &.active{
+        filter:grayscale(0);
+        opacity:1;
+        
+        .info{
+          display:block;
+        }
+      }
+    }
+
+    li{
+
+      img{
+        display:block;
+        margin-bottom:10px;
+      }
+
+      .info{
+        display:none;
+
+        h3{
+          text-transform:uppercase;
+        }
+        p{
+          color:#A7A9AC;
+          line-height:15px;
+        }
+      }
+    }
+  }
+
+  .cadastro{
+    width:90%;
+    max-width:960px;
+    margin:0 auto;
+    overflow:hidden;
+
+    h2{
+      float:left;
+      width:33.33%;
+      font-size:20px;
+      line-height:30px;
+      text-align:center;
+    }
+    
+    form{
+      float:left;
+      width:63%;
+      margin-left:1.66%;
+
+      input{
+        display:block;
+        float:left;
+        width:43%;
+        height:56px;
+        border:2px solid $cinza;
+        margin-right:2%;
+        
+        font-family:$taile;
+        font-size:14px;
+        color:$preto;
+        text-align:center;
+      }
+
+      button{
+        display:block;
+        float:left;
+        width:10%;
+        height:56px;
+        border:2px solid $cinza;
+        background-color:$branco;
+        cursor:pointer;
+        transition:all 300ms ease-in-out;
+
+        &:hover{
+          background-color:$bege;
+          border-color:$bege;
+        }
+      }
+    }
+  }
+
+}
+
+.parallax-wrapper{
+  position:relative;
+  
+  .parallax{
+    position:relative;
+    z-index:2;
+    width:100%;
+    min-height:1080px;
+  }
+
+  #carousel-parallax{
+    position:relative;
+
+    .owl-prev,
+    .owl-next{
+      display:block;
+      width:179px;
+      height:201px;
+      @include removeText;
+      background:no-repeat center center;
+      position:absolute;
+      top:50%;
+      transform:translatey(-50%);
+      transition:all 300ms ease-in-out;
+
+      &:hover{
+        opacity:0.6;
+      }
+    }
+
+    .owl-prev{
+      background-image:url(../img/arw-prev.png);
+      left:5%;
+    }
+
+    .owl-next{
+      background-image:url(../img/arw-next.png);
+      right:5%;
+    }
+  }
+}
+
+#revendedora{
+  position:relative;
+  z-index:3;
+  min-height:1080px;
+
+  .foto-revendedora{
+    width:42%;
+    position:relative;
+
+    img{
+      display:block;
+      width:100%;
+    }
+  }
+
+  .col-right{
+    position:absolute;
+    bottom:0;
+    right:0;
+    width:58%;
+    height:110%;
+    background-color:$bege;
+
+    .inner{
+      max-width:410px;
+      margin:220px 16% 0;
+      text-align:center;
+
+      .marca{
+        width:65px;
+        height:65px;
+        margin:0 auto 40px;
+        background:url(../img/marca-alt.png) no-repeat center center;
+      }
+      
+      h2{
+        margin-bottom:50px;
+      }
+      
+      p{
+        max-width:290px;
+        margin:0 auto 50px;
+      }
+
+      h3{
+        font:$regular 20px/35px $prata;
+        max-width:290px;
+        margin:0 auto 50px;
+      }
+
+      input{
+        display:block;
+        width:100%;
+        max-width:360px;
+        margin:0 auto 15px;
+        height:56px;
+        border:2px solid $branco;
+        background-color:transparent;
+        margin-right:2%;
+        
+        font-family:$taile;
+        font-size:14px;
+        color:$preto;
+        text-align:center;
+      }
+
+      button{
+        display:block;
+        float:right;
+        width:96%;
+        max-width:60px;
+        height:56px;
+        border:2px solid $branco;
+        margin-right:2%;
+        background-color:transparent;
+        cursor:pointer;
+        transition:all 300ms ease-in-out;
+
+        &:hover{
+          background-color:$branco;
+        }
+      }
+    }
+  }
+}
+
+#contato{
+  width:100%;
+  min-height:1080px;
+  position:relative;
+  z-index:4;
+  padding-top:100px;
+  margin-bottom:100px;
+  
+  .col-left{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:50%;
+    height:110%;
+    background-color:$offwhite;
+    
+    .social{
+      position:absolute;
+      top:520px;
+      left:0;
+      
+      li{
+        margin-bottom:5px;
+        
+        a{
+          display:block;
+          width:70px;
+          height:70px;
+          background:$bege no-repeat center center;
+          transition:all 300ms ease-in-out;
+          
+          &.i-fb{ background-image:url(../img/i-fb-alt.png); }
+          &.i-tw{ background-image:url(../img/i-tw-alt.png); }
+          &.i-ig{ background-image:url(../img/i-ig-alt.png); }
+    
+          &:hover{
+            opacity:0.6;
+          }
+        }
+      }
+    }
+
+    .inner{
+      float:right;
+      width:90%;
+      max-width:410px;
+      margin:340px 5% 0;
+      text-align:center;
+      
+      h2{
+        margin-bottom:20px;
+      }
+
+      p{
+        margin-bottom:50px;
+      }
+
+      input,
+      textarea{
+        display:block;
+        width:100%;
+        max-width:360px;
+        margin:0 auto 15px;
+        height:56px;
+        border:2px solid $cinza;
+        background-color:transparent;
+        
+        font-family:$taile;
+        font-size:14px;
+        color:$preto;
+        text-align:center;
+      }
+
+      textarea{
+        height:180px;
+        resize:none;
+      }
+
+      button{
+        display:block;
+        float:right;
+        width:88%;
+        max-width:60px;
+        height:56px;
+        border:2px solid $cinza;
+        margin-right:6%;
+        background-color:transparent;
+        cursor:pointer;
+        transition:all 300ms ease-in-out;
+
+        &:hover{
+          background-color:$cinza;
+        }
+      }
+    }
+  }
+  
+  .foto-contato{
+    width:45%;
+    margin-left:55%;
+    
+    img{
+      display:block;
+      width:100%;
+    }
+  }
+}
+
+// Newsletter
+#news{
+  position:relative;
+  z-index:4;
+  width:100%;
+  padding:60px 0 80px;
+  background-color:$offwhite;
+  text-align:center;
+
+  h2{
+    max-width:570px;
+    margin:0 auto 30px;
+  }
+
+  form{
+    width:90%;
+    max-width:360px;
+    margin:0 auto;
+    overflow:hidden;
+    
+    input{
+      display:block;
+      float:left;
+      width:84%;
+      height:56px;
+      border:2px solid $cinza;
+      background-color:transparent;
+      
+      font-family:$taile;
+      font-size:14px;
+      color:$preto;
+      text-align:center;
+    }
+
+    button{
+      display:block;
+      float:left;
+      width:16%;
+      height:56px;
+      border:2px solid $cinza;
+      border-left:0;
+      background-color:transparent;
+      cursor:pointer;
+      transition:all 300ms ease-in-out;
+
+      &:hover{
+        background-color:$cinza;
+      }
+    }
+  }
+}
+
+#footer{
+  position:relative;
+  z-index:4;
+  width:100%;
+  background-color:$marinho;
+  color:#FFF;
+  
+  .inner{
+    width:90%;
+    max-width:980px;
+    margin:0 auto;
+    overflow:hidden;
+    position:relative;
+
+    .bottom-menu{
+      float:left;
+      padding:20px 0;
+
+      li{
+        line-height:30px;
+
+        a{
+          display:block;
+        }
+      }
+    }
+
+    .logo{
+      width:115px;
+      height:71px;
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      background:url(../img/logo.png) no-repeat center center;
+      background-size:contain;
+    }
+    
+    .btn-revenda{
+      float:right;
+      padding:30px 0;
+      background-color:$azul;
+      font:$regular 18px/26px $prata;
+      max-width:190px;
+      text-align:center;
+
+      span{
+        display:block;
+        margin-top:5px;
+        font:$regular 13px/23px $taile;
+      }
+    }
+  }
+}
+
+.alert{ display:none; position:fixed; z-index:99999; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,.95); text-align:center; }
+.alert .close{ display:block; width:30px; height:30px; border:1px solid $bege; color:$bege; text-align:center; line-height:27px; font-size:20px; position:absolute; top:30px; right:30px; }
+.alert p{ position:fixed; top:50%; left:50%; max-width:400px; transform:translate(-50%,-50%); font-size:30px; line-height:1.2em; color:$bege; }
+
+// Responsivo
+@media screen and(max-width:1280px){
+  #menu{
+    a{
+      margin:0 40px;
+    }
+  } 
+}
+
+@media screen and(max-width:1024px){
+  #marca{
+    float:none;
+    width:100%;
+    height:auto;
+    padding:100px 0 80px;
+    transform:translatey(0);
+  
+    &:after{
+      display:none;
+    }
+    
+    .social{
+      position:absolute;
+      top:100px;
+      left:0;
+    }
+  
+    .inner{
+      float:none;
+      margin:0 auto;
+    }
+  }
+
+  #fotos-marca{
+    float:none;
+    width:100%;
+  }
+
+  #produtos{
+    &:before{
+      display:none;
+    }
+    .top{
+      margin-bottom:30px;
+    }
+    .cadastro{
+      h2{
+        float:none;
+        width:100%;
+      }
+      form{
+        float:none;
+        width:100%;
+        margin-left:0;
+      }
+    }
+  }
+
+  #revendedora{
+    min-height:0;
+    .foto-revendedora{
+      width:100%;
+    }  
+    .col-right{
+      position:static;
+      width:100%;
+      height:auto;
+  
+      .inner{
+        max-width:410px;
+        margin:0 auto;
+        padding:100px 5%;
+  
+        button{
+          width:100%;
+          max-width:100%;
+          margin-right:0;
+          float:none;
+        }
+      }
+    }
+  }
+
+  #contato{
+    min-height:0;
+    padding-top:0;
+    margin-bottom:100px;
+    
+    .col-left{
+      position:static;
+      width:100%;
+      height:auto;
+      padding:100px 0;
+      
+      .social{
+        top:100px;
+      }
+  
+      .inner{
+        float:none;
+        margin:0 auto 0;
+  
+        button{
+          float:none;
+          width:100%;
+          max-width:100%;
+          margin-right:0;
+        }
+      }
+    }
+    
+    .foto-contato{
+      width:100%;
+      margin-left:0;
+    }
+  }
+
+  .seta{
+    display:none;
+  }
+}
+
+@media screen and(max-width:820px){
+  #menu{
+    display:none;
+  }
+
+  #header{
+    
+    #logo{
+      position:static;
+      transform:translatex(0);
+      width:100%;
+      height:120px;
+      background:$bege url(../img/logo-blk.png) no-repeat center center;
+    }
+  }
+
+  .parallax-wrapper{
+    #carousel-parallax{
+      .owl-prev,
+      .owl-next{
+        display:none !important;
+      }
+    }
+  }
+
+}
+
+@media screen and(max-width:540px){
+  #header{
+    #capa{
+      display:none;
+    }
+    #capa-mobile{
+      display:block;
+    }
+  }
+
+  #marca{
+    
+    .social{
+      position:static;
+      text-align:center;
+      margin-bottom:20px;
+      
+      li{
+        display:inline-block;
+        margin:0 3px;
+        
+        a{
+          width:40px;
+          height:40px;
+        }
+      }
+    }
+  }
+
+  #produtos{
+    .cadastro{
+      h2{
+        margin-bottom:15px;
+      }
+      form{
+        input{
+          width:100%;
+          margin:0 0 15px;;
+        }
+        button{
+          width:100%;
+        }
+      }
+    }
+  }
+
+  #contato{
+    .col-left{
+      .social{
+        position:static;
+        text-align:center;
+        margin-bottom:20px;
+        
+        li{
+          display:inline-block;
+          margin:0 3px;
+          
+          a{
+            width:40px;
+            height:40px;
+          }
+        }
+      }
+    }
+  }
+
+  #footer{
+    .inner{
+      .bottom-menu{
+        float:none;
+        width:100%;
+        text-align:center;
+      }
+  
+      .logo{
+        position:static;
+        transform:translate(0);
+        margin:0 auto 20px;
+      }
+      
+      .btn-revenda{
+        max-width:100%;
+        width:100%;
+      }
+    }
+  }
+}

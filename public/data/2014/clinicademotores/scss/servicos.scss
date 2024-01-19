@@ -1,0 +1,28 @@
+@import "compass";
+@import "tools.scss";
+@import url(../font/geared.css);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,700);
+
+// VARIÁVEIS
+$verde:#8BC441;
+$verde-escuro:#509622;
+$Raleway:'Raleway', Helvetica, Arial, Sans-serif;
+$Geared:'Geared', Helvetica, Arial, Sans-serif;
+
+// CONTEÚDO
+#submenu{ display:block; }
+#container{ margin-top:140px; }
+#container > div{ padding:50px 0; }
+#container > div#jardinagem{ padding-top:80px; }
+.list-odd{ background-image:url(../img/bkg-servicos.png); }
+
+.col-text{ width:310px; }
+.col-text  h2{ font-family:$Geared; @include font-size(22px); text-transform:uppercase; letter-spacing:0.09em; color:#FFF; @include font-smoothing(on); }
+.col-text.f-right h2{ color:$verde; }
+.col-text p{ margin-top:2px; line-height:1.3em; }
+.col-text a.btn{ display:block; width:310px; height:36px; margin-top:24px; text-align:center; line-height:36px; color:#FFF; letter-spacing:0.14em; @include box-shadow(0 2px 4px rgba(0,0,0,.3)); @include font-size(12px); }
+.col-text a.btn.btn-cinza{ background:transparent url(../img/btn-cinza.jpg) no-repeat center center; }
+.col-text a.btn.btn-verde{ background:transparent url(../img/btn-verde.jpg) no-repeat center center; }
+
+.col-image{ width:630px; }
+.col-image img{ display:block; width:630px; border:5px solid #FFF; }

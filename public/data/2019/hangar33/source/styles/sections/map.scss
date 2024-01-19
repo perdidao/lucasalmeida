@@ -1,0 +1,33 @@
+.map{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    background:$black url(../images/bkg-map.jpg) no-repeat center center;
+    background-size:cover;
+    
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    &__content{
+        width:90%;
+        max-width:rfs(540px);
+        text-align:center;
+
+        &--coordinates{
+            font-weight:$medium;
+            font-size:rfs(69px);
+            font-family:$Solido;
+            text-transform:uppercase;
+            color:$orange;
+            margin-bottom:rfs(15px);
+        }
+
+        &--address{
+            font-size:rfs(21px);
+            line-height:1.4;
+            margin-bottom:rfs(30px);
+            letter-spacing:0.05em;
+        }
+    }
+}

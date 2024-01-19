@@ -1,0 +1,102 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,300,700");
+$OpenSans: "Open Sans", Helvetica, Arial, sans-serif;
+$Georgia: Georgia, Times, Times New Roman, serif;
+
+// CORES
+$Azul:#034B9C;
+$AzulClaro:#0768CD;
+$Amarelo:#FFD503;
+$AmareloClaro:#FFE769;
+$Cinza:#777;
+$Prata:#CCC;
+
+// ESTILOS GLOBAIS
+body{ background-color:#FFF; font-family:$OpenSans; @include font-size(16px); color:$Cinza; font-weight:400; min-width:640px; }
+@include selection($Amarelo, $Azul);
+
+// TÍTULOS
+.container-titulo{ margin-bottom:20px; border-bottom:1px solid $Prata; }
+.container-titulo h2.titulo{ margin-bottom:-1px; }
+h2.titulo{ text-align:center; @include font-size(21px); font-weight:$bold; text-transform:uppercase; letter-spacing:0.2em; color:$Azul; max-width:320px; margin:0 auto 20px; padding-bottom:27px; border-bottom:2px solid $Azul; @include font-smoothing(on); }
+h2.titulo.t-thin{ border-width:1px; }
+
+// BOTÕES
+.big-button{ display:block; padding:30px 0; text-align:center; background-color:$Azul; color:#FFF; @include font-size(18px); text-transform:uppercase; font-family:$OpenSans; font-weight:$bold; @include font-smoothing(on); @include opacity(1); @include transition(all 300ms ease-in-out); }
+.big-button:hover{ @include opacity(0.95); }
+.big-button:active{ @include opacity(0.8); }
+
+// HEADER
+#header{ width:100%; min-height:270px; background:url(../img/bkg-topo.png) no-repeat center top; position:relative; }
+#header .center{}
+#menu{ float:left; }
+#menu a{ display:block; float:left; height:85px; padding:0 20px; line-height:85px; border-top:5px solid transparent; background:url(../img/lin-menu.png) no-repeat left center; text-transform:uppercase; @include transition(all 300ms ease-in-out); }
+#menu a:hover,
+#menu a.active{ border-color:$Azul; }
+#idiomas{ float:left; height:85px; margin:5px 0 0 10px; padding-left:10px; background:url(../img/lin-menu.png) no-repeat left center; color:#CCC; line-height:85px; }
+#idiomas span{ font-family:$Georgia; font-style:italic; }
+#idiomas a{ @include transition(all 300ms ease-in-out); margin:0 3px; }
+#idiomas a:hover,
+#idiomas a.active{ color:$Azul; }
+#logo{ display:block; width:229px; height:62px; background:url(../img/logo.png) no-repeat center center; margin:60px auto; @include removeText; }
+
+#btn-menu{ display:none; width:55px; height:40px; position:absolute; top:27px; left:20px; background:url(../img/btn-menu.png) no-repeat center center; }
+#btn-menu.aberto{ background-image:url(../img/btn-fechar.png); }
+
+// RODAPÉ
+#footer{ margin-top:200px; }
+
+#navegacao{ background:$Azul url(../img/bkg-footer.png) no-repeat center bottom; color:#FFF; padding-top:40px; @include font-smoothing(on); }
+#navegacao .col-left{ float:left; width:51%; margin:35px 0 0 12.50%; }
+#navegacao .col-left h2{ @include font-size(18px); text-transform:uppercase; font-weight:$bold; margin-bottom:30px; }
+#navegacao .col-left #navegacao-rodape{}
+#navegacao .col-left #navegacao-rodape li{ float:left; width:46%; margin-right:4%; }
+#navegacao .col-left #navegacao-rodape li a{ display:block; width:100%; border-top:1px solid $Amarelo; padding:10px 0; font-family:$Georgia; @include font-size(14px); }
+#navegacao .col-left #navegacao-rodape li a.border-fix{ border-bottom:1px solid $Amarelo; }
+#navegacao .col-left #voltar-topo{ display:block; float:left; text-align:center; width:130px; height:80px; background:url(../img/ico-up.png) no-repeat center 5px; padding-top:35px; margin-top:40px; @include font-size(18px); @include transition(all 200ms ease-in-out); }
+#navegacao .col-left #voltar-topo:hover{ background-position:center 0; }
+#navegacao .col-left .separador{ float:left; width:2px; height:80px; background:url(../img/separador.png) no-repeat center bottom; margin:40px 40px 0; }
+#navegacao .col-left #btn-chat{ display:block; float:left; height:80px; padding-left:80px; background:url(../img/ico-balao-footer.png) no-repeat left top; margin-top:40px; }
+#navegacao .col-left #btn-chat h3{ font-family:$Georgia; @include font-size(27px); font-style:italic; line-height:1.2em; }
+#navegacao .col-left #btn-chat p{ @include font-size(18px); }
+
+#navegacao .col-right{ float:left; background-color:#FFF; }
+
+#assinatura{ height:60px; line-height:60px; font-family:$Georgia; @include font-size(14px); }
+#assinatura .copyrights{ display:block; float:left; }
+#assinatura .assinatura{ display:block; float:right; }
+
+// RESPONSIVO
+@media screen and(max-width:1150px){
+	#menu a{ padding:0 10px; }	
+}
+
+@media screen and(max-width:1120px){
+	#navegacao{ background:$Azul; padding-bottom:40px; }
+	#navegacao .center{ margin:0 10%; }
+	#navegacao .col-left{ width:100%; margin:35px 0 0; }
+	#navegacao .col-right{ width:100%; }
+	
+	.fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] { width: 100% !important; }
+}
+
+@media screen and(max-width:1024px){
+	#btn-menu{ display:block; }
+
+	#menu{ display:none; position:absolute; z-index:999999; top:90px; left:0; width:100%; background-color:rgba(255,255,255,0.9); }
+	#menu a{ width:100%; height:auto; line-height:1.3em; background:transparent; padding:50px 0; border-top:1px solid $Prata; text-align:center; color:$Azul; @include font-size(30px); font-weight:$light; }
+
+	#idiomas{ position:absolute; z-index:997; right:20px; background:transparent; }
+
+	#header h1{ display:block; position:absolute; z-index:998; top:20px; left:50%; margin-left:-75px; }
+	#logo{ width:150px; height:65px; background-size:contain; margin:0; }
+}
+
+
+
+

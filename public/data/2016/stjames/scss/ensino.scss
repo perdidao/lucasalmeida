@@ -1,0 +1,130 @@
+///* Dependências */
+@import 'compass';
+@import 'tools.scss';
+
+///* Fontes */
+$OpenSans:'Open Sans', Helvetica, Arial, sans-serif;
+$Caviar:'Caviar Dreams', Helvetica, Arial, sans-serif;
+
+$light:300;
+$regular:400;
+
+///* Cores */
+$amarelo:#F4B10A;
+$verdeF1:#B9CF2A;
+$verdeF2:#A5C538;
+$azul:#0380BD;
+
+$verdeR:#9FBB18;
+$verdeRst:#89A90E;
+
+$cinza:#5D5D5D;
+
+///* Topo */
+#header{ min-height:570px; background-image:url(../img/topo-ensino.jpg); position:relative; }
+
+///* Graus */
+#graus{ position:absolute; bottom:0; left:0; width:100%; }
+#graus ul{ @include font-smoothing(on); }
+#graus ul li{ float:left; width:25%; text-align:center; padding-top:19px; }
+#graus ul li.active{ padding-top:0; }
+#graus ul li a{ display:block; padding:15px 0; color:#FFF; text-transform:uppercase; font-style:italic; @include font-size(20px); }
+#graus ul li a span{ display:none; @include font-size(14px); margin-top:5px; @include opacity(0); }
+#graus ul li.active a span{ display:block; @include opacity(1); }
+#graus ul li a.ei{ background-color:$amarelo; }
+#graus ul li a.f1{ background-color:$verdeF1; }
+#graus ul li a.f2{ background-color:$verdeF2; }
+#graus ul li a.em{ background-color:$azul; }
+#graus #selo{ width:166px; height:166px; background:url(../img/selo.png) no-repeat center center; position:absolute; left:50%; margin-left:-83px; top:-40px; }
+
+///* Conteúdo */
+#content{ padding:80px 0 0; }
+#content .center h2{ text-align:center; @include font-size(39px); text-transform:uppercase; margin-bottom:45px; }
+#content .center p{ line-height:25px; margin-bottom:20px; }
+
+///* Calendário */
+#calendario{ width:100%; padding:180px 0; margin:70px 0; background:transparent; }
+#calendario .wrapper{ max-width:440px; margin:0 auto; text-align:center; color:#FFF; @include font-smoothing(on); }
+#calendario h2{ @include font-size(39px); line-height:1.2em; text-transform:uppercase; margin-bottom:70px; }
+#calendario a{ display:block; padding:30px 0; border:2px solid #FFF; @include font-size(20px); font-weight:$regular; text-transform:uppercase; max-width:390px; margin:0 auto; @include transition(all 150ms ease-in-out); }
+#calendario a:hover{ background-color:#FFF; color:$cinza; }
+
+///* Oficinas */
+#oficinas{ overflow:hidden; }
+#oficinas li{ float:left; width:33.33%; margin-bottom:80px; text-align:center; }
+#oficinas li a{ display:block; padding-top:91px; text-transform:uppercase; @include font-size(22px); font-weight:$regular; background:no-repeat center top; }
+#oficinas li a.robotica{ background-image:url(../img/ico-robotica.png); }
+#oficinas li a.patinacao{ background-image:url(../img/ico-patinacao.png); }
+#oficinas li a.ballet{ background-image:url(../img/ico-ballet.png); }
+#oficinas li a.volei{ background-image:url(../img/ico-volei.png); }
+#oficinas li a.basquete{ background-image:url(../img/ico-basquete.png); }
+#oficinas li a.danca{ background-image:url(../img/ico-danca.png); }
+#oficinas li a.futsal{ background-image:url(../img/ico-futsal.png); }
+#oficinas li a.oficina{ background-image:url(../img/ico-oficinas.png); }
+
+///* Materiais */
+#materiais{ width:100%; padding:180px 0; background:transparent; }
+#materiais .wrapper{ max-width:640px; margin:0 auto; text-align:center; color:#FFF; @include font-smoothing(on); }
+#materiais h2{ @include font-size(39px); line-height:1.2em; text-transform:uppercase; margin-bottom:10px; }
+#materiais p{ @include font-size(25px); text-transform:uppercase; margin-bottom:40px; }
+#materiais a{ display:block; padding:30px 0; border:2px solid #FFF; @include font-size(20px); font-weight:$regular; text-transform:uppercase; max-width:390px; margin:0 auto; @include transition(all 150ms ease-in-out); }
+#materiais a:hover{ background-color:#FFF; color:$cinza; }
+
+///* Overlay */
+#overlay{ display:none; position:fixed; z-index:12; top:0; left:0; bottom:0; right:0; background:rgba(0,0,0,.7); }
+#overlay .wrapper{ width:100%; max-width:1000px; padding:40px 100px 100px; position:fixed; top:50%; left:50%; background-color:#FFF; @include transform(translate(-50%,-50%)); }
+#fechar{ display:block; width:23px; height:21px; background:url(../img/ico-fechar.png) no-repeat center center; position:absolute; top:10px; right:10px; }
+#overlay .inner{ overflow:hidden; }
+#overlay .inner h2{ width:100%; padding-top:100px; background:no-repeat center top; margin-bottom:50px; text-align:center; text-transform:uppercase; font-weight:$regular; @include font-size(22px); }
+#overlay .inner h2.robotica{ background-image:url(../img/ico-robotica.png); }
+#overlay .inner h2.patinacao{ background-image:url(../img/ico-patinacao.png); }
+#overlay .inner h2.ballet{ background-image:url(../img/ico-ballet.png); }
+#overlay .inner h2.volei{ background-image:url(../img/ico-volei.png); }
+#overlay .inner h2.basquete{ background-image:url(../img/ico-basquete.png); }
+#overlay .inner h2.danca{ background-image:url(../img/ico-danca.png); }
+#overlay .inner h2.futsal{ background-image:url(../img/ico-futsal.png); }
+#overlay .inner h2.oficina{ background-image:url(../img/ico-oficinas.png); }
+#overlay .inner .coll{ float:left; width:38%; }
+#overlay .inner .coll .charts{ overflow:hidden; margin-bottom:30px; }
+#overlay .inner .coll .charts .col1{ float:left; width:50%; min-height:100px; }
+#overlay .inner .coll .charts .col2{ float:right; width:50%; border-left:2px solid #CCC; padding-left:20px; min-height:100px; }
+#overlay .inner .coll .charts h3{ text-transform:uppercase; line-height:25px; }
+#overlay .inner .coll .charts p{ line-height:25px; }
+#overlay .inner .coll > p{ line-height:35px; }
+#overlay .inner .colr{ float:right; width:50%; }
+#overlay .inner .colr img{ display:block; width:100%; }
+
+///* Responsivo */
+@media screen and(max-width:1024px){
+	#graus #selo{ top:-140px; }
+}
+
+@media screen and(max-width:860px){
+	#graus ul li{ width:50%; padding:0; }
+	#graus ul li.active a{ padding:15px 0; }
+	#graus #selo{ top:-40px; }
+
+	#graus ul li a{ @include opacity(0.5); }
+	#graus ul li a span{ display:block; @include opacity(1); }
+	#graus ul li.active a{ @include opacity(1); }
+
+	#overlay .wrapper{ padding:40px; top:0; left:0; @include transform(translate(0)); }
+	#overlay .inner .coll{ width:50%; }
+	#overlay .inner .colr{ width:40%; }
+}
+
+@media screen and(max-width:680px){
+	#graus #selo{ top:-200px; }
+
+	#oficinas li{ width:50%; }
+
+	#overlay .inner .coll{ width:100%; margin-bottom:40px; }
+	#overlay .inner .colr{ width:100%; }
+}
+
+@media screen and(max-width:460px){
+	#graus ul li{ width:100%; }
+	#graus #selo{ top:-200px; }
+
+	#oficinas li{ width:100%; margin-bottom:40px; }
+}

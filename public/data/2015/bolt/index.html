@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--
+*  -/////////////////////////:`         -/.         ./-
+*  /MMMMMMMMMMMMMMMMMMMMMMMMMMMy        sMMN`       /NMM:
+*  +MMM+///////+MMMy////////mMMh      `yMMMM`      /NMMs
+*  +MMM`       `MMM/        hMMh     `yMMMMM`     /NMMs
+*  +MMM`       `MMM/        hMMh    `yMMMMMM`    +MMMo
+*  +MMM`       `MMM/        hMMh   `yMMNyMMM`   +MMMo
+*  +MMM+////////MMMs////////mMMh  `hMMN:/MMM`  +MMMo
+*  +MMMMMMMMMMMMMMMMMMMMMMMMMMMh `hMMm- /MMM` oMMM+
+*  +MMM+///////+MMMs////////mMMh`hMMm-  /MMM`oMMM+
+*  +MMM`       `MMM/        hMMdhMMm-   /MMMsMMM+
+*  +MMM`       `MMM/        hMMMMMm-    /MMMMMN/
+*  +MMM`       `MMM/        hMMMMm.     /MMMMN/
+*  +MMM`       `MMM/        hMMMm.      /MMMN/
+*  /MMN`       `NMM/        yMMm.       /MMN/
+*   -/.         ./-         `::`         -/.
+*  Nós fazemos front-end.
+-->
+<html lang="pt-BR">
+	<head>
+		<meta name="robots" content="index, follow">
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<title>Bolt ϟ Disparo de e-mails</title>
+		<meta name="description" content="Disparador de e-mails baseado em js que utiliza a API do Mandrill">
+		<link rel="canonical" href="http://www.estudioffw.com/bolt">
+		<meta name="author" content="Estúdio FFW">
+		<meta name="generator" content="Estúdio FFW &gt; Nós fazemos front-end.">
+		<meta name="keywords" content="disparador, e-mail, marketing, mala direta, newsletter, transacional, bolt">
+
+		<!-- Responsivo -->
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+
+		<!-- Ícones -->
+		<link rel="icon" href="favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+		<!-- Social: Facebook -->
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="Bolt ϟ Disparo de e-mails">
+		<meta property="og:site_name" content="Bolt ϟ Disparo de e-mails"/>
+		<meta property="og:url" content="http://www.estudioffw.com/bolt">
+		<meta property="og:image" content="http://www.estudioffw.com/bolt/social.jpg">
+		<meta property="og:description" content="Disparador de e-mails baseado em js que utiliza a API do Mandrill">
+
+		<!-- Social: Twitter -->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@lucasperdidao">
+		<meta name="twitter:title" content="Bolt ϟ Disparo de e-mails">
+		<meta name="twitter:url" content="http://www.estudioffw.com/bolt">
+		<meta name="twitter:creator" content="@lucasperdidao">
+		<meta name="twitter:image:src" content="http://www.estudioffw.com/bolt/social.jpg">
+		<meta name="twitter:description" content="Disparador de e-mails baseado em js que utiliza a API do Mandrill">
+
+		<!-- Social: Google + -->
+		<meta itemprop="name" content="Bolt ϟ Disparo de e-mails">
+		<meta itemprop="description" content="Disparador de e-mails baseado em js que utiliza a API do Mandrill">
+		<meta itemprop="image" content="http://www.estudioffw.com/bolt/social.jpg">
+
+		<!-- Dependências -->
+		<link rel="stylesheet" type="text/css" href="static/css/main.css">
+	</head>
+	<body>
+
+		<main id="content" class="center">
+			<h1><object type="image/svg+xml" data="static/img/bolt.svg"></object>Bolt</h1>
+			<p>Disparador de e-mails baseado em js que utiliza a API do <a href="http://www.mandrillapp.com" title="Página inicial do Mandrill" target="_blank">Mandrill</a></p>
+
+			<form id="disparador">
+
+				<fieldset>
+					<legend>Dados do remetente</legend>
+					<input type="email" id="email" placeholder="E-mail">
+					<input type="text" id="key" placeholder="API Key">
+				</fieldset>
+
+				<fieldset>
+					<legend>Mensagem</legend>
+					<input type="text" id="assunto" placeholder="Assunto">
+					<textarea id="html" rows="11" placeholder="Conteúdo html ou texto simples"></textarea>
+				</fieldset>
+
+				<fieldset>
+					<legend>Destinatários</legend>
+					<textarea id="destinatarios" rows="10" placeholder="Lista de e-mails"></textarea>
+					<p>Cole os e-mails separados por vírgula. <span>Ex.: exemplo@exemplo.com.br,exemplo@exemplo.com.br</span></p>
+				</fieldset>
+
+				<button type="button" id="disparar">Disparar</button>
+
+				<br class="clear">
+
+			</form>
+		</main>
+
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/plugin/modernizr.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+
+	</body>
+</html>

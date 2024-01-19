@@ -1,0 +1,438 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import url("../fonts/fonts.css");
+$Aleo:"aleoregular", Helvetica, Arial, sans-serif;
+$AleoBold:"aleobold", Helvetica, Arial, sans-serif;
+$Swiss:"swis721_btroman", Helvetica, Arial, sans-serif;
+$SwissBold:"swis721_btbold", Helvetica, Arial, sans-serif;
+
+// CORES
+$Vermelho:#C23A1E;
+$Dourado:#D39602;
+$Amarelo:#FDB302;
+
+// ESTILOS GLOBAIS
+body{ font-family:$Swiss; @include font-size(24px); @include font-smoothing(on); }
+
+// NAVEGAÇÃO
+#btn-menu{
+    display:none;
+    float:left;
+    width:60px;
+    height:50px;
+    position:fixed;
+    z-index:21;
+    top:25px;
+    right:10%;
+    @include transition(all 300ms ease-in-out);
+    & span,
+    &:before,
+    &:after{
+        content:" ";
+        display:block;
+        width:100%;
+        height:10px;
+        background-color:#FFF;
+        @include transform(rotate(0));
+        position:absolute;
+        left:0;
+        @include transition(all 300ms ease-in-out);
+    }
+        
+    &:before{ top:0; }
+    & span{ top:20px; opacity:1; }
+    &:after{ bottom:0; }
+    
+    &.active span{ opacity:0; top:25px; @include transform(rotate(90deg)); }
+    &.active:before{ top:20px; left:1px; @include transform(rotate(45deg)); }
+    &.active:after{ bottom:20px; left:1px; @include transform(rotate(-45deg)); } 
+}
+
+#menu{ height:270px; position:fixed; z-index:20; top:50%; margin-top:-135px; right:60px; text-align:right; }
+#menu a{ display:block; height:45px; @include font-size(16px); color:#FFF; @include transition(all 200ms linear); }
+#menu a em{ display:none; float:right; border-bottom:2px solid rgba(255,255,255,0); float:right; margin-top:14px; @include transition(all 200ms linear); }
+#menu a.active em{ display:block; border-bottom-color:rgba(255,255,255,1); @include transition(all 200ms linear); }
+#menu a:before{ content:' '; display:block; float:right; width:12px; height:12px; margin:10px 0 0 8px ; border:4px solid rgba(255,255,255,.6); @include border-radius(50%); @include transition(all 200ms linear); }
+#menu a.active:before{ background-color:rgba(255,255,255,.6); border:0; width:20px; height:20px; }
+#menu.alt a{ color:#a0a0a0; }
+#menu.alt a:hover em,
+#menu.alt a.active em{ border-bottom-color:rgba(172,172,172,.6); }
+#menu.alt a:before{ border-color:rgba(172,172,172,.6); }
+#menu.alt a.active:before{ background-color:rgba(172,172,172,.6); }
+
+// HEADER
+#header{ width:100%; padding-bottom:80px; background:url(../img/bkg-topo.jpg) repeat center top; }
+#social{ float:left; margin:140px 0 0 120px; }
+#social li{ float:left; color:#FFF; @include font-size(18px); font-family:$SwissBold; }
+#social li.bullet{ float:left; @include font-size(20px); margin:0 15px; }
+#social li a{ @include transition(all 200ms linear); }
+#social li a:hover{ color:#000; }
+.logo{ width:270px; height:151px; margin:-80px auto 0; background:url(../img/logo.png) no-repeat center center; }
+
+// BATATAS
+#wrapper-taglines{ width:80%; margin:60px auto 0; overflow:hidden; position:relative; }
+#batatas{ width:100%; }
+#batatas li{ text-align:center; position:relative; margin-top:80px; }
+#batatas .center{ position:relative; z-index:99999; }
+#batatas .center li{ margin-top:0; }
+#batatas .center img{ width:60%; }
+#batatas li img{ width:45%; @include transition(all 300ms ease-in-out); }
+#batatas li h1{ @include opacity(0); @include transition(all 300ms ease-in-out); position:absolute; z-index:30; top:180px; left:-40%; width:180%; color:#FFF; @include font-size(56px); text-transform:uppercase; font-family:$SwissBold; @include text-shadow(2px 2px 0 rgba(159,119,8,.5)); }
+#batatas .center h1{ @include opacity(1); }
+#batatas li h1 span{ display:block; text-transform:lowercase; }
+
+#prev-batata,
+#next-batata{ display:block; float:left; width:36px; height:56px; background:no-repeat center center; position:absolute; top:350px; }
+#prev-batata{ background-image:url(../img/arw-prev.png); left:33%; }
+#next-batata{ background-image:url(../img/arw-next.png); right:33%; }
+#prev-batata:hover{ background-image:url(../img/arw-prev-alt.png); }
+#next-batata:hover{ background-image:url(../img/arw-next-alt.png); }
+
+#todos{ text-align:center; color:#FFF; margin-top:50px; }
+#todos h2{ @include font-size(28px); font-family:$Aleo; }
+#btn-sabores{ display:block; width:185px; height:55px; padding-right:25px; margin:30px auto 0; text-align:center; line-height:55px; @include font-size(20px); background:#FFF url(../img/arw-down.png) no-repeat right center; color:$Dourado; @include transition(all 300ms ease-in-out); }
+#btn-sabores:hover{ background-color:#000; }
+
+// SOBRE
+#sobre{ height:1000px; }
+#box-texto{ float:left; width:50%; height:1000px; padding:1px 100px 0; background-color:#FFF; text-align:center; }
+#box-texto .logo{ margin:170px auto 140px; }
+#box-texto h2{ font-family:$SwissBold; @include font-size(60px); margin-bottom:60px; }
+#box-texto p{ font-family:$Aleo; @include font-size(26px); line-height:48px; }
+
+#box-imagens{ width:50%; float:left; position:relative; }
+#lista-imagens{ width:100%; }
+#lista-imagens li{ width:100%; height:1000px; overflow:hidden; }
+#lista-imagens li img{}
+
+#track{ position:absolute; bottom:0; left:0; width:100%; height:5px; background-color:#FFF; }
+#progress{ height:5px; background-color:$Vermelho; }
+
+// PRODUTOS
+#produtos{ width:100%; height:1000px; background-color:$Amarelo; position:relative; }
+
+#titulo-produtos{ position:absolute; z-index:1; top:130px; width:100%; text-align:center; font-family:$SwissBold; }
+#titulo-produtos p{ @include font-size(24px); color:#FFF; }
+#titulo-produtos h2{ @include font-size(80px); color:#B37509; margin-top:24px; }
+
+#lista-produtos{ width:93%; position:relative; z-index:2; }
+#lista-produtos li{ float:left; width:25%; height:1000px; text-align:center; padding-top:380px; color:#FFF; position:relative; }
+
+#lista-produtos li .img-produto{ position:absolute; z-index:3; top:0; left:0; width:100%; height:100%; background:no-repeat left top; background-size:cover; @include opacity(0); @include transition(all 300ms ease-in-out); }
+#lista-produtos li:hover .img-produto{ @include opacity(1); }
+#lista-produtos li.tradicional .img-produto{ background-image:url(../img/produtos/tradicional.jpg); }
+#lista-produtos li.picanha .img-produto{ background-image:url(../img/produtos/picanha.jpg); }
+#lista-produtos li.cebola-salsa .img-produto{ background-image:url(../img/produtos/cebola-salsa.jpg); }
+#lista-produtos li.cheddar .img-produto{ background-image:url(../img/produtos/cheddar.jpg); }
+
+#lista-produtos li .ico-produto{ width:170px; height:170px; margin:0 auto 60px; border:8px solid #FFF; @include border-radius(50%); background:no-repeat center center; position:relative; z-index:4; }
+#lista-produtos li.tradicional .ico-produto{ background-image:url(../img/ico-tradicional.png); }
+#lista-produtos li.picanha .ico-produto{ background-image:url(../img/ico-picanha.png); }
+#lista-produtos li.cebola-salsa .ico-produto{ background-image:url(../img/ico-cebola-salsa.png); }
+#lista-produtos li.cheddar .ico-produto{ background-image:url(../img/ico-cheddar.png); }
+#lista-produtos li h3{ @include font-size(48px); font-family:$SwissBold; position:relative; z-index:4; }
+#lista-produtos li .btn-saiba-mais{ display:block; width:158px; height:38px; margin:80px auto 0; border:3px solid rgba(255,255,255,.36); text-align:center; line-height:32px; @include font-size(18px); background:url(../img/arw-right.png) no-repeat right center; @include transition(all 200ms ease-in-out); position:relative; z-index:4; }
+#lista-produtos li:hover .btn-saiba-mais{ background-color:rgba(255,255,255,.36); border-color:transparent; }
+#lista-produtos li .btn-saiba-mais:hover{ background-color:#FFF; border-color:#FFF; color:#B17409; }
+
+// Produto aberto
+.produto-aberto{ display:none; position:absolute; z-index:3; top:0; left:0; width:100%; height:1000px; }
+.produto-aberto.cebola-salsa{ background:url(../img/produtos/bkg-cebola-salsa.jpg) no-repeat top center; background-size:cover; }
+.produto-aberto .btn-fechar{ display:block; width:41px; height:41px; position:absolute; top:210px; right:15%; }
+.produto-aberto .btn-fechar:before,
+.produto-aberto .btn-fechar:after{ content:' '; display:block; width:50px; height:10px; background-color:#FFF; position:absolute; left:-5px; @include transition(all 200ms ease-in-out); }
+.produto-aberto .btn-fechar:before{ @include transform(rotate(45deg)); top:15px; }
+.produto-aberto .btn-fechar:after{ @include transform(rotate(-45deg)); bottom:15px; }
+.produto-aberto .btn-fechar:hover:before,
+.produto-aberto .btn-fechar:hover:after{ background-color:#000; }
+.produto-aberto .embalagem-produto{ float:left; width:32.3%; margin-top:190px; text-align:center; }
+.produto-aberto .embalagem-produto img{ width:80%; }
+.produto-aberto .info-produto{ float:left; width:46%; margin-top:190px; color:#FFF; }
+.produto-aberto .info-produto .box-titulo{ width:100%; }
+.produto-aberto .info-produto .box-titulo .ico-produto{ float:left; width:170px; height:170px; margin:0 50px 0 0; border:8px solid #FFF; @include border-radius(50%); background:no-repeat center center; }
+.produto-aberto .info-produto .box-titulo .ico-produto.cebola-salsa{ background-image:url(../img/ico-cebola-salsa.png); }
+.produto-aberto .info-produto .box-titulo .texto{ float:left; width:400px; }
+.produto-aberto .info-produto .box-titulo .texto h2{ @include font-size(90px); font-family:$SwissBold; color:#085329; }
+.produto-aberto .info-produto .box-titulo .texto p{ @include font-size(25px); margin:10px 0 0 5px; }
+.produto-aberto .info-produto .ingredientes{ float:left; width:50%; margin:100px 10% 0 0; }
+.produto-aberto .info-produto .ingredientes h3{ text-transform:uppercase; font-family:$AleoBold; @include font-size(21px); padding-bottom:40px; margin-bottom:25px; border-bottom:1px solid #FFF; }
+.produto-aberto .info-produto .ingredientes p{ @include font-size(18px); line-height:30px; }
+.produto-aberto .infos-nutricionais{ float:left; margin-top:60px; width:40%; }
+.produto-aberto .infos-nutricionais img{ display:block; width:100%; }
+
+// ONDE COMPRAR
+#onde-comprar{ width:100%; height:970px; }
+#local{ float:left; width:50%; height:970px; background:url(../img/bkg-mapa.jpg) repeat left top; background-size:100%; text-align:center; color:#FFF; }
+#mapa{ width:100%; height:730px; background:url(../img/mapa.png) no-repeat center center; }
+#local h2{ @include font-size(50px); font-family:$SwissBold; margin:30px 0; }
+#local h2 span{ color:#000; @include font-size(30px); margin:0 5px; }
+#local p{ max-width:350px; margin:0 auto; line-height:1.2em; }
+
+#form{ float:left; width:50%; padding-top:120px; text-align:center; color:$Vermelho; }
+#form h2{ @include font-size(60px); font-family:$SwissBold; margin-bottom:50px; }
+#form p{ width:90%; max-width:600px; margin:0 auto 60px; line-height:36px; }
+#form form{ width:90%; max-width:645px; margin:0 auto; }
+#form input,
+#form select{ float:left; width:100%; padding:10px 15px; border:2px solid #FFC8C0; margin-bottom:20px; font-family:$Aleo; @include font-size(18px); color:$Vermelho; }
+#form .half{ width:48%; }
+#form .half.h-first{ margin-right:4%; }
+#enviar{ display:block; width:230px; height:50px; border:0; margin:30px auto 0; background-color:$Vermelho; color:#FFF; font-family:$Aleo; @include font-size(18px); text-transform:uppercase; cursor:pointer; @include transition(all 300ms ease-in-out); }
+#enviar:hover{ background-color:#000; }
+
+// CAMPANHAS
+#campanha{ position:relative }
+#campanhas{ width:100%; }
+#campanhas li{ }
+#campanhas li img{ display:block; width:100%; }
+#campanhas li .titulo{ position:absolute; bottom:150px; left:10%; }
+#campanhas li .titulo h2{ font-family:$SwissBold; @include font-size(98px); line-height:1.2em; color:#FFF; }
+#campanhas li .titulo h2 em{ text-decoration:underline; }
+#nav-campanhas{ position:absolute; z-index:2; bottom:50px; left:10%; }
+#nav-campanhas a{ display:block; float:left; width:36px; height:56px; background:no-repeat center center; }
+#nav-campanhas a#prev-campanha{ background-image:url(../img/arw-prev.png); margin:0 80px 0 5px; }
+#nav-campanhas a#next-campanha{ background-image:url(../img/arw-next.png); }
+#nav-campanhas a#prev-campanha:hover{ background-image:url(../img/arw-prev-alt.png); }
+#nav-campanhas a#next-campanha:hover{ background-image:url(../img/arw-next-alt.png); }
+
+// ESTAMOS ONLINE
+#estamos-online{ background-color:#f3f3f3; padding:200px 13%; }
+#estamos-online h2{ margin-bottom:80px; @include font-size(80px); font-family:$SwissBold; color:#2a2a2a; text-align:center; }
+
+#feed-social{ width:100%; }
+#feed-social li{ float:left; width:31.3%; height:420px; margin:0 1% 20px; overflow:hidden; background-color:#FFF; @include border-radius(10px); }
+#feed-social li.double{ width:64.6%; }
+#feed-social li.facebook{}
+#feed-social li.facebook .fb-post{ width:100%; }
+#feed-social li.instagram{ position:relative; }
+#feed-social li.instagram img{ display:block; width:100%; }
+#feed-social li.instagram .hover{ display:block; width:100%; height:200px; background:url(../img/bkg-hover-instagram.png) repeat-x left bottom; position:absolute; left:0; bottom:0; @include transition(all 300ms ease-in-out); }
+#feed-social li.instagram:hover .hover{ height:100%; background-color:rgba(0,0,0,.4); }
+#feed-social li.instagram .hover .ico-instagram{ float:left; width:20%; height:200px; background:url(../img/ico-social-instagram.png) no-repeat center 120px; @include transition(all 300ms ease-in-out); }
+#feed-social li.instagram:hover .hover .ico-instagram{ height:100%; background-position:center 340px; }
+#feed-social li.instagram .hover .descricao{  float:left; width:80%; margin-top:120px; color:#FFF; @include font-size(16px); font-family:$Aleo; line-height:1.2em; @include transition(all 300ms ease-in-out); }
+#feed-social li.instagram:hover .hover .descricao{ margin-top:340px; }
+#feed-social li.video{ position:relative; }
+#feed-social li.video img{ display:block; width:100%; }
+#feed-social li.video .btn-play{ display:block; width:120px; height:120px; background:url(../img/btn-play.png) no-repeat center center; position:absolute; top:50%; margin-top:-60px; left:50%; margin-left:-60px; }
+
+.rede-social{ display:block; float:left; width:31.3%; height:330px; margin:0 1%; @include border-radius(10px); overflow:hidden; position:relative; }
+.rede-social img{ display:block; width:100%; @include opacity(0); @include transition(all 300ms ease-in-out); position:absolute; z-index:1; top:0; left:0; }
+.rede-social:hover img{ @include opacity(1); }
+.rede-social .ico-rede{ display:block; width:122px; height:122px; margin:55px auto 35px; background-repeat:no-repeat; background-position:center center; position:relative; z-index:2; }
+.rede-social .tagline{ display:block; width:80%; margin:0 auto; @include font-size(21px); color:#FFF; text-align:center; position:relative; z-index:2; }
+.rede-social .interacao{ display:block; width:120px; margin:15px auto; position:relative; z-index:2; }
+.rede-social.rede-facebook{ background-color:#3b5998; }
+.rede-social.rede-facebook .ico-rede{ background-image:url(../img/big-facebook.png); }
+.rede-social.rede-instagram{ background-color:#7f4e3d; }
+.rede-social.rede-instagram .ico-rede{ background-image:url(../img/big-instagram.png); }
+.rede-social.rede-youtube{ background-color:#e11d24; }
+.rede-social.rede-youtube .ico-rede{ background-image:url(../img/big-youtube.png); }
+
+// NEWSLETTER
+#news{ margin-top:100px; }
+#news h2{ margin-bottom:30px; }
+#news p{ max-width:570px; margin:0 auto; @include font-size(24px); line-height:36px; text-align:center; color:#2a2a2a; }
+#wrapper-news{ width:96%; max-width:800px; margin:60px auto 0; border:3px solid #c5bc8f; }
+#wrapper-news input{ display:block; float:left; width:80%; height:50px; padding:0 20px; border:0; background-color:transparent; @include box-shadow(0); outline:none; @include font-size(26px); font-family:$Swiss; color:#b7a23c; }
+#envia-news{ display:block; float:right; width:50px; height:50px; border:0; background:url(../img/ico-enviar.png) no-repeat center center; cursor:pointer; }
+#envia-news:focus{ background-image:url(../img/ico-enviar-alt.png); outline:0; }
+
+// FOOTER
+#footer{ width:100%; padding:120px 8% 50px; background-color:#a37300; }
+#logo-footer{ width:100%; height:115px; background:url(../img/logo.png) no-repeat center center; background-size:contain; }
+#social-footer{ float:left; margin-top:70px; }
+#social-footer li{ float:left; margin-right:45px; }
+#social-footer li a{ display:block; height:40px; background-repeat:no-repeat; background-position:center center; @include transition(all 300ms ease-in-out); }
+#social-footer li a.ico-facebook{ width:18px; background-image:url(../img/ico-facebook.png); }
+#social-footer li a.ico-facebook:hover{ background-image:url(../img/ico-facebook-alt.png); }
+#social-footer li a.ico-instagram{ width:34px; background-image:url(../img/ico-instagram.png); }
+#social-footer li a.ico-instagram:hover{ background-image:url(../img/ico-instagram-alt.png); }
+#social-footer li a.ico-youtube{ width:38px; background-image:url(../img/ico-youtube.png); }
+#social-footer li a.ico-youtube:hover{ background-image:url(../img/ico-youtube-alt.png); }
+#social-footer li a.ico-twitter{ width:35px; background-image:url(../img/ico-twitter.png); }
+#social-footer li a.ico-twitter:hover{ background-image:url(../img/ico-twitter-alt.png); }
+.footer-right{ float:right; }
+#distribuidora{ float:right; width:169px; height:47px; background:url(../img/dmuller.png) no-repeat center center; }
+#copy{ color:#FFF; text-align:right; margin-top:30px; @include font-size(30px); letter-spacing:0.02em; }
+
+// RESPONSIVO
+@media screen and(max-width:1900px){
+	#box-texto h2{ @include font-size(50px); }
+	#box-texto p{ @include font-size(18px); }
+
+	.produto-aberto .info-produto .box-titulo .texto h2{ @include font-size(50px); }
+}
+
+@media screen and(max-width:1740px){
+	#batatas li h1{ @include font-size(50px); top:160px; }
+	#prev-batata,
+	#next-batata{ top:300px; }
+
+	#feed-social li{ height:350px; }
+	#feed-social li.instagram:hover .hover .ico-instagram{ background-position:center 270px; }
+	#feed-social li.instagram:hover .hover .descricao{ margin-top:270px; }
+}
+
+@media screen and(max-width:1500px){
+	#batatas li h1{ @include font-size(40px); top:130px; }
+	#prev-batata,
+	#next-batata{ top:250px; }
+
+	#box-texto h2{ @include font-size(50px); }
+	#box-texto{ padding:1px 50px 0;}
+
+	#lista-produtos li h3{ @include font-size(38px); }
+	.produto-aberto .info-produto .ingredientes{ width:40%; }
+	.produto-aberto .infos-nutricionais{ width:50%; }
+
+	#onde-comprar{ width:100%; height:auto; }
+	#local{ width:100%; height:auto; padding-bottom:50px; background-size:cover; }
+	#form{ width:100%; padding:120px 0; }
+
+	#feed-social li{ height:280px; }
+	#feed-social li.instagram:hover .hover .ico-instagram{ background-position:center 200px; }
+	#feed-social li.instagram:hover .hover .descricao{ margin-top:200px; }
+}
+
+@media screen and(max-width:1300px){
+	#wrapper-taglines{ width:90%; }
+	#batatas li h1{ @include font-size(35px); top:110px; }
+	#prev-batata,
+	#next-batata{ top:200px; }
+
+	#box-texto h2{ @include font-size(40px); }
+
+	.produto-aberto .info-produto .box-titulo .texto{ width:350px; }
+	.produto-aberto .info-produto .ingredientes h3{ padding-bottom:20px; margin-bottom:15px; }
+	.produto-aberto .info-produto .ingredientes p{ @include font-size(14px); line-height:22px; }
+}
+
+@media screen and(max-width:1240px){
+	.produto-aberto .info-produto .box-titulo .texto{ width:300px; }
+}
+
+@media screen and(max-width:1150px){
+	#box-texto{ padding:1px 30px 0; height:700px; }
+	#box-texto .logo{ margin:80px auto; }
+	#box-texto h2{ @include font-size(36px); }
+	#box-texto p{ @include font-size(15px); line-height:26px; }
+
+	#sobre{ height:700px; }
+	#lista-imagens li{ height:700px; }
+
+	.produto-aberto .info-produto .box-titulo .texto{ width:480px; }
+	.produto-aberto .embalagem-produto{ display:none; }
+	.produto-aberto .info-produto{ width:70%; margin:100px 0 0 10%; }
+
+	#campanhas li .titulo h2{ @include font-size(50px); }
+
+	#estamos-online{ padding:200px 5%; }
+}
+
+@media screen and(max-width:1000px){
+	#batatas li h1{ @include font-size(30px); top:90px; }
+	#prev-batata,
+	#next-batata{ top:160px; }
+
+	.produto-aberto .info-produto .box-titulo .texto{ width:400px; }
+}
+
+@media screen and(max-width:920px){
+	#box-texto{ padding:1px 10px 0; }
+	#box-texto p{ @include font-size(13px); line-height:22px; }
+	.produto-aberto .info-produto .box-titulo .texto{ width:300px; }
+}
+
+@media screen and(max-width:820px){
+	#box-texto{ width:100%; padding:1px 20% 80px; height:auto; }
+	#box-texto p{ @include font-size(15px); line-height:26px; }
+	#sobre{ height:auto; }
+	#box-imagens{ width:100%; }
+	#lista-imagens li{ height:auto; }
+
+	#produtos{ height:auto; padding:60px 0; }
+	#titulo-produtos{ position:static; margin-bottom:40px; }
+	#lista-produtos{ width:100%; }
+	#lista-produtos li{ width:100%; height:auto; padding:50px 0; }
+
+	#mapa{ height:600px; background-size:contain; }
+	#local h2{ @include font-size(50px); font-family:$SwissBold; margin:30px 0; }
+
+	#campanha{ display:none; }
+
+	#feed-social li{ width:100%; height:420px; margin:0 0 30px; }
+	#feed-social li.double{ width:100%; height:210px; }
+	.rede-social{ width:100%; margin:0 0 30px; }
+
+	// HEADER
+	#social{ display:none; }
+	.logo{ width:100%; height:151px; margin:80px auto 0; background-size:contain; }
+
+	// BATATAS
+	#batatas li{ text-align:center; position:relative; margin-top:0; }
+	#batatas li img{ width:60%; @include transition(all 300ms ease-in-out); }
+	#batatas li h1{ @include opacity(1); position:static; width:100%; @include font-size(40px); }
+
+	#prev-batata,
+	#next-batata{ top:100px; }
+	#prev-batata{ left:3%; }
+	#next-batata{ right:3%; }
+
+	#todos h2{ @include font-size(20px); }
+
+	// MENU
+	#btn-menu{ display:block; }
+	#menu{ width:50%; height:100%; position:fixed; z-index:20; top:0; margin-top:0; right:-50%; text-align:right; background-color:#222; padding:100px 50px 0 0; @include transition(all 300ms ease-in-out); }
+	#menu.active{ right:0; }
+	#menu a{ display:block; height:auto; @include font-size(36px); color:#FFF; @include transition(all 200ms linear); font-family:$SwissBold; line-height:2em; }
+	#menu a:nth-child(5n){ display:none; }
+	#menu a em{ display:inline; float:none; border:0; margin-top:0; }
+	#menu a:hover em,
+	#menu a.active em{ border:0; }
+	#menu a:before{ content:' '; display:none; }
+	#menu.alt a{ color:#FFF; }
+	#menu.alt a:hover em,
+	#menu.alt a.active em{ border:0; }
+
+	// PRODUTO ABERTO
+	.produto-aberto{ height:auto; padding-bottom:50px; }
+	.produto-aberto .btn-fechar{ position:absolute; top:40px; left:40px; right:auto; }
+	.produto-aberto .embalagem-produto{ display:none; }
+	.produto-aberto .info-produto{ width:80%; margin:100px 10% 0; }
+	.produto-aberto .info-produto .box-titulo{ width:100%; }
+	.produto-aberto .info-produto .box-titulo .ico-produto{ display:none; }
+	.produto-aberto .info-produto .box-titulo .texto{ float:left; width:100%; }
+	.produto-aberto .info-produto .box-titulo .texto h2{ @include font-size(36px); }
+	.produto-aberto .info-produto .box-titulo .texto p{ @include font-size(14px); }
+	.produto-aberto .info-produto .ingredientes{ width:100%; margin:40px 0 0; }
+	.produto-aberto .info-produto .ingredientes h3{ @include font-size(16px); padding-bottom:20px; margin-bottom:15px; }
+	.produto-aberto .info-produto .ingredientes p{ @include font-size(14px); line-height:24px; }
+	.produto-aberto .infos-nutricionais{ float:left; margin-top:40px; width:100%; }
+}
+
+@media screen and(max-width:540px){
+	#titulo-produtos h2,
+	#estamos-online h2{ @include font-size(50px); }
+	.logo{ width:100%; height:80px; background-size:contain; }
+
+	#social-footer{ margin:70px 0 40px; text-align:center; }
+	#social-footer li{ float:none; display:inline-block; margin:0 15px; }
+	.footer-right{ float:right; text-align:center; }
+
+	#distribuidora{ width:100%; }
+	#copy{ @include font-size(20px); text-align:center; }
+
+	#menu{ width:70%; right:-70%; padding:100px 10% 0 0; }
+	#menu a{ @include font-size(24px); }
+}
+
+@media screen and(max-width:420px){
+	#feed-social li{ height:280px; }
+	#feed-social li.double{ height:140px; }
+
+	#batatas li h1{ margin-top:30px; @include font-size(18px); }
+}

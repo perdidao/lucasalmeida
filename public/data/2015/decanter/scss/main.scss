@@ -1,0 +1,312 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import url(https://fonts.googleapis.com/css?family=Dosis:400,700,300);
+$dosis:'Dosis', Helvetica, Arial, sans-serif;
+
+$light:300;
+$regular:400;
+$bold:700;
+
+// CORES
+$vinho:#600;
+$marinho:#0D1B28;
+$prata:#C7C7C7;
+$preto:#191D21;
+
+// ESTILOS GLOBAIS
+body{ font-family:$dosis; color:$preto; @include font-size(16px); font-weight:$light; }
+@include selection(#FFF,$vinho);
+
+// HEADER
+#btn-menu{
+    display:none;
+    width:50px;
+    height:50px;
+    position:fixed;
+    z-index:11;
+    top:15px;
+    right:15px;
+    background-color:$marinho;
+    & span,
+    &:before,
+    &:after{
+        content:" ";
+        display:block;
+        width:30px;
+        height:1px;
+        background-color:#FFF;
+        @include transform(rotate(0));
+        position:absolute;
+        left:10px;
+        @include transition(all 300ms ease-in-out);
+    }
+        
+    &:before{ top:16px; }
+    & span{ top:25px; @include opacity(1); }
+    &:after{ bottom:15px; }
+        
+    &.active span{ @include opacity(0); top:25px; @include transform(rotate(90deg)); }
+    &.active:before{ width:34px; top:25px; left:8px; @include transform(rotate(45deg)); }
+    &.active:after{ width:34px; bottom:24px; left:8px; @include transform(rotate(-45deg)); } 
+}
+#header{ width:100%; min-height:200px; position:fixed; z-index:10; top:0; left:0; @include transition(all 300ms ease-in-out); }
+#header.onScroll{ background:$marinho; min-height:100px; }
+#logo{ float:left; width:114px; height:141px; margin-top:15px; background:url(../img/logo.png) no-repeat center center; @include removeText; background-size:contain; @include transition(all 300ms ease-in-out); }
+#header.onScroll #logo{ height:70px; }
+#menu{ float:right; }
+#menu a{ display:block; float:left; padding:65px 10px 10px; margin-left:25px; @include font-size(20px); text-transform:uppercase; color:#FFF; @include transition(all 300ms ease-in-out); }
+#header.onScroll #menu a{ padding:40px 10px 10px; }
+#menu a:hover,
+#menu a.active{ background-color:rgba(13,27,40,.5); }
+#header.onScroll #menu a:hover,
+#header.onScroll #menu a.active{ background-color:rgba(255,255,255,.2); }
+
+// BANNERS
+#banner{}
+#banner li{ width:100%; height:594px; background-repeat:no-repeat; background-position:center top; }
+#banner li .imagem{ @include opacity(0); float:left; margin:140px 0 0 140px; }
+#banner li .imagem img{ max-width:100%; }
+#banner li .texto{ @include opacity(0); float:left; margin:210px 0 0 20px; }
+#banner li .texto img{ max-width:100%; }
+
+#banner .rsOverflow{ height:594px !important; }
+#banner .rsNav.rsBullets{ position:absolute; top:470px; left:50%; @include transform(translateX(-50%)); }
+#banner .rsNav.rsBullets .rsBullet{ display:inline-block; width:12px; height:12px; margin:0 10px; background-color:#FFF; background-color:#ACACAC; @include border-radius(50%); cursor:pointer; }
+#banner .rsNav.rsBullets .rsBullet.rsNavSelected{ background-color:#706E6E; }
+
+#banner .rsArrow{ width:20px; height:35px; position:absolute; top:230px; background-repeat:no-repeat; background-position:center center; }
+#banner .rsArrow.rsArrowLeft{ left:25%; background-image:url(../img/prev-banner.png); }
+#banner .rsArrow.rsArrowRight{ right:25%; background-image:url(../img/next-banner.png); }
+
+// SOBRE
+#sobre{ width:100%; min-height:486px; padding:50px 0; background:url(../img/bkg-sobre.jpg) repeat center top; }
+#sobre .texto{ float:left; width:49%; color:#FFF; }
+#sobre .texto h2{ @include font-size(25px); text-transform:uppercase; margin-bottom:30px; }
+#sobre .texto p{ @include font-size(20px); line-height:20px; }
+#sobre .image{ float:left; width:49%; margin-left:2%; }
+#sobre .image img{ display:block; width:100%; }
+
+// VITRINE
+#vitrine{ padding:30px 0; }
+.titulo{}
+.titulo h2{ float:left; @include font-size(25px); text-transform:uppercase; }
+.titulo .setas{ float:left; margin-left:100px; }
+.titulo .setas a{ display:block; float:left; width:30px; height:30px; margin-right:10px; @include transition(all 300ms ease-in-out); }
+.titulo .setas a#prev-galeria{ background:url(../img/prev-vitrine.png) no-repeat left center; }
+.titulo .setas a#prev-galeria:hover{ background-color:$vinho; background-position:right center; }
+.titulo .setas a#next-galeria{ background:url(../img/next-vitrine.png) no-repeat right center; }
+.titulo .setas a#next-galeria:hover{ background-color:$vinho; background-position:left center; }
+#vinhos{ margin-top:30px; }
+#vinhos .rsOverflow{ height:330px !important; }
+.lista-vinhos{ }
+.lista-vinhos li{ float:Left; width:15%; margin-right:2%; }
+.lista-vinhos li:nth-child(6n){ margin-right:0; }
+.lista-vinhos li img{ display:block; width:100%; border:1px solid $prata; @include transition(all 300ms ease-in-out); }
+.lista-vinhos li:hover img{ border-color:$marinho; }
+.lista-vinhos li p{ height:60px; margin:10px 0 5px; @include font-size(16px); line-height:20px; text-transform:uppercase; }
+.lista-vinhos li .btn-comprar{ display:block; width:100%; padding:5px 10px; background:$vinho url(../img/seta.png) no-repeat right center; @include font-size(18px); text-transform:uppercase; color:#FFF; @include opacity(0); @include transition(all 300ms ease-in-out); }
+.lista-vinhos li:hover .btn-comprar{ @include opacity(1); }
+
+// OFERTAS
+#ofertas{ margin-top:30px; }
+#ofertas .lista-vinhos li:nth-child(4n){ margin-right:0; }
+#ofertas .box{ float:left; width:32%; min-height:220px; padding-top:70px; margin-right:2%; background-color:$marinho; text-align:center; text-transform:uppercase; color:#FFF; @include font-size(40px); font-weight:$bold; }
+
+// BLOG
+#blog{ width:100%; padding:35px 0 80px; background:$vinho url(../img/bkg-blog.jpg) repeat center top; color:#FFF; }
+#blog h2{ @include font-size(25px); text-transform:uppercase; margin-bottom:35px; }
+#blog .blog-post{ float:left; width:32%; margin-right:2%; }
+#blog .blog-post:nth-child(4n){ margin-right:0; }
+#blog .blog-post .post-img{ display:block; }
+#blog .blog-post .post-img img{ display:block; width:100%; }
+#blog .blog-post .data{ padding:15px 0 10px; border-bottom:1px solid #FFF; margin-bottom:10px; @include font-size(15px); text-transform:uppercase; }
+#blog .blog-post h3{ @include font-size(25px); text-transform:uppercase; line-height:1.2em; }
+#blog .blog-post .excerpt{ margin-top:10px; @include font-size(15px); line-height:1.3em; }
+#blog .blog-post .excerpt a{ text-transform:uppercase; font-weight:$bold; }
+#btn-mais-posts{ display:block; float:right; width:32%; padding:10px; margin-top:40px; background:url(../img/seta.png) no-repeat right center; @include font-size(25px); text-transform:uppercase; background-color:#300; }
+
+// HARMONIZAÇÃO
+#harmonizacao{ padding:35px 0 150px; }
+#harmonizacao h2{ @include font-size(25px); text-transform:uppercase; margin-bottom:35px; }
+#refeicoes{ float:left; width:15%; margin-right:2%; }
+#refeicoes li{ margin-bottom:7px; }
+#refeicoes li a{ display:block; padding:15px 0 15px 65px; border:1px solid #878787; @include font-size(20px); @include transition(all 300ms ease-in-out); background-position:-10px center; background-repeat:no-repeat; }
+#refeicoes li:last-child a{ padding-left:55px; }
+#refeicoes li a:hover,
+#refeicoes li a.active{ background-color:$vinho; color:#FFF; border-color:$marinho; }
+#refeicoes li a.entradas{ background-image:url(../img/i-entradas.png); }
+#refeicoes li a.entradas.active,
+#refeicoes li a.entradas:hover{ background-image:url(../img/i-entradas-alt.png); }
+#refeicoes li a.carnes{ background-image:url(../img/i-carnes.png); }
+#refeicoes li a.carnes.active,
+#refeicoes li a.carnes:hover{ background-image:url(../img/i-carnes-alt.png); }
+#refeicoes li a.aves{ background-image:url(../img/i-aves.png); }
+#refeicoes li a.aves.active,
+#refeicoes li a.aves:hover{ background-image:url(../img/i-aves-alt.png); }
+#refeicoes li a.peixes{ background-image:url(../img/i-peixes.png); }
+#refeicoes li a.peixes.active,
+#refeicoes li a.peixes:hover{ background-image:url(../img/i-peixes-alt.png); }
+#refeicoes li a.massas{ background-image:url(../img/i-massas.png); }
+#refeicoes li a.massas.active,
+#refeicoes li a.massas:hover{ background-image:url(../img/i-massas-alt.png); }
+#refeicoes li a.queijos{ background-image:url(../img/i-queijos.png); }
+#refeicoes li a.queijos.active,
+#refeicoes li a.queijos:hover{ background-image:url(../img/i-queijos-alt.png); }
+#refeicoes li a.pizza{ background-image:url(../img/i-pizzas.png); }
+#refeicoes li a.pizza.active,
+#refeicoes li a.pizza:hover{ background-image:url(../img/i-pizzas-alt.png); }
+#refeicoes li a.sobremesas{ background-image:url(../img/i-sobremesas.png); }
+#refeicoes li a.sobremesas.active,
+#refeicoes li a.sobremesas:hover{ background-image:url(../img/i-sobremesas-alt.png); }
+#refeicoes li a.harmonizacao{ background-image:url(../img/i-harmonizacao.png); }
+#refeicoes li a.harmonizacao.active,
+#refeicoes li a.harmonizacao:hover{ background-image:url(../img/i-harmonizacao-alt.png); }
+.harmonizacao{ display:none; float:left; width:49%; margin-right:2%; }
+.harmonizacao#entradas{ display:block; }
+.harmonizacao h3{ @include font-size(20px); text-transform:uppercase; margin-bottom:10px; }
+.harmonizacao p{ line-height:20px; margin-bottom:15px; }
+.harmonizacao .lista-vinhos{}
+.harmonizacao .lista-vinhos li{ width:30%; margin-right:4%; }
+.harmonizacao .lista-vinhos li:nth-child(3n){ margin-right:0; }
+#publicidade{ float:left; width:32%; }
+#publicidade .anuncio{ display:block; margin-bottom:10px; }
+#publicidade .anuncio img{ display:block; width:100%; }
+
+// CLUBE
+#clube{ width:100%; min-height:100px; padding:1px 0; background:url(../img/bkg-clube.jpg) repeat center top; }
+#clube p{ display:block; max-width:620px; margin:17px auto; padding-right:100px; background:url(../img/i-clube.png) no-repeat right center; line-height:66px; text-align:center; text-transform:uppercase; color:#FFF; @include font-size(25px); position:relative; }
+#clube p:before{ content:' '; display:block; width:109px; height:69px; background:url(../img/breve.png) no-repeat center center; position:absolute; top:0; @include transform(translateX(-50%)); left:-110px; }
+
+// FOOTER
+#footer{ width:100%; padding:30px 60px; background-color:$marinho; color:#FFF; @include font-smoothing(on); }
+#footer .col-left{ float:left; width:32%; margin-right:19%; }
+#footer .col-right{ float:left; width:49%; }
+#footer h2{ @include font-size(25px); text-transform:uppercase; }
+
+#footer .contato{ margin-bottom:55px; }
+#footer .contato h2{ margin-bottom:55px; }
+#footer .contato p{ @include font-size(20px); line-height:1.2em; text-transform:uppercase; font-weight:$regular; }
+#footer .contato p strong{ font-weight:$bold; }
+
+#footer .delivery{ max-width:265px; padding-bottom:10px; background:url(../img/i-delivery.png) no-repeat right bottom; }
+#footer .delivery h2{ margin-bottom:20px; }
+#footer .delivery p{ @include font-size(25px); font-weight:$bold; }
+#footer .delivery p span{ @include font-size(20px); }
+
+#footer .social{ margin-top:40px; }
+#footer .social h2{ @include font-size(20px); }
+#footer .social ul{ margin-top:15px; }
+#footer .social ul li{ float:left; margin-right:30px; }
+#footer .social ul li a{ display:block; height:23px; background-position:center center; background-repeat:no-repeat; }
+#footer .social ul li a.i-facebook{ width:13px; background-image:url(../img/i-facebook.png); }
+#footer .social ul li a.i-instagram{ width:20px; background-image:url(../img/i-instagram.png); }
+#footer .social ul li a.i-twitter{ width:23px; background-image:url(../img/i-twitter.png); }
+
+#footer .news{ margin-top:30px; }
+#footer .news p{ @include font-size(16px); text-transform:uppercase; font-weight:$regular; margin-bottom:15px; }
+#footer .news input{ display:block; float:left; width:70%; height:45px; padding:0 15px; border:0; background-color:#FFF; font-family:inherit; color:#999; @include font-size(20px); }
+#enviar-news{ display:block; float:left; width:30%; height:45px; padding:0; border:0; background-color:$vinho; font-family:inherit; color:#FFF; @include font-size(20px); cursor:pointer; text-transform:uppercase; }
+#footer .news .retorno{ display:none; text-align:center; border:1px solid #FFF; border-top:0; padding:10px; text-transform:uppercase; }
+
+#mapa{ width:100%; height:250px; }
+#mapa iframe{ width:100%; height:250px; }
+
+// ASSINATURA
+#assinatura{ width:100%; background-color:$marinho; line-height:18px; padding:20px; }
+#assinatura p{ float:left; @include font-size(14px); color:#FFF; }
+#assinatura .m2mp{ display:block; float:right; width:43px; height:18px; background:url(../img/m2mp.png) no-repeat center center; }
+
+// RESPONSIVO
+@media screen and(max-width:1900px){
+	#banner .rsArrow.rsArrowLeft{ left:5%; }
+	#banner .rsArrow.rsArrowRight{ right:5%; }
+}
+
+@media screen and(max-width:1000px){
+	#banner .rsArrow.rsArrowLeft,
+	#banner .rsArrow.rsArrowRight{ display:none !important; }
+
+	#banner li .imagem{ width:25%; margin:140px 5% 0 10%; }
+	#banner li .texto{ width:55%; margin:210px 0 0 0; }
+
+	#vinhos.lista-vinhos li{ width:30%; margin-right:5%; }
+	#vinhos.lista-vinhos li:nth-child(3n){ margin-right:0; }
+
+	#ofertas .box{ width:100%; min-height:0; padding:40px 0; margin:0 0 40px; }
+	#ofertas .lista-vinhos li{ width:23.5%; }
+	#ofertas .lista-vinhos li:nth-child(4n){ margin-right:0; }
+
+	#refeicoes{ width:100%; margin:0 0 40px; }
+	#refeicoes li{ float:left; margin:0 20px 20px 0; }
+	#refeicoes li a{ padding:15px 15px 15px 65px; }
+	.harmonizacao{ width:65%; }
+	#publicidade{ width:33%; }
+
+	#footer .col-left{ width:49%; margin-right:2%; }
+	#footer .col-right{ width:49%; }
+}
+
+@media screen and(max-width:820px){
+	#logo{ height:100px; }
+	#header.onScroll{ background:transparent; min-height:0; }
+	#header.onScroll #logo{ height:100px; }
+
+	#btn-menu{ display:block; }
+	#menu{ display:none; position:fixed; top:63px; left:0; width:100%; background:$marinho; }
+	#menu a{ width:100%; padding:20px 0; margin-left:0; text-align:center; }
+	#header.onScroll #menu a{ padding:20px 0; }
+	#menu a:hover,
+	#menu a.active{ background-color:rgba(255,255,255,.2); }
+}
+
+@media screen and(max-width:768px){
+	#sobre .texto{ float:none; width:80%; margin:0 10%; text-align:justify; }
+	#sobre .image{ float:none; width:60%; margin:50px 20% 0; }
+}
+
+@media screen and(max-width:620px){
+	#banner li .imagem{ width:50%; margin:140px 25% 0 25%; }
+	#banner li .texto{ display:none; }
+
+	#ofertas .lista-vinhos li{ width:60%; margin:0 20% 30px; }
+	#ofertas .lista-vinhos li:nth-child(4n){ margin-right:20%; }
+
+	#blog .blog-post{ width:80%; margin:0 10% 40px; }
+	#btn-mais-posts{ width:100%; margin-top:0; }
+
+	.harmonizacao{ width:100%; margin:0 0 40px; }
+	#publicidade{ width:100%; }
+	#publicidade .anuncio{ float:left; width:40%; margin:0 5%; }
+
+	#clube{ display:none; }
+
+	#footer .col-left{ width:100%; margin:0 0 40px; }
+	#footer .col-right{ width:100%; }
+}
+
+@media screen and(max-width:500px){
+	#vinhos.lista-vinhos li{ width:60%; margin:0 20% 30px; }
+	#vinhos.lista-vinhos li:nth-child(3n),
+	#vinhos.lista-vinhos li:nth-child(6n){ margin-right:20%; }
+
+	#sobre .image{ float:none; width:100%; margin:50px 0 0; }
+
+	#refeicoes li{ width:100%; margin:0 0 20px; }
+	#refeicoes li a{ padding:15px 15px 15px 90px; background-position:10px center; }
+	#refeicoes li:last-child a{ padding-left:90px; }
+	.harmonizacao .lista-vinhos li{ width:60%; margin:0 20% 30px; }
+	.harmonizacao .lista-vinhos li:nth-child(3n){ margin-right:20%; }
+	#publicidade .anuncio{ float:left; width:80%; margin:0 10% 20px; }
+
+	#footer{ padding:30px; }
+	#footer .delivery{ background:none; }
+	#footer .news input{ width:100%; }
+	#enviar-news{ width:100%; }
+
+	#assinatura p{ float:none; width:100%; text-align:center; }
+	#assinatura .m2mp{ float:none; margin:10px auto 0; }
+}

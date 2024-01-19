@@ -1,0 +1,265 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800|Playfair+Display);
+$Open:'Open Sans', Helvetica, Arial, sans-serif;
+$Playfair:'Playfair Display', 'Times New Roman', serif;
+
+$light:300;
+$regular:400;
+$bold:700;
+$extbold:800;
+
+// CORES
+$preto:#111;
+$laranja:#BA634B;
+$bege:#ECB7A8;
+$carmim:#792C1E;
+$musgo:#7B8359;
+
+// ESTILOS GLOBAIS
+body{ font:$regular 16px $Open; color:$preto; @include font-smoothing(on); }
+@include selection(#FFF,$preto);
+
+/* ==== Topo */
+.top-wrapper{ background:#000 url(../img/banner.jpg) no-repeat center top; }
+
+#btn-menu{
+    display:none;
+    width:40px;
+    height:29px;
+    position:absolute;
+    z-index:11;
+    top:58px;
+    right:3%;
+    @include transition(all 300ms ease-in-out);
+    & span,
+    &:before,
+    &:after{
+        content:' ';
+        display:block;
+        width:40px;
+        height:5px;
+        background-color:$carmim;
+        @include transform(rotate(0));
+        position:absolute;
+        left:0;
+        @include transition(all 300ms ease-in-out);
+    }
+        
+    &:before{ top:0; }
+    & span{ top:12px; @include opacity(1); }
+    &:after{ bottom:0; }
+    
+    &.active span{ opacity:0; top:12px; @include transform(rotate(90deg)); }
+    &.active:before{ width:40px; top:12px; left:0; @include transform(rotate(45deg)); }
+    &.active:after{ width:40px; bottom:12px; left:0; @include transform(rotate(-45deg)); } 
+}
+
+.top-wrapper #btn-menu{
+    & span,
+    &:before,
+    &:after{
+	background-color:#FFF;
+	}
+}
+
+#header{ overflow:hidden; padding:15px 0; border-bottom:1px solid $bege; }
+.top-wrapper #header{ border:0; }
+#logo{ display:block; float:left; }
+#header nav{ float:right; margin-top:50px; }
+#header nav a{ display:inline-block; margin-left:65px; font-weight:$extbold; @include font-size(14px); text-transform:uppercase; color:$laranja; position:relative; @include transition(all 200ms ease-in-out); }
+#header nav a.active{ color:$preto; }
+.top-wrapper #header nav a{ color:#FFF; }
+#header nav a:hover{ @include opacity(0.7); }
+#header nav a:before{ content:' '; display:block; width:2px; height:12px; background-color:$laranja; position:absolute; top:4px; left:-10px; }
+#header nav a.active:before{ background-color:$preto; }
+.top-wrapper #header nav a:before{ background-color:#FFF; }
+
+#headline{ width:90%; max-width:960px; margin:280px auto 320px; font-family:$Playfair; color:#FFF; @include text-shadow(2px 2px 1px rgba(0,0,0,.55)); }
+#headline h1{ @include font-size(80px); line-height:1em; }
+#headline h2{ @include font-size(31px); }
+
+/* ==== Lista de Eventos */
+#lista-eventos{}
+#lista-eventos li{ float:left; width:49%; padding:8px; margin:0 2% 2% 0; background-color:#FFF; position:relative; }
+#lista-eventos li:nth-child(even){ margin-right:0; }
+#lista-eventos li h2{ position:absolute; z-index:4; bottom:0; left:0; right:0; padding:0 30px 30px; @include font-size(40px); font-weight:$bold; color:#FFF;  @include text-shadow(1px 1px 0 rgba(0,0,0,.55)); }
+#lista-eventos li img{ display:block; width:100%; @include transition(all 200ms ease-in-out); }
+#lista-eventos li:hover img{ @include filter(grayscale(1)); }
+#lista-eventos li .cats{ position:absolute; z-index:3; top:30px; left:30px; background-color:rgba(0,0,0,.8); color:#FFF; }
+#lista-eventos li .cats p{ @include font-size(8px); text-transform:uppercase; line-height:1.5em; padding:5px 15px 3px 7px; }
+#lista-eventos li .cats p strong{ @include font-size(14px); font-weight:$extbold; }
+
+/* ==== Call to action */
+#call-to{ width:100%; padding-top:85px; min-height:430px; background:#FFF url(../img/bkg-call.jpg) no-repeat center bottom; color:$musgo; }
+#call-to .center{ overflow:hidden; }
+#call-to .inner{ float:right; width:45%; margin-right:5%; }
+#call-to .inner h2{ font-family:$Playfair; @include font-size(40px); letter-spacing:-0.03em; margin-bottom:5px; }
+#call-to .inner p{ font-weight:$light; letter-spacing:-0.03em; margin-bottom:20px; }
+#call-to .inner .left{ float:left; width:46%; margin-right:4%; }
+#call-to .inner .right{ float:left; width:46%; }
+#call-to input,
+#call-to textarea{ display:block; width:100%; background:transparent; padding:8px 15px; border:1px solid $musgo; margin-bottom:10px; font:$bold 15px $Open; color:$musgo; @include font-smoothing(on); @include border-radius(10px); }
+#call-to textarea{ height:86px; }
+#enviar{ display:block; width:100%; background-color:$musgo; padding:8px 15px; border:1px solid $musgo; margin-bottom:10px; font:$bold 15px $Open; color:#FFF; @include font-smoothing(on); @include border-radius(10px); text-align:left; cursor:pointer; @include transition(all 200ms ease-in-out); }
+#enviar:hover{ @include opacity(0.7); }
+
+/* ==== Call to action */
+#redes{ width:100%; background-color:#FFF; padding:70px 0; text-align:center; }
+#redes li{ display:inline-block; margin:0 15px; }
+#redes li a{ display:block; width:48px; height:48px; background:no-repeat center center; @include transition(all 200ms ease-in-out); }
+#redes li a:hover{ @include opacity(0.7); }
+#redes li a.fb{ background-image:url(../img/ico-facebook.png); }
+#redes li a.in{ background-image:url(../img/ico-instagram.png); }
+#redes li a.tw{ background-image:url(../img/ico-twitter.png); }
+#redes li a.yt{ background-image:url(../img/ico-youtube.png); }
+#redes li a.pi{ background-image:url(../img/ico-pinterest.png); }
+
+// ===================
+/* ==== INTERNAS == */
+#quem-somos{ width:100%; min-height:670px; padding-top:250px; background:#000 url(../img/bkg-quem-somos.jpg) no-repeat center bottom; font-family:$Playfair; color:#FFF; @include text-shadow(2px 2px 1px rgba(0,0,0,.55)); text-align:center; }
+#quem-somos h1{ @include font-size(80px); line-height:1em; margin-bottom:30px; }
+#quem-somos p{ @include font-size(24px); line-height:30px; width:94%; max-width:960px; margin:0 auto; }
+
+#wrapper{ padding:0 0 50px; }
+#wrapper h1{ @include font-size(35px); text-transform:uppercase; font-weight:$extbold; margin:50px 0 30px; }
+#wrapper h2{ display:inline-block; text-transform:uppercase; font-weight:$extbold; padding-bottom:10px; border-bottom:2px solid $laranja; margin:40px 0; }
+#wrapper h3{ display:inline-block; font-weight:$bold; margin:20px 0; }
+#wrapper p{ margin-bottom:20px; line-height:25px; font-weight:$light; }
+#wrapper p strong{ font-weight:$bold; }
+#wrapper p em{ font-style:italic; }
+#wrapper p a{ color:$laranja; text-decoration:underline; }
+
+.inner-menu{ display:block; width:100%; }
+.inner-menu li{ display:inline-block; }
+.inner-menu li a{ display:block; padding:15px 60px; border:1px solid $preto; text-transform:uppercase; font-weight:$bold; @include transition(all 200ms ease-in-out); }
+.inner-menu li a:hover,
+.inner-menu li a.active{ background-color:$preto; color:#FFF; }
+
+#fotos{ display:none; overflow:hidden; }
+.lista-fotos li{ float:left; width:23%; margin:0 2% 1.4% 0; position:relative; }
+.lista-fotos li:first-child{ width:48%; }
+.lista-fotos li a{ display:block; }
+.lista-fotos li a img{ display:block; width:100%; }
+.lista-fotos li span{ padding:15px 20px; position:absolute; bottom:0; left:0; right:0; background-color:rgba(0,0,0,.8); @include font-size(14px); color:#FFF; font-weight:$extbold; }
+
+#plantas{ display:none; overflow:hidden; }
+#plantas li{ float:left; width:48%; margin:0 2% 2% 0; }
+#plantas li:nth-child(even){ margin-right:0; }
+#plantas li a{ display:block; width:100%; padding:20px 20px 20px 80px; background:$preto url(../img/ico-download.png) no-repeat left center; @include font-size(18px); font-weight:$extbold; color:#FFF; @include transition(all 200ms ease-in-out); }
+#plantas li a:hover{ background-color:$laranja; }
+
+#eventos-realizados{ overflow:hidden; }
+
+#contato{ max-width:640px; margin:30px auto 100px; overflow:hidden; }
+#contato label{ display:block; float:left; width:100%; margin-bottom:2%; font-weight:$light; }
+#contato label.col-1{ width:34%; margin-right:6%; }
+#contato label.col-2{ width:60%; margin-right:6%; }
+#contato label.col-3{ width:30.6%; margin-right:4%; }
+#contato label.last{ margin-right:0; }
+#contato label input,
+#contato label select,
+#contato label textarea{ display:block; width:100%; height:50px; padding:0 15px; border:1px solid #DCDCDC; font:$regular 16px $Open; color:$laranja; }
+#contato label textarea{ padding:15px; height:140px; resize:none; }
+#contato button{ clear:all; display:block; width:100%; height:50px; background-color:$preto; color:#FFF; border:0; font:$extbold 16px $Open; cursor:pointer; @include transition(all 200ms ease-in-out); }
+#contato button:hover{ background-color:$laranja; }
+
+#formas{ overflow:hidden; max-width:960px; margin:0 auto; @include transform(translatex(50px)); }
+#formas .col{ float:left; width:32%; }
+#formas .col:first-child{ width:36%; }
+#formas .col .btn-chegar{ display:inline-block; padding:10px 60px; background-color:$preto; font-weight:$extbold; color:#FFF; @include transition(all 200ms ease-in-out); }
+#formas .col .btn-chegar:hover{ background-color:$laranja; }
+
+/* ==== Footer */
+#footer{ background-color:$preto; color:#FFF; @include font-size(13px); letter-spacing:0.03em; padding:50px 0 30px; }
+#footer .col{ vertical-align:bottom; display:inline-block; margin-right:45px; }
+#footer .col p{ display:inline-block; }
+#footer .col a{ @include transition(all 200ms ease-in-out); }
+#footer .col a:hover{ @include opacity(0.7); }
+#footer .lower{ margin-top:40px; border-top:1px solid #3E3E3E; padding-top:20px; }
+
+/* ==== Responsivo */
+@media screen and(max-width:1080px){
+	#formas{ @include transform(translatex(0)); }
+	#formas .col{ width:33.33%; text-align:center; }
+	#formas .col:first-child{ width:33.33%; }
+}
+
+@media screen and(max-width:860px){
+	#btn-menu{ display:block; }
+	#header nav{ display:none; position:absolute; width:100%; z-index:10; top:100px; left:0; padding:0; background-color:#FFF; color:$preto; margin-top:35px; }
+	#header nav a{ display:block; margin:0; border-bottom:1px solid $preto; padding:20px 0; text-align:center; }
+	.top-wrapper nav a{ color:$preto; }
+	#header nav a:before{ display:none; }
+
+	#footer{ text-align:center; }
+	#footer .col{ margin:0 20px 20px; }
+	#footer .lower{ margin-top:20px; }
+
+	.inner-menu li{ margin-bottom:5px; }
+}
+
+@media screen and(max-width:720px){
+	#headline{ text-align:center; margin:200px auto; }
+
+	#lista-eventos li{ width:100%; margin:0 0 2%; }
+
+	#call-to{ padding-top:30px; }
+	#call-to .inner{ width:80%; margin:0 10%; }
+	#call-to input,
+	#call-to textarea{ background-color:rgba(255,255,255,.4); }
+
+	#quem-somos{ min-height:0; padding:150px 0; }
+
+	.lista-fotos li{ width:48%; margin:0 2% 2% 0; }
+	#plantas li{ width:100%; margin:0 0 2%; }
+
+	#formas .col,
+	#formas .col:first-child{ width:100%; }
+}
+
+@media screen and(max-width:540px){
+	#contato label.col-1, #contato label.col-2, #contato label.col-3{ width:100%; margin-right:0; }
+}
+
+@media screen and(max-width:420px){
+	#redes li{ margin:0 5px; }
+
+	#lista-eventos li{ padding:0; margin-bottom:10px; }
+	#lista-eventos li h2{ padding:0 10px 10px; }
+	#lista-eventos li .cats{ top:10px; left:10px; }
+
+	#call-to{ padding:30px 0; }
+	#call-to .inner h2{ @include font-size(24px); line-height:1em; }
+	#call-to .inner p{ margin-bottom:10px; }
+	#call-to .inner .left,
+	#call-to .inner .right{ width:100%; margin-right:0; }
+
+	#quem-somos h1{ @include font-size(54px) }
+
+	.inner-menu li{ display:block; }
+	.inner-menu li a{ width:100%; padding:15px 0; text-align:center; }
+
+	.lista-fotos li,
+	.lista-fotos li:first-child{ width:100%; margin:0 0 2%; }
+}
+
+@media screen and(max-width:360px){
+	#headline{ margin:120px auto; }
+	#headline h1{ @include font-size(34px); line-height:1em; }
+	#headline h2{ @include font-size(20px); }
+
+	#quem-somos{ padding:100px 0; }
+	#quem-somos h1{ @include font-size(40px) }
+}
+
+
+
+
+
+
+

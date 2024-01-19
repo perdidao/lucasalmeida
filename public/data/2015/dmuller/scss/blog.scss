@@ -1,0 +1,86 @@
+// DEPENDÊNCIAS
+@import "compass";
+@import "tools.scss";
+
+// FONTES
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,300,700");
+$OpenSans: "Open Sans", Helvetica, Arial, sans-serif;
+$Georgia: Georgia, Times, Times New Roman, serif;
+
+// CORES
+$Azul:#034B9C;
+$AzulClaro:#0768CD;
+$Amarelo:#FFD503;
+$AmareloClaro:#FFE769;
+$Cinza:#777;
+$Prata:#CCC;
+
+#header{ border-bottom:1px solid $Prata; }
+.conteudo{ max-width:940px; margin:0 auto; }
+
+// FOTO PRINCIPAL
+h2.title{ text-align:center; @include font-size(18px); font-weight:$bold; text-transform:uppercase; letter-spacing:0.2em; color:$Azul; margin:0 auto 40px; padding-bottom:27px; background:url(../img/lin-title.png) no-repeat center bottom; @include font-smoothing(on); }
+#capa{}
+#capa .center{ max-width:940px; position:relative; z-index:2; }
+#capa .foto-capa{ position:relative; z-index:1; }
+#capa .foto-capa img{ display:block; width:100%; }
+#capa .info-capa{ float:left; width:48%; border-top:6px solid $Azul; margin-top:-3px; }
+#capa .info-capa .data{ font-family:$Georgia; margin:15px 0; font-style:italic; }
+#capa .info-capa h2{ @include font-size(22px); line-height:30px; color:$Azul; font-weight:$semibold; }
+#capa .big-button{ float:right; width:33%; margin:30px 0; }
+
+// FILTROS
+#filtros{ margin:40px auto; }
+.filtro{ width:48.5%; float:left; border:1px solid $Azul; border-left-width:10px; position:relative; z-index:999; }
+.filtro.select{ margin-right:3%; }
+.filtro input{ display:block; float:left; width:84%; height:60px; border:0; background:transparent; padding-left:20px; color:$Cinza; font-family:$Georgia; font-style:italic; @include font-size(27px); @include font-smoothing(on); }
+.filtro #filtro-dropdown{ display:block; float:left; width:16%; height:60px; background:url(../img/ico-dropdown.png) no-repeat center center; @include transition(all 200ms ease-in-out); }
+.filtro #filtro-dropdown:hover{ background-position:center 25px; }
+.filtro #buscar{ display:block; float:left; width:16%; height:60px; background:$Azul url(../img/ico-lupa.png) no-repeat center center; }
+.filtro #lista-filtros{ display:none; position:absolute; top:61px; left:0; width:100%; height:240px; overflow:scroll; }
+.filtro #lista-filtros li a{ display:block; width:100%; height:60px; padding-left:20px; line-height:60px; border:1px solid $AzulClaro; border-top:0; font-family:$Georgia; @include transition(all 300ms ease-in-out); background-color:#FFF; }
+.filtro #lista-filtros li a:hover{ background-color:$AzulClaro; color:#FFF; }
+
+@include placeholder($Cinza);
+
+// POSTS
+#lista-posts{ margin-top:40px; }
+#lista-posts li{ width:48.5%; float:left; margin-bottom:20px; font-style:italic; @include font-smoothing(on); }
+#lista-posts li:nth-child(2n){ margin-left:3%; }
+#lista-posts li .post-img{ display:block; border:6px solid $AzulClaro; position:relative; }
+#lista-posts li .post-img img{ display:block; width:100%; }
+#lista-posts li .post-img .hover{ display:none; position:absolute; top:0; left:0; width:100%; height:100%; background:url(../img/bkg-hover.png) no-repeat center center; }
+#lista-posts li .post-content{ padding:30px; background-color:#fafafa; border-left:1px solid $Prata; border-right:1px solid $Prata; }
+#lista-posts li .post-content h3{ @include font-size(18px); line-height:40px; color:$Azul; }
+#lista-posts li .post-content p{ @include font-size(18px); line-height:25px; font-family:$Georgia; }
+#lista-posts li .post-meta{ background-color:#f6f6f6; border:1px solid $Prata; padding:30px; }
+#lista-posts li .post-meta p{ font-family:$Georgia; }
+
+// PAGINAÇÃO
+#paginacao{ width:100%; text-align:center; margin:60px 0 0; }
+#paginacao li{ display:inline; }
+#paginacao li a{ display:inline-block; @include font-size(24px); font-weight:$semibold; height:32px; line-height:32px; padding:0 10px; color:$Azul; @include transition(all 300ms ease-in-out); }
+#paginacao li.prev a,
+#paginacao li.next a{ color:$Prata; background-repeat:no-repeat; }
+#paginacao li.prev a{ padding-left:30px; margin-right:20px; background-image:url(../img/arw-prev.png); background-position:left center; }
+#paginacao li.next a{ padding-right:30px; margin-left:20px; background-image:url(../img/arw-next.png); background-position:right center; }
+#paginacao li.selected a{ color:#FFF; background-color:$Azul; }
+
+// RESPONSIVO
+@media screen and(max-width:1300px){
+	.center,
+	.conteudo{ margin:0 3%; }
+}
+
+@media screen and(max-width:1024px){
+	.center,
+	.conteudo{ margin:0 10%; }
+	h2.title{ margin-top:140px; }
+
+	#capa .info-capa{ width:100%; }
+	#capa .big-button{ width:260px; margin:10px auto; }
+
+	#lista-posts li{ width:100%; }
+	#lista-posts li:nth-child(2n){ margin-left:0; }
+
+}

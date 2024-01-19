@@ -1,0 +1,32 @@
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+*{ @include box-sizing(border-box); }
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700);
+
+// VARIÁVEIS GLOBAIS
+$royal:#1B4A74;
+$turquoise:#29B8D8;
+
+$Source:'Source Sans Pro', Helvetica, Arial, Sans-serif;
+
+// GLOBAL
+body{ background:#FCFCFC url(../img/bkg-body.jpg) repeat; color:#444; font-family:$Source; @include font-size(14px); @include font-smoothing(on); }
+#faixa{ position:fixed; top:0; left:0; width:100%; height:3px; background:$royal url(../img/bkg-faixa.png) repeat-x left top; }
+
+::selection{ background-color:$royal; color:$turquoise; }
+h2{ display:block; height:48px; line-height:48px; padding-left:55px; background:transparent url(../img/ico-planning.png) no-repeat left center; text-transform:uppercase; @include font-size(36px); font-weight:$light; margin:20px 0; }
+
+// HEADER
+#header{ height:100px; padding:10px 0 0; }
+#logo{ display:block; width:266px; height:80px; background:transparent url(../img/pln-logo.png) no-repeat center center; float:left; }
+#menu{ float:right; }
+#menu a{ display:block; float:left; height:90px; line-height:90px; padding:0 10px; margin:0 5px; background:transparent url(../img/bkg-menu.png) repeat-x left 90px; text-transform:uppercase; color:$royal; @include transition(all 200ms linear); }
+#menu a:hover,
+#menu a.active{ background-position:left 30px; color:#FFF; }
+
+// FOOTER
+#footer{ margin-top:100px; padding-bottom:20px; }
+.faixa-footer{ width:100%; height:10px; background:transparent url(../img/bkg-footer.png) no-repeat center top; margin-bottom:20px; }
+#footer address{ display:block; float:left; line-height:1.3em; }
+#ffw{ display:block; float:right; width:51px; height:34px; background:transparent url(../img/ffw.png) no-repeat center center; }

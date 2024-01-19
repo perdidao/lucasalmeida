@@ -1,0 +1,176 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import url(../fonts/brandon.css);
+$Brandon:'Brandon', Helvetica, Arial, sans-serif;
+
+$light:100;
+$bold:600;
+
+// CORES
+$roxo:#639;
+$turquesa:#6CC;
+$preto:#222;
+
+// ESTILOS GLOBAIS
+body{ font-family:$Brandon; @include font-size(22px); color:$preto; @include font-smoothing(on); }
+@include selection($turquesa,$roxo);
+
+// Topo
+#header{ width:100%; min-height:750px; background:$roxo url(../img/bkg-topo.jpg) no-repeat center top; background-attachment:fixed; padding-top:1px; }
+#menu-wrapper{ position:fixed; z-index:10; top:0; left:0; width:100%; @include transition(all 300ms ease-in-out); }
+#menu-wrapper.scrolled{ background-color:$roxo; }
+#logo{ float:left; width:57px; height:53px; background:url(../img/logo.png) no-repeat center center; margin:20px 0; }
+#menu{ float:right; margin-top:35px; }
+#menu a{ display:inline-block; margin-left:80px; color:$turquesa; text-transform:uppercase; position:relative; }
+#menu a:after{ content:' '; display:block; position:absolute; bottom:-10px; left:0; width:0; height:1px; background-color:$turquesa; @include transition(all 300ms ease-in-out); }
+#menu a.active:after,
+#menu a:hover:after{ width:100%; }
+#header h1{ text-align:center; width:90%; max-width:1150px; margin:320px auto 0; @include font-size(80px); font-weight:$bold; text-transform:uppercase; color:$turquesa; letter-spacing:0.04em; }
+#header h1:after{ content:' '; display:inline-block; width:50px; height:70px; margin:0 0 -5px 10px; background-color:$turquesa; @include animation(1s blink infinite steps(2, end)); }
+#header .scroll{ max-width:180px; margin:130px auto 0; background:url(../img/mouse.png) no-repeat center top; padding-top:50px; text-align:center; text-transform:uppercase; color:$turquesa; @include font-size(16px); line-height:22px; letter-spacing:0.08em; }
+
+@keyframes blink{
+	0%{ @include opacity(0); }
+	100%{ @include opacity(1); }
+}
+
+// Serviços
+#servicos{}
+#servicos .top{ padding:100px 0; text-align:center; }
+#servicos .top h2{ @include font-size(40px); line-height:50px; color:$roxo; letter-spacing:0.08em; text-transform:uppercase; max-width:240px; margin:0 auto 25px; }
+#servicos .top p{ line-height:44px; letter-spacing:0.08em; max-width:350px; margin:0 auto; }
+#servicos ul{}
+#servicos ul li{ float:left; width:25%; height:550px; background-repeat:no-repeat; background-position:center center; background-size:cover; background-color:$preto; @include transition(all 300ms ease-in-out); padding:20px; cursor:help; }
+#servicos ul li:hover{ background-color:#FFF; }
+#servicos ul li .table{ width:100%; height:510px; }
+#servicos ul li h2{ text-align:center; color:#FFF; padding:100px 0 20px; background-repeat:no-repeat; background-position:center top; @include font-size(18px); font-weight:$bold; text-transform:uppercase; letter-spacing:0.08em; @include transition(all 300ms ease-in-out); }
+#servicos ul li:hover h2{ color:$preto; }
+#servicos ul li p{ max-width:260px; height:0; margin:0 auto; @include font-size(18px); line-height:36px; letter-spacing:0.04em; @include opacity(0); @include transition(all 500ms ease-in-out); }
+#servicos ul li:hover p{ height:300px; @include opacity(1); }
+#servicos ul li.layout{ background-image:url(../img/bkg-layout.png); }
+#servicos ul li.layout h2{ background-image:url(../img/ico-front.png); }
+#servicos ul li.front{ background-image:url(../img/bkg-front.png); }
+#servicos ul li.front h2{ background-image:url(../img/ico-front.png); }
+#servicos ul li.retouch{ background-image:url(../img/bkg-retouch.png); }
+#servicos ul li.retouch h2{ background-image:url(../img/ico-retouch.png); }
+#servicos ul li.midias{ background-image:url(../img/bkg-midias.png); }
+#servicos ul li.midias h2{ background-image:url(../img/ico-midias.png); }
+
+// Sobre
+#sobre{ width:100%; position:relative; }
+#media{ width:60%; background-color:$preto; }
+#media iframe{ display:block; width:100%; @include opacity(0.1); }
+#sobre .col-right{ position:absolute; z-index:1; right:0; bottom:0; width:45%; color:$turquesa; }
+#sobre .col-right h2{ display:inline-block; padding:15px 50px; margin-bottom:25px; background-color:$roxo; @include font-size(40px); text-transform:uppercase; }
+#sobre .col-right .texto{ padding:50px; background-color:$roxo; }
+#sobre .col-right .texto p{ line-height:44px; width:100%; max-width:500px; }
+
+// Parceiros
+#parceiros{ padding:120px 0 20px; }
+#parceiros h2{ display:inline-block; padding:15px 50px; margin-bottom:80px; background-color:$roxo; @include font-size(40px); text-transform:uppercase; color:#FFF; position:relative; }
+#parceiros h2:after{ content:' '; display:block; width:221px; height:157px; background:url(../img/linha-parceiros.png) no-repeat center center; position:absolute; right:-221px; bottom:33px; }
+#parceiros ul{ width:100%; }
+#parceiros ul li{ display:inline-block; width:24%; text-align:center; vertical-align:middle; margin-bottom:100px; }
+#parceiros ul li a{ @include filter(grayscale(1)); @include transition(all 300ms ease-in-out); }
+#parceiros ul li a:hover{ @include filter(grayscale(0)); }
+
+// Contato
+#contato{}
+#mapa{ float:left; width:40%; height:700px; background-color:#E2E2E2; }
+#form{ float:left; width:60%; height:700px; background-color:$roxo; color:$turquesa; padding:90px 0 0; }
+#form h2{ display:inline-block; padding:15px 50px; margin-bottom:80px; background-color:#FFF; @include font-size(40px); text-transform:uppercase; color:$roxo; position:relative; }
+#form h2:after{ content:' '; display:block; width:328px; height:129px; background:url(../img/linha-contato.png) no-repeat center center; position:absolute; right:-328px; bottom:33px; }
+#form form{ width:94%; max-width:620px; margin:0 auto; }
+#form label{ display:block; margin-bottom:40px; letter-spacing:0.08em; }
+#form input,
+#form textarea{ display:inline-block; width:300px; border:0; border-bottom:1px solid rgba(255,255,255,.3); margin-left:5px; background-color:transparent; font-family:$Brandon; color:$turquesa; @include font-size(22px); letter-spacing:0.08em; }
+#form textarea{ display:block; margin:0 0 5px; width:100%; height:150px; resize:none; }
+#enviar{ display:block; width:100%; height:40px; background-color:$turquesa; border:0; font-family:$Brandon; @include font-size(22px); font-weight:$bold; color:$roxo; text-transform:uppercase; cursor:pointer; @include transition(all 300ms ease-in-out); }
+#enviar:hover{ @include opacity(0.6); }
+
+// Footer
+#footer{ background-color:$preto; padding:110px 0 80px; color:$turquesa; @include font-size(18px); letter-spacing:0.08em; line-height:1.2em; }
+#footer .infos{ float:left; }
+#footer .infos p{ margin-bottom:40px; }
+#footer .infos p strong{ font-weight:$bold; }
+#footer .infos p span{ @include font-size(30px); }
+#footer .assinatura{ float:right; margin-top:170px; padding-right:40px; background:url(../img/ico-ffw.png) no-repeat right 10px; }
+
+// Responsivo
+@media screen and(max-width:1280px){
+	#header h1{ margin:250px auto 0; }
+	#header h1:after{ display:none; }
+
+	#servicos ul li{ width:50%; }
+
+	#sobre .col-right{ width:60%; }
+
+	#parceiros ul li{ width:32%; }
+
+	#mapa{ width:35%; }
+	#form{ width:65%; padding:90px 50px 0; }
+	#form h2{ width:100%; text-align:center; background-color:transparent; color:$turquesa; padding:15px 0; border-bottom:3px solid $turquesa; }
+	#form h2:after{ display:none; }
+	#form form{ width:94%; max-width:620px; margin:0 auto; }
+}
+
+@media screen and(max-width:1000px){
+	#menu-wrapper{ position:static; }
+	#menu-wrapper.scrolled{ background-color:transparent; }
+	#logo{ float:none; margin:20px auto 0; }
+	#menu{ display:none; }
+	#header h1{ text-align:left; margin:120px auto 0; }
+	#header .scroll{ margin:80px auto 0; }
+
+	#parceiros ul li{ width:48%; }
+
+	#mapa{ width:100%; height:300px; }
+	#form{ width:100%; height:auto; padding:50px; }
+}
+
+@media screen and(max-width:760px){
+	#header{ height:auto; min-height:0; padding-bottom:30px; }
+	#header h1{ margin:80px auto; @include font-size(60px); }
+	#header .scroll{ margin:0 auto; }
+
+	#servicos ul li{ width:100%; }
+	#servicos ul li{ background-color:#FFF; }
+	#servicos ul li h2{ color:$preto; }
+	#servicos ul li p{ height:300px; @include opacity(1); }
+
+	#media{ width:100%; }
+	#media iframe{ height:340px; }
+	#sobre .col-right{ position:static; width:100%; background-color:$roxo; padding:50px; }
+	#sobre .col-right h2{ padding:0; margin-bottom:25px; background-color:transparent; }
+	#sobre .col-right .texto{ padding:0; background-color:transparent; }
+	#sobre .col-right .texto p{ line-height:44px; max-width:100%; }
+
+	#parceiros h2{ width:100%; text-align:center; background-color:transparent; padding:15px 0; border-bottom:3px solid $roxo; color:$roxo; }
+	#parceiros h2:after{ display:none; }
+}
+
+@media screen and(max-width:640px){
+	#form input{ width:100%; }
+}
+
+@media screen and(max-width:540px){
+	#parceiros ul li{ width:100%; margin-bottom:30px; }
+
+	#footer{ text-align:center; }
+	#footer .infos{ float:none; width:100%; }
+	#footer .assinatura{ float:none; display:inline-block; margin-top:0; }
+}
+
+@media screen and(max-width:460px){
+	#header h1{ @include font-size(34px); }
+
+	#media iframe{ height:180px; }
+	#sobre .col-right{ padding:25px; }
+
+	#form{ padding:25px; }
+}
+

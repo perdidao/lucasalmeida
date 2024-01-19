@@ -1,0 +1,142 @@
+// DEPENDÊNCIAS
+@import "compass";
+@import "tools.scss";
+
+// FONTES
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,300,700");
+$OpenSans: "Open Sans", Helvetica, Arial, sans-serif;
+$Georgia: Georgia, Times, Times New Roman, serif;
+
+// CORES
+$Azul:#034B9C;
+$AzulClaro:#0768CD;
+$Amarelo:#FFD503;
+$AmareloClaro:#FFE769;
+$Cinza:#777;
+$Prata:#CCC;
+
+#header{ border-bottom:10px solid $Azul; margin-bottom:35px; }
+
+// PRODUTOS
+.subtitulo{ @include font-size(27px); font-style:italic; font-family:$Georgia; text-align:center; }
+
+#filtros{ max-width:620px; margin:40px auto; }
+
+.filtro{ width:48%; float:left; border:1px solid $Azul; border-left-width:10px; position:relative; z-index:999; }
+.filtro input{ display:block; float:left; width:80%; height:60px; border:0; background:transparent; padding-left:20px; color:$Cinza; font-family:$Georgia; font-style:italic; @include font-size(16px); @include font-smoothing(on); }
+.filtro #filtro-dropdown{ display:block; float:left; width:20%; height:60px; background:url(../img/ico-dropdown.png) no-repeat center center; @include transition(all 200ms ease-in-out); }
+.filtro #filtro-dropdown:hover{ background-position:center 25px; }
+.filtro #buscar{ display:block; float:left; width:20%; height:60px; background:$Azul url(../img/ico-lupa.png) no-repeat center center; }
+.filtro #lista-filtros{ display:none; position:absolute; top:61px; left:0; width:100%; height:240px; overflow:scroll; }
+.filtro #lista-filtros li a{ display:block; width:100%; height:60px; padding-left:20px; line-height:60px; border:1px solid $AzulClaro; border-top:0; font-family:$Georgia; @include transition(all 300ms ease-in-out); background-color:#FFF; }
+.filtro #lista-filtros li a:hover{ background-color:$AzulClaro; color:#FFF; }
+
+@include placeholder($Cinza);
+
+#filtros .filtro.select{}
+#filtros .filtro.busca{ margin-left:4%; }
+
+// LISTA DE MARCAS
+#lista-marcas{}
+#lista-marcas li{ float:left; width:23.5%; max-height:200px; margin-right:2%; margin-bottom:40px; position:relative; }
+#lista-marcas li:nth-child(4n){ margin-right:0; }
+#lista-marcas li a{ display:block; width:100%; border:1px solid $Prata; @include transition(all 200ms ease-in-out); }
+#lista-marcas li:hover a{ border:5px solid $Azul; }
+#lista-marcas li a img{ display:block; width:100%; @include opacity(0.3); @include transition(all 200ms ease-in-out); }
+#lista-marcas li:hover a img{ @include opacity(1); }
+#lista-marcas li a span{ display:block; width:70%; height:50px; line-height:50px; background-color:$Azul; color:#FFF; @include font-size(12px); text-transform:uppercase; font-weight:700; text-align:center; position:absolute; bottom:-25px; left:15%; @include opacity(0); @include transition(all 200ms ease-in-out); }
+#lista-marcas li:hover a span{ @include opacity(1); }
+
+// LINHA DE PRODUTOS
+.topo-linha{ width:100%; border-bottom:1px solid $Prata; }
+.topo-linha .center{ max-width:940px; padding:10px 0; }
+.topo-linha .voltar-marcas{ display:block; float:left; width:48%; border-bottom:5px solid $Azul; margin-bottom:-12px; padding:0 0 25px 40px; @include font-size(18px); font-weight:$bold; text-transform:uppercase; letter-spacing:0.2em; color:$Azul; background:url(../img/arw-left.png) no-repeat left 2px; }
+.topo-linha .status{ display:block; float:left; line-height:60px; @include font-size(18px); font-family:$Georgia; font-style:italic; @include font-smoothing(on); }
+.topo-linha .status a{ color:$Azul; }
+.topo-linha .busca{ width:300px; float:right; }
+
+#info-linha{ width:23.5%; float:left; margin-top:100px; border:1px solid $Prata; }
+#info-linha img{ display:block; width:100%; }
+#info-linha .info{ background-color:#f6f6f6; border-top:1px solid $Prata; padding:30px; text-align:center; }
+#info-linha .info h2{ @include font-size(32px); font-weight:$semibold; color:$Azul; @include font-smoothing(on); }
+#info-linha .info .separador{ display:block; width:10px; height:10px; background:url(../img/bullet.png) no-repeat center center; margin:10px auto; }
+#info-linha .info p{ font-family:$Georgia; font-style:italic; @include font-smoothing(on); }
+
+// LISTA DE PRODUTOS
+#lista-produtos{ width:74.5%; margin-left:2%; float:left; padding-top:20px; border-top:1px solid $Azul; margin-top:80px; }
+#lista-produtos li{ float:left; width:31%; max-height:200px; margin-right:3.5%; margin-bottom:40px; position:relative; }
+#lista-produtos li:nth-child(3n){ margin-right:0; }
+#lista-produtos li a{ display:block; width:100%; border:1px solid $Prata; @include transition(all 200ms ease-in-out); }
+#lista-produtos li:hover a{ border:5px solid $Azul; }
+#lista-produtos li a img{ display:block; width:100%; @include opacity(0.3); @include transition(all 200ms ease-in-out); }
+#lista-produtos li:hover a img{ @include opacity(1); }
+#lista-produtos li a span{ display:block; width:70%; height:50px; line-height:50px; background-color:$Azul; color:#FFF; @include font-size(12px); text-transform:uppercase; font-weight:700; text-align:center; position:absolute; bottom:-25px; left:15%; @include opacity(0); @include transition(all 200ms ease-in-out); }
+#lista-produtos li:hover a span{ @include opacity(1); }
+
+// PAGINAÇÃO
+#paginacao{ width:100%; text-align:center; margin:60px 0 0; }
+#paginacao li{ display:inline; }
+#paginacao li a{ display:inline-block; @include font-size(24px); font-weight:$semibold; height:32px; line-height:32px; padding:0 10px; color:$Azul; @include transition(all 300ms ease-in-out); }
+#paginacao li.prev a,
+#paginacao li.next a{ color:$Prata; background-repeat:no-repeat; }
+#paginacao li.prev a{ padding-left:30px; margin-right:20px; background-image:url(../img/arw-prev.png); background-position:left center; }
+#paginacao li.next a{ padding-right:30px; margin-left:20px; background-image:url(../img/arw-next.png); background-position:right center; }
+#paginacao li.selected a{ color:#FFF; background-color:$Azul; }
+
+// BREADCRUMBS
+#breadcrumbs{ display:block; float:left; width:48%; border-bottom:5px solid $Azul; margin-bottom:-12px; padding-bottom:25px; @include font-size(18px); font-weight:$bold; text-transform:uppercase; letter-spacing:0.2em; }
+#breadcrumbs li{ float:left; }
+#breadcrumbs li .voltar{ color:$Azul; background:url(../img/arw-left.png) no-repeat left 4px; padding-left:40px; }
+#breadcrumbs li.separator{ width:30px; height:20px; background:url(../img/breadcrumb.png) no-repeat center center; }
+
+// PÁGINA DO PRODUTO
+.container-produto{ max-width:940px; margin-top:50px; }
+.info-box{ width:33%; float:left; margin-right:3%; }
+.info-box img{ display:block; width:100%; border:5px solid $Azul; }
+.info-box .site-produto{ display:block; width:100%; padding:20px 60px; margin-top:10px; color:#FFF; background:$Azul url(../img/ico-site.png) no-repeat right center; text-transform:uppercase; @include font-size(12px); font-weight:$bold; @include font-smoothing(on); }
+.text-box{ width:63%; float:left; font-family:$Georgia; font-style:italic; @include font-smoothing(on); }
+.text-box p.tipo{ @include font-size(14px); margin-bottom:10px; line-height:1.3em; }
+.text-box h2{ font-family:$OpenSans; font-style:normal; font-weight:$semibold; color:$Azul; @include font-size(32px); margin-bottom:15px; }
+.text-box p.marca{ @include font-size(18px); line-height:1.3em; margin-bottom:20px; }
+.text-box p{ @include font-size(21px); line-height:45px; }
+
+.titulo-tabela{ @include font-size(21px); font-family:$Georgia; font-style:italic; line-height:45px; margin-left:20px; @include font-smoothing(on); }
+.tabela-produtos{ width:100%; border:1px solid $Prata; border-collapse:no-collapse; }
+.tabela-produtos tbody td,
+.tabela-produtos thead th{ padding:20px; border-top:1px solid $Prata; }
+
+.tabela-produtos tbody td{ text-transform:uppercase; font-weight:$light; }
+.tabela-produtos tbody tr{ background-color:#EEE; }
+.tabela-produtos tbody tr:nth-child(2n){ background-color:#FFF; }
+.tabela-produtos thead th{ font-weight:$bold; }
+
+// RESPONSIVO
+@media screen and(max-width:1300px){
+	.center{ margin:0 3%; }
+}
+
+@media screen and(max-width:1024px){
+	.center{ margin:0 10%; }
+
+	#lista-marcas li{ width:48%; max-height:300px; }
+	#lista-marcas li:nth-child(2n),
+	#lista-marcas li:nth-child(4n){ margin-right:0; }
+
+	.topo-linha .status{ max-width:45%; line-height:1.4em; }
+	.topo-linha .busca{ width:50%; }
+	#info-linha{ width:33.3%; }
+	#lista-produtos{ width:64.6%; }
+	#lista-produtos li{ width:48%; max-height:300px; margin-right:4%; }
+	#lista-produtos li:nth-child(2n){ margin-right:0; }
+	#lista-produtos li:nth-child(3n){ margin-right:4%; }
+
+	.container-produto{ margin-top:50px; }
+}
+
+@media screen and(max-width:720px){
+	#info-linha{ width:100%; }
+	#lista-produtos{ width:100%; }
+
+	.info-box{ width:100%; margin-right:0; }
+	.text-box{ width:100%; margin:40px 0; }
+}

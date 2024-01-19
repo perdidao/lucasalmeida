@@ -1,0 +1,290 @@
+// Dependências
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+/* Fontes */
+@import 'https://fonts.googleapis.com/css?family=Roboto:300,500';
+
+$Roboto:'Roboto', Helvetica, Arial, sans-serif;
+
+$bold:500;
+$regular:300;
+
+// Cores
+$amarelo:#FC3;
+$amareloA:rgba(255,204,51,.94);
+$preto:#3B3B3B;
+$bege:#F0EEEA;
+
+/* Estilos globais */
+body{ font:$regular 18px $Roboto; color:$preto; @include font-smoothing(on); letter-spacing:0.1em; }
+@include selection($preto,$amarelo);
+
+h2.tit{ display:block; width:100%; max-width:340px; @include font-size(50px); letter-spacing:0.01; text-transform:uppercase; text-align:center; }
+h2.tit span{ display:block; @include font-size(18px); background:url(../img/linhas.png) no-repeat center center; }
+
+/* Cabeçalho e menu */
+#header{ position:relative; background:url(../img/bkg-topo.jpg) no-repeat bottom center; background-size:cover; }
+
+#header .la{ width:56px; height:59px; background:url(../img/la.png) no-repeat center center; position:absolute; bottom:20px; right:16.66%; }
+
+#menu-wrapper{ padding:20px 0 20px 9%; background-color:transparent; @include transition(all 300ms ease-in-out); }
+#menu-wrapper.active{ background-color:$amareloA; }
+#btn-menu{
+    display:block;
+    float:left;
+    width:40px;
+    height:22px;
+    position:relative;
+    @include transition(all 300ms ease-in-out);
+
+    & span,
+    &:before,
+    &:after{
+        content:" ";
+        display:block;
+        width:40px;
+        height:2px;
+        background-color:$preto;
+        @include transform(rotate(0));
+        position:absolute;
+        left:0;
+        @include transition(all 300ms ease-in-out);
+    }
+        
+    &:before{ top:0; }
+    & span{ top:10px; @include opacity(1); }
+    &:after{ bottom:0; }
+
+    & em{ display:block; width:100%; text-align:center; text-transform:uppercase; @include font-size(10px); font-weight:$bold; margin-top:25px; @include transition(all 300ms ease-in-out); }
+    
+    &.active span{ opacity:0; top:12px; @include transform(rotate(90deg)); }
+    &.active em{ opacity:0; }
+    &.active:before{ width:40px; top:10px; left:0; @include transform(rotate(45deg)); }
+    &.active:after{ width:40px; bottom:10px; left:0; @include transform(rotate(-45deg)); } 
+}
+
+#menu{ float:left; padding:1px 0 0; margin-left:35px; @include opacity(0); @include transition(all 300ms ease-in-out); }
+#menu-wrapper.active #menu{ @include opacity(1); }
+#menu a{ display:inline-block; text-transform:uppercase; font-weight:$bold; margin-right:30px; }
+
+#social{ position:absolute; top:17px; right:9%; }
+#social li{ display:inline-block; margin-left:10px; }
+#social li a{ display:block; width:30px; height:30px; background:no-repeat center center; @include transition(all 200ms ease-in-out); }
+#social li a:hover{ @include opacity(0.5); }
+#social li a.fb{ background-image:url(../img/ico-fb.png); }
+#social li a.yt{ background-image:url(../img/ico-yt.png); }
+#social li a.in{ background-image:url(../img/ico-in.png); }
+
+#logo-box{ width:100%; height:354px; position:absolute; bottom:0; left:0; background:url(../img/logo-wrapper.png) no-repeat center center; }
+#logo{ width:100%; height:102px; background:url(../img/logo.png) no-repeat center center; background-size:contain; margin-top:140px; @include removeText; }
+#logo-box p{ max-width:120px; margin:0 auto; @include font-size(12px); line-height:16px; text-transform:uppercase; text-align:center; font-weight:$bold; }
+#scroll{ display:block; width:20px; height:43px; background:url(../img/scroll.png) no-repeat center center; margin:0 auto 10px; @include animation(400ms linear 0s infinite alternate pop); }
+
+@keyframes pop{
+	0%{ @include transform(translatey(-3px)); }
+	100%{ @include transform(translatey(3px)); }
+}
+
+/* Músicas */
+#musicas{ padding:130px 0; background:url(../img/ptn-branco.png) repeat center center; }
+#musicas .col-left{ float:left; width:30%; margin-right:3%; }
+#musicas .col-left img{ display:block; width:100%; margin-bottom:20px; }
+#btn-download{ display:block; width:100%; text-align:center; text-transform:uppercase; font-weight:$bold; padding-top:36px; background:url(../img/ico-album.png) no-repeat center top; @include transition(all 200ms ease-in-out); }
+#btn-download:hover{ @include opacity(0.7); }
+
+#musicas .col-right{ float:left; width:67%; }
+#musicas .col-right h2.tit{ margin-bottom:60px; }
+
+#lista-musicas{ width:100%; }
+#lista-musicas li{ display:block; width:100%; padding-bottom:30px; border-bottom:1px solid $amarelo; margin-bottom:30px; overflow:hidden; }
+#lista-musicas li span{ display:block; float:left; }
+#lista-musicas li .play,
+#lista-musicas li .pause{ display:block; float:right; width:30px; height:30px; background:no-repeat center center; }
+#lista-musicas li .play{ background-image:url(../img/ico-play.png); }
+#lista-musicas li .pause{ background-image:url(../img/ico-pause.png); display:none; }
+
+/* Agenda */
+#agenda{ width:100%; padding:80px 0 40px; background:$bege url(../img/bkg-agenda.png) no-repeat center top; }
+#agenda .col-left{ float:left; width:45%; }
+#agenda .col-left .tit{ margin:0 auto 80px; }
+#agenda .col-left .tit span{ background-image:url(../img/linhas2.png); }
+#lista-datas{ width:100%; }
+#lista-datas li{ float:left; width:26.66%; margin:0 10% 50px 0; text-align:center; }
+#lista-datas li:nth-child(3n){ margin-right:0; }
+#lista-datas li span{ display:block; }
+#lista-datas li .dia{ @include font-size(76px); letter-spacing:0.02em; line-height:60px; font-weight:$bold; }
+#lista-datas li .mes{ @include font-size(37px); letter-spacing:0.12em; font-weight:$bold; }
+#lista-datas li .cidade{ text-transform:uppercase; }
+#lista-datas li .hora{ font-weight:$bold; }
+#agenda .caricatura{ float:right; width:52%; height:570px; background:url(../img/caricatura.png) no-repeat center center; background-size:contain; }
+
+/* Fãs */
+#fas{ width:100%; padding:125px 0; background:#0B0B0F url(../img/bkg-fas.jpg) no-repeat center top; }
+#fas .logo{ width:94%; height:217px; margin:0 auto 50px; background:url(../img/logo-fas.png) no-repeat center center; background-size:contain; @include removeText; }
+#fas a{ display:block; width:94%; max-width:300px; margin:0 auto 30px; border:2px solid $amarelo; @include font-size(16px); letter-spacing:0.18em; text-transform:uppercase; color:$amarelo; font-weight:$bold; text-align:center; padding:30px 0; @include transition(all 300ms ease-in-out); }
+#fas a:hover{ background-color:$amarelo; color:$preto; }
+
+/* Contato */
+#contato{ width:100%; background:#FFF url(../img/ptn-branco.png) repeat center center; }
+#contato .foto{ padding:330px 0 40px; background:url(../img/foto-contato.png) no-repeat center bottom; }
+#contato .info{ width:100%; max-width:560px; margin:0 auto; padding:40px 0; text-align:center; color:#FFF; background-color:rgba(42,42,42,.96); }
+#contato .info h2{ font-weight:$bold; text-transform:uppercase; }
+#contato .info p{ margin-bottom:20px; }
+#contato .info a{ display:inline-block; font-weight:$bold; text-transform:uppercase; padding-bottom:28px; background:url(../img/ico-contratantes.png) no-repeat center bottom; @include transition(all 300ms ease-in-out); }
+#contato .info a:hover{ @include opacity(0.5); }
+
+/* Rodapé */
+#footer{ padding:30px 0 15px; background:$amarelo url(../img/ptn-amarelo.png) repeat center center; }
+#footer .social{ width:100%; text-align:center; margin-bottom:50px; }
+#footer .social li{ display:inline-block; margin:0 5px; }
+#footer .social li a{ display:block; width:30px; height:30px; background:no-repeat center center; @include transition(all 200ms ease-in-out); }
+#footer .social li a:hover{ @include opacity(0.5); }
+#footer .social li a.fb{ background-image:url(../img/ico-fb.png); }
+#footer .social li a.yt{ background-image:url(../img/ico-yt.png); }
+#footer .social li a.in{ background-image:url(../img/ico-in.png); }
+#footer .social p{ @include font-size(12px); font-weight:$bold; text-transform:uppercase; letter-spacing:0.18em; }
+#footer .left{ float:left; }
+#footer .left .la{ width:56px; height:59px; background:url(../img/la.png) no-repeat center center; margin-bottom:20px; }
+#footer .left .copy{ @include font-size(12px); font-weight:$bold; letter-spacing:0.18em; }
+#assinatura{ display:block; float:right; width:96px; height:36px; margin-top:55px; background:url(../img/rafa.png) no-repeat center center; @include removeText; @include transition(all 300ms ease-in-out); }
+#assinatura:hover{ @include opacity(0.6); }
+
+/* Biografia */
+#sobre{ background:$bege url(../img/bkg-sobre.png) repeat-y center top; padding:100px 0 120px; overflow:hidden; }
+#sobre .col-left{ float:left; width:50%; color:$amarelo; }
+#sobre .col-left h2.tit{ margin:0 auto 40px; }
+#sobre .col-left h2.tit span{ background-image:url(../img/linhas3.png); }
+#sobre .col-left p{ line-height:32px; letter-spacing:0.02em; }
+#sobre .caricatura{ float:right; width:50%; height:596px; margin-top:100px; background:url(../img/caricatura.png) no-repeat center center; background-size:contain; }
+
+#integrantes{ background:$bege url(../img/ptn-bege.png) repeat center center; padding:60px 0 0; }
+#integrantes h2.tit{ margin:0 auto 30px; }
+#integrantes h2.tit span{ background-image:url(../img/linhas4.png); }
+#integrantes ul li{ overflow:hidden; }
+#integrantes ul li .foto{ float:left; width:50%; }
+#integrantes ul li .foto img{ display:block; width:100%; }
+#integrantes ul li .info{ float:left; width:50%; padding-top:70px; text-align:center; letter-spacing:0.02em; }
+#integrantes ul li .info h3{ @include font-size(30px); margin-bottom:30px; }
+#integrantes ul li .info p{ margin-bottom:30px; }
+#integrantes ul li .info p strong{ font-weight:$bold; }
+
+/* Contato */
+#contato{ width:100%; padding:70px 0; background:url(../img/ptn-branco.png) repeat center center; }
+#contato .center{ position:relative; }
+#informacoes{ margin-left:12%; float:left; }
+#informacoes h2.tit{ margin-bottom:50px; }
+#informacoes h3{ font-weight:$bold; text-transform:uppercase; margin:20px 0 10px; }
+#informacoes p{ line-height:24px; letter-spacing:0.02em; }
+#informacoes p.tel,
+#informacoes p.mail{ line-height:18px; padding-left:50px; background:no-repeat left center; }
+#informacoes p.tel{ background-image:url(../img/ico-tel.png); margin-bottom:8px; }
+#informacoes p.mail{ background-image:url(../img/ico-mail.png); }
+#informacoes .btn-contratantes{ display:block; height:40px; max-width:240px; padding-left:65px; line-height:40px; text-transform:uppercase; letter-spacing:0.02em; background:$amarelo url(../img/ico-contratantes2.png) no-repeat center left; @include transition(all 300ms ease-in-out); }
+#informacoes .btn-contratantes:hover{ @include opacity(0.7); }
+
+#form{ position:absolute; z-index:1; right:0; top:140px; padding:50px 25px; width:100%; max-width:420px; background-color:$amareloA; }
+#form h2{ @include font-size(50px); text-align:center; text-transform:uppercase; margin-bottom:40px; }
+#form input,
+#form select,
+#form textarea{ display:block; width:100%; border:0; padding:5px; border-bottom:1px solid $preto; margin-bottom:20px; background-color:transparent; font-family:$Roboto; @include font-size(18px); font-weight:$regular; text-align:center; }
+#form textarea{ text-align:left; margin-bottom:0; height:130px; resize:none; }
+#enviar{ display:block; width:100%; padding:10px 0; border:0; background-color:$preto; font-family:$Roboto; @include font-size(22px); font-weight:$bold; letter-spacing:0; text-transform:uppercase; color:#FFF; cursor:pointer; @include transition(all 300ms ease-in-out); }
+#enviar:hover{ @include opacity(0.7); }
+
+#mapa{ width:100%; height:430px; }
+
+/* Cadastro de fãs */
+#cadastro{ width:100%; padding:80px 0 100px; background:$preto url(../img/ptn-preto.png) repeat center center; color:$amarelo; }
+#cadastro .tit{ max-width:500px; margin:0 auto 90px; }
+#cadastro .tit span{ background-image:url(../img/linhas5.png); }
+#botoes{ float:left; width:50%; padding-top:110px; }
+#botoes a{ display:block; width:94%; max-width:300px; margin:0 auto 30px; border:2px solid $amarelo; @include font-size(16px); letter-spacing:0.18em; text-transform:uppercase; color:$amarelo; font-weight:$bold; text-align:center; padding:30px 0; @include transition(all 300ms ease-in-out); }
+#botoes a.active,
+#botoes a:hover{ background-color:$amarelo; color:$preto; }
+#cadastro-fa{ float:left; width:50%; }
+#cadastro-fa label{ display:block; float:left; width:100%; margin-bottom:15px; text-transform:uppercase; }
+#cadastro-fa label.half{ width:48.5%; margin-right:3%; }
+#cadastro-fa label.half.last{ margin-right:0; }
+#cadastro-fa label input,
+#cadastro-fa label select{ display:block; width:100%; margin-top:3px; font-family:$Roboto; @include font-size(18px); font-weight:$regular; text-transform:none; padding:10px 15px; border:1px solid $amarelo; background-color:#FFF; }
+#cadastrar{ display:block; width:100%; padding:10px 15px; background-color:$amarelo; border:1px solid $amarelo; margin-top:25px; font-family:$Roboto; @include font-size(18px); @include transition(all 300ms ease-in-out); }
+#cadastrar:hover{ @include opacity(0.7); }
+
+/* Responsivo */
+@media screen and(max-width:1680px){
+	#header .la{ top:60px; bottom:auto; right:9%; }
+}
+
+@media screen and(max-width:1024px){
+	#agenda .col-left{ width:55%; }
+	#agenda .caricatura{ width:40%; height:520px; background-position:center bottom; }
+
+	#sobre{ background:$preto url(../img/ptn-preto.png) repeat center center; }
+	#sobre .col-left{ width:100%; }
+	#sobre .caricatura{ width:60%; margin:0 20%; }
+
+	#informacoes{ margin-left:0; }
+}
+
+@media screen and(max-width:900px){
+	#menu-wrapper{ margin:0; }
+	#menu{ width:100%; margin:50px 0 0; }	
+	#menu a{ display:block; margin-bottom:20px; }
+
+	#agenda .col-left{ width:100%; }
+	#agenda .caricatura{ display:none; }
+
+	#integrantes ul li .info{ padding-top:30px; }
+	#integrantes ul li .info p{ margin-bottom:15px; }
+
+	#informacoes{ width:100%; text-align:center; float:none; margin-bottom:40px; }
+	#informacoes p.tel,
+	#informacoes p.mail{ display:inline-block; padding-left:30px; margin:0 20px; }
+	#informacoes .btn-contratantes{ display:inline-block; padding-right:20px; }
+	#form{ position:static; max-width:100%; }
+}
+
+@media screen and(max-width:800px){
+	#cadastro-fa label.half{ width:100%; margin-right:0; }
+}
+
+@media screen and(max-width:640px){
+	#musicas .col-left{ width:80%; margin:0 10% 50px; }
+	#musicas .col-right{ width:100%; }
+	#musicas .col-right h2.tit{ margin:0 auto 60px; }
+
+	#integrantes ul li .foto{ width:100%; }
+	#integrantes ul li .info{ width:100%; }
+
+	#cadastro .tit{ margin:0 auto 40px; }
+	#botoes{ width:100%; padding-top:0; margin-bottom:40px; }
+	#cadastro-fa{ width:100%; }
+}
+
+@media screen and(max-width:540px){
+	#lista-datas li{ width:50%; margin:0 0 50px; }
+
+	#header{ background-position:center top; background-image:url(../img/bkg-topo2.jpg); background-size:contain; }
+	#logo-box{ height:auto; background:$amarelo; padding:30px 0; }
+	#logo{ margin-top:0; }
+
+	#sobre .caricatura{ width:100%; height:300px; margin:50px 0 0; }
+
+	#form{ padding:10px; }
+	#form h2{ @include font-size(40px); }
+}
+
+@media screen and(max-width:360px){
+	#header{ background-size:150%; }
+	#agenda{ background-image:none; }
+	#lista-datas li{ width:100%; margin:0 0 30px; }
+
+	#footer .left{ float:none; width:100%; margin-bottom:30px; }
+	#footer .left .la{ margin:0 auto 20px; }
+	#footer .left .copy{ text-align:center; }
+	#assinatura{ float:none; margin:0 auto; }
+
+	#integrantes h2.tit{ @include font-size(40px); }
+}

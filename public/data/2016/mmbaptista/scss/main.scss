@@ -1,0 +1,191 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+$Lato:'Lato', Helvetica, Arial, sans-serif;
+
+$light:300;
+$regular:400;
+$bold:700;
+
+// CORES
+$bege:#BCAA95;
+$begeclaro:#E5D9CA;
+$marrom:#6E5840;
+$cinza:#6B6B6B;
+
+// ESTILOS GLOBAIS
+body{ background-color:$begeclaro; color:#000; font:$regular 18px $Lato; @include font-smoothing(on); }
+@include selection(#FFF,$marrom);
+
+h2.tit{ text-transform:uppercase; color:$bege; @include font-size(16px); letter-spacing:0.02em; font-weight:$bold; background:url(../img/bkg-tit.png) no-repeat bottom center; padding-bottom:5px; margin-bottom:20px; }
+
+/* Header */ 
+#header{ width:100%; @include transition(all 300ms ease-in-out); }
+#header.active{ background-color:$begeclaro; }
+#minicontato{ width:100%; background-color:$bege; color:#FFF; text-align:right; padding:11px 0; }
+#minicontato a{ display:inline-block; height:18px; line-height:18px; @include font-size(14px); letter-spacing:0.02em; margin-left:20px; @include transition(all 300ms ease-in-out); }
+#minicontato a:hover{ @include opacity(0.7); }
+#minicontato a.e-mail{ padding-left:28px; background:url(../img/ico-mail.png) no-repeat left center; }
+#minicontato a.telefone{ padding-left:24px; background:url(../img/ico-fone.png) no-repeat left center; }
+#minicontato a.fb{ width:8px; background:url(../img/ico-fb.png) no-repeat center center; }
+#minicontato a.in{ width:18px; background:url(../img/ico-in.png) no-repeat center center; margin-left:15px; }
+
+.topo{ padding:5px 0; position:absolute; top:50px; left:0; z-index:999; width:100%; overflow:hidden; }
+.topo.active{ position:fixed; top:10px; }
+#logo{ float:left; width:236px; height:74px; background:url(../img/logo.png) no-repeat center center; @include removeText; }
+#nav{ float:right; padding-top:25px; }
+#nav a{ display:inline-block; margin-left:20px; text-transform:uppercase; color:$cinza; font-weight:$bold; @include transition(all 200ms ease-in-out); }
+#nav a:hover{ color:$bege; }
+
+/* Banner */
+#banners{ position:relative; }
+
+#banners .owl-nav div{ position:absolute; top:50%; @include transform(translatey(-50%)); width:42px; height:63px; background:no-repeat center center; @include removeText; @include transition(all 200ms ease-in-out); }
+#banners .owl-nav div:hover{ @include opacity(0.6); }
+#banners .owl-nav .owl-prev{ left:3%; background-image:url(../img/arw-left.png); }
+#banners .owl-nav .owl-next{ right:3%; background-image:url(../img/arw-right.png); }
+
+/* Projetos */
+#projetos{ padding:130px 0 70px; }
+#projetos h3{ @include font-size(32px); letter-spacing:0.02em; font-weight:$light; margin-bottom:30px; }
+#projetos .sub{ @include font-size(16px); font-weight:$light; line-height:22px; letter-spacing:0.02em; max-width:480px; margin-bottom:50px; }
+
+#lista-projetos{}
+#lista-projetos li{ float:left; width:49%; margin:0 2% 2% 0; position:relative; }
+#lista-projetos li:nth-child(even){ margin-right:0; }
+#lista-projetos li .info{ position:absolute; z-index:2; top:20px; left:50px; color:#FFF; }
+#lista-projetos li .info h4{ font-weight:$bold; margin-bottom:5px; }
+#lista-projetos li .info p{ font-weight:$light; @include font-size(16px); }
+#lista-projetos li .btn-ver{ display:block; width:32px; height:32px; background:url(../img/btn-ver.png) no-repeat center center; position:absolute; z-index:2; bottom:20px; right:25px; @include transition(all 300ms ease-in-out); }
+#lista-projetos li .btn-ver:hover{ @include opacity(0.6); }
+#lista-projetos li .img{ @include filter(sepia(1) contrast(0.4) hue-rotate(-20deg)); @include transition(all 300ms ease-in-out); }
+#lista-projetos li .img img{ display:block; width:100%; }
+#lista-projetos li:hover .img{ @include filter(sepia(0) contrast(1)); }
+
+#projetos .btn-mais{ display:block; float:right; clear:both; padding:8px 34px 10px 20px; margin-top:20px; background:$bege url(../img/arw-ver.png) no-repeat right center; color:#FFF; @include font-size(14px); letter-spacing:0.02em; @include transition(all 200ms ease-in-out); }
+#projetos .btn-mais:hover{ background-color:$marrom; }
+
+/* Perfil */
+#perfil{ width:100%; padding:130px 0 70px; background-color:#FFF; }
+#perfil h3{ @include font-size(32px); letter-spacing:0.02em; font-weight:$light; margin-bottom:30px; }
+#perfil p{ margin-top:40px; @include font-size(15px); line-height:18px; letter-spacing:0.02em; text-align:justify; }
+
+#parallax1{ width:100%; height:520px; background:#000 url(../img/bkg-perfil.jpg) no-repeat center center; }
+#parallax1 .center{ position:relative; }
+
+#texto-mariane{ position:absolute; top:70px; left:0; width:243px; height:225px; background:url(../img/texto-mariane.png) no-repeat center center; @include removeText; }
+#texto-marilda{ position:absolute; top:90px; right:0;  width:247px; height:190px; background:url(../img/texto-marilda.png) no-repeat center center; @include removeText; }
+
+/* Equipe */
+#equipe{ width:100%; min-height:760px; padding-top:130px; background:url(../img/equipe.jpg) no-repeat center center; }
+#equipe .wrapper{ width:100%; height:200px; background:url(../img/bkg-equipe.png) no-repeat center center; padding-top:25px; }
+#equipe h2.tit{ color:$marrom; background-image:url(../img/bkg-tit1.png); }
+#equipe p{ @include font-size(16px); line-height:26px; letter-spacing:0.02em; font-weight:$light; }
+
+/* Contato */
+#contato{ padding:130px 0 30px; background-color:#FFF; }
+#contato .men{ max-width:550px; }
+#contato .dados{ @include font-size(16px); line-height:32px; letter-spacing:0.02em; margin-bottom:10px; }
+#contato .form{}
+#contato .form label{ display:block; width:100%; overflow:hidden; margin-bottom:10px; }
+#contato .form span{ display:block; float:left; width:18%; @include font-size(16px); letter-spacing:0.02em; }
+#contato .form input,
+#contato .form textarea{ display:block; width:82%; padding:2px 5px; font-family:$Lato; @include font-size(14px); outline:0; border:1px solid $begeclaro; }
+#contato .form textarea{ height:180px; resize:vertical; }
+#contato .fixed{ width:82%; margin:0 0 15px 18%; overflow:hidden; }
+#contato .fixed p{ float:left; @include font-size(12px); letter-spacing:0.02em; font-style:italic; }
+.btn{ display:block; float:right; font-family:$Lato; color:#FFF; @include font-size(14px); letter-spacing:0.02em; background-color:$bege; padding:10px 50px; border:0; cursor:pointer; @include transition(all 200ms ease-in-out); }
+.btn:hover{ @include opacity(0.6); }
+#contato .social{ @include font-size(16px); letter-spacing:0.02em; font-weight:$light; }
+#contato .social a{ display:inline-block; width:18px; height:18px; margin-left:5px; background:no-repeat center center; }
+#contato .social a.fb{ background-image:url(../img/ico-fb2.png); }
+#contato .social a.in{ background-image:url(../img/ico-in2.png); }
+
+/* Instagram */
+#instagram{ background-color:#FFF; padding-bottom:40px; }
+#instagram .title{ background-color:$bege; padding:10px 0; @include font-size(16px); color:#FFF; letter-spacing:0.02em; }
+#lista-fotos{ overflow:hidden; }
+#lista-fotos li{ float:left; width:12.5% }
+#lista-fotos li a{ display:block; @include transition(all 300ms ease-in-out); }
+#lista-fotos li a:hover{ @include filter(sepia(0.7)); }
+#lista-fotos li a img{ display:block; width:100%; }
+
+/* Parceiros */
+#parceiro{ padding:130px 0 25px; }
+#parceiro h3{ @include font-size(32px); letter-spacing:0.02em; font-weight:$light; margin-bottom:30px; }
+#arquitetas{ display:block; width:100%; height:320px; margin-bottom:30px; background:url(../img/arquitetas.jpg) no-repeat center center; background-size:100%; }
+#parceiro input,
+#parceiro textarea{ display:block; float:left; width:100%; padding:0 20px; margin-bottom:12px; font-family:$Lato; @include font-size(16px); color:#000; background-color:#FFF; border:0; outline:0; }
+#parceiro textarea{ height:110px; }
+#parceiro input.half{ width:49%; margin-right:2%; }
+#parceiro input.last{ margin-right:0; }
+#parceiro input.thirds{ width:30%; margin-right:2%; }
+#parceiro input.thirds.last{ width:68%; margin-right:0; }
+#parceiro .conf{ clear:both; overflow:hidden; }
+#parceiro .conf p{ float:left; @include font-size(12px); letter-spacing:0.02em; font-style:italic; }
+
+/* Footer */
+#footer{ width:100%; background-color:#FFF; }
+#footer .top{ padding:30px 0; overflow:hidden; }
+#voltar{ display:block; float:right; padding-right:45px; background:url(../img/arw-top.png) no-repeat right center; line-height:33px; color:$bege; @include font-size(14px); @include transition(all 200ms ease-in-out); }
+#voltar:hover{ @include transform(translatey(-5px)); }
+#footer .bottom{ width:100%; background-color:$bege; padding:18px 0; @include font-size(12px); color:#FFF; }
+#footer .bottom .center{ overflow:hidden; }
+#footer .bottom .copy{ display:block; float:left; }
+#footer .bottom .assinatura{ display:block; float:right; width:43px; height:18px; background:url(../img/m2mp.png) no-repeat center center; @include transition(all 200ms ease-in-out); }
+#footer .bottom .assinatura:hover{ @include opacity(0.6); }
+
+/* Responsivo */
+@media screen and(max-width:1240px){
+	#lista-fotos li{ width:25%; }
+}
+
+@media screen and(max-width:920px){
+	#logo{ width:100%; }
+	#nav{ display:none; }
+
+	#texto-mariane{ margin-top:220px; }
+	#texto-marilda{ margin-top:260px; }
+	#perfil p{ margin-top:100px; }
+
+	#equipe{ background-position:left top; min-height:400px; }
+}
+
+@media screen and(max-width:540px){
+	#header{ background-color:$begeclaro; position:static; }
+	#minicontato{ text-align:center; }
+	#minicontato a{ margin:5px 10px; }
+	#banners{ margin-top:10px; clear:both; }
+	#banners .owl-nav{ display:none; }
+
+	#projetos, #perfil, #contato, #parceiro{ padding:60px 0 30px; }
+
+	#lista-projetos li{ width:100%; margin:0 0 2%; }
+	#lista-projetos li .info{ left:20px; }
+
+	#perfil{ background-position:center -70px; }
+	#texto-mariane, #texto-marilda{ display:none; }
+	#perfil p{ margin-top:540px; }
+
+	#contato .form span{ width:100%; margin-bottom:5px; }
+	#contato .form input,
+	#contato .form textarea{ width:100%; }
+	#contato .fixed{ width:100%; margin:0 0 15px; }
+
+	#lista-fotos li{ width:50%; }
+
+	#parceiro input.half, #parceiro input.thirds, #parceiro input.thirds.last{ width:100%; margin-right:0; }
+	#parceiro .conf p{ margin-bottom:10px; }
+
+	#footer .bottom .copy{ float:none; text-align:center; margin-bottom:10px; }
+	#footer .bottom .assinatura{ float:none; margin:0 auto; }
+}
+
+@media screen and(max-width:400px){
+	#contato .fixed p{ margin-bottom:10px; }
+	.btn{ width:100%; }
+}

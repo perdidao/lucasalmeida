@@ -1,0 +1,221 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+@import url(../fonts/brandon.css);
+
+// CORES
+$Laranja: #FF6C00;
+$Cinza: #777;
+
+// FONTES
+$Light: "Light", Helvetica, Arial, Sans-serif;
+$Regular: "Regular", Helvetica, Arial, Sans-serif;
+$Bold: "Bold", "Arial Black", Helvetica, Sans-serif;
+$Garamond: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+
+// ESTILOS GLOBAIS
+body{ @include font-size(22px); font-family:$Regular; color:#FFF; @include font-smoothing(on); min-width:640px; }
+@include selection(#FFF, $Laranja);
+
+// HEADER
+#header{ width:100%; height:880px; background:$Laranja url(../img/bkg-topo.jpg) no-repeat center center; position:relative; padding-bottom:0; @include transition(all 300ms ease-in-out); }
+#header.active{ background-image:url(../img/bkg-topo-hv.jpg); }
+#header h1{ float:left; margin-top:130px; @include font-size(80px); line-height:100px; @include transition(all 300ms ease-in-out); }
+#header h1.floated{ margin-left:23%; }
+#btn-menu{
+    display:block;
+    float:left;
+    width:60px;
+    height:50px;
+    position:absolute;
+    z-index:20;
+    top:70px;
+    left:10%;
+    @include transition(all 300ms ease-in-out);
+    & span,
+    &:before,
+    &:after{
+        content:" ";
+        display:block;
+        width:100%;
+        height:10px;
+        background-color:#FFF;
+        @include transform(rotate(0));
+        position:absolute;
+        left:0;
+        @include transition(all 300ms ease-in-out);
+    }
+        
+    &:before{ top:0; }
+    & span{ top:20px; opacity:1; }
+    &:after{ bottom:0; }
+    
+    &.active{ left:20%; }
+    &.active span{ opacity:0; top:25px; @include transform(rotate(90deg)); }
+    &.active:before{ top:20px; left:1px; @include transform(rotate(45deg)); }
+    &.active:after{ bottom:20px; left:1px; @include transform(rotate(-45deg)); } 
+}
+
+#logo{ float:right; margin-top:70px; width:132px; height:64px; background:transparent url(../img/nov3.png) no-repeat center center; }
+
+#box-menu{ display:block; height:100%; padding-right:20px; position:absolute; z-index:15; top:0; left:-25%; width:25%; border-right:1px solid #FFF; @include transition(all 300ms ease-in-out); }
+#box-menu.opened{ left:0; }
+#menu{ text-align:right; padding-top:200px; }
+#menu li a{ @include font-size(40px); line-height:50px; font-family:$Light; @include transition(all 300ms ease-in-out); }
+#menu li a:hover{ font-weight:bold; }
+#box-menu .social{ float:right; }
+
+// PROJETOS
+#projetos{}
+#projetos header{ height:200px; }
+#projetos header h2{ display:block; width:100%; float:left; color:$Cinza; text-transform:uppercase; @include font-size(30px); margin-top:88px; }
+#projetos header h2 span,
+#projetos header h2 em{ float:left; }
+#projetos header h2 .line{ display:block; margin:14px 10px 0; width:30%; height:2px; background-color:$Cinza; }
+#projetos header h2 .scroll{ display:block; margin:-23px 10px 0 0; width:33px; height:71px; background:transparent url(../img/scroll.png) no-repeat center center; }
+#projetos header h2 strong{ color:$Laranja; font-family:$Bold; }
+
+#lista-projetos{ width:100%; }
+#lista-projetos li{ float:left; width:20%; }
+#lista-projetos li a{ display:block; position:relative; overflow:hidden; }
+#lista-projetos li a img{ display:block; width:100%; @include transition(all 600ms ease-in-out); }
+#lista-projetos li a:hover img{ @include transform(scale(1.1)); }
+#lista-projetos li a .hover{ display:none; position:absolute; top:0; left:0; width:100%; height:100%; padding-top:50%; background:#000 url(../img/hvr-projetos.jpg) repeat center center; text-align:center; }
+#lista-projetos li a .hover span{ display:block; margin:0 auto; width:68px; height:34px; background:transparent url(../img/ico-olho.png) no-repeat center center; }
+#lista-projetos li a .hover h3{ @include font-size(30px); text-transform:uppercase; font-family:$Bold; margin-top:20px; }
+#lista-projetos li a .hover p{ @include font-size(22px); font-family:$Garamond; font-style:italic; margin-top:15px; }
+
+// SOBRE
+#sobre{ width:100%; }
+#sobre header{ height:150px; border-bottom:1px solid #DDD; text-align:center; }
+#sobre header h2{ @include font-size(30px); line-height:150px; font-family:$Bold; color:$Cinza; text-transform:uppercase; }
+#sobre .subtitle{ border-bottom:1px solid #DDD; text-align:center; padding:45px 0; }
+#sobre .subtitle p{ @include font-size(36px); line-height:45px; color:$Cinza; font-family:$Light; }
+#sobre .bio{ font-family:$Garamond; @include font-size(22px); line-height:35px; color:$Cinza; text-align:center; padding:140px 0; margin:0; }
+
+// FOTOS
+#fotos{ width:100%; }
+#fotos li{ float:left; width:20%; position:relative; overflow:hidden; }
+#fotos li.double{ width:40%; }
+#fotos li a .hover{ display:none; position:absolute; top:0; left:0; width:100%; height:100%; background:transparent url(../img/hvr-fotos.png) no-repeat center center; }
+#fotos li a img{ display:block; width:100%; @include transition(all 600ms ease-in-out); }
+#fotos li a:hover img{ @include transform(scale(1.05)); }
+
+// SERVIÇOS
+#servicos{ width:100%; }
+#servicos header{ width:100%; height:150px; border-bottom:1px solid #DDD; text-align:center; }
+#servicos header h2{ @include font-size(30px); line-height:150px; font-family:$Bold; color:$Cinza; text-transform:uppercase; }
+#serv-left{ float:left; width:41%; margin:30px 4% 0 0; }
+#serv-right{ float:right; width:55%; margin-top:50px; }
+#serv-right p{ max-width:480px; color:$Cinza; font-family:$Garamond; font-style:italic; @include font-size(22px); line-height:36px; margin-bottom:30px; }
+
+// ÁREAS
+#areas{ width:100%; margin-top:30px; }
+#areas li{ float:left; width:33.33%; background-color:$Laranja; height:480px; padding-top:110px; text-align:center; border-right:1px solid #bd5801; }
+#areas li span.ico-g{ display:block; width:157px; height:157px; margin:0 auto; }
+#areas li h3{ @include font-size(40px); margin-top:30px; }
+
+// CLIENTES
+#clientes{ width:100%; }
+#clientes header{ width:100%; height:150px; background-color:$Laranja; border-bottom:1px solid #FFF; border-top:1px solid #FFF; text-align:center; }
+#clientes header h2{ @include font-size(30px); line-height:150px; font-family:$Bold; color:#FFF; text-transform:uppercase; }
+#clientes .subtitle{ text-align:center; padding:45px 0; background-color:$Laranja; }
+#clientes .subtitle p{ @include font-size(36px); line-height:45px; color:#FFF; font-family:$Light; }
+
+#marcas{ width:100%; }
+#marcas li{ float:left; width:20%; position:relative; border:1px solid #b3b3b3; border-top:0; border-right:0; }
+#marcas li img{ display:block; width:100%; }
+#marcas li .hover{ display:none; position:absolute; top:0; left:0; width:100%; height:100%; padding-top:30%; background:#000 url(../img/hvr-projetos.jpg) repeat center center; text-align:center; }
+#marcas li .hover h3{ @include font-size(30px); text-transform:uppercase; font-family:$Bold; margin-top:20px; }
+#marcas li .hover a{ display:block; width:190px; height:45px; margin:5px auto 0; color:#FFF; border:2px solid #FFF; border-radius:30px; text-transform:uppercase; @include font-size(18px); line-height:45px; @include transition(all 300ms ease-in-out); }
+#marcas li .hover a:hover{ background-color:#FFF; color:#000; }
+
+// CONTATO
+#footer{ width:100%; padding:250px 0; background-color:$Laranja; }
+#footer h2{ @include font-size(30px); text-transform:uppercase; }
+#footer h2 em{ display:block; float:left; }
+#footer h2 span{ display:block; float:left; width:400px; height:2px; background-color:#FFF; margin:13px 0 0 10px; }
+#footer h3{ margin-top:50px; @include font-size(80px); line-height:100px; font-family:$Light; }
+#footer address{ margin-top:50px; @include font-size(40px); line-height:50px; font-family:$Light; }
+
+.social{ margin-top:50px; }
+#footer .social h2{ display:block; float:left; font-family:$Garamond; font-style:italic; @include font-size(40px); line-height:50px; text-transform:none; font-weight:600; }
+.social ul{ float:left; margin:7px 0 0 20px; }
+.social li{ float:left; margin-right:10px; }
+.social li a{ display:block; width:40px; height:40px; background-repeat:no-repeat; background-position:center center; @include transition(all 300ms ease-in-out); }
+.social li a.ico-facebook{ background-image:url(../img/ico-facebook.png); }
+.social li a.ico-facebook:hover{ background-image:url(../img/ico-facebook-hv.png); }
+.social li a.ico-twitter{ background-image:url(../img/ico-twitter.png); }
+.social li a.ico-twitter:hover{ background-image:url(../img/ico-twitter-hv.png); }
+.social li a.ico-instagram{ background-image:url(../img/ico-instagram.png); }
+.social li a.ico-instagram:hover{ background-image:url(../img/ico-instagram-hv.png); }
+.social li a.ico-vimeo{ background-image:url(../img/ico-vimeo.png); }
+.social li a.ico-vimeo:hover{ background-image:url(../img/ico-vimeo-hv.png); }
+.social li a.ico-soundcloud{ background-image:url(../img/ico-soundcloud.png); }
+.social li a.ico-soundcloud:hover{ background-image:url(../img/ico-soundcloud-hv.png); }
+
+// PROJETO
+#projeto{ display:none; position:fixed; z-index:22; top:0; left:0; width:100%; height:100%; background-color:#FFF; }
+#projeto header{ height:130px; background-color:#FFF; }
+#fechar{ display:block; float:left; margin-top:35px; width:50px; height:50px; background:transparent url(../img/ico-fechar.png) no-repeat center center; }
+#logo-projeto{ float:right; margin-top:35px; width:132px; height:64px; background:transparent url(../img/logo-cinza.png) no-repeat center center; }
+#projeto header{ color:$Cinza; }
+#projeto header h2{ @include font-size(40px); line-height:100px; font-family:$Light; text-align:center; line-height:130px; }
+
+#box-proj{ width:86%; height:100%; position:fixed; top:130px; left:7%; background-color:#d0d0d0; padding:80px 80px 160px 80px; overflow-x:scroll; }
+#box-proj p{ font-family:$Garamond; font-style:italic; @include font-size(36px); line-height:50px; color:#777; margin-bottom:80px; }
+#box-proj figure{ background-color:#FFF; margin-top:20px; }
+#box-proj figure img{ display:block; width:100%; }
+#box-proj figure figcaption{ background-color:#FFF; width:100%; color:$Cinza; padding:0 30px; border-top:1px solid #CCC; font-family:$Garamond; @include font-size(22px); line-height:50px; font-style:italic; }
+#prev-proj,
+#next-proj{ width:7%; height:100%; position:fixed; top:130px; background-color:#8b8b8b; background-repeat:no-repeat; background-position:center top; @include transition(all 300ms ease-in-out); }
+#prev-proj:hover,
+#next-proj:hover{ background-color:#000; }
+#prev-proj{ left:0; background-image:url(../img/prev.png); }
+#next-proj{ right:0; background-image:url(../img/next.png); }
+
+// RESPONSIVO
+@media screen and(max-width:1000px){
+    #header{ height:auto; padding-bottom:100px; }
+    #header h1{ @include font-size(60px); line-height:80px; @include transition(none); }
+    #header h1.floated{ @include opacity(0); }
+    #serv-left{ width:31%; }
+    #serv-right{ float:right; width:61%; margin-right:4%; }
+
+    #btn-menu.active{ left:36%; }
+    #box-menu{ left:-50%; width:50%; @include transition(none); }
+
+    #footer h3{ @include font-size(60px); line-height:80px; }
+    #footer address{ @include font-size(30px); }
+
+    #projetos header h2 .line{ width:5%; }
+
+    #sobre .subtitle{ padding:45px 5%; }
+    #sobre .bio{ padding:140px 5%; }
+
+    #btn-menu{ @include transition(none); }
+    #btn-menu span,
+    #btn-menu:before,
+    #btn-menu:after{ @include transition(none); }
+
+    #box-proj{ width:80%; left:10%; padding:40px 40px 160px 40px; }
+    #prev-proj,
+    #next-proj{ width:10%; }
+}
+
+@media screen and(max-width:720px){
+    #lista-projetos li,
+    #fotos li,
+    #marcas li{ width:50%; }
+    #fotos li.double{ width:100%; }
+
+    #sobre .subtitle{ padding:45px 10%; }
+    #sobre .bio{ padding:140px 10%; }
+
+    #areas li{ width:100%; height:380px; padding-top:50px; }
+
+    #box-proj{ width:100%; left:0; }
+    #prev-proj,
+    #next-proj{ display:none; }
+}

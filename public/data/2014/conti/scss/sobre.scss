@@ -1,0 +1,149 @@
+// DEPENDÊNCIAS
+@import "compass";
+@import "tools.scss";
+
+// CORES
+$Azul:#1B3280;
+$CinzaClaro:#929497;
+$Cinza:#58595B;
+$Grafite:#404041;
+
+// FONTES
+$AvenirBook: "Avenir Book", Helvetica, Arial, sans-serif;
+$AvenirRoman: "Avenir Roman", Helvetica, Arial, sans-serif;
+$Garamond: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+
+// PRODUTOS
+#linha-topo{ width:58%; height:6px; background-color:$CinzaClaro; }
+#banner{ width:100%; height:390px; background:url(../img/banner-sobre.jpg) no-repeat center top; text-align:center; padding-top:170px }
+#banner h1{ color:#FFF; @include font-size(84px); font-family:$Garamond; font-style:italic; }
+
+// SOBRE
+.sobre{ padding:130px 0; background:url(../img/bkg-sobre.png) no-repeat right bottom; }
+.sobre p{ float:left; width:33%; margin:0 2%; @include font-size(16px); line-height:28px; text-align:justify; }
+.sobre p.sobre-left{ margin-left:15%; }
+
+// FOTOS
+#fotos-sobre{ width:100%; }
+#fotos-sobre li{ float:left; width:20%; position:relative; }
+#fotos-sobre li a{ display:block; }
+#fotos-sobre li a .hover{ display:none; position:absolute; top:0; left:0; width:100%; height:100%; background:url(../img/bkg-hover.png) no-repeat center center; }
+#fotos-sobre li img{ display:block; width:100%; }
+#fotos-sobre li.big,
+#fotos-sobre li.large{ width:40%; }
+
+// HISTÓRIA
+#historia{ min-height:650px; background-color:$Azul; padding:100px 0; }
+#historia h2{ text-align:center; color:#FFF; max-width:50%; margin:0 auto; }
+
+// VALORES
+#valores{ padding:100px 0 170px; background:url(../img/bkg-valores.png) no-repeat center bottom; }
+#valores h2{ text-align:center; max-width:50%; margin:0 auto; }
+#valores .center .col{ float:left; width:18%; text-align:center; font-family:$Garamond; font-weight:$bold; font-style:italic; line-height:38px; margin:80px 4% 0; }
+#valores .center .col.col-left{ margin-left:14%; }
+#valores .center .col h3{ @include font-size(40px); }
+#valores .center .col p{ @include font-size(24px); }
+
+// TOUR VIRTUAL
+#tour{ padding:100px 0 90px; background:url(../img/bkg-tours.jpg) repeat center center; text-align:center; }
+#tour .center{ width:1440px; }
+#tour h2{ text-align:center; color:#FFF; margin-bottom:30px; }
+.tour{ float:left; width:31%; margin:0 1%; }
+.tour a{ display:block; width:100%; }
+.tour a img{ display:block; width:100%; border:0 solid $Azul; @include transition(all 300ms ease-in-out); }
+.tour a:hover img{ border:10px solid $Azul; }
+.tour .legends{ width:100%; padding:50px 0; background-color:#FFF; text-align:center; }
+.tour .legends h3{ @include font-size(40px); font-family:$Garamond; font-style:italic; font-weight:$bold; }
+.tour .legends p{ @include font-size(16px); max-width:45%; margin:10px auto 0; }
+#aviso-clique{ display:inline-block; padding:10px 20px; margin-top:40px; border:3px solid #FFF; color:#FFF; font-family:$Garamond; font-style:italic; @include font-size(30px); @include transition(all 300ms ease-in-out); cursor:default; }
+#aviso-clique:hover{ background-color:#FFF; color:$Grafite; }
+
+// ATUAÇÃO
+#atuacao{ padding:70px 0 100px; }
+#mapa{ width:48%; height:770px; float:left; background:url(../img/img-conteudo/mapa.png) no-repeat right center; background-size:contain; }
+#area{ width:48%; float:right; }
+#area .textos{ width:51%; margin-bottom:40px; }
+#area .textos h2{ margin:80px 0 20px; }
+#area .textos p{ @include font-size(16px); line-height:28px; }
+#gmap{ width:100%; height:270px; background-color:#F00; }
+
+// ESPORTES
+#esportes{ background-color:#e5e7ea; }
+#esportes .banner-esportes{ width:100%; height:370px; background:url(../img/img-conteudo/esportes.jpg) no-repeat center center; }
+#esportes .center{ padding:90px 0 150px; }
+#esportes h2{ @include font-size(35px); margin:0 0 30px 15%; }
+#esportes p{ float:left; width:33%; margin:0 2%; @include font-size(16px); line-height:28px; text-align:justify; }
+#esportes p.sobre-left{ margin-left:15%; }
+
+// RESPONSIVO
+@media screen and(max-width:1440px){
+	#tour .center{ width:96%; }
+}
+
+@media screen and(max-width:1260px){
+	.center{ width:96%; }
+}
+
+@media screen and(max-width:1000px){
+	#produtos li a .hover h3{ margin-top:15%; }
+}
+
+@media screen and(max-width:940px){
+	.tecnologia .center h2,
+	.tecnologia .center p,
+	#visita h2,
+	#visita p{ width:100%; }
+
+	#valores .center .col h3{ @include font-size(30px); }
+	#valores .center .col p{ @include font-size(18px); }
+}
+
+@media screen and(max-width:840px){
+	#produtos li{ width:50%; }
+	#produtos li a .hover h3{ margin-top:35%; }
+
+	#valores .center .col{ width:30%; margin:80px 1.5% 0; }
+	#valores .center .col.col-left{ margin-left:0; }
+	.tour .legends p{ max-width:80%; }
+
+	#mapa,
+	#area{ width:90%; margin:0 5%; }
+	#area .textos{ float:none; margin:0 auto; text-align:center; }
+	#gmap{ margin-top:40px; }
+
+	#esportes h2{ width:80%; margin:0 0 30px 10%; text-align:center; }
+}
+
+@media screen and(max-width:740px){
+
+	.sobre p,
+	#esportes p{ float:none; width:80%; margin:0 auto; }
+	
+	#esportes p.sobre-left,
+	.sobre p.sobre-left{ margin-left:auto; }	
+}
+
+@media screen and(max-width:660px){
+	#valores .center .col{ float:none; width:80%; margin:40px auto 0; }
+	#valores .center .col.col-left{ margin-left:auto; }
+	.tour{ float:none; width:80%; margin:0 auto 30px; }
+	.sobre{ padding:40px 0; }
+	#fotos-sobre li{ width:50%; }
+	#fotos-sobre li.big,
+	#fotos-sobre li.large{ width:100%; }
+
+	#historia h2{ max-width:100%; }
+	#valores{ background-repeat:repeat; background-position:center top; }
+	#valores h2{ max-width:100%; @include font-size(32px); }
+
+	#mapa{ height:300px; }
+
+	#area .textos{ width:100%; }
+
+	#esportes .center{ padding:40px 0; }
+}
+
+@media screen and(max-width:540px){
+	#btn-visite{ width:100%; height:auto; line-height:43px; }
+	#produtos li{ width:100%; }
+}

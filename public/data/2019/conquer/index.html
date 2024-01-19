@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta name="robots" content="index, follow">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conquer Consórcios — O consórcio com a menor taxa do Brasil</title>
+  <meta name="theme-color" content="#19B6FF">
+  <meta name="description" content="Não pague caro no empréstimo pessoal. Você pode conseguir juros mais baixos!">
+  <link rel="icon" href="https://perdidao.github.io/favicon.png" type="image/x-icon">
+	<link rel="shortcut icon" href="https://perdidao.github.io/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="static/styles/main.min.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" title="Conquer Consórcios" class="header-logo">
+        <img src="static/images/logo.png" alt="Conquer Consórcios" aria-hidden="true">
+      </a>
+      <nav class="header-nav">
+        <a href="contempladas.html" title="Contempladas" class="header-nav__link">Contempladas</a>
+        <a href="simulador.html" title="Simulador" class="header-nav__link">Simulador</a>
+        <a href="javascript:;" title="Contato" class="header-nav__link">Contato</a>
+        <p class="header-contact">
+          Fale no Whatsapp
+          <a href="https://wa.me/5543991234567" title="Clique para ir para o Whatsapp" class="header-contact__number">
+            <img src="static/images/topo-ico-whatsapp.png" alt="Whatsapp" aria-hidden="true"
+              class="header-contact__ico"> <span class="header-contact__small">43</span> 99123-4567
+          </a>
+        </p>
+      </nav>
+      <a href="javascript:;" title="Navegação" class="header-toggle">
+        <span></span>
+      </a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-container">
+      <div class="hero-text">
+        O Consórcio com a
+        <span class="hero-text__colored">menor taxa do Brasil</span>
+      </div>
+      <div class="hero-tax">
+        <img src="static/images/hero-nines.png" alt="9,99%">
+      </div>
+    </div>
+  </section>
+
+  <div class="simulate-gradient">
+    <section class="simulate">
+      <div class="container simulate-container">
+        <!-- Simulador de carros -->
+        <div class="simulate-item scope-car">
+          <div class="step step-one active" id="car-step-1">
+            <h2 class="simulate-item__title">
+              Carro
+            </h2>
+            <a href="javascript:;" class="simulate-item__image">
+              <img src="static/images/hero-car.png" alt="Carros">
+            </a>
+            <a href="javascript:;" data-navigate data-navigate-direction="2" data-navigate-reference="car"
+              title="Clique para ir para o próximo passo" class="simulate-item__button">
+              Simular
+              <img src="static/images/arrow-right.png" alt="Próximo passo">
+            </a>
+          </div>
+          <form action="/">
+            <div class="step" id="car-step-2">
+              <h2 class="step-title">
+                <a href="javascript:;" data-navigate data-navigate-direction="1" data-navigate-reference="car"
+                  title="Clique para voltar" class="step-title__back"></a>
+                <img src="static/images/icon-house-cyan.png" alt="" class="step-title__icon">
+                Carro
+                <a href="javascript:;" data-navigate data-navigate-direction="1" data-close="true"
+                  data-navigate-reference="car" title="Clique para voltar" class="step-title__close"></a>
+              </h2>
+              <section class="step-content">
+                <div class="step-input">
+                  <p class="step-input__label">
+                    Digite o valor
+                  </p>
+                  <p class="step-input__set">
+                    <span>
+                      R$
+                    </span>
+                    <input type="text" name="valor" class="step-input__field mask-money" placeholder="0.000"
+                      style="width:200px" maxlength="10"
+                      onkeypress="this.style.width = ((this.value.length + 2) * 24) + 'px';">
+                    <span>
+                      Mil
+                    </span>
+                  </p>
+                </div>
+                <div class="step-input">
+                  <p class="step-input__label">
+                    Digite o n° de parcelas
+                  </p>
+                  <p class="step-input__set">
+                    <input type="text" name="valor" class="step-input__field" placeholder="12" style="width:60px"
+                      maxlength="3" onkeypress="this.style.width = ((this.value.length + 2) * 24) + 'px';">
+                    <span>
+                      X
+                    </span>
+                  </p>
+                </div>
+                <a href="javascript:;" data-navigate data-navigate-direction="3" data-navigate-reference="car"
+                  title="Clique para ir para o próximo passo" class="simulate-item__button">
+                  Continuar
+                  <img src="static/images/arrow-right.png" alt="Próximo passo">
+                </a>
+              </section>
+            </div>
+            <div class="step" id="car-step-3">
+              <h2 class="step-title">
+                <a href="javascript:;" data-navigate data-navigate-direction="2" data-navigate-reference="car"
+                  title="Clique para voltar" class="step-title__back"></a>
+                <img src="static/images/icon-house-cyan.png" alt="" class="step-title__icon">
+                Carro
+                <a href="javascript:;" data-navigate data-navigate-direction="1" data-close="true"
+                  data-navigate-reference="car" title="Clique para voltar" class="step-title__close"></a>
+              </h2>
+              <section class="step-content">
+                <div class="step-input">
+                  <p class="step-input__label">
+                    Digite seu nome
+                  </p>
+                  <input type="text" name="valor" class="step-input__text">
+                </div>
+                <div class="step-input">
+                  <p class="step-input__label">
+                    Digite seu celular
+                  </p>
+                  <input type="text" name="celular" class="step-input__text mask-phone">
+                </div>
+                <a href="javascript:;" title="Clique para ir para o próximo passo"
+                  class="simulate-item__button simulate-item__button--center">
+                  Simular
+                </a>
+              </section>
+            </div>
+          </form>
+        </div>
+        <!-- Simulador de imóveis -->
+        <div class="simulate-item scope-house">
+          <div class="step step-one active" id="house-step-1">
+            <h2 class="simulate-item__title">
+              Imóvel
+            </h2>
+            <a href="javascript:;" class="simulate-item__image">
+              <img src="static/images/hero-house.png" alt="Carros">
+            </a>
+            <a href="javascript:;" data-navigate data-navigate-direction="2" data-navigate-reference="house"
+              title="Clique para ir para o próximo passo" class="simulate-item__button">
+              Simular
+              <img src="static/images/arrow-right.png" alt="Próximo passo">
+            </a>
+          </div>
+          <form action="/">
+            <div class="step" id="house-step-2">
+              <h2 class="step-title">
+                <a href="javascript:;" data-navigate data-navigate-direction="1" data-navigate-reference="house"
+                  title="Clique para voltar" class="step-title__back"></a>
+                <img src="static/images/icon-house-cyan.png" alt="" class="step-title__icon">
+                Imóvel
+                <a href="javascript:;" data-navigate data-navigate-direction="1" data-close="true"
+                  data-navigate-reference="house" title="Clique para voltar" class="step-title__close"></a>
+              </h2>
+              <section class="step-content">
+                <div class="step-input">
+                  <p class="step-input__label">
+                    Digite o valor
+                  </p>
+                  <p class="step-input__set">
+                    <span>
+                      R$
+                    </span>
+                    <input type="text" name="valor" class="step-input__field mask-money" placeholder="0.000"
+                      style="width:200px" maxlength="10"
+                      onkeypress="this.style.width = ((this.value.length + 2) * 24) + 'px';">
+                    <span>
+                      Mil
+                    </span>
+                  </p>
+                </div>
+                <div class="step-input">
+                  <p class="step-input__label">
+                    Digite o n° de parcelas
+                  </p>
+                  <p class="step-input__set">
+                    <input type="text" name="valor" class="step-input__field" placeholder="12" style="width:60px"
+                      maxlength="3" onkeypress="this.style.width = ((this.value.length + 2) * 24) + 'px';">
+                    <span>
+                      X
+                    </span>
+                  </p>
+                </div>
+                <a href="javascript:;" data-navigate data-navigate-direction="3" data-navigate-reference="house"
+                  title="Clique para ir para o próximo passo" class="simulate-item__button">
+                  Continuar
+                  <img src="static/images/arrow-right.png" alt="Próximo passo">
+                </a>
+              </section>
+            </div>
+            <div class="step" id="house-step-3">
+              <h2 class="step-title">
+                <a href="javascript:;" data-navigate data-navigate-direction="2" data-navigate-reference="house"
+                  title="Clique para voltar" class="step-title__back"></a>
+                <img src="static/images/icon-house-cyan.png" alt="" class="step-title__icon">
+                Imóvel
+                <a href="javascript:;" data-navigate data-navigate-direction="1" data-close="true"
+                  data-navigate-reference="house" title="Clique para voltar" class="step-title__close"></a>
+              </h2>
+              <section class="step-content">
+                <div class="step-input">
+                  <p class="step-input__label">
+                    Digite seu nome
+                  </p>
+                  <input type="text" name="valor" class="step-input__text">
+                </div>
+                <div class="step-input">
+                  <p class="step-input__label">
+                    Digite seu celular
+                  </p>
+                  <input type="text" name="celular" class="step-input__text mask-phone">
+                </div>
+                <a href="javascript:;" title="Clique para ir para o próximo passo"
+                  class="simulate-item__button simulate-item__button--center">
+                  Simular
+                </a>
+              </section>
+            </div>
+          </form>
+        </div>
+        <!-- Simulador de motocicletas -->
+        <div class="simulate-item scope-bike">
+          <div class="step step-one active" id="bike-step-1">
+            <h2 class="simulate-item__title">
+              Motocicleta
+            </h2>
+            <a href="javascript:;" class="simulate-item__image">
+              <img src="static/images/hero-bike.png" alt="Carros">
+            </a>
+            <a href="javascript:;" data-navigate data-navigate-direction="2" data-navigate-reference="bike"
+              title="Clique para ir para o próximo passo" class="simulate-item__button">
+              Simular
+              <img src="static/images/arrow-right.png" alt="Próximo passo">
+            </a>
+          </div>
+          <form action="/">
+            <div class="step" id="bike-step-2">
+              <h2 class="step-title">
+                <a href="javascript:;" data-navigate data-navigate-direction="1" data-navigate-reference="bike"
+                  title="Clique para voltar" class="step-title__back"></a>
+                <img src="static/images/icon-house-cyan.png" alt="" class="step-title__icon">
+                Motocicleta
+                <a href="javascript:;" data-navigate data-navigate-direction="1" data-close="true"
+                  data-navigate-reference="bike" title="Clique para voltar" class="step-title__close"></a>
+              </h2>
+              <section class="step-content">
+                <div class="step-input">
+                  <p class="step-input__label">
+                    Digite o valor
+                  </p>
+                  <p class="step-input__set">
+                    <span>
+                      R$
+                    </span>
+                    <input type="text" name="valor" class="step-input__field mask-money" placeholder="0.000"
+                      style="width:200px" maxlength="10"
+                      onkeypress="this.style.width = ((this.value.length + 2) * 24) + 'px';">
+                    <span>
+                      Mil
+                    </span>
+                  </p>
+                </div>
+                <div class="step-input">
+                  <p class="step-input__label">
+                    Digite o n° de parcelas
+                  </p>
+                  <p class="step-input__set">
+                    <input type="text" name="valor" class="step-input__field" placeholder="12" style="width:60px"
+                      maxlength="3" onkeypress="this.style.width = ((this.value.length + 2) * 24) + 'px';">
+                    <span>
+                      X
+                    </span>
+                  </p>
+                </div>
+                <a href="javascript:;" data-navigate data-navigate-direction="3" data-navigate-reference="bike"
+                  title="Clique para ir para o próximo passo" class="simulate-item__button">
+                  Continuar
+                  <img src="static/images/arrow-right.png" alt="Próximo passo">
+                </a>
+              </section>
+            </div>
+            <div class="step" id="bike-step-3">
+              <h2 class="step-title">
+                <a href="javascript:;" data-navigate data-navigate-direction="2" data-navigate-reference="bike"
+                  title="Clique para voltar" class="step-title__back"></a>
+                <img src="static/images/icon-house-cyan.png" alt="" class="step-title__icon">
+                Motocicleta
+                <a href="javascript:;" data-navigate data-navigate-direction="1" data-close="true"
+                  data-navigate-reference="bike" title="Clique para voltar" class="step-title__close"></a>
+              </h2>
+              <section class="step-content">
+                <div class="step-input">
+                  <p class="step-input__label">
+                    Digite seu nome
+                  </p>
+                  <input type="text" name="valor" class="step-input__text">
+                </div>
+                <div class="step-input">
+                  <p class="step-input__label">
+                    Digite seu celular
+                  </p>
+                  <input type="text" name="celular" class="step-input__text mask-phone">
+                </div>
+                <a href="javascript:;" title="Clique para ir para o próximo passo"
+                  class="simulate-item__button simulate-item__button--center">
+                  Simular
+                </a>
+              </section>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="taxes">
+      <div class="container taxes-container">
+        <h2 class="taxes-title">
+          Não pague caro no empréstimo pessoal.
+          <strong>Você pode conseguir juros mais baixos!</strong>
+        </h2>
+        <div class="taxes-item">
+          <h3 class="taxes-item__title">
+            Empréstimo de <strong>R$ 5.000,00</strong>
+          </h3>
+          <div class="taxes-item__data">
+            <div class="taxes-item__note">
+              Garantia do<br>
+              Consórcio Conquer
+            </div>
+            <div class="taxes-item-graph">
+              <span class="taxes-item-graph__bar"></span>
+              <span class="taxes-item-graph__value">
+                1,59<span class="taxes-item-graph__small">% ao mês</span>
+              </span>
+            </div>
+            <p class="taxes-item__value">
+              Parcela de
+              <strong>R$ 149</strong>
+            </p>
+          </div>
+        </div>
+        <div class="taxes-item">
+          <h3 class="taxes-item__title">
+            Parcelado em <strong>48 meses</strong>
+          </h3>
+          <div class="taxes-item__data">
+            <div class="taxes-item__note">
+              Empréstimo<br>
+              Pessoal
+            </div>
+            <div class="taxes-item-graph">
+              <span class="taxes-item-graph__bar taxes-item-graph__bar--theirs"></span>
+              <span class="taxes-item-graph__value taxes-item-graph__value--theirs">
+                6,80<span class="taxes-item-graph__small">% ao mês</span>
+              </span>
+            </div>
+            <p class="taxes-item__value">
+              Parcela de
+              <strong>R$ 355</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="advantages">
+      <h2 class="advantages-title">
+        Vantagens
+      </h2>
+      <ul class="advantages-list">
+        <li class="advantages-item">
+          <figure class="advantages-item__image">
+            <img src="static/images/advantages-ico-covered.png" alt="Lorem Ipsum">
+          </figure>
+          <h3 class="advantages-item__title">
+            Lorem Ipsum
+          </h3>
+          <p class="advantages-item__description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tempor consequat ante, accumsan dignissim
+            enim semper in.
+          </p>
+        </li>
+        <li class="advantages-item">
+          <figure class="advantages-item__image">
+            <img src="static/images/advantages-ico-increase.png" alt="Lorem Ipsum">
+          </figure>
+          <h3 class="advantages-item__title">
+            Lorem Ipsum
+          </h3>
+          <p class="advantages-item__description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tempor consequat ante, accumsan dignissim
+            enim semper in.
+          </p>
+        </li>
+        <li class="advantages-item">
+          <figure class="advantages-item__image">
+            <img src="static/images/advantages-ico-growth.png" alt="Lorem Ipsum">
+          </figure>
+          <h3 class="advantages-item__title">
+            Lorem Ipsum
+          </h3>
+          <p class="advantages-item__description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tempor consequat ante, accumsan dignissim
+            enim semper in.
+          </p>
+        </li>
+      </ul>
+    </section>
+  </div>
+
+  <section class="comparative">
+    <div class="container comparative-container">
+      <h2 class="comparative-title">
+        <strong>Deixe os números falarem</strong>
+        Compare o consórcio Conquer com os Bancos
+      </h2>
+      <div class="comparative-row">
+        <div class="comparative-row__item comparative-row__item--logo">
+          <img src="static/images/logo-small.png" alt="Conquer Consórcios">
+        </div>
+        <div class="comparative-row__item comparative-row__item--other">
+          Consórcio<br> dos Bancos
+        </div>
+      </div>
+      <h3 class="comparative-subtitle">
+        Autorizado Banco Central
+      </h3>
+      <div class="comparative-row">
+        <div class="comparative-row__item comparative-row__item--left">
+          SIM
+        </div>
+        <div class="comparative-row__item comparative-row__item--right">
+          SIM
+        </div>
+      </div>
+      <h3 class="comparative-subtitle">
+        Taxa de administração
+      </h3>
+      <div class="comparative-row">
+        <div class="comparative-row__item comparative-row__item--left">
+          SIM
+        </div>
+        <div class="comparative-row__item comparative-row__item--right">
+          SIM
+        </div>
+      </div>
+      <h3 class="comparative-subtitle">
+        Adesão
+      </h3>
+      <div class="comparative-row">
+        <div class="comparative-row__item comparative-row__item--left">
+          SIM
+        </div>
+        <div class="comparative-row__item comparative-row__item--right">
+          SIM
+        </div>
+      </div>
+      <h3 class="comparative-subtitle">
+        Seguro Obrigatório
+      </h3>
+      <div class="comparative-row">
+        <div class="comparative-row__item comparative-row__item--left">
+          SIM
+        </div>
+        <div class="comparative-row__item comparative-row__item--right">
+          SIM
+        </div>
+      </div>
+      <h3 class="comparative-subtitle">
+        Fundo de reserva
+      </h3>
+      <div class="comparative-row">
+        <div class="comparative-row__item comparative-row__item--left">
+          0% <span>Não cobramos fundo de reserva</span>
+        </div>
+        <div class="comparative-row__item comparative-row__item--right">
+          até 3% <span>de fundo de reserva</span>
+        </div>
+      </div>
+      <h3 class="comparative-subtitle">
+        Grupos em andamento
+      </h3>
+      <div class="comparative-row">
+        <div class="comparative-row__item comparative-row__item--left">
+          SIM <span>Grupos contemplando</span>
+        </div>
+        <div class="comparative-row__item comparative-row__item--right">
+          SIM <span>Grupos contemplando</span>
+        </div>
+      </div>
+      <h3 class="comparative-subtitle">
+        Numeros de Participantes
+      </h3>
+      <div class="comparative-row">
+        <div class="comparative-row__item comparative-row__item--left">
+          432 <span>Mais chances de contemplação por sorteio</span>
+        </div>
+        <div class="comparative-row__item comparative-row__item--right">
+          até 4.000<span>Menos chances de contemplação por sorteio</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="banner">
+    <div class="banner-container">
+      <div class="banner-content">
+        <h2 class="banner-content__text">
+          O Consórcio com a
+          <strong>menor taxa do Brasil</strong>
+        </h2>
+
+        <a href="javascript:;" class="banner-content__button">
+          Fale com a gente!
+        </a>
+      </div>
+      <div class="banner-image">
+        <img src="static/images/banner-nines.png" alt="9,99%">
+      </div>
+    </div>
+  </section>
+
+  <section class="company">
+    <div class="container company-container">
+      <section class="company-delivery">
+        <h2 class="company-delivery__title">
+          Você esta em ótima companhia
+        </h2>
+        <p class="company-delivery__description">
+          A Conquer Consórcios é uma empresa que já entregou mais de
+        </p>
+        <p class="company-delivery__quantity">
+          <span>8</span>
+          <span>5</span>
+          <span>7</span>
+          <em>Bens</em>
+        </p>
+      </section>
+      <section class="company-testimonials">
+        <div class="company-testimonial">
+          <figure class="company-testimonial__avatar">
+            <img src="static/images/avatar.jpg" alt="Natália Souza">
+          </figure>
+          <h3 class="company-testimonial__title">
+            Natália Souza
+          </h3>
+          <p class="company-testimonial__text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tempor consequat ante, accumsan dignissim
+            enim semper in.
+          </p>
+        </div>
+        <div class="company-testimonial">
+          <figure class="company-testimonial__avatar">
+            <img src="static/images/avatar.jpg" alt="Natália Souza">
+          </figure>
+          <h3 class="company-testimonial__title">
+            Natália Souza
+          </h3>
+          <p class="company-testimonial__text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tempor consequat ante, accumsan dignissim
+            enim semper in.
+          </p>
+        </div>
+        <div class="company-testimonial">
+          <figure class="company-testimonial__avatar">
+            <img src="static/images/avatar.jpg" alt="Natália Souza">
+          </figure>
+          <h3 class="company-testimonial__title">
+            Natália Souza
+          </h3>
+          <p class="company-testimonial__text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tempor consequat ante, accumsan dignissim
+            enim semper in.
+          </p>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-column">
+        <h2 class="footer-column__title">
+          Institucional
+        </h2>
+        <nav class="footer-column-nav">
+          <a href="index.html" class="footer-column-nav__link">Início</a>
+          <a href="contempladas.html" class="footer-column-nav__link">Contemplados</a>
+          <a href="simulador.html" class="footer-column-nav__link">Simulador</a>
+          <a href="contato.html" class="footer-column-nav__link">Contato</a>
+        </nav>
+      </div>
+      <div class="footer-column">
+        <h2 class="footer-column__title">
+          Onde Estamos
+        </h2>
+        <address class="footer-column__address">
+          Rua Lorem ipsum, 00 - Centro<br>
+          Londrina-PR | CEP 86000-000
+
+          <a href="https://maps.google.com" class="footer-column__button">
+            ver no mapa
+          </a>
+        </address>
+      </div>
+      <div class="footer-column">
+        <h2 class="footer-column__title">
+          Atendimento
+        </h2>
+        <p class="footer-column__contact">
+          <img src="static/images/footer-ico-whatsapp.png" alt="Whatsapp"> 43 <span>998765-4321</span>
+        </p>
+        <p class="footer-column__contact">
+          <img src="static/images/footer-ico-phone.png" alt="Telefone"> 43 <span>3321-0000</span>
+        </p>
+      </div>
+      <div class="footer-column">
+        <h2 class="footer-column__title">
+          Redes Sociais
+        </h2>
+        <nav class="footer-column-social">
+          <a href="https://www.instagram.com" class="footer-column-social__link">
+            <img src="static/images/footer-ico-instagram.png" alt="Instagram">
+          </a>
+          <a href="https://www.facebook.com" class="footer-column-social__link">
+            <img src="static/images/footer-ico-facebook.png" alt="Facebook">
+          </a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <p class="copyrights">
+    © 2020 Conquer Consórcios. Todos os direitos reservados
+  </p>
+
+  <script src="static/scripts/vendor/jquery.min.js"></script>
+  <script src="static/scripts/vendor/slick.js"></script>
+  <script src="static/scripts/vendor/mask.js"></script>
+  <script src="static/scripts/main.min.js"></script>
+
+  <!-- Livereload -->
+  <script src="//localhost:35729/livereload.js"></script>
+
+</body>
+
+</html>

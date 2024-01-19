@@ -1,0 +1,146 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// CORES
+$Azul:#1B3280;
+$CinzaClaro:#929497;
+$Cinza:#58595B;
+$Grafite:#404041;
+
+// FONTES
+$AvenirBook: "Avenir Book", Helvetica, Arial, sans-serif;
+$AvenirRoman: "Avenir Roman", Helvetica, Arial, sans-serif;
+$Garamond: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+
+// ESTILOS GLOBAIS
+body{ font-family:$AvenirBook; @include font-size(20px); color:$Grafite; @include font-smoothing(on); min-width:360px; }
+@include selection(#FFF, $Azul);
+
+h2{ @include font-size(50px); font-family:$Garamond; font-weight:bold; }
+
+// BARRA DE IDIOMAS
+#top-header{ width:100%; height:40px; background-color:$Azul; color:#FFF; @include font-size(12px); }
+#idiomas{ float:right; }
+#idiomas li{ float:left; margin-left:20px; }
+#idiomas li a{ float:right; display:block; height:40px; line-height:40px; padding-left:20px; }
+#idiomas li a.i-eng{ background:url(../img/ico-eng.png) no-repeat left center; @include filter(grayscale(1)); }
+#idiomas li a.i-esp{ background:url(../img/ico-esp.png) no-repeat left center; }
+
+#social{ float:right; }
+#social li{ float:left; }
+#social li a{ display:block; float:left; width:18px; height:18px; margin:11px 0 0 40px; @include opacity(1); @include transition(all 300ms ease-in-out); }
+#social li a:hover{ @include opacity(0.4); }
+#social li a.i-twitter{ background:url(../img/ico-twitter.png) no-repeat center center; }
+#social li a.i-facebook{ background:url(../img/ico-facebook.png) no-repeat center center; }
+#social li a.i-instagram{ background:url(../img/ico-instagram.png) no-repeat center center; }
+#social li a.i-youtube{ background:url(../img/ico-youtube.png) no-repeat center center; }
+
+// HEADER
+#header{ height:110px; }
+#logo{ display:block; float:left; width:257px; height:36px; margin-top:36px; background:url(../img/logo.png) no-repeat center center; }
+#menu{ float:right; font-family:$Garamond; font-style:italic; margin:46px 85px 0 0; }
+#menu a{ display:block; float:left; margin-right:35px; @include transition(all 300ms ease-in-out); }
+#menu a:hover,
+#menu a.active{ color:#bbbdbf; }
+
+// NAVEGAÇÃo
+#navegacao{ width:100%; height:290px; background:$Azul url(../img/bkg-footer.png) no-repeat center bottom; padding-top:80px; }
+#navegacao .col{ float:left; margin-right:60px; }
+#navegacao .col h3{ color:#FFF; @include font-size(15px); font-family:$Garamond; font-style:italic; }
+#navegacao .col ul li{ margin:0; }
+#navegacao .col ul li a{ color:#FFF; @include font-size(10px); line-height:14px; }
+#navegacao .col ul li a:hover{ font-weight:$bold; }
+
+// CONTATO
+#contato{ padding:90px 0 70px; }
+#logo-footer{ width:215px; height:141px; float:left; background:url(../img/logo-full.png) no-repeat center center; margin-right:30px; }
+#contato address{ @include font-size(16px); line-height:24px; }
+#social-footer{ margin-top:20px; }
+#social-footer li{ float:left; margin-right:40px; }
+#social-footer li a{ display:block; width:26px; height:26px; @include opacity(1); @include transition(all 300ms ease-in-out); }
+#social-footer li a:hover{ @include opacity(0.7); }
+#social-footer li a.i-twitter{ background:url(../img/ico-twitter-footer.png) no-repeat center center; }
+#social-footer li a.i-facebook{ background:url(../img/ico-facebook-footer.png) no-repeat center center; }
+#social-footer li a.i-instagram{ background:url(../img/ico-instagram-footer.png) no-repeat center center; }
+#social-footer li a.i-youtube{ background:url(../img/ico-youtube-footer.png) no-repeat center center; }
+
+#contato form{ margin-top:-20px; float:right; max-width:485px; }
+#contato legend{ @include font-size(16px); font-family:$Garamond; text-transform:uppercase; margin-bottom:10px; }
+#contato .form-line{ min-height:30px; }
+#contato .form-line label{ display:block; float:left; width:70px; margin-right:15px; text-align:right; line-height:30px; @include font-size(12px); font-family:$Garamond; font-style:italic; }
+#contato .form-line input,
+#contato .form-line textarea{ display:block; float:left; width:400px; padding:5px 10px; background-color:#d0d2d3; border:0; font-family:$AvenirBook; @include font-size(12px); color:$Grafite; }
+#contato .form-line textarea{ background-color:$Azul; color:#FFF; height:70px; resize:none; }
+
+#contato .finaliza{ width:400px; float:right; }
+#msg{ @include font-size(14px); line-height:22px; font-family:$Garamond; font-style:italic; display:block; float:left; }
+#enviar{ display:block; float:right; @include font-size(12px); text-transform:uppercase; font-family:$Garamond; border:0; background-color:#FFF; cursor:pointer; margin-top:5px; }
+
+#lower-footer .center{ border-top:4px solid #8c8d8e; padding:20px 0 0; height:130px; }
+#lower-footer .links{ float:left; }
+#lower-footer .links li{ float:left; @include font-size(15px); font-family:$Garamond; font-style:italic; }
+#lower-footer p{ float:right; @include font-size(15px); font-family:$Garamond; font-style:italic; }
+
+// OVERLAY
+.overlay{ background:rgba(0,0,0,.7); position:fixed; z-index:999; top:0; left:0; width:100%; height:100%; }
+.overlay .close{ position:absolute; top:20px; left:20px; width:40px; height:40px; border:2px solid #FFF; color:#FFF; text-align:center; line-height:34px; }
+.overlay .o-content{ position:absolute; top:10%; left:50%; margin-left:-25%; width:50%; min-height:300px; padding:90px 40px; background-color:#FFF; }
+
+// RESPONSIVO
+@media screen and(max-width:1050px){
+	#logo-footer{ float:none; margin:0 auto 50px; }
+	#contato address{ width:100%; }
+	#social-footer{ margin-top:20px; }
+}
+
+@media screen and(max-width:930px){
+	#logo{ float:none; margin:0 auto; }
+	#menu{ margin:46px 0 0; width:100%; text-align:center; }
+	#menu a{ float:none; display:inline-block; margin:0 0 0 35px; }
+
+	#contato .f-left{ float:none; width:100%; }
+	#contato address{ width:100%; text-align:center; }
+	#social-footer{ width:100%; text-align:center; }
+	#social-footer li{ display:inline-block; float:none; margin:0 20px; }
+	#social-footer li a{ display:block; width:26px; height:26px; @include opacity(1); @include transition(all 300ms ease-in-out); }
+	#contato form{ margin:0 auto; }
+}
+
+@media screen and(max-width:930px){
+	#menu a{ margin:0 28px 0 0; }
+}
+
+@media screen and(max-width:800px){
+	#header{ height:160px; }
+	#menu{ float:left; margin:30px 0 0 0; }
+	#contato .f-right{ clear:left; float:left; width:100%; margin-top:80px; }
+	#contato form{ margin-top:0; float:none; }
+}
+
+@media screen and(max-width:700px){
+	#navegacao{ height:auto; padding:10px 0 40px; }
+	#navegacao .col{ width:45%; min-height:160px; margin:30px 2.5% 0; }	
+}
+
+@media screen and(max-width:650px){
+	#lower-footer .links{ float:left; margin-bottom:20px; }
+	#lower-footer p{ float:left; }
+
+	#header{ height:260px; }
+	#menu a{ display:block; width:100%; text-align:center; float:none; margin-bottom:20px; }
+}
+
+@media screen and(max-width:510px){
+
+	#contato .form-line label{ width:100%; text-align:left; }
+	#contato .form-line input,
+	#contato .form-line textarea{ width:100%; }
+}
+
+@media screen and(max-width:420px){
+	#top-header{ height:80px; }
+	#idiomas{ margin-top:5px; }
+	#contato .finaliza{ width:100%; }
+}

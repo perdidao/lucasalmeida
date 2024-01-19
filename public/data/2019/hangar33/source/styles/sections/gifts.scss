@@ -1,0 +1,139 @@
+.gift{
+    position:relative;
+    width:100%;
+    background:$black;
+
+    &__header{
+        width:100%;
+        padding:rfs(80px) 0;
+        background-color:$black;
+        text-align:center;
+
+        &--date{
+            font-weight:$medium;
+            font-size:rfs(198px);
+            font-family:$Solido;
+            color:$orange;
+        }
+
+        &--text{
+            font-size:rfs(21px);
+            line-height:1.4;
+            max-width:rfs(690px);
+            margin:0 auto;
+        }
+    }
+
+    &__content{
+        width:100%;
+        min-height:100vh;
+        padding:rfs(80px) 0;
+        background:$black url(../images/bkg-gifts.jpg) no-repeat center center;
+        background-size:cover;
+
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+
+    &__form{
+        width:90%;
+        max-width:rfs(460px);
+        text-align:center;
+
+        @media screen and (max-width:$size-mobile-max){
+            max-width:100%;
+        }
+
+        &--text{
+            max-width:rfs(300px);
+            margin:0 auto rfs(40px);
+
+            @media screen and (max-width:$size-mobile-max){
+                max-width:100%;
+            }
+        }
+
+        &--gifts{
+            display:flex;
+            align-items:flex-start;
+            justify-content:space-between;
+            margin-bottom:rfs(20px);
+        }
+
+        &--gift{
+            display:block;
+            overflow:hidden;
+            border-radius:rfs(10px);
+            position:relative;
+            border:3px solid transparent;
+            cursor:pointer;
+
+            input{
+                position:absolute;
+                top:0;
+                left:0;
+                opacity:0;
+                visibility:hidden;
+            }
+
+            img{
+                display:block;
+                max-width:rfs(194px);
+
+                @media screen and (max-width:$size-mobile-max){
+                    max-width:rfs(300px);
+                }
+            }
+
+            &.active{
+                border:3px solid $orange;
+            }
+        }
+
+        &--label{
+            display:block;
+            width:100%;
+            margin-bottom:rfs(10px);
+            font-weight:$medium;
+            font-size:rfs(28px);
+            font-family:$Solido;
+            color:$white;
+            text-transform:uppercase;
+            text-align:left;
+
+            &-size{
+                max-width:rfs(100px);
+                margin:0 auto rfs(140px);
+
+                @media screen and (max-width:$size-mobile-max){
+                    max-width:100%;
+                    margin:0 0 rfs(40px);
+                }
+            }
+        }
+
+        &--input{
+            display:block;
+            width:100%;
+            height:rfs(50px);
+            padding:0 rfs(15px);
+            border:0;
+            border-radius:rfs(10px);
+            background:rgba($white,.4);
+            font-weight:$medium;
+            font-size:rfs(28px);
+            font-family:$Solido;
+            color:$white;
+
+            option{
+                color:$black;
+            }
+        }
+
+        &--button{
+            margin-top:rfs(40px);
+            min-width:rfs(150px);
+        }
+    }
+}

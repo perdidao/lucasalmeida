@@ -1,0 +1,94 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import url(../fonts/fonts.css);
+$Chalk:'Chalk', 'Impact', Helvetica, Arial, sans-serif;
+$Akz:'Akz', Helvetica, Arial, sans-serif;
+$Myriad:MyriadPro-Regular, 'Myriad Pro Regular', MyriadPro, 'Myriad Pro', Helvetica, Arial, sans-serif;
+
+// CORES
+$vermelho:#CA2127;
+$amarelo:#FFBA00;
+$preto:#231F20;
+
+// ESTILOS GLOBAIS
+body{ font-family:$Myriad; color:$preto; @include font-size(16px); @include font-smoothing(on); }
+@include selection(#FFF,$vermelho);
+
+// HEADER
+#header{ width:100%; position:relative; min-height:980px; background:url(../img/bkg-topo.jpg) no-repeat center top; }
+#header.hack{ margin-bottom:90px; }
+#header .center{ padding-top:1px; z-index:2; text-align:center; }
+#logo{ width:100%; height:136px; background:url(../img/logo.png) no-repeat center center; background-size:contain; margin-top:280px; @include removeText; }
+#header .btn{ display:inline-block; width:136px; height:75px; padding:0; margin-top:100px; background:url(../img/btn.png) no-repeat center center; text-transform:uppercase; color:#FFF; @include font-size(20px); line-height:75px; font-weight:bold; @include transition(all 300ms ease-in-out); }
+#header .btn:hover{ color:$vermelho; }
+
+// Navegação
+#nav{ width:100%; height:90px; background-color:#FFF; text-align:center; position:relative; z-index:999; }
+#nav.fixed{ position:fixed; z-index:999; top:0; left:0; }
+#nav .center{ max-width:780px; }
+#nav a{ display:block; float:left; height:90px; padding:0 23px; line-height:90px; text-transform:uppercase; @include transition(all 300ms ease-in-out); }
+#nav a:hover,
+#nav a.active{ color:$vermelho; }
+#nav .logo{ float:left; width:250px; height:90px; background:url(../img/logo.png) no-repeat center 5px; background-size:contain; }
+
+// Sobre
+#sobre{ width:100%; background:url(../img/bkg-sobre.jpg) repeat center top; }
+#sobre .center{ padding:70px 0; }
+#sobre h2{ font-family:$Chalk; width:100%; height:228px; background:url(../img/tit-sobre.png) no-repeat center center; @include removeText; }
+#sobre h3{ margin-top:20px; font-family:$Chalk; @include font-size(28px); line-height:34px; letter-spacing:0.04em; }
+#sobre p{ margin-top:10px; @include font-size(22px); line-height:24px; letter-spacing:0.06em; }
+#parallax{ width:100%; height:490px; background:url(../img/parallax.jpg) no-repeat center center; }
+
+// Pratos
+#pratos h2{ font-family:$Chalk; @include font-size(70px); margin:75px 0; text-transform:uppercase; text-align:center; color:$preto; background:url(../img/tit-pratos.png) no-repeat center center; }
+#lista-pratos li{ padding:5px; }
+#lista-pratos li img{ display:block; width:100%; }
+
+// Localização
+#localizacao{ padding-top:50px; background:#bf3031 url(../img/bkg-locais.jpg) repeat-x center top; text-align:center; }
+#localizacao h2{ width:100%; height:140px; background:url(../img/tit-localizacao.png) no-repeat center center; margin-bottom:20px; text-transform:uppercase; color:$amarelo; @include removeText; background-size:contain; }
+#localizacao p{ margin-top:20px; font-family:$Akz; @include font-size(22px); line-height:38px; text-transform:uppercase; letter-spacing:0.06em; color:#FFF; }
+#localizacao p span{ display:inline-block; @include font-size(28px); padding-right:50px; background:url(../img/ico-delivery-b.png) no-repeat right center; margin-right:20px; }
+#lista-locais{ margin:15px 0 70px; }
+#lista-locais li{ margin-bottom:10px; }
+#lista-locais li a{ display:block; padding:5px 20px; border:1px solid #FFF; color:#FFF; @include transition(all 300ms ease-in-out); }
+#lista-locais li a.active,
+#lista-locais li a:hover{ background-color:#FFF; border-color:#FFF; color:$vermelho; }
+#localizacao .mapa{ position:relative; }
+#localizacao .mapa .overmap{ position:absolute; z-index:1; top:0; left:0; width:100%; height:440px; }
+#mapa-boulevard, #mapa-catuai{ display:none; }
+
+// Facebook
+#facebook{ min-height:430px; padding:60px 0 50px; background:url(../img/bkg-facebook.jpg) no-repeat center top; }
+#facebook h2{ font-family:$Chalk; @include font-size(50px); line-height:60px; margin-bottom:20px; text-transform:uppercase; color:#FFF; text-align:center; }
+#facebook .fb-wrapper{ max-width:500px; margin:0 auto; }
+
+// CONTATO
+#contato{ padding:60px 0 20px; background:url(../img/bkg-contato.jpg) no-repeat center top; }
+#contato .center{ max-width:780px; }
+#contato h2{ font-family:$Chalk; @include font-size(62px); line-height:60px; margin-bottom:30px; text-transform:uppercase; color:#FFF; text-align:center; }
+#contato input,
+#contato textarea{ display:block; width:100%; padding:8px 15px 5px; border:0; margin-bottom:15px; background-color:#FFF; color:$preto; font-family:$Myriad; @include font-size(14px); }
+#contato textarea{ height:95px; }
+@include placeholder($preto);
+#enviar{ display:block; width:136px; height:75px; background:url(../img/btn.png) no-repeat center center; border:0; margin:15px auto 0; color:#FFF; font-family:$Chalk; @include font-size(26px); cursor:pointer; @include transition(all 300ms ease-in-out); }
+#enviar:hover{ color:$amarelo; }
+
+// FOOTER
+#footer{ padding:20px 0; background-color:$preto; color:#FFF; @include font-size(12px); line-height:18px; }
+#footer .center{ max-width:920px; }
+#footer p{ float:left; }
+#footer a{ display:block; float:right; width:43px; height:18px; background:url(../img/m2mp.png) no-repeat center center; }
+
+// RESPONSIVO
+@media screen and(max-width:680px){
+	#nav{ display:none; }
+}
+
+@media screen and(max-width:420px){
+	#sobre h2,#pratos h2, #localizacao h2, #facebook h2, #contato h2{ @include font-size(36px); }
+}

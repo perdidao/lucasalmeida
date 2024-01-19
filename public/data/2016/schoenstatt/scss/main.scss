@@ -1,0 +1,305 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import url(https://fonts.googleapis.com/css?family=Dosis:300,500);
+$Dosis:'Dosis', Helvetica, Arial, sans-serif;
+
+$light:300;
+$reg:500;
+
+// CORES
+$vermelho:#CC0912;
+$cinza:#3B3B3B;
+$prata:#F2F4F6;
+
+/* Global */
+body{ font:$light 16px $Dosis; color:$cinza; @include font-smoothing(on); }
+@include selection(#FFF,$vermelho);
+
+/* Header */
+#btn-menu{
+    display:none;
+    width:40px;
+    height:29px;
+    position:absolute;
+    z-index:999;
+    top:25px;
+    right:30px;
+    @include transition(all 300ms ease-in-out);
+    & span,
+    &:before,
+    &:after{
+        content:" ";
+        display:block;
+        width:40px;
+        height:5px;
+        background-color:$vermelho;
+        @include transform(rotate(0));
+        position:absolute;
+        left:0;
+        @include transition(all 300ms ease-in-out);
+    }
+        
+    &:before{ top:0; }
+    & span{ top:12px; opacity:1; }
+    &:after{ bottom:0; }
+    
+    &.active span{ opacity:0; top:12px; @include transform(rotate(90deg)); }
+    &.active:before{ width:40px; top:12px; left:0; @include transform(rotate(45deg)); }
+    &.active:after{ width:40px; bottom:12px; left:0; @include transform(rotate(-45deg)); } 
+}
+#header{ width:100%; padding:10px 0 0; background:#FFF; }
+#header .center{ overflow:hidden; }
+#logo{ float:left; margin-right:20px; }
+#logo a{ display:block }
+#logo a img{ display:block; }
+#schoenstatt{ float:left; width:56px; height:56px; background:url(../img/schoenstatt1.png) no-repeat center center; }
+#menu{ float:right; }
+#menu a{ display:block; float:left; @include font-size(15px); font-weight:$reg; text-transform:uppercase; padding:20px 8px 5px; border-bottom:20px solid transparent; @include transition(all 200ms ease-in-out); }
+#menu a:hover,
+#menu a.active{ border-color:$vermelho; }
+
+#main-img{ width:100%; height:650px; background:url(../img/placeholders/img-principal.jpg) no-repeat center center; }
+
+/* Institucional */
+#institucional{ width:90%; max-width:1140px; padding:70px 50px; margin:-85px auto 0; overflow:hidden; color:#FFF; background:rgba(214,8,17,0.9) url(../img/schoenstatt2.png) no-repeat right bottom; @include border-radius(20px); }
+#institucional .col{ float:left; width:31.33%; margin-right:3%; }
+#institucional .col:last-child{ margin:0; }
+#institucional .col h3{ max-width:230px; padding-bottom:20px; margin-bottom:20px; @include font-size(15px); line-height:19px; font-weight:$reg; text-transform:uppercase; padding-left:60px; background:no-repeat left top; position:relative; }
+#institucional .col h3:after{ content:' '; display:block; width:45px; height:2px; background-color:#FFF; position:absolute; bottom:0; left:0; }
+#institucional .col p{ line-height:22px; }
+
+#institucional .col h3.igreja{ background-image:url(../img/ico-igreja.png); }
+#institucional .col h3.grupo{ background-image:url(../img/ico-grupo.png); }
+#institucional .col h3.link{ background-image:url(../img/ico-link.png); }
+
+/* Notícias */
+#noticias{ margin-top:60px; }
+#noticias .icone{ width:90px; height:90px; background:$vermelho url(../img/ico-noticias.png) no-repeat center center; @include border-radius(50%); margin:0 auto 30px; }
+#noticias h2{ @include font-size(24px); line-height:29px; text-align:center; max-width:590px; margin:0 auto 30px; }
+#noticias .inner{ background-color:$prata; padding:40px 0 50px; }
+
+#lista-noticias{ overflow:hidden; }
+#lista-noticias li{ float:left; width:31.33%; margin:0 2% 40px 0; }
+#lista-noticias li:nth-child(3n){ margin-right:0; }
+#lista-noticias li img{ display:block; width:100%; }
+#lista-noticias li h3{ padding:10px; text-transform:uppercase; @include font-size(20px); font-weight:$reg; }
+#lista-noticias li p{ padding:0 10px; }
+
+#mais-noticias{ display:block; width:240px; padding:10px 0; margin:0 auto; background-color:$vermelho; color:#FFF; text-transform:uppercase; @include font-size(20px); font-weight:$reg; text-align:center; @include border-radius(15px); @include transition(all 200ms ease-in-out); }
+#mais-noticias:hover{ @include opacity(0.7); }
+
+/* Eventos */
+#eventos{ background-color:$vermelho; padding:50px 0 0; color:#FFF; }
+#eventos .icone{ width:90px; height:90px; background:url(../img/ico-eventos.png) no-repeat center center; margin:0 auto 20px; }
+#eventos h2{ @include font-size(24px); line-height:29px; text-align:center; max-width:590px; margin:0 auto 30px; }
+#eventos ul{ text-align:center; margin-bottom:50px; }
+#eventos ul li{ display:inline-block; width:210px; height:210px; margin:0 30px; padding-top:30px; background-color:#FFF; color:$vermelho; text-align:center; @include border-radius(50%); }
+#eventos ul li .dia,
+#eventos ul li .mes{ @include font-size(50px); line-height:50px; letter-spacing:0.04em; font-weight:$reg; }
+#eventos ul li .tilulo{ @include font-size(18px); line-height:24px; letter-spacing:0.04em; text-transform:uppercase; max-width:130px; margin:5px auto 0; }
+
+.btn-wrapper{ width:100%; padding:40px 0; background-color:#FFF; }
+.btn{ display:block; width:240px; padding:10px 0; margin:0 auto; background-color:$vermelho; color:#FFF; text-transform:uppercase; @include font-size(20px); font-weight:$reg; text-align:center; @include border-radius(15px); @include transition(all 200ms ease-in-out); }
+.btn:hover{ @include opacity(0.7); }
+
+/* Testemunhos */
+#testemunhos{ background-color:$prata; padding:50px 0; }
+#testemunhos .icone{ width:64px; height:64px; background:$vermelho url(../img/ico-testemunhos.png) no-repeat center center; @include border-radius(50%); margin:0 auto 30px; }
+#testemunhos h2{ @include font-size(24px); line-height:29px; color:$vermelho; letter-spacing:0.18em; font-weight:$reg; text-transform:uppercase; text-align:center; margin-bottom:40px; }
+#testemunhos p{ max-width:1040px; margin:0 auto 20px; }
+#testemunhos .btn{ display:block; float:right; @include font-size(18px); text-transform:uppercase; color:$vermelho; }
+
+/* Rodapé */
+#footer{ width:100%; background-color:$vermelho; padding:50px 0 70px; text-align:center; color:#FFF; }
+#footer h2{ @include font-size(20px); line-height:29px; letter-spacing:0.18em; font-weight:$reg; text-transform:uppercase; text-align:center; margin-bottom:20px; }
+#social{ margin-bottom:40px; }
+#social li{ display:inline-block; margin:0 2px; }
+#social li a{ display:block; width:26px; height:26px; background:no-repeat center center; }
+#social li a.ico-fb{ background-image:url(../img/ico-fb.png); }
+#social li a.ico-yt{ background-image:url(../img/ico-yt.png); }
+#social li a.ico-in{ background-image:url(../img/ico-in.png); }
+#social li a.ico-tw{ background-image:url(../img/ico-tw.png); }
+#footer p{}
+
+/* Assinatura */
+#assinatura{ width:100%; padding:20px 0 10px; background-color:#FFF; }
+#assinatura .center{ overflow:hidden; }
+#assinatura p{ float:left; color:$vermelho; margin-top:5px; }
+#assinatura .assinatura{ float:right; }
+#assinatura .assinatura img{}
+
+/* *****************
+********** Santuário
+***************** */
+#wrapper{ padding-bottom:50px; background-color:$prata; }
+#wrapper .col-left{ float:left; width:33.33%; }
+#wrapper .col-left h1{ width:100%; padding:20px 0; @include font-size(26px); font-weight:$reg; text-transform:uppercase; color:$vermelho; overflow:hidden; }
+#wrapper .col-left .inner{ float:right; width:50%; }
+#wrapper .col-left .inner .ico{ display:inline-block; width:40px; margin-right:10px; position:relative; }
+#wrapper .col-left .inner .ico:after{ content:' '; display:block; position:absolute; bottom:-5px; left:-1px; width:45px; height:2px; background-color:$vermelho; }
+#wrapper .col-left .inner .ico svg{ fill:$vermelho; }
+#wrapper .col-left .menu{ background-color:$vermelho; overflow:hidden; }
+#menu-santuario{ float:right; width:50%; }
+#menu-santuario li{ text-align:right; }
+#menu-santuario li a{ display:block; width:100%; padding:10px 40px; border-bottom:1px solid rgba(255,255,255,.2); color:#FFF; text-transform:uppercase; @include font-size(15px); font-weight:$reg; background:url(../img/active.png) no-repeat -60px center; @include transition(all 300ms ease-in-out); }
+#menu-santuario li a:hover,
+#menu-santuario li a.active{ background-position:left center; }
+#conteudo{ float:left; width:66.66%; }
+#conteudo .inner{ float:left; width:75%; }
+#conteudo .inner .img{ margin-bottom:40px; }
+#conteudo .inner .img img{ display:block; width:100%; }
+#conteudo .inner .texto h2{ width:80%; max-width:580px; margin:0 0 20px 50px; @include font-size(28px); font-weight:$reg; text-transform:uppercase; }
+#conteudo .inner .texto h3{ width:80%; max-width:580px; margin:50px 0 5px 50px; @include font-size(18px); font-weight:$reg; text-transform:uppercase; }
+#conteudo .inner .texto p{ width:80%; max-width:580px; margin-left:50px; margin-bottom:15px; line-height:20px; }
+#conteudo .inner .texto iframe{ max-width:640px; width:80%; height:400px; margin:0 0 20px 50px; }
+
+/* Como Chegar */
+#mapa{ width:100%; height:570px; margin-bottom:50px; }
+#mapa iframe{ display:block; width:100%; height:100%; }
+.endereco{ text-align:center; }
+
+/* Pedidos de orações */
+.form{ width:90%; max-width:640px; margin:80px auto 0; text-align:center; }
+.form h2{ margin-bottom:60px; @include font-size(28px); font-weight:$reg; text-transform:uppercase; margin-bottom:70px; }
+.form input,
+.form select,
+.form textarea{ display:block; width:100%; background-color:transparent; border:0; border-bottom:1px solid $cinza; font-family:$Dosis; @include font-size(16px); font-weight:$light; text-align:center; margin-bottom:30px; @include transition(all 200ms ease-in-out); outline:0; }
+.form textarea{ text-align:left; height:100px; }
+.form input:focus,
+.form input:hover,
+.form select:focus,
+.form select:hover,
+.form textarea:focus,
+.form textarea:hover{ border-color:$vermelho; }
+#enviar{ display:block; width:100%; padding:15px 0; border:0; background-color:$cinza; font-family:$Dosis; @include font-size(16px); font-weight:$light; text-transform:uppercase; color:#FFF; @include transition(all 200ms ease-in-out); cursor:pointer; }
+#enviar:hover{ background-color:$vermelho; }
+
+@include placeholder($cinza);
+
+/* Horários de Missa */
+.horarios{ padding-top:80px; }
+
+/* Movimento */
+#container{ background-color:$prata; padding:80px 0 50px; }
+.page-title{ @include font-size(24px); font-weight:$reg; line-height:29px; text-transform:uppercase; text-align:center; color:$vermelho; }
+.page-title .icone{ width:86px; height:86px; background:$vermelho no-repeat center center; @include border-radius(50%); margin:0 auto 20px; }
+
+.lista-movimento{ width:90%; max-width:640px; margin:60px auto; text-align:center; }
+.lista-movimento li{ border-bottom:1px dashed $vermelho; @include font-size(18px); font-weight:$reg; }
+.lista-movimento li a{ display:block; padding:20px 0; @include transition(all 200ms ease-in-out); }
+.lista-movimento li a:hover{ color:$vermelho; }
+
+/* Notícias */
+.media{ overflow:hidden; margin-top:70px; }
+.media li{ float:left; width:31.33%; margin:0 3% 3% 0; }
+.media li:nth-child(3n){ margin-right:0; }
+.media li img{ display:block; width:100%; }
+.media li .texto{ padding:10px; }
+.media li .texto h2{ @include font-size(20px); text-transform:uppercase; font-weight:$reg; margin-bottom:10px; }
+.media li .texto p{}
+
+/* Projetos */
+.scenter{ width:100%; max-width:940px; margin:50px auto; }
+.scenter .img{ margin-bottom:40px; }
+.scenter .img img{ display:block; width:100%; }
+.scenter .texto{ width:96%; max-width:590px; margin:0 auto 30px; }
+.scenter .texto h2{ @include font-size(28px); text-transform:uppercase; font-weight:$reg; margin-bottom:10px; }
+.scenter .texto p{ margin-bottom:15px; }
+.scenter .video{ width:100%; max-width:720px; height:400px; margin:0 auto 30px; }
+.scenter .video iframe{ display:block; width:100%; height:100%; }
+
+/* Multimídia */
+.link-interno{ display:block; float:left; width:50%; margin:100px 0 150px; @include font-size(24px); font-weight:$reg; line-height:29px; text-transform:uppercase; text-align:center; color:$vermelho; @include transition(all 200ms ease-in-out); }
+.link-interno:hover{ @include opacity(0.6); }
+.link-interno .icone{ display:block; width:86px; height:86px; background:$vermelho no-repeat center center; @include border-radius(50%); margin:0 auto 20px; }
+
+/* Testemunhos */
+.testemunhos{}
+.testemunhos li{ width:100%; padding-bottom:40px; border-bottom:1px dashed $vermelho; margin-bottom:40px; overflow:hidden; }
+.testemunhos li h2{ font-weight:$reg; margin-bottom:10px; }
+.testemunhos li p{ line-height:22px; }
+.testemunhos li a{ display:block; float:right; text-transform:uppercase; color:$vermelho; font-weight:$reg; }
+
+/* FAQ */
+.perguntas{ width:94%; max-width:800px; margin:50px auto; }
+.perguntas li{ margin-bottom:20px; }
+.perguntas li a{ display:block; padding-left:30px; font-weight:$reg; position:relative; }
+.perguntas li a:before{ content:' '; display:block; width:12px; height:13px; background:url(../img/bullet.png) no-repeat center center; position:absolute; left:0; top:5px; @include transition(all 200ms ease-in-out); }
+.perguntas li a.active:before{ @include transform(rotate(90deg)); }
+.perguntas li p{ display:none; padding:10px 10px 10px 30px; }
+
+#container .form{ margin-bottom:100px; }
+
+/* Responsivo */
+@media screen and(max-width:1240px){
+	#btn-menu{ display:block; }
+	#header{ padding:10px 0; }
+	#menu{ position:absolute; top:70px; left:0; width:100%; text-align:center; background-color:#FFF; display:none; }
+	#menu a{ display:inline-block; float:none; }
+
+	#eventos ul li{ margin:0 10px; }
+
+	#wrapper .col-left .inner{ float:none; width:90%; margin:0 5%; }
+	#menu-santuario{ float:none; width:100%; margin:0; }
+	#conteudo .inner{ width:100%; }
+}
+
+@media screen and(max-width:1000px){
+	#eventos ul{ overflow:hidden; }
+	#eventos ul li{ display:block; float:left; width:25%; height:auto; margin:0; padding-top:0; background:transparent; color:#FFF; @include border-radius(0); }
+}
+
+@media screen and(max-width:920px){
+	#menu{ padding:30px 0 0; }
+	#menu a{ margin:0; padding:5px 10px; border-bottom-width:5px; }
+}
+
+@media screen and(max-width:720px){
+	#institucional .col{ width:100%; margin:0 0 50px; }
+
+	#lista-noticias li{ width:49%; }
+	#lista-noticias li:nth-child(3n){ margin-right:2%; }
+	#lista-noticias li:nth-child(2n){ margin-right:0; }
+
+	#wrapper .col-left{ width:100%; height:auto !important; }
+	#conteudo{ width:100%; }
+	#menu-santuario li{ text-align:center; }
+	#conteudo .inner h2{ margin:0 auto 50px; }
+	#conteudo .inner p{ margin:0 auto 15px; }
+
+	.perguntas li a{ pointer-events:none; }
+	.perguntas li p{ display:block; }
+}
+
+@media screen and(max-width:460px){
+	#lista-noticias li{ width:100%; }
+	#lista-noticias li:nth-child(3n),
+	#lista-noticias li:nth-child(2n){ margin-right:0; }
+
+	#eventos ul li{ width:50%; margin-bottom:30px; }
+
+	#assinatura p{ width:100%; text-align:center; margin-bottom:10px; }
+	#assinatura .assinatura{ width:100%; text-align:center; }
+
+	.media li{ width:100%; margin:0 0 3% 0; }
+}
+
+@media screen and(max-width:380px){
+	#logo{ width:100%; margin:0; }
+	#schoenstatt{ display:none; }
+
+	#menu{ padding:10px 0 0; }
+	#menu a{ display:block; width:100%; border:0; }
+	#menu a:hover,
+	#menu a.active{ border:0; background-color:$vermelho; color:#FFF; }
+
+	#main-img{ height:300px; background-size:cover; }
+
+	#institucional{ width:100%; padding:50px 5%; @include border-radius(0); }
+
+	.link-interno{ width:100%; margin:20px 0; }
+}

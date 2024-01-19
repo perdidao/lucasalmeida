@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+  line-height: 1.2;
+  @include font-smoothing(on);
+}
+
+body {
+  background-color: $white;
+  color: $ocean;
+  font-family: $default-font;
+  font-weight: $medium;
+  font-size: 16px;
+
+  @media all and (max-width: $size-notebook) {
+    font-size: rel-notebook(16);
+  }
+
+  @media all and (max-width: $size-mobile) {
+    font-size: rel-mobile(16);
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 16px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.copyrights {
+  width: 100%;
+  text-align: center;
+  padding: rel(30) 0;
+  background-color: $silver;
+  font-size: rem(14);
+  font-weight: $light;
+
+  @media (max-width: $size-mobile) {
+    padding: rel(30, true) 0;
+    font-size: rem(24);
+  }
+}

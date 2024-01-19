@@ -1,0 +1,218 @@
+// Dependências
+@import "compass";
+
+/* ------------ */
+/* Reset do CSS */
+/* ------------ */
+@include global-reset;
+@import "tools.scss";
+
+// Fontes
+@import url(../fonts/brandon.css);
+$helvetica:Helvetica, Arial, sans-serif;
+$Brandon:'Brandon', Helvetica, Arial, sans-serif;
+
+$reg:400;
+$bold:600;
+$black:700;
+
+// Cores
+$vinho:#8A1823;
+$laranja:#E9682B;
+$vermelho:#C32B39;
+
+$oliva:#9C9F7A;
+$ocre:#B3B692;
+$borda:#BFC3B1;
+$bege:#F3F4E9;
+
+/* ----------------- */
+/* Estilos da página */
+/* ----------------- */
+body{ font-family:$helvetica; @include font-size(19px); color:#353535; @include font-smoothing(on); background:#FEFEFE url(../img/bkg.jpg) repeat top center; }
+@include selection(#FFF,$laranja);
+
+h1{ @include font-size(50px); font-family:$Brandon; font-weight:$black; text-transform:uppercase; color:$laranja; margin:8px 0 25px; position:relative; }
+h1:before{ content:' '; display:block; width:18px; height:2px; background-color:$laranja; position:absolute; top:-7px; left:3px; }
+
+#btn-menu{
+    display:none;
+    width:50px;
+    height:50px;
+    position:absolute;
+    z-index:11;
+    top:15px;
+    right:15px;
+    background-color:$vinho;
+    & span,
+    &:before,
+    &:after{
+        content:" ";
+        display:block;
+        width:30px;
+        height:1px;
+        background-color:#FFF;
+        @include transform(rotate(0));
+        position:absolute;
+        left:10px;
+        @include transition(all 300ms ease-in-out);
+    }
+        
+    &:before{ top:16px; }
+    & span{ top:25px; @include opacity(1); }
+    &:after{ bottom:15px; }
+        
+    &.active span{ @include opacity(0); top:25px; @include transform(rotate(90deg)); }
+    &.active:before{ width:34px; top:25px; left:8px; @include transform(rotate(45deg)); }
+    &.active:after{ width:34px; bottom:24px; left:8px; @include transform(rotate(-45deg)); } 
+}
+
+/* TOPO ----------- */
+#header{ width:100%; height:540px; position:relative; }
+#logo{ display:block; width:100%; max-width:570px; height:189px; background:url(../img/logo.png) no-repeat right center; background-size:contain; position:absolute; z-index:9; top:175px; right:0; @include removeText; }
+#banners{ width:100%; text-align:center; }
+#banners li{ display:block; }
+#banners li img{ padding:0; }
+
+#banners .owl-controls{ position:absolute; width:100%; bottom:30px; left:0; text-align:center; }
+#banners .owl-controls .owl-pagination .owl-page{ display:inline-block; width:14px; height:14px; margin:0 3px; background-color:#FFF; border:2px solid #FFF; @include border-radius(50%); @include transition(all 300ms ease-in-out); }
+#banners .owl-controls .owl-pagination .owl-page.active{ background-color:$laranja; }
+
+/* NAVEGAÇÃO ------ */
+#nav{ width:100%; height:67px; background:url(../img/bkg-nav.jpg) repeat center center; }
+#nav .center{ max-width:1000px; }
+#menu{ float:left; width:57%; height:67px; background-color:$vinho; color:#FFF; font-family:$Brandon; font-weight:$bold; }
+#menu > li{ float:left;  }
+#menu > li.sub{ position:relative; }
+#menu > li > a{ display:block; height:67px; padding:0 10px; line-height:67px; @include font-size(16px); text-transform:uppercase; @include transition(all 300ms ease-in-out); }
+#menu > li:last-child a{ padding:0 5px; }
+#menu > li.sub > a{ padding:0 28px 0 25px; background:url(../img/pointer.png) no-repeat right center; }
+#menu > li.sub > a.active{ background-color:#72141D; }
+#menu > li > a:hover{ background-color:#72141D; }
+
+#submenu{ position:absolute; z-index:10; top:67px; left:0; width:100%; background-color:#CB5016; padding:20px 0; display:none; }
+#submenu li{}
+#submenu li a{ display:block; color:#F89C71; text-transform:uppercase; @include font-size(14.4px); padding:10px 22px; @include transition(all 300ms ease-in-out); }
+#submenu li a:hover{ background-color:$laranja; color:#FFF; }
+
+#login{ float:right; width:43%; height:67px; background:$laranja url(../img/bkg-menu.jpg) no-repeat left center; font-family:$Brandon; }
+#login label{ display:block; float:left; margin-left:30px; line-height:67px; @include font-size(16px); text-transform:uppercase; color:#FFF; font-weight:$bold; }
+#login input{ display:block; float:left; max-width:140px; height:44px; margin-top:10px; background-color:#CC6230; border:1px solid #FC8D58; font-family:inherit; font-weight:$reg; text-align:center; color:#FFF; @include font-size(16px); @include border-radius(0 2px 2px 0); @include box-shadow(inset 0 1px 2px rgba(0,0,0,.3)); }
+#login #i-login{ margin-left:13px; @include border-radius(2px 0 0 2px); border-right:0; }
+#entrar{ display:block; float:left; width:44px; height:43px; border:0; margin:10px 0 0 5px; background:#F18024 url(../img/ico-user.png) no-repeat center center; @include border-radius(2px); @include box-shadow(0 2px 2px rgba(0,0,0,.2)); cursor:pointer; @include transition(all 300ms ease-in-out); }
+#entrar:hover{ @include opacity(0.7); }
+
+/* CONTEÚDO --------- */
+#content{ margin:70px 0; }
+#content .inner-wrapper{ max-width:650px; margin-left:70px; }
+#content .inner-wrapper h2{ font-weight:$bold; text-transform:uppercase; margin-bottom:5px; }
+#content .inner-wrapper h2.x-margin{ margin-bottom:30px; }
+#content .inner-wrapper .block-img{ margin-bottom:10px; }
+#content .inner-wrapper .block-img img{ display:block; float:left; width:40%; margin-right:4%; }
+#content .inner-wrapper .block-img p{ float:left; width:56%; }
+#content .inner-wrapper .block-img p span{ font-weight:$bold; }
+#content .inner-wrapper p,
+#content .inner-wrapper blockquote,
+#content .inner-wrapper ul{ @include font-size(19px); line-height:26px; margin-bottom:25px; }
+#content .inner-wrapper p strong{ font-weight:$bold; }
+#content .inner-wrapper p a{ text-decoration:underline; }
+#content .inner-wrapper ul li{ padding-left:25px; position:relative; }
+#content .inner-wrapper ul li:before{ content:'• '; position:absolute; top:2px; left:0; }
+#content .inner-wrapper blockquote{ margin-left:100px; }
+#content .inner-wrapper blockquote span{ font-weight:$bold; }
+#content .inner-wrapper .parceiros{ margin-top:20px; }
+#content .inner-wrapper .parceiros img{ margin-right:10px; }
+
+#content .form{ max-width:400px; }
+#content .form h2{ @include font-size(27px); font-weight:$black; font-family:$Brandon; color:$oliva; text-transform:uppercase; line-height:33px; margin-bottom:20px; }
+#content .form input,
+#content .form select,
+#content .form textarea{ display:block; width:100%; height:50px; border:1px solid $borda; border-top:0; padding:0 15px; margin:0; background-color:$bege; color:$oliva; font-family:$helvetica; @include font-size(16px); }
+#content .form textarea{ padding-top:10px; resize:none; height:125px; }
+#content .form input:first-child{ border-top:1px solid $borda; }
+#content .form .btn-submit{ display:block; width:100%; height:70px; background-color:$ocre; border:0; cursor:pointer; color:#FFF; @include font-size(13px); font-family:$Brandon; font-weight:$bold; letter-spacing:0.4em; text-transform:uppercase; @include transition(all 300ms ease-in-out); margin:30px 0; }
+#content .form .btn-submit:hover{ @include opacity(0.6); }
+
+#content #mensagens{ @include font-size(16px); color:#818465; max-width:400px; }
+#content #mensagens li{ position:relative; padding:20px 0; }
+#content #mensagens li:first-child{ padding-top:0; }
+#content #mensagens li:first-child:after{ content:' '; display:block; width:100%; height:5px; position:absolute; bottom:0; left:0; background:url(../img/bullet.png) repeat-x left center; }
+#content #mensagens li:before{ content:''; }
+#content #mensagens li p{ @include font-size(16px); margin:0; }
+#content #mensagens li p em{ font-style:italic; line-height:20px; }
+#content #mensagens li p strong{ display:block; margin-top:5px; font-weight:$bold; }
+
+#content .inner-wrapper .social{  }
+#content .inner-wrapper .social li{ display:inline-block; padding-left:0; }
+#content .inner-wrapper .social li:before{ content:''; }
+#content .inner-wrapper .social li a{ display:block; width:46px; height:46px; background-repeat:no-repeat; background-position:center center; margin-right:3px; @include transition(all 300ms ease-in-out); }
+#content .inner-wrapper .social li a:hover{ @include opacity(0.7); }
+#content .inner-wrapper .social li a.fb{ background-image:url(../img/ico-facebook.png); }
+#content .inner-wrapper .social li a.in{ background-image:url(../img/ico-instagram.png); }
+#content .inner-wrapper .social li a.yt{ background-image:url(../img/ico-youtube.png); }
+#content .inner-wrapper .social li a.tw{ background-image:url(../img/ico-twitter.png); }
+
+/* RODAPÉ --------- */
+#footer{ background:#232630 url(../img/bkg-footer.jpg) repeat-x left top; padding:110px 0 70px; color:#FFF; font-family:$Brandon; @include font-size(13px); text-transform:uppercase; letter-spacing:0.4em; }
+#footer h2{ font-weight:$black; line-height:18px; margin-bottom:15px; }
+#footer p{ line-height:26px; }
+#footer .col1{ float:left; width:35%; margin-right:2%; }
+#footer .col2{ float:left; width:37%; margin-right:2%; }
+#footer .col3{ float:left; width:24%; }
+#social{}
+#social li{ display:inline-block; }
+#social li a{ display:block; width:46px; height:46px; background-repeat:no-repeat; background-position:center center; margin-right:3px; @include transition(all 300ms ease-in-out); }
+#social li a:hover{ @include opacity(0.7); }
+#social li a.fb{ background-image:url(../img/ico-facebook.png); }
+#social li a.in{ background-image:url(../img/ico-instagram.png); }
+#social li a.yt{ background-image:url(../img/ico-youtube.png); }
+#social li a.tw{ background-image:url(../img/ico-twitter.png); }
+#footer .copy{ margin-top:50px; @include font-size(13px); font-family:$helvetica; text-transform:none; letter-spacing:0; color:#424757; text-align:center; }
+
+/* RESPONSIVO ----- */
+@media screen and(max-width:1040px){
+	#nav{ background:$vinho; }
+	#menu{ width:100%; }
+	#login{ width:100%; max-width:370px; padding:0 10px; position:absolute; top:-67px; right:0; background:$laranja; }
+	#login label{ display:none; }
+
+	#footer .col1{ width:45%; margin-right:10%; }
+	#footer .col2{ width:45%; margin-right:0; }
+	#footer .col3{ width:100%; text-align:center; }
+}
+
+@media screen and(max-width:820px){
+	#banners .owl-controls{ bottom:77px; }
+
+	#content .inner-wrapper{ margin-left:0; }
+}
+
+@media screen and(max-width:720px){
+	#footer .col1,
+	#footer .col2,
+	#footer .col3{ width:100%; margin:0 0 20px; text-align:center; }
+}
+
+@media screen and(max-width:680px){
+	#btn-menu{ display:block; }
+	#nav{ display:none; width:100%; height:auto; padding:20px 0; position:absolute; z-index:999; top:80px; left:0; }
+	#menu{ height:auto; text-align:center; }
+	#menu > li{ float:none; }
+	#menu > li > a{ height:auto; padding:15px 20px; line-height:1.2em; }
+	#menu > li:last-child a{ padding:20px; }
+	#menu > li.sub > a{ display:none; }
+	#menu > li > a.active{ background-color:#72141D; }
+
+	#submenu{ position:static; background-color:transparent; padding:0; display:block; }
+	#submenu li a{ color:#FFF; @include font-size(16px); padding:15px 20px; }
+	#submenu li a:hover{ background-color:#72141D; color:#FFF; }
+	
+	#login{ display:none; }
+
+	#banners .owl-controls{ bottom:30px; }
+
+	#contato{ min-height:0; background:transparent; margin-top:0; }
+	#contato .col-left,
+	#contato .col-right{ width:100%; margin:0; }
+	#contato .col-right{ margin:30px 0; background:url(../img/bkg-contato-alt.jpg) no-repeat center center; padding:40px 0; text-align:center; }
+}

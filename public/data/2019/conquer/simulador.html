@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta name="robots" content="index, follow">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conquer Consórcios — O consórcio com a menor taxa do Brasil</title>
+  <meta name="theme-color" content="#19B6FF">
+  <meta name="description" content="Não pague caro no empréstimo pessoal. Você pode conseguir juros mais baixos!">
+  <link rel="stylesheet" href="static/styles/main.min.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" title="Conquer Consórcios" class="header-logo">
+        <img src="static/images/logo.png" alt="Conquer Consórcios" aria-hidden="true">
+      </a>
+      <nav class="header-nav">
+        <a href="contempladas.html" title="Contempladas" class="header-nav__link">Contempladas</a>
+        <a href="simulador.html" title="Simulador" class="header-nav__link active">Simulador</a>
+        <a href="javascript:;" title="Contato" class="header-nav__link">Contato</a>
+        <p class="header-contact header-contact--alt">
+          Fale no Whatsapp
+          <a href="https://wa.me/5543991234567" title="Clique para ir para o Whatsapp" class="header-contact__number">
+            <img src="static/images/topo-ico-whatsapp.png" alt="Whatsapp" aria-hidden="true"
+              class="header-contact__ico"> <span class="header-contact__small">43</span> 99123-4567
+          </a>
+        </p>
+      </nav>
+      <a href="javascript:;" title="Navegação" class="header-toggle">
+        <span></span>
+      </a>
+    </div>
+  </header>
+
+  <section class="simulator-heading">
+    <div class="container simulator-heading__container">
+      <h1 class="simulator-heading__title">
+        Simulador
+      </h1>
+      <p class="simulator-heading__description">
+        O crédito contemplado é uma alternativa muito atrativa em tempos de juros elevados, pois é mais flexível e
+        permite adquirir bens novos e usados. As cartas de crédito desta página já estão contempladas e podem ser
+        adquiridas.
+      </p>
+    </div>
+  </section>
+
+  <section class="simulate">
+    <div class="container simulate-container">
+      <!-- Simulador de carros -->
+      <div class="simulate-item scope-car">
+        <div class="step step-one active" id="car-step-1">
+          <h2 class="simulate-item__title">
+            Carro
+          </h2>
+          <a href="javascript:;" class="simulate-item__image">
+            <img src="static/images/hero-car.png" alt="Carros">
+          </a>
+          <a href="javascript:;" data-navigate data-navigate-direction="2" data-navigate-reference="car"
+            title="Clique para ir para o próximo passo" class="simulate-item__button">
+            Simular
+            <img src="static/images/arrow-right.png" alt="Próximo passo">
+          </a>
+        </div>
+        <form action="/">
+          <div class="step" id="car-step-2">
+            <h2 class="step-title">
+              <a href="javascript:;" data-navigate data-navigate-direction="1" data-navigate-reference="car"
+                title="Clique para voltar" class="step-title__back"></a>
+              <img src="static/images/icon-house-cyan.png" alt="" class="step-title__icon">
+              Carro
+              <a href="javascript:;" data-navigate data-navigate-direction="1" data-close="true"
+                data-navigate-reference="car" title="Clique para voltar" class="step-title__close"></a>
+            </h2>
+            <section class="step-content">
+              <div class="step-input">
+                <p class="step-input__label">
+                  Digite o valor
+                </p>
+                <p class="step-input__set">
+                  <span>
+                    R$
+                  </span>
+                  <input type="text" name="valor" class="step-input__field mask-money" placeholder="0.000"
+                    style="width:200px" maxlength="10"
+                    onkeypress="this.style.width = ((this.value.length + 2) * 24) + 'px';">
+                  <span>
+                    Mil
+                  </span>
+                </p>
+              </div>
+              <div class="step-input">
+                <p class="step-input__label">
+                  Digite o n° de parcelas
+                </p>
+                <p class="step-input__set">
+                  <input type="text" name="valor" class="step-input__field" placeholder="12" style="width:60px"
+                    maxlength="3" onkeypress="this.style.width = ((this.value.length + 2) * 24) + 'px';">
+                  <span>
+                    X
+                  </span>
+                </p>
+              </div>
+              <a href="javascript:;" data-navigate data-navigate-direction="3" data-navigate-reference="car"
+                title="Clique para ir para o próximo passo" class="simulate-item__button">
+                Continuar
+                <img src="static/images/arrow-right.png" alt="Próximo passo">
+              </a>
+            </section>
+          </div>
+          <div class="step" id="car-step-3">
+            <h2 class="step-title">
+              <a href="javascript:;" data-navigate data-navigate-direction="2" data-navigate-reference="car"
+                title="Clique para voltar" class="step-title__back"></a>
+              <img src="static/images/icon-house-cyan.png" alt="" class="step-title__icon">
+              Carro
+              <a href="javascript:;" data-navigate data-navigate-direction="1" data-close="true"
+                data-navigate-reference="car" title="Clique para voltar" class="step-title__close"></a>
+            </h2>
+            <section class="step-content">
+              <div class="step-input">
+                <p class="step-input__label">
+                  Digite seu nome
+                </p>
+                <input type="text" name="valor" class="step-input__text">
+              </div>
+              <div class="step-input">
+                <p class="step-input__label">
+                  Digite seu celular
+                </p>
+                <input type="text" name="celular" class="step-input__text mask-phone">
+              </div>
+              <a href="javascript:;" title="Clique para ir para o próximo passo"
+                class="simulate-item__button simulate-item__button--center">
+                Simular
+              </a>
+            </section>
+          </div>
+        </form>
+      </div>
+      <!-- Simulador de imóveis -->
+      <div class="simulate-item scope-house">
+        <div class="step step-one active" id="house-step-1">
+          <h2 class="simulate-item__title">
+            Imóvel
+          </h2>
+          <a href="javascript:;" class="simulate-item__image">
+            <img src="static/images/hero-house.png" alt="Carros">
+          </a>
+          <a href="javascript:;" data-navigate data-navigate-direction="2" data-navigate-reference="house"
+            title="Clique para ir para o próximo passo" class="simulate-item__button">
+            Simular
+            <img src="static/images/arrow-right.png" alt="Próximo passo">
+          </a>
+        </div>
+        <form action="/">
+          <div class="step" id="house-step-2">
+            <h2 class="step-title">
+              <a href="javascript:;" data-navigate data-navigate-direction="1" data-navigate-reference="house"
+                title="Clique para voltar" class="step-title__back"></a>
+              <img src="static/images/icon-house-cyan.png" alt="" class="step-title__icon">
+              Imóvel
+              <a href="javascript:;" data-navigate data-navigate-direction="1" data-close="true"
+                data-navigate-reference="house" title="Clique para voltar" class="step-title__close"></a>
+            </h2>
+            <section class="step-content">
+              <div class="step-input">
+                <p class="step-input__label">
+                  Digite o valor
+                </p>
+                <p class="step-input__set">
+                  <span>
+                    R$
+                  </span>
+                  <input type="text" name="valor" class="step-input__field mask-money" placeholder="0.000"
+                    style="width:200px" maxlength="10"
+                    onkeypress="this.style.width = ((this.value.length + 2) * 24) + 'px';">
+                  <span>
+                    Mil
+                  </span>
+                </p>
+              </div>
+              <div class="step-input">
+                <p class="step-input__label">
+                  Digite o n° de parcelas
+                </p>
+                <p class="step-input__set">
+                  <input type="text" name="valor" class="step-input__field" placeholder="12" style="width:60px"
+                    maxlength="3" onkeypress="this.style.width = ((this.value.length + 2) * 24) + 'px';">
+                  <span>
+                    X
+                  </span>
+                </p>
+              </div>
+              <a href="javascript:;" data-navigate data-navigate-direction="3" data-navigate-reference="house"
+                title="Clique para ir para o próximo passo" class="simulate-item__button">
+                Continuar
+                <img src="static/images/arrow-right.png" alt="Próximo passo">
+              </a>
+            </section>
+          </div>
+          <div class="step" id="house-step-3">
+            <h2 class="step-title">
+              <a href="javascript:;" data-navigate data-navigate-direction="2" data-navigate-reference="house"
+                title="Clique para voltar" class="step-title__back"></a>
+              <img src="static/images/icon-house-cyan.png" alt="" class="step-title__icon">
+              Imóvel
+              <a href="javascript:;" data-navigate data-navigate-direction="1" data-close="true"
+                data-navigate-reference="house" title="Clique para voltar" class="step-title__close"></a>
+            </h2>
+            <section class="step-content">
+              <div class="step-input">
+                <p class="step-input__label">
+                  Digite seu nome
+                </p>
+                <input type="text" name="valor" class="step-input__text">
+              </div>
+              <div class="step-input">
+                <p class="step-input__label">
+                  Digite seu celular
+                </p>
+                <input type="text" name="celular" class="step-input__text mask-phone">
+              </div>
+              <a href="javascript:;" title="Clique para ir para o próximo passo"
+                class="simulate-item__button simulate-item__button--center">
+                Simular
+              </a>
+            </section>
+          </div>
+        </form>
+      </div>
+      <!-- Simulador de motocicletas -->
+      <div class="simulate-item scope-bike">
+        <div class="step step-one active" id="bike-step-1">
+          <h2 class="simulate-item__title">
+            Motocicleta
+          </h2>
+          <a href="javascript:;" class="simulate-item__image">
+            <img src="static/images/hero-bike.png" alt="Carros">
+          </a>
+          <a href="javascript:;" data-navigate data-navigate-direction="2" data-navigate-reference="bike"
+            title="Clique para ir para o próximo passo" class="simulate-item__button">
+            Simular
+            <img src="static/images/arrow-right.png" alt="Próximo passo">
+          </a>
+        </div>
+        <form action="/">
+          <div class="step" id="bike-step-2">
+            <h2 class="step-title">
+              <a href="javascript:;" data-navigate data-navigate-direction="1" data-navigate-reference="bike"
+                title="Clique para voltar" class="step-title__back"></a>
+              <img src="static/images/icon-house-cyan.png" alt="" class="step-title__icon">
+              Motocicleta
+              <a href="javascript:;" data-navigate data-navigate-direction="1" data-close="true"
+                data-navigate-reference="bike" title="Clique para voltar" class="step-title__close"></a>
+            </h2>
+            <section class="step-content">
+              <div class="step-input">
+                <p class="step-input__label">
+                  Digite o valor
+                </p>
+                <p class="step-input__set">
+                  <span>
+                    R$
+                  </span>
+                  <input type="text" name="valor" class="step-input__field mask-money" placeholder="0.000"
+                    style="width:200px" maxlength="10"
+                    onkeypress="this.style.width = ((this.value.length + 2) * 24) + 'px';">
+                  <span>
+                    Mil
+                  </span>
+                </p>
+              </div>
+              <div class="step-input">
+                <p class="step-input__label">
+                  Digite o n° de parcelas
+                </p>
+                <p class="step-input__set">
+                  <input type="text" name="valor" class="step-input__field" placeholder="12" style="width:60px"
+                    maxlength="3" onkeypress="this.style.width = ((this.value.length + 2) * 24) + 'px';">
+                  <span>
+                    X
+                  </span>
+                </p>
+              </div>
+              <a href="javascript:;" data-navigate data-navigate-direction="3" data-navigate-reference="bike"
+                title="Clique para ir para o próximo passo" class="simulate-item__button">
+                Continuar
+                <img src="static/images/arrow-right.png" alt="Próximo passo">
+              </a>
+            </section>
+          </div>
+          <div class="step" id="bike-step-3">
+            <h2 class="step-title">
+              <a href="javascript:;" data-navigate data-navigate-direction="2" data-navigate-reference="bike"
+                title="Clique para voltar" class="step-title__back"></a>
+              <img src="static/images/icon-house-cyan.png" alt="" class="step-title__icon">
+              Motocicleta
+              <a href="javascript:;" data-navigate data-navigate-direction="1" data-close="true"
+                data-navigate-reference="bike" title="Clique para voltar" class="step-title__close"></a>
+            </h2>
+            <section class="step-content">
+              <div class="step-input">
+                <p class="step-input__label">
+                  Digite seu nome
+                </p>
+                <input type="text" name="valor" class="step-input__text">
+              </div>
+              <div class="step-input">
+                <p class="step-input__label">
+                  Digite seu celular
+                </p>
+                <input type="text" name="celular" class="step-input__text mask-phone">
+              </div>
+              <a href="javascript:;" title="Clique para ir para o próximo passo"
+                class="simulate-item__button simulate-item__button--center">
+                Simular
+              </a>
+            </section>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="result">
+    <div class="container result-container">
+      <h2 class="result-title">
+        Algumas opções de créditos, prazos e parcelas
+      </h2>
+      <p class="result-subtitle">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tellus tellus.
+      </p>
+      <section class="result-info">
+        <div class="result-info__block">
+          <img src="static/images/icon-house-big.png" alt="Casa">
+        </div>
+        <div class="result-info__block result-info__block--months">
+          48x
+        </div>
+      </section>
+      <div class="result-block">
+        <div class="result-block__tile">
+          Créditos
+        </div>
+        <div class="result-block__tile">
+          Parcelas
+        </div>
+      </div>
+      <div class="result-block">
+        <div class="result-block__tile">
+          R$ 8.5 mil
+        </div>
+        <div class="result-block__tile">
+          R$ 194,77
+        </div>
+      </div>
+      <div class="result-block">
+        <div class="result-block__tile">
+          R$ 8.5 mil
+        </div>
+        <div class="result-block__tile">
+          R$ 194,77
+        </div>
+      </div>
+      <div class="result-block">
+        <div class="result-block__tile">
+          R$ 8.5 mil
+        </div>
+        <div class="result-block__tile">
+          R$ 194,77
+        </div>
+      </div>
+      <div class="result-block">
+        <div class="result-block__tile">
+          R$ 8.5 mil
+        </div>
+        <div class="result-block__tile">
+          R$ 194,77
+        </div>
+      </div>
+      <div class="result-block">
+        <div class="result-block__tile">
+          R$ 8.5 mil
+        </div>
+        <div class="result-block__tile">
+          R$ 194,77
+        </div>
+      </div>
+      <div class="result-block">
+        <div class="result-block__tile">
+          R$ 8.5 mil
+        </div>
+        <div class="result-block__tile">
+          R$ 194,77
+        </div>
+      </div>
+      <div class="result-block">
+        <div class="result-block__tile">
+          R$ 8.5 mil
+        </div>
+        <div class="result-block__tile">
+          R$ 194,77
+        </div>
+      </div>
+      <div class="result-block">
+        <div class="result-block__tile">
+          R$ 8.5 mil
+        </div>
+        <div class="result-block__tile">
+          R$ 194,77
+        </div>
+      </div>
+      <div class="result-block">
+        <div class="result-block__tile">
+          R$ 8.5 mil
+        </div>
+        <div class="result-block__tile">
+          R$ 194,77
+        </div>
+      </div>
+      <div class="result-block">
+        <div class="result-block__tile">
+          R$ 8.5 mil
+        </div>
+        <div class="result-block__tile">
+          R$ 194,77
+        </div>
+      </div>
+      <div class="result-block">
+        <div class="result-block__tile">
+          R$ 8.5 mil
+        </div>
+        <div class="result-block__tile">
+          R$ 194,77
+        </div>
+      </div>
+      <div class="result-block">
+        <div class="result-block__tile">
+          R$ 8.5 mil
+        </div>
+        <div class="result-block__tile">
+          R$ 194,77
+        </div>
+      </div>
+      <div class="result-block">
+        <div class="result-block__tile">
+          R$ 8.5 mil
+        </div>
+        <div class="result-block__tile">
+          R$ 194,77
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="people">
+    <h2 class="people-title">
+      Pessoas que tiveram seus sonhos realizados!
+    </h2>
+    <ul class="people-list">
+      <li class="people-item">
+        <img src="static/images/placeholder.png" alt="" class="people-item__image">
+        <div class="people-item-overlay">
+          <figure class="people-item-overlay__scope">
+            <img src="static/images/icon-house-big.png" alt="Imóvel">
+          </figure>
+
+          <p class="people-item-overlay__text">
+            <strong>
+              Pedro Rodrigues
+            </strong>
+            <span>Carta contemplada - R$ 150.000</span>
+          </p>
+        </div>
+      </li>
+      <li class="people-item">
+        <img src="static/images/placeholder.png" alt="" class="people-item__image">
+        <div class="people-item-overlay">
+          <figure class="people-item-overlay__scope">
+            <img src="static/images/icon-house-big.png" alt="Imóvel">
+          </figure>
+
+          <p class="people-item-overlay__text">
+            <strong>
+              Pedro Rodrigues
+            </strong>
+            <span>Carta contemplada - R$ 150.000</span>
+          </p>
+        </div>
+      </li>
+      <li class="people-item">
+        <img src="static/images/placeholder.png" alt="" class="people-item__image">
+        <div class="people-item-overlay">
+          <figure class="people-item-overlay__scope">
+            <img src="static/images/icon-house-big.png" alt="Imóvel">
+          </figure>
+
+          <p class="people-item-overlay__text">
+            <strong>
+              Pedro Rodrigues
+            </strong>
+            <span>Carta contemplada - R$ 150.000</span>
+          </p>
+        </div>
+      </li>
+      <li class="people-item">
+        <img src="static/images/placeholder.png" alt="" class="people-item__image">
+        <div class="people-item-overlay">
+          <figure class="people-item-overlay__scope">
+            <img src="static/images/icon-house-big.png" alt="Imóvel">
+          </figure>
+
+          <p class="people-item-overlay__text">
+            <strong>
+              Pedro Rodrigues
+            </strong>
+            <span>Carta contemplada - R$ 150.000</span>
+          </p>
+        </div>
+      </li>
+      <li class="people-item">
+        <img src="static/images/placeholder.png" alt="" class="people-item__image">
+        <div class="people-item-overlay">
+          <figure class="people-item-overlay__scope">
+            <img src="static/images/icon-house-big.png" alt="Imóvel">
+          </figure>
+
+          <p class="people-item-overlay__text">
+            <strong>
+              Pedro Rodrigues
+            </strong>
+            <span>Carta contemplada - R$ 150.000</span>
+          </p>
+        </div>
+      </li>
+      <li class="people-item">
+        <img src="static/images/placeholder.png" alt="" class="people-item__image">
+        <div class="people-item-overlay">
+          <figure class="people-item-overlay__scope">
+            <img src="static/images/icon-house-big.png" alt="Imóvel">
+          </figure>
+
+          <p class="people-item-overlay__text">
+            <strong>
+              Pedro Rodrigues
+            </strong>
+            <span>Carta contemplada - R$ 150.000</span>
+          </p>
+        </div>
+      </li>
+      <li class="people-item">
+        <img src="static/images/placeholder.png" alt="" class="people-item__image">
+        <div class="people-item-overlay">
+          <figure class="people-item-overlay__scope">
+            <img src="static/images/icon-house-big.png" alt="Imóvel">
+          </figure>
+
+          <p class="people-item-overlay__text">
+            <strong>
+              Pedro Rodrigues
+            </strong>
+            <span>Carta contemplada - R$ 150.000</span>
+          </p>
+        </div>
+      </li>
+      <li class="people-item">
+        <img src="static/images/placeholder.png" alt="" class="people-item__image">
+        <div class="people-item-overlay">
+          <figure class="people-item-overlay__scope">
+            <img src="static/images/icon-house-big.png" alt="Imóvel">
+          </figure>
+
+          <p class="people-item-overlay__text">
+            <strong>
+              Pedro Rodrigues
+            </strong>
+            <span>Carta contemplada - R$ 150.000</span>
+          </p>
+        </div>
+      </li>
+      <li class="people-item">
+        <img src="static/images/placeholder.png" alt="" class="people-item__image">
+        <div class="people-item-overlay">
+          <figure class="people-item-overlay__scope">
+            <img src="static/images/icon-house-big.png" alt="Imóvel">
+          </figure>
+
+          <p class="people-item-overlay__text">
+            <strong>
+              Pedro Rodrigues
+            </strong>
+            <span>Carta contemplada - R$ 150.000</span>
+          </p>
+        </div>
+      </li>
+      <li class="people-item">
+        <img src="static/images/placeholder.png" alt="" class="people-item__image">
+        <div class="people-item-overlay">
+          <figure class="people-item-overlay__scope">
+            <img src="static/images/icon-house-big.png" alt="Imóvel">
+          </figure>
+
+          <p class="people-item-overlay__text">
+            <strong>
+              Pedro Rodrigues
+            </strong>
+            <span>Carta contemplada - R$ 150.000</span>
+          </p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="banner">
+    <div class="banner-container">
+      <div class="banner-content">
+        <h2 class="banner-content__text">
+          O Consórcio com a
+          <strong>menor taxa do Brasil</strong>
+        </h2>
+
+        <a href="javascript:;" class="banner-content__button">
+          Faça uma simulação
+        </a>
+      </div>
+      <div class="banner-image">
+        <img src="static/images/banner-nines.png" alt="9,99%">
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-column">
+        <h2 class="footer-column__title">
+          Institucional
+        </h2>
+        <nav class="footer-column-nav">
+          <a href="index.html" class="footer-column-nav__link">Início</a>
+          <a href="contempladas.html" class="footer-column-nav__link">Contemplados</a>
+          <a href="simulador.html" class="footer-column-nav__link">Simulador</a>
+          <a href="contato.html" class="footer-column-nav__link">Contato</a>
+        </nav>
+      </div>
+      <div class="footer-column">
+        <h2 class="footer-column__title">
+          Onde Estamos
+        </h2>
+        <address class="footer-column__address">
+          Rua Lorem ipsum, 00 - Centro<br>
+          Londrina-PR | CEP 86000-000
+
+          <a href="https://maps.google.com" class="footer-column__button">
+            ver no mapa
+          </a>
+        </address>
+      </div>
+      <div class="footer-column">
+        <h2 class="footer-column__title">
+          Atendimento
+        </h2>
+        <p class="footer-column__contact">
+          <img src="static/images/footer-ico-whatsapp.png" alt="Whatsapp"> 43 <span>998765-4321</span>
+        </p>
+        <p class="footer-column__contact">
+          <img src="static/images/footer-ico-phone.png" alt="Telefone"> 43 <span>3321-0000</span>
+        </p>
+      </div>
+      <div class="footer-column">
+        <h2 class="footer-column__title">
+          Redes Sociais
+        </h2>
+        <nav class="footer-column-social">
+          <a href="https://www.instagram.com" class="footer-column-social__link">
+            <img src="static/images/footer-ico-instagram.png" alt="Instagram">
+          </a>
+          <a href="https://www.facebook.com" class="footer-column-social__link">
+            <img src="static/images/footer-ico-facebook.png" alt="Facebook">
+          </a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <p class="copyrights">
+    © 2020 Conquer Consórcios. Todos os direitos reservados
+  </p>
+
+  <script src="static/scripts/vendor/jquery.min.js"></script>
+  <script src="static/scripts/vendor/slick.js"></script>
+  <script src="static/scripts/vendor/mask.js"></script>
+  <script src="static/scripts/main.min.js"></script>
+
+  <!-- Livereload -->
+  <script src="//localhost:35729/livereload.js"></script>
+
+</body>
+
+</html>

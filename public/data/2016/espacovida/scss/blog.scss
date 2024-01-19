@@ -1,0 +1,180 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import url(fonts.css);
+$GothamLt:'Gotham Light', Helvetica, Arial, Sans-serif;
+$GothamRg:'Gotham Medium', Helvetica, Arial, Sans-serif;
+$GothamBd:'Gotham Black', Helvetica, Arial, Sans-serif;
+$Intro:'Intro', Helvetica, Arial, Sans-serif;
+
+// CORES
+$Prata:#C3C7D2;
+$Cinza:#414042;
+$Turquesa:#5EBFBF;
+$Laranja:#F78322;
+$Verde:#0D7D7E;
+
+// ESTILOS GLOBAIS
+body{ @include font-size(15px); font-family:$GothamRg; color:$Cinza; @include font-smoothing(on); }
+@include selection(#FFF,$Laranja);
+
+// TOPO
+#header{ width:100%; height:296px; background:#FFF url(../img/bkg-header-blog.jpg) no-repeat center top; }
+#logo{ float:left; width:84px; height:73px; margin:10px 0 0; background:url(../img/logo-blog.png) no-repeat center center; @include removeText; }
+#menu{ float:right; font-family:$GothamBd; @include font-size(20px); color:$Verde; text-transform:uppercase; }
+#menu a{ display:block; float:left; height:92px; border-bottom:4px solid transparent; margin-left:30px; line-height:92px; @include transition(all 300ms ease-in-out); }
+#menu a:hover,
+#menu a.active{ border-bottom-color:$Laranja; }
+
+// POSTS
+#content{ margin:20px auto 50px; border-top:2px solid $Verde; padding-top:10px; }
+#content .col-left{ float:left; width:66%; margin-right:2%; }
+#tags{ text-align:center; margin-bottom:40px; }
+#tags li{ display:inline-block; margin:0 20px; font-family:$GothamRg; text-transform:uppercase; color:$Laranja; }
+#tags li a{ display:block; height:30px; line-height:30px; }
+#tags li a.active{ font-family:$GothamBd; }
+#posts{}
+#posts li{ padding-bottom:40px; margin-bottom:40px; position:relative; }
+#posts li:after{ content:' '; display:block; width:50%; height:1px; background-color:$Cinza; position:absolute; bottom:0; left:25%; }
+#posts li h2{ @include font-size(25px); font-family:$GothamBd; text-transform:uppercase; color:$Verde; margin-bottom:10px; }
+#posts li p.date{ font-family:$GothamLt; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:20px; }
+#posts li img{ display:block; width:100%; }
+#posts li p.content{ font-family:helvetica, arial, sans-serif; @include font-size(18px); line-height:1.3em; margin:20px 0 10px; }
+#posts li .ler-mais{ display:block; text-transform:uppercase; color:$Laranja; float:right; @include font-size(18px); }
+#content .col-left .continuar{ display:block; width:100%; text-transform:uppercase; color:$Cinza; font-family:$GothamBd; @include font-size(20px); text-align:center; }
+
+#content .col-right{ float:left; width:32%; }
+#content .col-right .follow{ display:block; float:left; width:31.3%; margin:0 1%; text-align:center; height:30px; line-height:30px; color:#FFF; font-family:$GothamLt; @include transition(all 300ms ease-in-out); }
+#content .col-right .follow:hover{ @include opacity(0.7); }
+#content .col-right .follow.f-facebook{ background:#39599F url(../img/bkg-facebook.jpg) no-repeat -5px center; }
+#content .col-right .follow.f-twitter{ background:#45B0E2 url(../img/bkg-twitter.jpg) no-repeat -5px center; }
+#content .col-right .follow.f-gplus{ background:#B62513 url(../img/bkg-gplus.jpg) no-repeat -5px center; }
+
+// POST
+#post h2{ @include font-size(25px); font-family:$GothamBd; text-transform:uppercase; color:$Verde; margin-bottom:10px; }
+#post p.date{ font-family:$GothamLt; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:20px; }
+#post figure{ margin-bottom:20px; }
+#post img{ display:block; width:100%; }
+#post p{ font-family:helvetica, arial, sans-serif; @include font-size(18px); line-height:1.3em; margin:0 0 20px; }
+
+#share{ margin-top:60px; padding-bottom:20px; border-bottom:1px solid $Cinza; }
+#share h3{ text-transform:uppercase; font-family:$GothamBd; @include font-size(20px); text-align:center; }
+#share ul{ text-align:center; margin-top:10px; }
+#share ul li{ display:inline-block; margin:0 10px; }
+#share ul li a{ display:block; width:40px; height:40px; background-repeat:no-repeat; background-position:center center; }
+#share ul li a.fb{ background-image:url(../img/i-facebook.png); }
+#share ul li a.tw{ background-image:url(../img/i-twitter.png); }
+#share ul li a.gp{ background-image:url(../img/i-gplus.png); }
+
+.veja-tambem{ margin:40px 0; }
+.veja-tambem h3{ text-align:center; text-transform:uppercase; @include font-size(20px); font-family:$GothamBd; margin:0 0 20px; color:$Cinza; }
+.veja-tambem .post{ display:block; float:left; width:48%; margin:0 4% 30px 0; }
+.veja-tambem .post.last{ margin-right:0; }
+.veja-tambem .post .image{ margin-bottom:10px; }
+.veja-tambem .post .image img{ display:block; width:100%; }
+.veja-tambem .post h4{ @include font-size(20px); text-transform:uppercase; line-height:1.2em; font-family:$GothamBd; }
+.veja-tambem .proximo{ display:block; float:left; width:33.33%; height:25px; line-height:25px; @include font-size(20px); text-transform:uppercase; padding-left:30px; background:url(../img/prev.png) no-repeat left center; }
+.veja-tambem .inicio{ display:block; float:left; width:33.33%; height:25px; line-height:25px; @include font-size(20px); text-transform:uppercase; text-align:center; }
+.veja-tambem .anterior{ display:block; float:left; width:33.33%; height:25px; line-height:25px; @include font-size(20px); text-transform:uppercase; text-align:right; padding-right:30px; background:url(../img/next.png) no-repeat right center; }
+
+// ARQUIVO
+#backup{ font-family:$GothamBd; margin:30px 0; }
+#backup h2{ display:block; width:100%; padding:15px; border:1px solid $Verde; color:$Verde; text-transform:uppercase; @include font-size(20px); text-align:center; margin-bottom:10px; }
+#backup .btn-datas{ display:block; width:100%; padding:15px; border:1px solid $Verde; color:$Verde; text-transform:uppercase; @include font-size(20px); text-align:center; background:url(../img/arw-down.png) no-repeat right center; }
+#arquivo{ display:none; width:100%; }
+#arquivo li a{ display:block; width:100%; color:$Verde; text-align:center; padding:10px; border:1px solid $Verde; border-top:0; text-transform:uppercase; @include transition(all 300ms ease-in-out); }
+#arquivo li a:hover{ background:#e4f0fc; }
+
+// CONTATO
+#contato{ width:100%; background:url(../img/bkg-contato.jpg) repeat center top; padding:30px 0 0; }
+#contato .center{ height:660px; background:url(../img/box-contato.png) no-repeat center center; background-size:contain; padding:270px 120px 0; color:#555E7E; }
+#contato h2{ text-align:center; font-family:$Intro; @include font-size(60px); line-height:0.8em; color:$Laranja; margin-bottom:40px; }
+#contato .col-left{ float:left; width:40%; }
+#contato p,
+#contato label{ @include font-size(22px); line-height:37px; margin-bottom:20px; }
+#contato label{ display:block; margin-bottom:10px; }
+#contato .col-right{ float:right; width:55%; }
+#contato .col-right p{ margin-bottom:5px; }
+#contato .col-right .ico-facebook{ display:inline-block; width:46px; height:46px; margin-bottom:20px; background:url(../img/ico-facebook.png) no-repeat center center; @include transition(all 300ms ease-in-out); }
+#contato .col-right .ico-facebook:hover{ @include opacity(0.7); }
+#contato .col-right form input{ display:block; float:left; width:70%; height:46px; border:2px solid #E9E5DC; font-family:$GothamLt; font-size:inherit; padding:0 20px; }
+#contato .col-right #enviar{ display:block; float:left; width:30%; height:46px; border:0; background:$Turquesa; color:#FFF; font-family:inherit; text-transform:uppercase; @include font-size(20px); cursor:pointer; @include transition(all 300ms ease-in-out); }
+#contato .col-right #enviar:hover{ background-color:$Laranja; }
+
+#mapa{ width:100%; height:280px; background-color:#E9E5DC; }
+
+// FOOTER
+#footer{ width:100%; padding:20px 0; background-color:#7D7D7D; }
+#logo-alt{ float:left; width:84px; height:73px; margin-left:20px; background:url(../img/logo-alt.png) no-repeat center center; }
+#info{ float:right; width:850px; color:#E1E1E1; margin-top:20px; }
+#info a{ @include transition(all 300ms ease-in-out); }
+#info a:hover{ @include opacity(0.7); }
+#info .lower-menu{ float:left; }
+#info .lower-menu li{ display:inline-block; margin:0 5px;  }
+#info .lower-menu li a{ text-transform:uppercase; font-family:$GothamBd; }
+#info .facebook{ display:block; float:right; @include font-size(12px); height:22px; padding-right:29px; line-height:22px; text-transform:uppercase; background:url(../img/ico-facebook-alt.png) no-repeat right center; }
+#info .copy{ float:left; margin-top:20px; @include font-size(12px); font-family:$GothamBd; text-transform:uppercase; }
+#info .assinatura{ display:block; float:right; margin-top:15px; @include font-size(12px); text-transform:uppercase; height:17px; line-height:21px; padding-right:44px; background:url(../img/m2mp.png) no-repeat right center; }
+
+// RESPONSIVO
+@media screen and(max-width:1080px){
+	#logo-alt{ margin-left:0; }
+	#info{ float:left; width:70%; margin:0 0 0 5%; }
+	#info .facebook{ float:left; margin-top:20px; }
+	#info .copy{ width:100%; }
+	#info .assinatura{ float:left; margin-top:20px; }
+}
+
+@media screen and(max-width:1000px){
+	#logo{ margin-left:0; }
+	#menu{ margin-right:0; }
+	#menu a{ margin:0 0 0 20px; }
+
+	#tags li{ margin:0 10px; }
+	.col-right .follow{ width:100%; margin:0 0 10px; }
+	#backup .btn-datas{ background:none; }
+
+	#contato{ padding:50px 0; }
+	#contato .center{ padding:40px; height:auto; background:#FFF; }
+	#contato h2{ margin-bottom:20px; }
+}
+
+@media screen and(max-width:840px){
+	#logo{ float:none; margin:10px auto 0; }
+	#menu{ display:none; }
+
+	#logo-alt{ float:none; margin:0 auto 20px; }
+	#info{ width:100%; margin:0; }
+	#info .lower-menu{ width:100%; }
+}
+
+@media screen and(max-width:760px){
+	#contato{ text-align:center; }
+	#contato .col-left{ width:100%; margin-bottom:40px; }
+	#contato .col-right{ float:left; width:100%; }
+}
+
+@media screen and(max-width:720px){
+	#content .col-left{ width:100%; margin:0; }
+	#content .col-right{ display:none; }
+}
+
+@media screen and(max-width:640px){
+	#info{ text-align:center; }
+	#info .lower-menu{ display:none; }
+	#info .facebook,
+	#info .assinatura{ display:inline-block; float:none; }
+}
+
+@media screen and(max-width:420px){#contato h2{ @include font-size(40px); }
+	#contato p,
+	#contato label{ @include font-size(18px); line-height:1.2em; }
+	#contato .col-right form input{ width:100%; text-align:center; }
+	#contato .col-right #enviar{ width:100%; }
+
+	.veja-tambem .post{ width:100%; margin:0 0 30px 0; }
+	.veja-tambem .proximo, .veja-tambem .inicio, .veja-tambem .anterior{ display:none; }
+}

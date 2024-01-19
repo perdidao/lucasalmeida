@@ -1,0 +1,1433 @@
+// Biblioteca de mixins
+@import 'mixins.scss';
+
+/* Reset */
+@import 'reset.scss';
+
+// Cores
+$vinho:#601E10;
+$bege:#F5E6D3;
+
+// Fontes
+$Gotham:'Gotham', Helvetica, Arial, sans-serif;
+
+// Pesos de fonte padrão
+$light:300;
+$bold:600;
+$black:700;
+
+// Tamanhos de fonte padrão
+$sz-title:32px;
+$sz-content:16px;
+$sz-note:12px;
+
+/* Estilos globais */
+body{ font:$light 16px $Gotham; color:$vinho; letter-spacing:0.05em; @include font-smoothing(on); }
+@include selection(#FFF,$vinho);
+
+$default-transition:all 300ms ease-in-out;
+
+.center{ width:90%; max-width:1024px; margin:0 auto; overflow:hidden; }
+
+#btn-menu{
+    display:none;
+    width:40px;
+    height:29px;
+    position:absolute;
+    z-index:2;
+    top:55px;
+    right:5%;
+    transition:$default-transition;
+    & span,
+    &:before,
+    &:after{
+        content:" ";
+        display:block;
+        width:40px;
+        height:5px;
+        background-color:$vinho;
+        transform:rotate(0);
+        position:absolute;
+        left:0;
+        transition:$default-transition;
+    }
+
+    &:before{ top:0; }
+    & span{ top:12px; opacity:1; }
+    &:after{ bottom:0; }
+
+    &.active span{ opacity:0; top:12px; transform:rotate(90deg); }
+    &.active:before{ width:40px; top:12px; left:0; transform:rotate(45deg); }
+    &.active:after{ width:40px; bottom:12px; left:0; transform:rotate(-45deg); }
+}
+
+#header{
+  width:100%;
+  padding:15px 0;
+  background-color:rgba(255,255,255,0.9);
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1001;
+
+  #logo{
+    display:block;
+    float:left;
+    width:97px;
+    height:70px;
+    background:url(../img/logo.png) no-repeat center center;
+  }
+
+  #menu{
+    float:right;
+    margin-top:30px;
+
+    ul{
+
+      li{
+        display:inline-block;
+        margin-left:100px;
+
+        a{
+          font-size:$sz-note;
+          text-transform:uppercase;
+          transition:$default-transition;
+
+          &:hover{
+            opacity:0.6;
+          }
+
+          &.active{
+            font-weight:$bold;
+          }
+        }
+      }
+    }
+  }
+}
+
+.social{
+
+  &.social-topo{
+    position:absolute;
+    top:42px;
+    right:3%;
+  }
+
+  &.social-rodape{
+
+    li{
+      a{
+        &.in{ background-image:url(../img/ico-instagram-alt.png); }
+        &.fb{ background-image:url(../img/ico-facebook-alt.png); }
+        &.tw{ background-image:url(../img/ico-twitter-alt.png); }
+      }
+    }
+  }
+
+  li{
+    display:inline-block;
+
+    a{
+      display:block;
+      width:21px;
+      height:21px;
+      margin-right:5px;
+      background:no-repeat center center;
+      transition:$default-transition;
+
+      &:hover{
+        opacity:0.5;
+      }
+
+      &.in{ background-image:url(../img/ico-instagram.png); }
+      &.fb{ background-image:url(../img/ico-facebook.png); }
+      &.tw{ background-image:url(../img/ico-twitter.png); }
+    }
+  }
+}
+
+.topo{
+  width:100%;
+  background:no-repeat center top;
+  background-attachment:fixed;
+
+  img{
+    display:block;
+    width:100%;
+  }
+
+  &.ini{
+    background-image:url(../img/topo-ini.jpg);
+    height:198px;
+  }
+
+  &.sobre{
+    background-image:url(../img/topo-sobre.jpg);
+    height:333px;
+  }
+}
+
+// Heading
+#heading{
+  padding:30px 0;
+
+  h1{
+    font-size:$sz-title;
+    font-weight:$black;
+    line-height:45px;
+    text-transform:uppercase;
+
+    margin-bottom:20px;
+  }
+
+  p{
+    line-height:30px;
+
+    width:66.66%;
+    margin-left:33.33%;
+  }
+}
+
+// Produtos
+.linha-produto{
+  width:100%;
+  height:640px;
+  margin-bottom:5px;
+  overflow:hidden;
+  transition:all 500ms ease-in-out;
+
+  .inner{
+    position:relative;
+    transition:all 500ms ease-in-out;
+
+    img{
+      display:block;
+      width:100%;
+    }
+
+    .info{
+      position:absolute;
+      top:0;
+      left:23.5%;
+      width:53%;
+      max-width:520px;
+      transition:$default-transition;
+
+      transform:translatey(0);
+      opacity:0;
+
+      &.active{
+        transform:translatey(50px);
+        opacity:1;
+      }
+
+      h2{
+        font-size:$sz-title;
+        font-weight:$black;
+        text-transform:uppercase;
+        margin-bottom:20px;
+      }
+
+      p{
+        line-height:30px;
+        margin-bottom:10px;
+      }
+
+      a{
+        font-weight:$bold;
+        transition:$default-transition;
+
+        &:hover{
+          opacity:0.5;
+        }
+      }
+    }
+  }
+}
+
+// Heading difusor
+#heading-difusor{
+  padding:40px 0;
+
+  h2{
+    font-size:$sz-title;
+    font-weight:$black;
+    text-transform:uppercase;
+    text-align:center;
+
+    max-width:540px;
+    margin:0 auto 20px;
+  }
+
+  p{
+    line-height:30px;
+    max-width:680px;
+    margin:0 auto;
+  }
+}
+
+// Catálogo
+#catalogo{
+  width:100%;
+  min-height:890px;
+  padding-top:1px;
+  background:url(../img/bkg-catalogo.jpg) no-repeat center bottom;
+  text-align:center;
+
+  .catalogo{
+    display:block;
+    width:423px;
+    margin:160px auto 10px;
+  }
+
+  .download{
+    display:inline-block;
+    font-size:$sz-note;
+    font-weight:$bold;
+    text-transform:uppercase;
+    padding:5px 0 0 40px;
+    background:url(../img/ico-download.png) no-repeat center left;
+  }
+}
+
+// ================================================================
+// Internas =======================================================
+// ================================================================
+
+#upper-sobre{
+  width:90%;
+  max-width:740px;
+  margin:60px auto;
+  overflow:hidden;
+
+  p{
+    text-align:justify;
+    line-height:30px;
+  }
+
+  .col1{
+    float:left;
+    width:47%;
+    margin:0 6% 60px 0;
+  }
+
+  .col2{
+    float:left;
+    width:47%;
+    margin-bottom:60px;
+  }
+
+  .box{
+    clear:both;
+    width:100%;
+    border:1px solid $vinho;
+    padding:15px 0 10px;
+
+    p{
+      font-weight:$black;
+      text-align:center;
+      text-transform:uppercase;
+      line-height:34px;
+    }
+  }
+}
+
+#bottom-sobre{
+  background:url(../img/bkg-sobre.jpg) no-repeat center bottom;
+
+  .center{
+
+    .col{
+      float:left;
+      width:50%;
+      padding:0 3% 0 14%;
+      margin-bottom:180px;
+
+      p{
+        margin-bottom:30px;
+        line-height:30px;
+      }
+    }
+
+    .destaque{
+      float:left;
+      width:50%;
+      padding-left:3%;
+
+      p{
+        font-size:27px;
+        font-weight:$black;
+        text-transform:uppercase;
+        line-height:46px;
+      }
+    }
+
+    .col-under{
+      clear:both;
+      width:50%;
+      padding:0 3% 0 14%;
+      margin-bottom:40px;
+
+      p{
+        line-height:30px;
+      }
+    }
+
+    #carousel-sobre{
+      float:left;
+      width:60%;
+
+        .owl-dots{
+          text-align:center;
+          margin:10px 0 46px;
+
+          .owl-dot{
+            display:inline-block;
+            width:12px;
+            height:12px;
+            border:2px solid #FFF;
+            margin:0 15px;
+            transition:$default-transition;
+
+            &.active{
+              background-color:#FFF;
+            }
+          }
+        }
+    }
+
+    .col2{
+      float:left;
+      width:33%;
+      margin:70px 0 0 7%;
+
+      h2{
+        font-size:24px;
+        font-weight:$black;
+        text-transform:uppercase;
+        margin-bottom:35px;
+        text-align:right;
+      }
+
+      p{
+        text-align:justify;
+        line-height:30px;
+        margin-bottom:50px;
+      }
+    }
+  }
+}
+
+// Onde estamos
+.onde-encontrar{
+  padding:25px 0 90px;
+  background:url(../img/bkg-onde-estamos.jpg) no-repeat center bottom;
+
+  .topo{
+    text-align:center;
+    margin-bottom:50px;
+
+    h2{
+      text-transform:uppercase;
+      font-weight:$black;
+      font-size:20px;
+      margin-bottom:15px;
+    }
+
+    p{
+      font-size:14px;
+    }
+  }
+
+  iframe{
+    display:block;
+    width:100%;
+    height:280px;
+    margin-bottom:40px;
+  }
+
+  p.center{
+    text-align:right;
+    font-size:14px;
+    line-height:2;
+
+    strong{
+      font-weight:$bold;
+    }
+  }
+}
+
+// Contato
+.contato{
+  width:100%;
+  padding:140px 0 50px;
+  background:url(../img/bkg-contato.jpg) no-repeat center top;
+
+  .onde-encontrar{
+    background:transparent;
+    padding:0;
+  }
+
+  .container{
+    margin-bottom:30px;
+
+    h3{
+      text-transform:uppercase;
+      font-weight:$black;
+      font-size:20px;
+      margin:0 0 40px 1%;
+    }
+
+    input,
+    textarea,
+    button{
+      display:block;
+      float:left;
+      background-color:transparent;
+      font:$light $sz-content $Gotham;
+      color:$vinho;
+      height:40px;
+      padding:4px 20px 0;
+      border:1px solid $vinho;
+    }
+
+    input{
+      width:31.33%;
+      margin:0 1% 15px;
+    }
+
+    textarea{
+      width:98%;
+      height:170px;
+      margin:0 1% 15px;
+    }
+
+    button{
+      transition:all 300ms ease-in-out;
+      width:98%;
+      margin:0 1% 15px;
+      cursor:pointer;
+      text-transform:uppercase;
+
+      &:hover{
+        background-color:$vinho;
+        color:#FFF;
+      }
+    }
+  }
+}
+
+.banners{
+  position:relative;
+
+    .owl-dots{
+      position:absolute;
+      bottom:45px;
+      left:0;
+      width:100%;
+      text-align:center;
+      margin:10px 0 46px;
+
+      .owl-dot{
+        display:inline-block;
+        width:12px;
+        height:12px;
+        border:2px solid #FFF;
+        margin:0 15px;
+        transition:$default-transition;
+
+        &.active{
+          background-color:#FFF;
+        }
+      }
+    }
+}
+
+.container-marca{
+  background:url(../img/bkg-marca.jpg) no-repeat center top;
+
+  .center{
+    padding:110px 0 140px;
+
+    h2{
+      font-size:32px;
+      font-weight:$black;
+      line-height:56px;
+      margin-bottom:30px;
+      text-transform:uppercase;
+    }
+
+    .col{
+      float:left;
+      width:33.33%;
+      margin-right:16.66%;
+      font-size:25px;
+      line-height:30px;
+      text-align:justify;
+    }
+
+    .img1{
+      float:left;
+      width:50%;
+      margin-bottom:40px;
+
+      img{
+        display:block;
+        width:100%;
+      }
+    }
+
+    h2.alt{
+      text-align:right;
+      margin-bottom:15px;
+    }
+
+    .img2{
+      width:83.34%;
+      margin-bottom:40px;
+
+      img{
+        display:block;
+        width:100%;
+      }
+    }
+
+    .turn{
+      float:left;
+      font-size:20px;
+      font-weight:$black;
+      text-transform:uppercase;
+      width:33.34%;
+      transform:rotate(-90deg);
+    }
+
+    .col2{
+      float:left;
+      width:66.66%;
+      font-size:25px;
+      line-height:30px;
+    }
+  }
+}
+
+.pattern-marca{
+  width:100%;
+  height:696px;
+  background:url(../img/bkg-pattern.jpg) no-repeat center center;
+}
+
+.content-produtos{
+  width:100%;
+  padding:90px 0 0;
+  background:no-repeat center top;
+
+  .center{
+    margin-bottom:200px;
+  }
+
+  &.content-figo{
+    background-image:url(../img/bkg-figo.jpg);
+
+    .center{
+
+      h2{
+        float:left;
+        margin-left:16.66%;
+        width:33.33%;
+
+        font-size:35px;
+        font-weight:$black;
+        text-transform:uppercase;
+      }
+
+      p{
+        float:left;
+        width:50%;
+        font-size:25px;
+        line-height:30px;
+        text-align:justify;
+      }
+    }
+  }
+
+  &.content-orquidea{
+    background-image:url(../img/bkg-orquidea.jpg);
+
+    .center{
+      max-width:1370px;
+
+      h2{
+        float:left;
+        margin-left:12.5%;
+        width:37.5%;
+
+        font-size:35px;
+        font-weight:$black;
+        text-transform:uppercase;
+      }
+
+      p{
+        float:left;
+        width:37.5%;
+        margin-left:12.5%;
+        font-size:25px;
+        line-height:30px;
+        text-align:justify;
+      }
+    }
+  }
+
+  &.content-jasmim{
+    background-image:url(../img/bkg-jasmim.jpg);
+
+    .center{
+      max-width:1370px;
+
+      h2{
+        float:left;
+        margin-left:37.5%;
+        width:25%;
+
+        font-size:35px;
+        font-weight:$black;
+        text-transform:uppercase;
+      }
+
+      p{
+        float:left;
+        width:37.5%;
+        font-size:25px;
+        line-height:30px;
+        text-align:justify;
+      }
+    }
+  }
+
+  .lista-produtos{
+    margin:0 15%;
+    width:70%;
+
+    &:after{
+      content:' ';
+      display:block;
+      width:100%;
+      height:1px;
+      clear:both;
+    }
+
+    li{
+      float:left;
+      width:25%;
+      margin:0 12.5% 40px 0;
+      position:relative;
+
+      &:nth-child(3n){
+        margin-right:0;
+      }
+
+      img{
+        display:block;
+        width:100%;
+        margin-bottom:15px;
+      }
+
+      h3{
+        text-align:center;
+        font-size:18px;
+        font-weight:$black;
+        text-transform:uppercase;
+        margin-bottom:10px;
+      }
+
+      .tamanho{
+        text-align:center;
+      }
+
+      .more-info{
+        opacity:0;
+        position:absolute;
+        top:45px;
+        max-width:220px;
+        padding:15px;
+        right:-110px;
+        background-color:rgba(114,33,130,0.9);
+        transition:$default-transition;
+
+        p{
+          font-size:14px;
+          text-align:justify;
+          color:#FFF;
+        }
+      }
+
+      &:hover{
+        .more-info{
+          opacity:1;
+        }
+      }
+
+      .top-overlay{
+        display:none;
+        position:fixed;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        z-index:1003;
+        width:60%;
+        max-width:640px;
+
+        img{
+          display:inline-block;
+          margin:0;
+        }
+
+        p{
+          position:absolute;
+          top:45px;
+          max-width:220px;
+          padding:15px;
+          right:-110px;
+          background-color:rgba(114,33,130,0.9);
+          transition:$default-transition;
+
+          font-size:14px;
+          text-align:justify;
+          color:#FFF;
+        }
+
+        .fechar{
+          display:block;
+          width:45px;
+          height:45px;
+          background:rgba(114,33,130,0.9) url(../img/ico-close.png) no-repeat center center;
+          position:absolute;
+          top:-22px;
+          right:-22px;
+        }
+      }
+    }
+  }
+}
+
+.overlay{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1002;
+  width:100%;
+  height:100%;
+  background-color:rgba(100,100,100,.9);
+}
+
+.splatters{
+  width:100%;
+  height:312px;
+  background:url(../img/bkg-splatters.jpg) no-repeat left bottom;
+}
+
+// Newsletter
+#newsletter{
+  width:100%;
+  padding:40px 0 20px;
+  background-color:$bege;
+
+  h2{
+    font-size:20px;
+    font-weight:$bold;
+    text-transform:uppercase;
+    margin-bottom:30px;
+
+    span{
+      display:inline-block;
+      margin-left:20px;
+      font-size:14px;
+      text-transform:none;
+      font-weight:$light;
+    }
+  }
+
+  form{
+    width:100%;
+    max-width:860px;
+    margin:0 auto;
+    vertical-align:hidden;
+
+    input,
+    button{
+      display:block;
+      background-color:transparent;
+      font:$light $sz-content $Gotham;
+      color:$vinho;
+      height:40px;
+      padding:4px 20px 0;
+      border:1px solid $vinho;
+    }
+
+    input{
+      float:left;
+      width:80%;
+      margin-right:2%;
+    }
+
+    button{
+      float:left;
+      width:18%;
+      text-transform:uppercase;
+      transition:all 300ms ease-in-out;
+      cursor:pointer;
+
+      &:hover{
+        background-color:$vinho;
+        color:#FFF;
+      }
+    }
+  }
+}
+
+// Footer
+#footer{
+  width:100%;
+  padding:35px 0;
+  background-color:$vinho;
+  color:#FFF;
+  position:relative;
+
+  .left{
+    float:left;
+    font-size:$sz-note;
+    line-height:18px;
+    margin-top:10px;
+  }
+
+  .central{
+    position:absolute;
+    top:35px;
+    left:50%;
+    transform:translatex(-50%);
+  }
+
+  .right{
+    float:right;
+    margin-top:15px;
+
+    h2{
+      text-transform:uppercase;
+      font-size:$sz-note;
+      font-weight:$black;
+      margin-bottom:15px;
+    }
+  }
+}
+
+// Responsivo
+@media screen and(max-width:1430px){
+  .content-produtos{
+    .lista-produtos{
+      margin:0 10%;
+      width:80%;
+
+      li{
+        width:30%;
+        margin-right:5%;
+
+        .more-info{
+          max-width:80%;
+          right:-10%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and(max-width:1320px){
+  #header{
+    #menu{
+      ul{
+        li{
+          margin:0 100px 0 0;
+
+        }
+      }
+    }
+  }
+}
+
+@media screen and(max-width:1240px){
+  .linha-produto{
+    height:auto;
+
+    &.opened{
+      height:auto;
+    }
+
+    .inner{
+      top:0;
+      overflow:hidden;
+
+      img{
+        float:right;
+        width:60%;
+      }
+
+      .info{
+        position:static;
+        width:40%;
+        max-width:100%;
+        padding:50px 3% 0;
+      }
+    }
+  }
+}
+
+@media screen and(max-width:1100px){
+  .content-produtos{
+    .lista-produtos{
+      margin:0 10%;
+      width:80%;
+
+      li{
+        width:45%;
+        margin-right:10%;
+
+        &:nth-child(3n){
+          margin-right:10%;
+        }
+
+        &:nth-child(2n){
+          margin-right:0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and(max-width:940px){
+  #header{
+    position:static;
+
+    #menu{
+      float:right;
+      margin-top:40px;
+
+      ul{
+
+        li{
+          margin:0 0 0 40px;
+        }
+      }
+    }
+  }
+
+  .social{
+    &.social-topo{
+      top:20px;
+      right:5%;
+    }
+
+    li{
+
+      a{
+        margin:0 0 0 10px;
+      }
+    }
+  }
+
+  .topo{
+    background-attachment:scroll;
+  }
+
+  .linha-produto{
+    margin:0 0 80px;
+
+    .inner{
+      img{
+        float:none;
+        width:100%;
+      }
+
+      .info{
+        width:100%;
+        padding:30px 5% 0;
+      }
+    }
+  }
+
+  .contato{
+    padding:50px 0;
+
+    .container{
+      input{
+        width:98%;
+      }
+    }
+  }
+
+  .container-marca{
+    .center{
+      padding:50px 0;
+
+      h2{
+        font-size:20px;
+        line-height:1.5;
+      }
+
+      .col{
+        width:100%;
+        margin:0 0 30px;
+        font-size:20px;
+        line-height:1.5;
+      }
+
+      .img1{
+        width:100%;
+        margin-bottom:20px;
+      }
+
+      h2.alt{
+        text-align:left;
+      }
+
+      .img2{
+        width:100%;
+        margin-bottom:30px;
+      }
+
+      .turn{
+        display:none;
+      }
+
+      .col2{
+        width:100%;
+        font-size:20px;
+        line-height:1.5;
+      }
+    }
+  }
+
+  .banners{
+    .owl-dots{
+      bottom:20px;
+      margin:0;
+    }
+  }
+
+  .content-produtos{
+    &.content-figo{
+      .center{
+        margin-bottom:40px;
+
+        h2{
+          margin-left:0;
+          width:30%;
+        }
+
+        p{
+          width:70%;
+        }
+      }
+    }
+
+    &.content-orquidea{
+      .center{
+        margin-bottom:40px;
+
+        h2{
+          width:100%;
+          margin:0;
+        }
+        p{
+          width:100%;
+          margin:0 0 30px;
+          font-size:20px;
+          line-height:1.5;
+        }
+      }
+    }
+
+    &.content-jasmim{
+      .center{
+        margin-bottom:40px;
+
+        h2{
+          width:100%;
+          margin:0 0 30px;
+        }
+        p{
+          width:100%;
+          margin:0;
+          font-size:20px;
+          line-height:1.5;
+        }
+      }
+    }
+  }
+}
+
+@media screen and(max-width:740px){
+  .content-produtos{
+    .lista-produtos{
+      li{
+        width:100%;
+
+        .more-info{
+          display:none;
+        }
+
+        &:nth-child(3n){
+          margin-right:0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and(max-width:640px){
+  #btn-menu{
+    display:block;
+  }
+
+  #header{
+    #menu{
+      display:none;
+      position:absolute;
+      margin:0;
+      width:100%;
+      top:100px;
+      left:0;
+      background-color:#FFF;
+
+      ul{
+        padding:15px 0;
+
+        li{
+          display:block;
+          width:100%;
+          text-align:center;
+          margin:0;
+
+          a{
+            display:block;
+            padding:15px 0;
+          }
+        }
+      }
+    }
+  }
+
+  .banners{
+    &.fullscreen{
+      display:none;
+    }
+
+    &.mobile{
+      display:block;
+    }
+  }
+
+  #heading{
+
+    h1{
+      font-size:20px;
+      line-height:1.5;
+    }
+
+    p{
+      width:100%;
+      margin-left:0;
+    }
+  }
+
+  #footer{
+    text-align:center;
+    .left{
+      width:100%;
+    }
+
+    .central{
+      display:none;
+    }
+
+    .right{
+      width:100%;
+    }
+  }
+
+  .social{
+    &.social-rodape{
+      li{
+        a{
+          margin:0 5px;
+        }
+      }
+    }
+  }
+
+  #newsletter{
+    h2{
+      font-size:$sz-content;
+      text-align:center;
+
+      span{
+        display:block;
+        margin-left:0;
+        font-size:14px;
+      }
+    }
+
+    form{
+      input{
+        width:100%;
+        margin:0 0 10px;
+      }
+
+      button{
+        width:100%;
+      }
+    }
+  }
+
+  #upper-sobre{
+    margin:30px auto 0;
+
+    .col1{
+      width:100%;
+      margin:0 0 30px;
+    }
+
+    .col2{
+      width:100%;
+      margin-bottom:30px;
+    }
+
+    .box{
+      padding:15px 10px 10px;
+      margin-bottom:30px;
+    }
+  }
+
+  #bottom-sobre{
+
+    .center{
+
+      .col{
+        width:100%;
+        padding:0;
+        margin-bottom:0;
+      }
+
+      .destaque{
+        width:100%;
+        padding:0;
+        margin-bottom:30px;
+      }
+
+      .col-under{
+        width:100%;
+        padding:0;
+        margin-bottom:30px;
+      }
+
+      #carousel-sobre{
+        width:100%;
+
+          .owl-dots{
+            margin:10px 0 30px;
+          }
+      }
+
+      .col2{
+        width:100%;
+        margin:0 0 30px;
+
+        h2{
+          margin-bottom:20px;
+          text-align:center;
+        }
+
+        p{
+          margin-bottom:30px;
+        }
+      }
+    }
+  }
+
+  .content-produtos{
+    &.content-figo{
+      .center{
+        margin-bottom:40px;
+
+        h2{
+          margin:0 0 30px 0;
+          width:100%;
+        }
+
+        p{
+          width:100%;
+          font-size:20px;
+          line-height:1.5;
+        }
+      }
+    }
+  }
+
+  .content-produtos{
+    .lista-produtos{
+      li{
+        .top-overlay{
+          top:0;
+          left:0;
+          transform:translate(0);
+          width:100%;
+          height:100%;
+
+          img{
+            width:100%;
+          }
+
+          p{
+            top:auto;
+            bottom:0;
+            max-width:100%;
+            width:100%;
+            padding:15px;
+            right:0;
+          }
+
+          .fechar{
+            top:0;
+            right:0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and(max-width:425px){
+  #catalogo{
+    min-height:0;
+
+    .catalogo{
+      width:100%;
+      margin:50px auto 10px;
+
+      img{
+        display:block; width:100%;
+      }
+    }
+
+    .download{
+      margin-bottom:50px;
+    }
+  }
+
+  .contato{
+    .container{
+      textarea{
+        height:100px;
+      }
+    }
+  }
+}

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Slice Batata Ondulada</title>
+
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+
+		<link rel="icon" href="favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+		<link rel="stylesheet" type="text/css" href="static/css/main.css">
+		<link rel="stylesheet" type="text/css" href="static/css/plugin/transitions.css">
+		<link rel="stylesheet" type="text/css" href="static/css/plugin/carousel.css">
+	</head>
+	<body>
+	<script src="https://apis.google.com/js/platform.js"></script>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.3&appId=1512231149036433";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+		<a href="javascript:;" id="btn-menu"><span></span></a>
+
+		<nav id="menu">
+			<a href="#header" title="" class="active"><em>Home</em></a>
+			<a href="#sobre" title=""><em>A Slice</em></a>
+			<a href="#produtos" title=""><em>Produtos</em></a>
+			<a href="#onde-comprar" title=""><em>Vendas</em></a>
+			<a href="#campanha" title=""><em>Campanha</em></a>
+			<a href="#estamos-online" title=""><em>Contato</em></a>
+		</nav>
+
+		<header id="header">
+			
+			<ul id="social">
+				<li><a href="javascript:;" title="Curta nossa página no Facebook" target="_blank">Facebook</a></li>
+				<li class="bullet">•</li>
+				<li><a href="javascript:;" title="Siga-nos no Instagram" target="_blank">Intagram</a></li>
+				<li class="bullet">•</li>
+				<li><a href="javascript:;" title="Inscreva-se no nosso canal no YouTube" target="_blank">Youtube</a></li>
+			</ul>
+
+			<br class="clear">
+
+			<div class="logo"></div>
+
+			<div id="wrapper-taglines">
+
+				<ul id="batatas">
+
+					<li></li>
+
+					<li>
+						<img src="static/img/produtos/saco-picanha.png" alt="Cebola e Salsa">
+						<h1>O importante é ter tempo <span>para uma Slice</span></h1>
+					</li>
+
+					<li class="atual">
+						<img src="static/img/produtos/saco-picanha.png" alt="Cebola e Salsa">
+						<h1>O importante é ter tempo <span>para uma Slice</span></h1>
+					</li>
+					
+					<li>
+						<img src="static/img/produtos/saco-picanha.png" alt="Cebola e Salsa">
+						<h1>O importante é ter tempo <span>para uma Slice</span></h1>
+					</li>
+					
+					<li>
+						<img src="static/img/produtos/saco-picanha.png" alt="Cebola e Salsa">
+						<h1>O importante é ter tempo <span>para uma Slice</span></h1>
+					</li>
+
+					<li></li>
+
+				</ul>
+
+				<a href="javascript:;" title="" id="prev-batata"></a>
+
+				<a href="javascript:;" title="" id="next-batata"></a>
+
+			</div>
+
+			<div id="todos">
+
+				<h2>Conheça todos os sabores de Slice</h2>
+
+				<a href="javascript:;" title="" id="btn-sabores">Clique aqui</a>
+
+			</div>
+
+		</header>
+
+		<section id="sobre">
+
+			<div id="box-texto">
+
+				<div class="logo"></div>
+
+				<h2>Pra quem não para</h2>
+
+				<p>
+					Às vezes parece que os 7 dias da semana não são o bastante.<br>
+					E quem consegue encaixar um dia inteiro em 24 horas?<br>
+					É por essas e outras que você deve andar sempre com uma Slice. Assim você não perde nenhum momento especial da vida e fica sempre preparado para o próximo.
+				</p>
+
+			</div>
+
+			<div id="box-imagens">
+				<ul id="lista-imagens">
+					<li><img src="static/img/sobre/foto1.jpg" alt="Foto 1"></li>
+					<li><img src="static/img/sobre/foto2.jpg" alt="Foto 2"></li>
+				</ul>
+				<div id="track">
+					<div id="progress"></div>
+				</div>
+			</div>
+
+			<br class="clear">
+
+		</section>
+
+		<section id="produtos">
+
+			<div id="titulo-produtos">
+				<p>Produtos</p>
+				<h2>Conheça os sabores</h2>
+			</div>
+
+			<ul id="lista-produtos">
+
+				<li class="tradicional">
+					<div class="img-produto"></div>
+					<div class="ico-produto"></div>
+					<h3>Tradicional</h3>
+					<a href="javascript:;" title="" class="btn-saiba-mais" data-produto="tradicional">Saiba mais</a>
+				</li>
+
+				<li class="picanha">
+					<div class="img-produto"></div>
+					<div class="ico-produto"></div>
+					<h3>Picanha</h3>
+					<a href="javascript:;" title="" class="btn-saiba-mais" data-produto="picanha">Saiba mais</a>
+				</li>
+
+				<li class="cebola-salsa">
+					<div class="img-produto"></div>
+					<div class="ico-produto"></div>
+					<h3>Cebola e Salsa</h3>
+					<a href="javascript:;" title="" class="btn-saiba-mais" data-produto="cebola-salsa">Saiba mais</a>
+				</li>
+
+				<li class="cheddar">
+					<div class="img-produto"></div>
+					<div class="ico-produto"></div>
+					<h3>Cheddar</h3>
+					<a href="javascript:;" title="" class="btn-saiba-mais" data-produto="cheddar">Saiba mais</a>
+				</li>
+
+			</ul>
+
+			<br class="clear">
+
+			<section class="produto-aberto cebola-salsa">
+
+				<a href="javascript:;" title="" class="btn-fechar"></a>
+
+				<div class="embalagem-produto">
+					<img src="static/img/produtos/saco-cebola-salsa.png" alt="Cebola e Salsa">
+				</div>
+
+				<div class="info-produto">
+
+					<div class="box-titulo">
+
+						<div class="ico-produto cebola-salsa"></div>
+
+						<div class="texto">
+							<h2>Cebola e Salsa</h2>
+							<p>Batata ondulada sabor Cebola e Salsa</p>
+						</div>
+
+						<br class="clear">
+
+					</div>
+
+					<div class="ingredientes">
+
+						<h3>Ingredientes</h3>
+
+						<p>Batata, gordura vegetal, condimento preparado sabor cebola e salsa (sal, cebola, açúcar, salsa, soro de leite, realçador de sabor: glutamato monossódico, antiumectante: dióxido de silício, e aroma sintético idêntico ao natural de cebola). Contém derivados de leite.<br>NÃO CONTÉM GLÚTEN.</p>
+
+					</div>
+
+					<div class="infos-nutricionais">
+						<img src="static/img/produtos/info-cebola-salsa.png" alt="Informações nutricionais">
+					</div>
+
+				</div>
+
+			</section>
+
+		</section>
+
+		<section id="onde-comprar">
+			
+			<section id="local">
+
+				<div id="mapa"></div>
+
+				<h2>2 estados <span>•</span> 489 cidades</h2>
+
+				<p>Saiba onde comprar, preencha o formulário ao lado</p>
+
+			</section>
+
+			<section id="form">
+
+				<h2>Onde Comprar</h2>
+
+				<p>
+					Se você deseja saber onde comprar os produtos Slice, basta preencher o formulário abaixo lorem ipsum.<br>
+					Para que possamos atendê-lo adequadamente, todos os campos são de preenchimento obrigatório.
+				</p>
+
+				<form action="#">
+
+					<input type="text" name="nome" placeholder="Nome*" class="required">
+					<input type="text" name="email" placeholder="E-mail*" class="required">
+					<input type="text" name="telefone" placeholder="Telefone" class="half h-first">
+					<input type="text" name="celular" placeholder="Celular" class="half">
+					<select name="tipo" class="half h-first"><option value="">Eu sou consumidor final</option></select>
+					<select name="estado" class="half required"><option value="">Estado*</option></select>
+					<input type="text" name="cidade" placeholder="Cidade*" class="half h-first required">
+					<input type="text" name="bairro" placeholder="Bairro" class="half">
+
+					<br class="clear">
+
+					<button id="enviar">Enviar</button>
+
+				</form>
+
+			</section>
+
+			<br class="clear">
+
+		</section>
+
+		<section id="campanha">
+			<div id="nav-campanhas">
+				<a href="javascript:;" title="" id="prev-campanha"></a>
+				<a href="javascript:;" title="" id="next-campanha"></a>
+			</div>
+			<ul id="campanhas">
+
+				<li>
+					<img src="static/img/campanhas/campanha1.jpg" alt="Campanha 1">
+					<div class="titulo">
+						<h2>Tem tempo pra tudo,<br>até pra ser <em>feliz</em>.</h2>
+					</div>
+				</li>
+
+				<li>
+					<img src="http://www.picsum.photos/1920/950" alt="Campanha 1">
+					<div class="titulo">
+						<h2>Balada é assim mesmo,<br>quando vê, <em>já foi</em>.</h2>
+					</div>
+				</li>
+
+			</ul>
+		</section>
+
+		<section id="estamos-online">
+			
+			<h2>Estamos Online</h2>
+
+			<ul id="feed-social">
+				
+				<li class="facebook">
+					<div id="fb-root"></div><script>(function(d, s, id) {  var js, fjs = d.getElementsByTagName(s)[0];  if (d.getElementById(id)) return;  js = d.createElement(s); js.id = id;  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.3";  fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script><div class="fb-post" data-href="https://www.facebook.com/estudioffw/posts/632626260176219"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/estudioffw/posts/632626260176219"><p>Muitos ebooks e p&#xe1;ginas para consulta e aprendizado</p>Posted by <a href="https://www.facebook.com/estudioffw">Estúdio FFW</a> on <a href="https://www.facebook.com/estudioffw/posts/632626260176219">Terça, 3 de março de 2015</a></blockquote></div></div>
+				</li>
+
+				<li class="facebook">
+					<div id="fb-root"></div><script>(function(d, s, id) {  var js, fjs = d.getElementsByTagName(s)[0];  if (d.getElementById(id)) return;  js = d.createElement(s); js.id = id;  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.3";  fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script><div class="fb-post" data-href="https://www.facebook.com/estudioffw/posts/632626260176219"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/estudioffw/posts/632626260176219"><p>Muitos ebooks e p&#xe1;ginas para consulta e aprendizado</p>Posted by <a href="https://www.facebook.com/estudioffw">Estúdio FFW</a> on <a href="https://www.facebook.com/estudioffw/posts/632626260176219">Terça, 3 de março de 2015</a></blockquote></div></div>
+				</li>
+
+				<li class="instagram">
+					<a href="javascript:;"><img src="https://igcdn-photos-g-a.akamaihd.net/hphotos-ak-xfa1/t51.2885-15/11311649_465949890234190_335995735_n.jpg" alt="home+office ⏩ #worknight #VSCOcam"></a>
+					<a href="javascript:;" class="hover">
+						<span class="ico-instagram"></span>
+						<span class="descricao">home+office ⏩ #worknight #VSCOcam</span>
+					</a>
+				</li>
+
+				<li class="video double">
+					<a href="javascript:;" title="">
+						<img src="http://www.picsum.photos/903/445/" alt="Thumb vídeo">
+						<span class="btn-play"></span>
+					</a>
+				</li>
+
+				<li class="instagram">
+					<a href="javascript:;"><img src="https://igcdn-photos-g-a.akamaihd.net/hphotos-ak-xfa1/t51.2885-15/11311649_465949890234190_335995735_n.jpg" alt="home+office ⏩ #worknight #VSCOcam"></a>
+					<a href="javascript:;" class="hover">
+						<span class="ico-instagram"></span>
+						<span class="descricao">home+office ⏩ #worknight #VSCOcam</span>
+					</a>
+				</li>
+
+			</ul>
+
+			<br class="clear">
+
+			<a href="javascript:;" title="" class="rede-social rede-facebook">
+				<img src="static/img/facebook.jpg" alt="Imagem">
+				<span class="ico-rede"></span>
+				<span class="tagline">Acompanhe a Slice no Facebook</span>
+				<span class="interacao"><div class="fb-like" data-href="https://www.globo.com" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></span>
+			</a>
+
+			<a href="javascript:;" title="" class="rede-social rede-instagram">
+				<img src="static/img/facebook.jpg" alt="Imagem">
+				<span class="ico-rede"></span>
+				<span class="tagline">Siga nosso feed no Instagram</span>
+			</a>
+
+			<a href="javascript:;" title="" class="rede-social rede-youtube">
+				<img src="static/img/facebook.jpg" alt="Imagem">
+				<span class="ico-rede"></span>
+				<span class="tagline">Receba nossos vídeos do Youtube</span>
+				<span class="interacao"><div class="g-ytsubscribe" data-channel="GoogleDevelopers" data-layout="default" data-count="default"></div></span>
+			</a>
+
+			<br class="clear">
+
+			<section id="news">
+
+				<h2>Receba Novidades!</h2>
+
+				<p>Cadastre-se na nossa newsletter e receba novidades da batata mais gostosa do Brasil</p>
+
+				<div id="wrapper-news">
+					<input type="email" name="email" placeholder="digite seu email">
+					<button id="envia-news"></button>
+					<br class="clear">
+				</div>
+
+			</section>
+
+		</section>
+
+		<footer id="footer">
+			
+			<div id="logo-footer"></div>
+
+			<ul id="social-footer">
+				<li><a href="javascript:;" title="Curta nossa página no Facebook" class="ico-facebook"></a></li>
+				<li><a href="javascript:;" title="Siga nosso feed no Instagram" class="ico-instagram"></a></li>
+				<li><a href="javascript:;" title="Inscreva-se no nosso canal no YouTube" class="ico-youtube"></a></li>
+				<li><a href="javascript:;" title="Siga-nos no Twitter" class="ico-twitter"></a></li>
+			</ul>
+
+			<div class="footer-right">
+
+				<div id="distribuidora"></div>
+
+				<br class="clear">
+
+				<p id="copy">Slice 2014, Todos os direitos reservados.</p>
+
+			</div>
+
+			<br class="clear">
+
+		</footer>
+
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/plugin/modernizr.js"></script>
+		<script type="text/javascript" src="js/plugin/carousel.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/progressbar.js"></script>
+
+	</body>
+</html>

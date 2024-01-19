@@ -1,0 +1,158 @@
+// Dependências
+@import "compass";
+/* ********** CSS Reset */
+@include global-reset;
+@import "tools.scss";
+
+/* ********** font-face */
+@import url(../fonts/fonts.css);
+
+$Brandon:'Brandon Grotesque', Helvetica, Arial, sans-serif;
+$Caslon:'Caslon', 'Times New Roman', Georgia, serif;
+
+// Cores
+$roxo:#523888;
+$lilas:#F4EFFF;
+$cinza:#323231;
+$prata:#E7E6E6;
+$branco:#FFF;
+
+/* ********** Estilos globais */
+body{ font-weight:regular; @include font-size(16px); font-family:$Brandon; color:$cinza; @include font-smoothing(on); }
+@include selection($branco,$roxo);
+
+/* ********** Topo e headline */
+#header{ background-color:$branco; padding:20px 0; }
+#header .center{ overflow:hidden; }
+#logo{ display:block; float:left; }
+#logo img{ display:inline-block; }
+#social{ float:right; margin-top:18px; }
+#social li{ float:left; }
+#social li a{ display:block; height:25px; background:no-repeat center center; margin-left:30px; }
+#social li a.tw{ width:28px; background-image:url(../img/ico-tw.png); }
+#social li a.li{ width:25px; background-image:url(../img/ico-in.png); }
+
+#headline{ width:100%; height:800px; background:$roxo url(../img/headline.jpg) no-repeat center center; position:relative; color:$branco; }
+#headline .inner{ position:absolute; top:50%; @include transform(translatey(-50%)); right:0; width:50%; }
+#headline .inner h1{ font-family:$Caslon; @include font-size(45px); padding-bottom:30px; margin-bottom:30px; border-bottom:1px solid $branco; }
+#headline .inner p{ @include font-size(18px); }
+#headline .scroll{ position:absolute; left:50%; @include transform(translatex(-50%)); bottom:40px; width:150px; text-align:center; background:url(../img/arw-w.png) no-repeat center bottom; padding-bottom:90px; @include font-size(13px); text-transform:uppercase; line-height:16px; letter-spacing:0.3em; }
+
+/* ********** Sobre */
+#sobre{ background:$prata url(../img/bkg-sobre.jpg) repeat center top; padding:170px 0 130px; }
+#sobre .inner{ height:490px; background:$roxo url(../img/bkg-inner-sobre.jpg) no-repeat right center; position:relative; }
+#sobre .inner .block{ width:100%; max-width:480px; height:490px; margin-left:240px; padding:0 70px; background-color:$prata; }
+#sobre .inner .block h2{ font-family:$Caslon; @include font-size(45px); color:$roxo; margin-bottom:40px; @include transform(translatey(-22px)); }
+#sobre .inner .block p{ line-height:30px; }
+#sobre .inner .chamada{ display:inline-block; position:absolute; left:-90px; bottom:70px; }
+#sobre .inner .chamada span{ display:inline-block; @include transform(rotate(-90deg)); @include font-size(13px); text-transform:uppercase; letter-spacing:0.3em; color:$roxo; }
+#sobre .inner .chamada:after{ content:' '; display:block; width:12px; height:71px; background:url(../img/arw-p.png) no-repeat center center; position:absolute; bottom:-55px; right:28px; }
+
+/* ********** Como posso ajudar */
+#servicos{ text-align:center; background-color:$branco; padding-bottom:65px; }
+#servicos h2{ font-family:$Caslon; @include font-size(45px); color:$roxo; margin-bottom:80px; @include transform(translatey(-22px)); }
+#servicos ul{}
+#servicos ul li{ display:inline-block; width:160px; margin:0 45px 45px; vertical-align:top; }
+#servicos ul li .ico{ margin-bottom:20px; }
+#servicos ul li .ico img{}
+#servicos ul li p{ @include font-size(18px); line-height:25px; }
+
+/* ********** Clientes */
+#clientes{ padding-bottom:65px; }
+#clientes h2{ font-family:$Caslon; @include font-size(45px); color:$roxo; margin-bottom:110px; text-align:center; }
+#clientes ul{ overflow:hidden; padding-top:20px; margin-bottom:65px; }
+#clientes ul li{ display:block; float:left; width:16.66%; }
+#clientes ul li.hidden{ display:none; }
+#clientes ul li:nth-child(odd){ @include transform(translatey(-20px)); }
+#clientes ul li img{ display:block; width:100%; }
+
+#ver-mais{ display:block; width:100%; height:61px; @include font-size(16px); color:$roxo; text-align:center; @include transition(all 300ms ease-in-out); }
+#ver-mais:hover{ @include opacity(0.6); }
+#ver-mais em{ display:inline-block; vertical-align:middle; }
+#ver-mais span{ display:inline-block; width:61px; height:61px; background:url(../img/ico-mais.png) no-repeat center center; vertical-align:middle; margin:0 5px; }
+
+/* ********** Contato */
+#footer{ width:100%; padding-top:110px; background-color:$lilas; color:$roxo; }
+#footer h2{ font-family:$Caslon; @include font-size(45px); color:$roxo; margin-bottom:110px; text-align:center; }
+
+#footer .col-left{ float:left; width:50%; }
+#footer .col-left input,
+#footer .col-left textarea{ display:block; width:100%; padding:5px 0; border:0; border-bottom:1px solid $cinza; margin-bottom:10px; text-align:center; font-family:$Brandon; @include font-size(16px); color:$cinza; background-color:transparent; }
+#footer .col-left textarea{ height:180px; padding:10px; border:1px solid $cinza; text-align:left; resize:none; }
+#footer .col-left button{ display:block; width:100%; padding:15px 0; border:0; background-color:$roxo; color:#FFF; font-family:$Brandon; text-transform:uppercase; @include font-size(16px); cursor:pointer; @include transition(all 300ms ease-in-out); }
+#footer .col-left button:hover{ @include opacity(0.6); }
+
+#footer .col-right{ float:right; width:40%; margin-top:120px; }
+#footer .col-right p{ font-family:$Caslon; @include font-size(26px); padding-left:35px; line-height:30px; background:no-repeat left center; margin-bottom:30px; }
+#footer .col-right p.fone{ background-image:url(../img/ico-fone.png); }
+#footer .col-right p.skype{ background-image:url(../img/ico-skype.png); }
+#footer .col-right p.mail{ background-image:url(../img/ico-mail.png); }
+
+#footer .lower{ background-color:$roxo; color:#FFF; margin-top:140px; padding:20px 50px; overflow:hidden; @include font-size(12px); line-height:24px; }
+#footer .lower p{ float:left; }
+#assinatura{ display:block; float:right; height:24px; padding-right:36px; background:url(../img/ffw.png) no-repeat right center; text-transform:uppercase; @include transition(all 300ms ease-in-out); }
+#assinatura:hover{ @include opacity(0.6); }
+
+/* ********** Responsivo */
+@media screen and(max-width:1300px){
+	#sobre .inner .block{ width:80%; margin-left:10%; }
+	#sobre .inner .chamada{ left:-30px; bottom:70px; }
+
+	#clientes ul li{ width:25%; }
+}
+
+@media screen and(max-width:820px){
+	#footer .col-left{ width:100%; }
+	#footer .col-right{ width:100%; margin-top:50px; text-align:center; }
+	#footer .col-right p{ display:inline-block; margin:0 20px 20px; }
+	#footer .lower{ margin-top:60px; }
+}
+
+@media screen and(max-width:740px){
+	#headline .inner{ width:90%; }
+}
+
+@media screen and(max-width:620px){
+	#sobre .inner{ height:auto; }
+	#sobre .inner .block{ width:90%; max-width:100%; margin-left:5%; height:auto; padding:0 40px 40px; }
+	#sobre .inner .chamada{ display:none; }
+
+	#clientes ul li{ width:50%; }
+
+	#footer{ padding-top:50px; }
+	#footer h2{ margin-bottom:50px; }
+	#footer .lower{ padding:20px; }
+}
+
+@media screen and(max-width:440px){
+	#logo{ width:100%; text-align:center; }
+	#social{ width:100%; margin-top:20px; text-align:center; }
+	#social li{ float:none; display:inline-block; margin:0 10px; }
+	#social li a{ margin:0; }
+	#headline{ height:450px; }
+	#headline .inner{ top:50px; @include transform(translatey(0)); }
+
+	#footer .col-right p{ @include font-size(20px); line-height:24px; }
+	#footer .col-right p.mail{ padding:0; background:none; }
+
+	#footer .lower{ text-align:center; }
+	#footer .lower p{ width:100%; margin-bottom:10px; }
+	#assinatura{ display:inline-block; float:none; }
+}
+
+@media screen and(max-width:360px){
+	#sobre{ padding:50px 0; }
+	#sobre .inner{ background:transparent; }
+	#sobre .inner .block{ background:transparent; width:100%; margin:0; padding:0 20px 20px; }
+	#sobre .inner .block h2{ margin-bottom:20px; @include transform(translatey(0)); }
+
+	#clientes ul li{ width:100%; }
+	#clientes ul li:nth-child(odd){ @include transform(translatey(0)); }
+}
+
+
+
+
+
+
+

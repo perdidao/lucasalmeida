@@ -1,0 +1,68 @@
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+@import url(../font/geared.css);
+*{ @include box-sizing(border-box); }
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,700);
+
+// VARIÁVEIS
+$verde:#8BC441;
+$verde-escuro:#509622;
+$Raleway:'Raleway', Helvetica, Arial, Sans-serif;
+$Geared:'Geared', Helvetica, Arial, Sans-serif;
+
+// ESTILOS GLOBAIS
+body{ background:#FFF url(../img/bkg-body.png) repeat; font-family:$Raleway; font-weight:$regular; @include font-size(13px); color:#444; }
+a{ text-decoration:none; color:inherit; }
+
+// HEADER
+#header{ position:fixed; z-index:9; top:0; left:0; width:100%; height:140px; background:#0F1112 url(../img/bkg-topo.png) repeat-x; @include font-smoothing(on); }
+#header .center{ position:relative; }
+
+#menu{ float:left; margin-top:110px; position:relative; }
+#menu li{ display:block; float:left; }
+#menu li > a{ display:block; float:left; @include font-size(10px); font-weight:$bold; height:30px; line-height:30px; color:#FFF; text-transform:uppercase; margin-right:30px; padding:0 3px 5px; border-bottom:6px solid transparent; @include transition(all 300ms linear); }
+#menu li > a:hover,
+#menu li > a.active{ border-bottom:6px solid $verde-escuro; }
+#submenu{ display:none; position:absolute; top:30px; background:#F00; width:323px; height:50px; background:transparent url(../img/bkg-endereco.png) repeat-x left top; padding:15px 25px; @include box-shadow(0 2px 2px rgba(0,0,0,.3)); }
+#submenu li{ color:#FFF; line-height:20px; }
+#submenu li a{ margin-right:0; padding:0 10px; line-height:20px; }
+
+#logo{ display:block; float:left; width:314px; height:160px; position:absolute; top:10px; left:50%; margin-left:-157px; background:transparent url(../img/cdm-logo.png) no-repeat center center; text-indent:-999em; overflow:hidden; @include transition(all 300ms linear); }
+#logo:hover{ background-image:url(../img/cdm-logo-alt.png); }
+#contato{ float:right; }
+#contato .endereco{ height:55px; margin-top:39px; background:transparent url(../img/bkg-endereco.png) repeat-x left top; @include box-shadow(0 2px 2px rgba(0,0,0,.3)); }
+#contato .contato{ height:36px; margin-top:10px; background:transparent url(../img/bkg-contato.png) repeat-x left top; }
+#contato div .ico-container{ width:37px; height:100%; float:left; background:$verde url(../img/bkg-ico-contato.png) repeat-x left top; text-align:center; }
+#contato .endereco .ico-container img{ margin-top:16px; }
+#contato .contato .ico-container img{ margin-top:11px; }
+#contato div .text-container{ float:left; width:250px; padding:7px 0 0 20px; color:#FFF;@include font-size(11px); }
+#contato .endereco .text-container{ line-height:1.3em; }
+#contato div strong{ font-weight:$bold; }
+
+
+// FOOTER
+#footer{ height:40px; background-color:#000; position:relative; z-index:7; }
+#footer-menu{ float:left; }
+#footer-menu li{ display:block; float:left; height:40px; line-height:40px; color:#FFF; margin-right:10px; text-transform:uppercase; @include font-size(9px); @include font-smoothing(on); }
+#footer-menu li a:hover{ font-weight:$bold; }
+#footer-menu li.telefone{ @include font-size(10px); font-weight:$bold; color:$verde; }
+#assinatura{ display:block; width:26px; height:24px; background:transparent url(../img/ico-oapo.png) no-repeat center center; float:right; margin-top:9px; }
+
+// MODAL MARCA
+#overlay-marca{ display:none; position:absolute; z-index:8; top:0; left:0; background:transparent url(../img/bkg-overlay.png) repeat; height:4219px; }
+#modal-marca{ position:absolute; width:962px; height:4079px; top:140px; left:50%; margin-left:-481px; background:#FFF url(../img/apresentacao.jpg) repeat; }
+#fechar-marca{ display:block; position:absolute; top:30px; right:30px; width:260px; height:22px; @include font-size(19px); background:transparent url(../img/fechar-marca.png) no-repeat right center; color:$verde-escuro; font-family:$Geared; text-transform:uppercase; }
+
+// MODAL CONTATO
+#overlay{ display:none; position:fixed; z-index:999; top:0; left:0; background:transparent url(../img/bkg-overlay.png) repeat; }
+#modal{ position:absolute; width:500px; height:460px; padding:30px; border:2px solid #FFF; top:50%; left:50%; margin-top:-230px; margin-left:-250px; background:transparent url(../img/bkg-overlay.png) repeat; color:#FFF; @include font-smoothing(on); }
+#fechar{ display:block; position:absolute; top:30px; right:30px; width:20px; height:20px; background:transparent url(../img/fechar.png) no-repeat center center; }
+#modal h2{ font-family:$Geared; text-transform:uppercase; @include font-size(22px); letter-spacing:0.09em; margin-bottom:30px; }
+#modal p{ margin-bottom:10px; }
+#modal label{ display:block; color:#FFF; }
+#modal label.radio{ display:block; float:left; margin:0 50px 20px 0; }
+#modal label.texto{ width:100%; margin-bottom:10px; }
+#modal label.texto input,
+#modal label.texto textarea{ display:block; width:100%; padding:6px; background:transparent; border:1px solid #FFF; margin-top:5px; font-family:$Raleway; @include font-size(13px); color:#FFF; @include font-smoothing(on); }
+#modal label.texto textarea{ height:130px; resize:none; }

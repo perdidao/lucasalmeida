@@ -1,0 +1,61 @@
+@import "compass";
+@import "tools.scss";
+*{ @include box-sizing(border-box); }
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700);
+
+// VARIÁVEIS GLOBAIS
+$royal:#1B4A74;
+$turquoise:#29B8D8;
+
+$Source:'Source Sans Pro', Helvetica, Arial, Sans-serif;
+
+// BANNERS
+#banner{ width:1240px; height:340px; margin:0 auto; position:relative; }
+#banner li{ position:absolute; top:0; left:0; }
+#banner li img{}
+#banner li .info{ width:360px; height:130px; padding:20px; background:transparent url(../img/bkg-overlay.png) repeat; position:absolute; bottom:30px; right:120px; color:#FFF; }
+#banner li .info p{ line-height:1.2em; }
+#banner li .info a{ float:right; color:$turquoise; }
+
+// ÁREAS DE ATUAÇÃO
+#lista-areas li{ float:left; width:160px; text-align:center; margin-right:120px; @include opacity(0.5); @include transition(all 300ms linear); }
+#lista-areas li.last{ margin-right:0; }
+#lista-areas li.current{ @include opacity(1); }
+#lista-areas li .ico{ width:160px; height:160px; @include border-radius(50%); background-color:$royal; background-position:center center; background-repeat:no-repeat; }
+#lista-areas li .ico.ico-condominial{ background-image:url(../img/ico-condominial.png); }
+#lista-areas li .ico.ico-administrativa{ background-image:url(../img/ico-administrativa.png); }
+#lista-areas li .ico.ico-financeira{ background-image:url(../img/ico-financeira.png); }
+#lista-areas li .ico.ico-juridica{ background-image:url(../img/ico-juridica.png); }
+#lista-areas li .ico.ico-rh{ background-image:url(../img/ico-rh.png); }
+#lista-areas li h3{ @include font-size(18px); text-transform:uppercase; font-weight:$bold; margin-top:10px; }
+#lista-areas li h3 span{ @include font-size(14px); text-transform:lowercase; display:block; font-weight:$regular; }
+
+// POSTS DO BLOG
+#content{ margin-top:30px; }
+#blog{ width:48%; float:left; }
+#posts{}
+#posts li{ width:100%; margin-bottom:30px; }
+#posts li .box-image{ width:37.5%; float:left; }
+#posts li .box-texto{ width:60%; margin-left:2.5%; float:left; }
+#posts li .box-texto h3{ @include font-size(18px); font-weight:$bold; margin-bottom:15px; line-height:1.3em; }
+#posts li .box-texto p{ line-height:1.3em; }
+#posts li .box-texto a{ float:right; color:$royal; margin-top:15px; }
+
+// SERVIÇOS
+#servicos{ width:48%; float:right; }
+#lista-servicos{}
+#lista-servicos li{ margin-bottom:70px; }
+#lista-servicos li a{ display:block; min-height:77px; padding-left:120px; }
+#lista-servicos li.boleto a{ background:transparent url(../img/ico-boleto.png) no-repeat 10px top; }
+#lista-servicos li.proposta a{ background:transparent url(../img/ico-proposta.png) no-repeat 15px top; }
+#lista-servicos li.visita a{ background:transparent url(../img/ico-visita.png) no-repeat 35px top; }
+#lista-servicos li.visita{ margin-bottom:0; }
+#lista-servicos li h3{ @include font-size(40px); color:$royal; font-weight:$light; margin-bottom:10px; }
+
+// PARCEIROS
+#parceiros{ padding-top:30px; margin-top:30px; border-top:1px solid #CCC; }
+#lista-parceiros{}
+#lista-parceiros li{ width:220px; height:120px; border:1px solid #CCC; background-color:#FFF; padding:20px; float:left; margin-right:40px; }
+#lista-parceiros li.last{ margin:0; }
+#lista-parceiros li a{ display:block; }
+#lista-parceiros li a img{ display:block; width:100%; }

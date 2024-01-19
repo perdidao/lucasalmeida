@@ -1,0 +1,436 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400');
+$Lato:'Lato', Helvetica, Arial, sans-serif;
+
+$light:300;
+$regular:400;
+
+// CORES
+$ouro:#D3AE62;
+$cinza:#3B3B3B;
+$prata:#F7F7F7;
+
+/* ====== Global */
+body{ font-weight:$light; @include font-size(18px); font-family:$Lato; @include font-smoothing(on); }
+@include selection(#FFF,$ouro);
+
+#btn-menu{
+    display:none;
+    width:40px;
+    height:29px;
+    position:fixed;
+    z-index:1000;
+    top:40px;
+    right:30px;
+    @include transition(all 300ms ease-in-out);
+    & span,
+    &:before,
+    &:after{
+        content:" ";
+        display:block;
+        width:40px;
+        height:5px;
+        background-color:$ouro;
+        @include transform(rotate(0));
+        position:absolute;
+        left:0;
+        @include transition(all 300ms ease-in-out);
+    }
+        
+    &:before{ top:0; }
+    & span{ top:12px; @include opacity(1); }
+    &:after{ bottom:0; }
+    
+    &.active span{ opacity:0; top:12px; @include transform(rotate(90deg)); }
+    &.active:before{ width:40px; top:12px; left:0; @include transform(rotate(45deg)); }
+    &.active:after{ width:40px; bottom:12px; left:0; @include transform(rotate(-45deg)); } 
+}
+
+.menu{ position:fixed; z-index:1; top:0; left:-30%; width:30%; height:100%; padding-top:7%; background-color:#06C; font-family:sans-serif; font-size:1.5em; font-weight:700; text-transform:uppercase; color:#FFF; text-align:center; transition:all 300ms ease-in-out; }
+.menu.active{ left:0; }
+.menu li{ margin:20px 0; }
+
+h2.decorado{ text-align:center; @include font-size(36px); text-transform:uppercase; font-weight:$regular; letter-spacing:0.02em; padding-bottom:65px; background:url(../img/decorado.png) no-repeat center bottom; }
+.btn-wrapper{ text-align:center; }
+.btn{ display:inline-block; padding:10px 30px; background-color:$ouro; text-transform:uppercase; color:#FFF; @include border-radius(15px); @include transition(all 300ms ease-in-out); }
+.btn:hover{ @include opacity(0.6); }
+
+/* ====== Header */
+#header{ background-color:#FFF; padding:20px 0; }
+#header .center{ overflow:hidden; }
+#logo{ display:block; float:left; }
+#logo img{ display:block; }
+
+#menu{ float:right; margin-top:20px; }
+#menu li{ display:inline-block; margin-right:25px; }
+#menu li a{ @include font-size(15px); font-weight:$regular; text-transform:uppercase; @include transition(all 300ms ease-in-out); }
+#menu li a:hover,
+#menu li a.active{ color:$ouro; }
+
+#header .social{ float:right; margin-top:20px; }
+#header .social li{ display:inline-block; margin:0 1px; }
+#header .social li a{ display:block; width:20px; height:20px; background:no-repeat center center; @include transition(all 300ms ease-in-out); }
+#header .social li a:hover{ @include opacity(0.6); }
+#header .social li a.fb{ background-image:url(../img/ico-fb.png); }
+#header .social li a.in{ background-image:url(../img/ico-in.png); }
+
+/* ====== Banner */
+#banners{ background-color:$prata; padding-bottom:45px; }
+#banners ul{ margin-bottom:75px; }
+#banners ul li img{ display:block; }
+#banners p{ text-align:center; font-weight:$regular; }
+
+#banners .owl-dots{ position:absolute; bottom:-33px; left:0; width:100%; text-align:center; }
+#banners .owl-dot{ display:inline-block; width:6px; height:6px; margin:0 12px;  background-color:$cinza; @include border-radius(50%); @include transition(all 300ms ease-in-out); }
+#banners .owl-dot.active{ background-color:$ouro; }
+
+/* ====== Superfícies */
+.pic-list{ padding:70px 0; }
+.pic-list p.sub{ max-width:740px; margin:20px auto 50px; line-height:20px; text-align:center; }
+.model-list{ overflow:hidden; padding-bottom:10px; margin-bottom:60px; }
+.model-list li{ float:left; width:29.3%; margin:0 2%; text-align:center; }
+.model-list li img{ display:block; width:100%; margin-bottom:30px; }
+.model-list li h3{ text-transform:uppercase; font-weight:$regular; }
+.model-list li .separador{ width:50px; height:2px; background-color:$ouro; margin:25px auto; }
+.model-list li p{ max-width:280px; margin:0 auto; }
+
+/* ====== Obras realisadas */
+#obras{ padding:100px 0 65px; background-color:$prata; }
+#lista-obras{ margin-top:30px; }
+#lista-obras > div{ overflow:hidden; background-color:$cinza; }
+#lista-obras .texto{ float:left; width:50%; color:#FFF; padding-top:100px; }
+#lista-obras .texto p{ width:90%; max-width:460px; margin:0 auto 30px; @include font-size(16px); line-height:22px; letter-spacing:0.02em; }
+#lista-obras .image{ float:left; width:50%; }
+#lista-obras .image img{ display:block; width:100%; }
+
+#obras .wrapper-progress{ background-color:$cinza; }
+#obras .slide-progress { width:0; max-width:100%; height:4px; background-color:$ouro; }
+
+/* ====== Empresa */
+#topo-sobre{ width:100%; margin-bottom:60px; }
+#topo-sobre img{ display:block; width:100%; }
+#container{}
+#container.sobre h2{ @include font-size(30px); text-transform:uppercase; text-align:center; letter-spacing:0.1em; font-weight:$regular; margin-bottom:50px; }
+#container.sobre p{ @include font-size(15px); line-height:37px; letter-spacing:0.2em; font-weight:$regular; margin-bottom:40px; }
+#container.sobre .img1 img,
+#container.sobre .img2 img{ display:block; width:100%; }
+#container.sobre .img1,
+#container.sobre .img2{ margin-bottom:80px; position:relative; }
+#container.sobre .img1:before{ content:' '; display:block; width:350px; height:4px; background-color:$ouro; position:absolute; bottom:100px; left:93%; }
+#container.sobre .img2:after{ content:' '; display:block; width:500px; height:4px; background-color:$ouro; position:absolute; top:90px; right:93%; }
+#container.sobre .lista-fotos{ width:100%; overflow:hidden; margin-bottom:80px; }
+#container.sobre .lista-fotos li{ float:left; width:33.33%; }
+#container.sobre .lista-fotos li img{ display:block; width:100%; }
+
+/* ====== Serviços */
+#topo-servicos{ width:100%; height:720px; margin-bottom:100px; background:url(../img/topo-servicos.jpg) no-repeat center center; position:relative; }
+#topo-servicos h1{ width:100%; padding:35px 0; @include font-size(44px); letter-spacing:0.1em; text-transform:uppercase; font-weight:$regular; text-align:center; background-color:rgba(0,0,0,.9); color:$ouro; position:absolute; bottom:0; left:0; }
+
+#cortes-especiais{ overflow:hidden; margin-bottom:70px; }
+#cortes-especiais .texto{ float:left; width:54%; }
+#cortes-especiais .texto h2{ max-width:320px; margin:60px 0 0 31%; @include font-size(30px); line-height:38px; text-transform:uppercase; letter-spacing:0.1em; font-weight:$regular; }
+#cortes-especiais .texto .separador{ width:100%; height:1px; background-color:$cinza; margin:30px 0 50px; }
+#cortes-especiais .texto p{ max-width:640px; margin-left:31%; @include font-size(15px); line-height:40px; font-weight:$regular; letter-spacing:0.1em; }
+#cortes-especiais .imagem{ float:left; width:46%; }
+#cortes-especiais .imagem img{ display:block; width:100%; }
+
+#lista-cortes{ overflow:hidden; }
+#lista-cortes li{ position:relative; }
+#lista-cortes li .texto{ position:absolute; z-index:1; top:60px; left:0; width:55%; background-color:$cinza; padding:120px 60px 0; min-height:460px; @include font-size(30px); font-weight:$regular; letter-spacing:0.1em; }
+#lista-cortes li .texto h2{ text-transform:uppercase; color:$ouro; margin-bottom:55px; }
+#lista-cortes li .texto p{ line-height:47px; color:#FFF; }
+#lista-cortes li .imagem{ float:right; width:60%; }
+#lista-cortes li .imagem img{ display:block; width:100%; }
+
+#lista-cortes .owl-dots{ position:absolute; bottom:100px; left:27.5%; @include transform(translatex(-50%)); }
+#lista-cortes .owl-dots .owl-dot{ display:inline-block; width:6px; height:6px; background-color:#FFF; @include border-radius(50%); margin:0 10px; }
+#lista-cortes .owl-dots .owl-dot.active{ background-color:$ouro; }
+
+#waterjet{ width:100%; padding:60px 0 45px; background:url(../img/bkg-jet.jpg) repeat center top; }
+#waterjet h2{ text-align:center; @include font-size(30px); text-transform:uppercase; letter-spacing:0.1em; color:$ouro; font-weight:$regular; margin-bottom:50px; }
+#waterjet p{ width:100%; padding:70px 20%; background-color:#FFF; @include font-size(15px); line-height:37px; letter-spacing:0.1em; font-weight:$regular; text-align:center; margin-bottom:10px; }
+#waterjet .lista-jet{ overflow:hidden; }
+#waterjet .lista-jet li{ float:left; width:24.25%; margin-right:1%; }
+#waterjet .lista-jet li:last-child{ margin-right:0; }
+#waterjet .lista-jet li img{ display:block; width:100%; }
+
+/* ====== Obras Realizadas */
+#topo-obras{ width:100%; height:720px; margin-bottom:50px; background:url(../img/topo-obras.jpg) no-repeat center center; position:relative; }
+#topo-obras h1{ width:100%; padding:40px 0; @include font-size(44px); letter-spacing:0.1em; text-transform:uppercase; font-weight:$regular; text-align:center; background-color:rgba(0,0,0,.9); color:$ouro; position:absolute; bottom:0; left:0; }
+
+#container .col-left{ float:left; width:73%; margin-right:2%; }
+#container .col-left h2{ @include font-size(30px); text-transform:uppercase; font-weight:$regular; color:$ouro; letter-spacing:0.1em; margin-bottom:70px; position:relative; }
+#container .col-left h2:after{ content:' '; display:block; width:500px; height:4px; background-color:$ouro; position:absolute; bottom:-25px; right:100%; }
+#container .col-left p{ @include font-size(15px); line-height:40px; letter-spacing:0.15em; font-weight:$regular; max-width:800px; margin-bottom:40px; }
+#container .col-left ul{ overflow:hidden; }
+#container .col-left li{ float:left; width:32.33%; margin:0 1% 1% 0; }
+#container .col-left li:nth-child(3n){ margin-right:0; }
+#container .col-left li a img{ display:block; width:100%; }
+
+#container .col-right{ float:left; width:25%; }
+#container .col-right p{ @include font-size(20px); font-weight:$regular; letter-spacing:0.1em; margin-bottom:20px; }
+#menulat{}
+#menulat li{}
+#menulat li a{ display:block; border:1px solid $cinza; border-bottom:0; padding:25px 30px; @include font-size(20px); @include transition(all 300ms ease-in-out); }
+#menulat li:last-child a{ border-bottom:1px solid $cinza; }
+#menulat li a:hover,
+#menulat li a.active{ background-color:$ouro; }
+
+#materiais{ margin-top:80px; }
+#materiais h2{ @include font-size(20px); font-weight:$regular; letter-spacing:0.1em; text-transform:uppercase; text-align:center; margin-bottom:40px; }
+#materiais ul{ width:100%; text-align:center; margin-bottom:35px; }
+#materiais ul li{ display:inline-block; width:160px; vertical-align:top; margin:0 35px 35px; @include transition(all 300ms ease-in-out); }
+#materiais ul li:hover{ @include opacity(0.6); }
+#materiais ul li .imagem{ @include border-radius(50%); overflow:hidden; margin-bottom:10px; }
+#materiais ul li .imagem img{ display:block; width:100%; }
+#materiais ul li p{ @include font-size(20px); font-weight:$regular; letter-spacing:0.1em; line-height:25px; }
+
+/* ====== Superfícies */
+#topo-superficies{ width:100%; height:500px; background:url(../img/topo-superficies.jpg) no-repeat center center; position:relative; }
+#topo-superficies h1{ width:100%; padding:40px 0; @include font-size(44px); letter-spacing:0.1em; text-transform:uppercase; font-weight:$regular; text-align:center; background-color:rgba(0,0,0,.9); color:$ouro; position:absolute; bottom:0; left:0; }
+
+.upper{ background-color:$prata; padding-top:60px; }
+.menu-sup{}
+.menu-sup h2{ @include font-size(20px); font-weight:$regular; letter-spacing:0.1em; text-transform:uppercase; text-align:center; margin-bottom:40px; }
+.menu-sup ul{ text-align:center; }
+.menu-sup ul li{ display:inline-block; vertical-align:top; max-width:160px; margin:0 40px 40px; }
+.menu-sup ul li .imagem{ display:block; position:relative; border:0 solid $ouro; @include border-radius(50%); overflow:hidden; margin-bottom:10px; @include transition(all 300ms ease-in-out); background-color:$cinza; }
+.menu-sup ul li .imagem:hover{ border-width:6px; }
+.menu-sup ul li .imagem img{ display:block; width:100%; position:relative; z-index:1; @include transition(all 300ms ease-in-out); }
+.menu-sup ul li .imagem:hover img{ @include opacity(0.3); }
+.menu-sup ul li .imagem .olho{ display:block; position:absolute; z-index:2; top:50%; left:50%; @include transform(translate(-50%,-50%)); width:45px; height:23px; background:url(../img/olho.png) no-repeat center center; @include opacity(0); @include transition(all 300ms ease-in-out); }
+.menu-sup ul li .imagem:hover .olho{ @include opacity(1); }
+.menu-sup ul li p{ @include font-size(20px); font-weight:$regular; }
+
+.sobre{ overflow:hidden; }
+.sobre .imagem{ float:left; width:50%; }
+.sobre .imagem img{ display:block; width:100%; }
+.sobre .texto{ float:left; width:50%; padding:110px 0 0 80px; }
+.sobre .texto h2{ @include font-size(35px); font-weight:$regular; text-transform:uppercase; letter-spacing:0.2em; margin-bottom:80px; position:relative; }
+.sobre .texto h2:after{ content:' '; display:block; width:350px; height:4px; background-color:#000; position:absolute; bottom:-40px; right:85%; }
+.sobre .texto p{ @include font-size(15px); line-height:30px; font-weight:$regular; letter-spacing:0.1em; }
+
+.aplicacao{ overflow:hidden; }
+.aplicacao .texto{ float:left; width:50%; padding:130px 60px 0 0; }
+.aplicacao .texto h2{ @include font-size(35px); font-weight:$regular; text-transform:uppercase; letter-spacing:0.2em; margin-bottom:80px; position:relative; }
+.aplicacao .texto h2:after{ content:' '; display:block; width:130px; height:4px; background-color:#000; position:absolute; bottom:-40px; left:0; }
+.aplicacao .texto p{ @include font-size(15px); line-height:30px; font-weight:$regular; letter-spacing:0.1em; }
+.aplicacao .imagem{ float:left; width:50%; }
+.aplicacao .imagem img{ display:block; width:100%; }
+
+.galeria{}
+.galeria p{ text-align:center; max-width:800px; width:80%; margin:100px auto; @include font-size(15px); line-height:30px; letter-spacing:0.1em; font-weight:$regular; }
+.galeria ul{ overflow:hidden; }
+.galeria ul li{ float:left; width:33.33%; }
+.galeria ul li img{ display:block; width:100%; }
+
+.colors{ background-color:$prata; padding:80px 0 120px; }
+.colors h2{ @include font-size(35px); font-weight:$regular; text-transform:uppercase; line-height:40px; letter-spacing:0.1em; max-width:280px; margin-bottom:10px; }
+.colors ul{ overflow:hidden; }
+.colors ul li{ float:left; width:19.2%; margin-right:1%; }
+.colors ul li:last-child{ margin-right:0; }
+.colors ul li img{ display:block; width:100%; margin-bottom:10px; }
+.colors ul li p{ text-transform:uppercase; font-weight:$regular; line-height:20px; text-align:center; padding:0 15%; }
+
+/* ====== Seja um revendedor */
+#topo-revendedor{ width:100%; background:#FCE9D2 url(../img/topo-revendedor.jpg) no-repeat center top; padding:1px 0 70px; }
+#topo-revendedor p{ width:100%; max-width:1280px; margin:420px auto 90px; padding:40px 180px; background-color:#FFF; @include font-size(15px); line-height:40px; letter-spacing:0.15em; font-weight:$regular; }
+#topo-revendedor h1{ @include font-size(45px); font-weight:$regular; text-transform:uppercase; text-align:center; margin-bottom:30px; }
+#topo-revendedor .separador{ width:60px; height:4px; background-color:$cinza; margin:0 auto; }
+
+.tipos-produto{ background-color:#2B2B2B; overflow:hidden; }
+.tipos-produto .imagem{ float:left; width:50%; }
+.tipos-produto .imagem img{ display:block; width:100%; }
+.tipos-produto .texto{ float:left; width:50%; padding:150px 0 50px 100px; }
+.tipos-produto .texto h2{ @include font-size(35px); letter-spacing:0.06em; text-transform:uppercase; color:$ouro; margin-bottom:50px; position:relative; }
+.tipos-produto .texto h2:after{ content:' '; display:block; width:130%; height:1px; background-color:$ouro; position:absolute; bottom:-20px; right:0; }
+.tipos-produto .texto p{ @include font-size(15px); font-weight:$regular; line-height:40px; letter-spacing:0.15em; color:#FFF; max-width:600px; }
+
+.tipos-produto.alternate h2:after{ width:135%; right:-20%; }
+
+#form{ width:90%; max-width:650px; padding:80px 0 60px; margin:0 auto; }
+#form h2{ @include font-size(45px); font-weight:$regular; text-transform:uppercase; text-align:center; margin-bottom:20px; color:$ouro; letter-spacing:0.15em; margin-bottom:20px; }
+#form p{ text-align:center; font-weight:$regular; letter-spacing:0.2em; margin-bottom:50px; }
+#form input,
+#form select{ display:block; width:100%; border:0; background-color:transparent; border-bottom:1px solid $cinza; font-family:$Lato; @include font-size(16px); text-align:center; color:$cinza; margin-bottom:30px; padding:10px 0; }
+#form button{ display:block; width:100%; padding:20px 0; background-color:$ouro; border:0; font-family:$Lato; @include font-size(20px); color:#FFF; text-transform:uppercase; font-weight:$regular; letter-spacing:0.2em; @include transition(all 300ms ease-in-out); cursor:pointer; }
+#form button:hover{ @include opacity(0.6); }
+
+/* ====== Contato */
+#container.contato{ background:url(../img/bkg-contato.jpg) no-repeat center center; }
+
+#container.contato{ padding:50px 0; }
+#container.contato .inner{ width:90%; max-width:640px; margin:0 auto; }
+
+#container.contato .tit-page{ width:100%; min-height:140px; padding:30px 0 0; margin-bottom:80px; background:url(../img/bkg-tit-contato.png) no-repeat center center; text-align:center; }
+#container.contato .tit-page h1{ @include font-size(45px); font-weight:$regular; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:10px; }
+#container.contato .tit-page p{ @include font-size(16px); letter-spacing:0.1em; font-style:italic; font-weight:$regular; }
+
+#container.contato .endereco{ float:left; width:70%; background:url(../img/marker.png) no-repeat left center; padding-left:50px; margin-bottom:50px; }
+#container.contato .endereco p{ line-height:24px; letter-spacing:0.02em; }
+#container.contato .endereco p strong{ @include font-size(24px); font-weight:$regular; }
+
+#container.contato .social{}
+#container.contato .social h2{ float:left; max-width:100px; @include font-size(24px); font-weight:$regular; text-transform:uppercase; }
+#container.contato .social ul{ float:left; margin:15px 0 0 20px; }
+#container.contato .social li{ display:inline-block; margin:0 1px; }
+#container.contato .social li a{ display:block; width:20px; height:20px; background:no-repeat center center; @include transition(all 300ms ease-in-out); }
+#container.contato .social li a:hover{ @include opacity(0.6); }
+#container.contato .social li a.fb{ background-image:url(../img/ico-fb.png); }
+#container.contato .social li a.in{ background-image:url(../img/ico-in.png); }
+
+#container.contato #form{ padding:0; }
+
+/* ====== Rodapé */
+#footer{ width:100%; height:680px; padding-top:430px; background:$cinza url(../img/bkg-footer.jpg) no-repeat center bottom; }
+#footer .col{ float:left; margin-right:70px; color:#FFF; @include font-size(16px); line-height:20px; letter-spacing:0.02em; }
+#footer .col h2{ text-transform:uppercase; font-weight:$regular; color:$ouro; margin-bottom:5px; }
+#footer .col p{}
+#footer .col p a{ @include transition(all 300ms ease-in-out); }
+#footer .col p a:hover{ color:$ouro; }
+#footer .col .separador{ width:50px; height:1px; background-color:$ouro; margin:10px 0; }
+
+#footer .col .social{ margin-top:75px; padding-left:75px; position:relative; }
+#footer .col .social:before{ content:' '; display:block; width:1px; height:50px; background-color:$ouro; position:absolute; top:0; left:0; }
+#footer .col .social ul{ margin-top:10px; }
+#footer .col .social ul li{ display:inline-block; margin-right:8px; }
+#footer .col .social ul li a{ display:block; width:26px; height:26px; background:no-repeat center center; @include transition(all 300ms ease-in-out); }
+#footer .col .social ul li a:hover{ @include opacity(0.6); }
+#footer .col .social ul li a.fb{ background-image:url(../img/ico-fb-alt.png); }
+#footer .col .social ul li a.in{ background-image:url(../img/ico-in-alt.png); }
+
+#footer .lower{ width:100%; overflow:hidden; line-height:24px; margin-top:45px; }
+#footer .lower p{ float:left; @include font-size(12px); letter-spacing:0.02em; color:$ouro; }
+#assinatura{ display:block; float:right; width:26px; height:24px; background:url(../img/ffw.png) no-repeat center center; @include removeText; @include transition(all 300ms ease-in-out); }
+#assinatura:hover{ @include opacity(0.6); }
+
+/* ====== Responsivo */
+@media screen and(max-width:1820px){
+	#container .img1:before{ width:500px; top:90px; bottom:auto; left:auto; right:93%; }
+}
+
+@media screen and(max-width:1300px){
+	#menu li{ margin-right:20px; }
+
+	#cortes-especiais .texto{ width:50%; }
+	#cortes-especiais .imagem{ width:50%; }
+	#cortes-especiais .texto h2{ margin:0 0 0 10%; }
+	#cortes-especiais .texto p{ margin:0 10%; }
+	#topo-servicos,
+	#topo-obras{ height:320px; }
+
+	.menu-sup ul li{ margin:0 20px 40px; }
+
+	.tipos-produto .imagem{ width:50%; }
+	.tipos-produto .texto{ width:50%; padding:30px 5%; }
+}
+
+@media screen and(max-width:1220px){
+	#menu{ width:100%; text-align:center; }
+	#menu li{ margin:0 10px; }
+
+	#lista-cortes li .imagem{ width:80%; }
+	#lista-cortes li .texto{ width:70%; }
+	#lista-cortes .owl-dots{ bottom:auto; top:400px; }
+}
+
+@media screen and(max-width:1120px){
+	#lista-obras .texto{ width:40%; padding-top:30px; }
+	#lista-obras .image{ width:60%; }
+}
+
+@media screen and(max-width:1024px){
+	#lista-obras .texto{ width:100%; padding:30px 0; }
+	#lista-obras .image{ width:100%; }
+}
+
+@media screen and(max-width:900px){
+	#btn-menu{ display:block; }
+	#menu{ display:none; position:fixed; top:0; left:0; width:100%; height:100%; z-index:999; background-color:#FFF; }
+	#menu li{ display:block; width:100%; margin:20px 0; }
+
+	#header .social{ margin:25px 50px 0 0; }
+
+	#cortes-especiais .texto,
+	#cortes-especiais .imagem{ width:100%; }
+	#cortes-especiais .texto{ margin-bottom:40px; }
+
+	#lista-cortes li .imagem{ width:100%; }
+	#lista-cortes li .texto{ width:100%; position:static; min-height:0; padding:60px 30px; }
+	#lista-cortes .owl-dots{ display:none !important; }
+
+	#container .col-left{ width:100%; margin:0 0 50px; }
+	#container .col-right{ width:100%; }
+	#menulat li{}
+	#menulat li a{ display:block; border:1px solid $cinza; border-bottom:0; padding:25px 30px; @include font-size(20px); @include transition(all 300ms ease-in-out); }
+
+	.sobre .imagem,
+	.aplicacao .imagem{ width:100%; }
+	.sobre .texto,
+	.aplicacao .texto{ width:80%; margin:50px 10%; padding:0; }
+
+	#topo-revendedor p{ padding:40px 10%; }
+	.tipos-produto .imagem{ width:100%; }
+	.tipos-produto .texto{ width:100%; }
+	.tipos-produto.alternate h2:after{ width:130%; right:0; }
+}
+
+@media screen and(max-width:640px){
+	#footer{ height:auto; padding-top:430px; background:#222 url(../img/bkg-footer-alt.jpg) no-repeat center top; }
+	#footer .col{ width:100%; text-align:center; margin:0; }
+	#footer .col .separador{ margin:10px auto; }
+	#footer .col .social{ width:100%; margin-top:20px; padding-left:0; text-align:center; }
+	#footer .col .social:before{ display:none; }
+
+	#footer .lower{ padding-bottom:30px; }
+	#footer .lower p{ float:none; width:100%; text-align:center; }
+	#assinatura{ float:none; margin:10px auto 0; }
+
+	#container .lista-fotos li{ width:100%; }
+
+	#waterjet p{ width:100%; padding:30px 10%; }
+	#waterjet .lista-jet li{ width:49%; margin:0 2% 2% 0; }
+	#waterjet .lista-jet li:nth-child(2n){ margin-right:0; }
+
+	.galeria ul li{ width:100%; }
+	.colors ul li{ width:46%; margin:0 2% 2%; }
+	.colors ul li:last-child{ margin-right:2%; }
+}
+
+@media screen and(max-width:540px){
+	#header .social{ margin:25px 60px 0 0; }
+
+	.model-list li{ width:100%; margin:0 0 20px; }
+
+	#container.contato .endereco{ width:100%; margin-bottom:30px; }
+	#container.contato .social{ float:left; margin-bottom:50px; }
+}
+
+@media screen and(max-width:400px){
+	#btn-menu{ top:30px; }
+	#logo{ width:70%; }
+	#logo img{ display:block; width:100%; }
+	#header .social{ width:100%; margin:20px 0 0; text-align:center; }
+
+	#lista-cortes li .texto{ padding:30px; }
+	#lista-cortes li .texto h2{ margin-bottom:20px; }
+	#lista-cortes li .texto p{ @include font-size(20px); line-height:1.5em; }
+
+	#container .col-left li{ width:100%; margin:0 0 2%; }
+	#materiais ul li{ margin:0 5% 35px; }
+
+	#topo-superficies h1{ @include font-size(36px); }
+	.sobre .texto,
+	.aplicacao .texto{ width:90%; margin:50px 5%; }
+	.colors ul li{ width:100%; margin:0 0 2%; }
+	.colors ul li:last-child{ margin-right:0; }
+
+	#form h2{ @include font-size(35px); }
+
+	#container.contato .tit-page{ padding:20px 0 0; }
+}

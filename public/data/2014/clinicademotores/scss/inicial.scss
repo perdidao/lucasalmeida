@@ -1,0 +1,50 @@
+@import "compass";
+@import "tools.scss";
+@import url(../font/geared.css);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,700);
+
+// VARIÁVEIS
+$verde:#8BC441;
+$verde-escuro:#509622;
+$Raleway:'Raleway', Helvetica, Arial, Sans-serif;
+$Geared:'Geared', Helvetica, Arial, Sans-serif;
+
+// BANNER
+#banner{ width:100%; margin-top:140px; text-align:center; }
+#img-banner{ width:100%; height:345px; background:transparent url(../img/banner-principal.jpg) no-repeat center top; }
+#desc-banner{ width:100%; height:52px; background:transparent url(../img/bkg-banner.png) no-repeat center top; line-height:52px; text-transform:uppercase; font-family:$Geared; @include font-size(20px); color:#FFF; @include font-smoothing(on); letter-spacing:.15em; }
+#desc-banner span{ color:$verde; }
+
+// SERVIÇOS
+#servicos{ height:235px; background:$verde url(../img/bkg-servicos.png); }
+#servicos h2{ font-family:$Geared; @include font-size(22px); color:#FFF; @include font-smoothing(on); margin:25px 0 5px; text-transform:uppercase; letter-spacing:0.15em; }
+#manutencao{ float:left; width:380px; margin:50px 0 0 80px; text-align:right; }
+#manutencao .icone{ float:right; width:140px; height:155px; background:transparent url(../img/ilu-manutencao.png) no-repeat center center; }
+#manutencao .conteudo{ width:220px; float:left; }
+#produtos{ float:right; width:380px; margin:50px 80px 0 0; text-align:left; }
+#produtos .icone{ float:left; width:140px; height:155px; background:transparent url(../img/ilu-produtos.png) no-repeat center center; }
+#produtos .conteudo{ width:225px; float:right; }
+
+// BANNER SECUNDARIO
+#banner-secundario{ margin:50px auto; }
+#banner-secundario .descricao{ float:left; width:275px; margin-right:30px; }
+#banner-secundario .descricao p{ line-height:1.3em; letter-spacing:0.08em; }
+#banner-secundario .descricao p strong{ font-weight:$bold; }
+#banner-secundario .descricao a{ display:block; margin-top:40px; letter-spacing:0.08em; font-weight:$bold; color:$verde-escuro; }
+#banner-box{ float:right; width:655px; float:right; position:relative; }
+#banner-box img{ display:block; display:block; width:100%; }
+#banner-box .caption{ width:100%; height:35px; padding:0 20px; line-height:35px; text-transform:uppercase; @include font-size(18px); font-family:$Geared; color:#FFF; position:absolute; bottom:0; left:0; background-image:url(../img/bkg-overlay.png); }
+
+// MAPA
+#mapa{ width:100%; height:377px; background:transparent url(../img/bkg-mapa.png) no-repeat right center; }
+#box-mapa{ float:left; width:100%; height:270px; margin-top:55px; border:5px solid $verde; position:relative; }
+#container-mapa{ width:100%; height:260px; background-color:#F00; z-index:2; }
+#endereco-mapa{ width:230px; height:79px; background:#777 url(../img/bkg-texto-mapa.png) no-repeat center center; padding:15px; color:#FFF; @include font-size(12px); line-height:1.3em; @include font-smoothing(on); position:absolute; z-index:3; top:50%; margin-top:-40px; left:-5px; }
+#endereco-mapa strong{ font-weight:$bold; }
+
+// PARCEIROS
+#parceiros{ height:106px; background:transparent url(../img/bkg-parceiros.png) no-repeat center 30px; }
+#parceiros h2{ font-family:$Geared; @include font-smoothing(on); @include font-size(17px); line-height:30px; text-transform:uppercase; letter-spacing:0.1em; }
+#lista-parceiros{ width:940px; margin:20px auto 0; }
+#lista-parceiros li{ width:12.28%; margin:0 1%; height:40px; float:left; }
+#lista-parceiros li img{ display:block; width:100%; }

@@ -1,0 +1,39 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import url("http://fonts.googleapis.com/css?family=Oxygen:400,300,700");
+$Oxygen:"Oxygen", Helvetica, Arial, Sans-serif;
+
+// CORES
+$Primaria:#333;
+$Secundaria:#FC0;
+$Success:#0C6;
+$Texto:#777;
+
+// ESTILOS GLOBAIS
+body{ font-family:$Oxygen; @include font-size(16px); color:$Texto; }
+@include selection($Texto,$Primaria);
+
+h1{ @include font-size(102px); letter-spacing:-0.05em; color:$Primaria; font-weight:$light; }
+p{ margin:10px 0; line-height:1.3em; }
+p a{ color:$Primaria; text-decoration:underline; }
+fieldset{ border:0; padding:0; margin-top:30px; }
+fieldset legend{ text-transform:uppercase; color:$Primaria; padding:0 5px; letter-spacing:0.08em; margin-bottom:10px; }
+fieldset p{ @include font-size(14px); }
+fieldset p span{ display:block; @include font-size(12px); }
+input,
+textarea{ display:block; width:100%; padding:10px; margin-bottom:10px; font-family:$Oxygen; @include font-size(14px); border:0; border-bottom:1px solid #CCC; color:$Texto; @include transition(all 300ms ease-in-out); }
+input:focus,
+textarea:focus{ border-bottom-color:$Secundaria; }
+textarea{ resize:vertical; }
+button{ display:block; float:right; width:40%; padding:10px 0; margin-top:20px; background-color:$Secundaria; font-family:$Oxygen; @include font-size(14px); text-transform:uppercase; color:$Primaria; border:0; cursor:pointer; @include opacity(1); @include transition(all 300ms ease-in-out); letter-spacing:0.08em; }
+button:hover{ @include opacity(0.8); }
+
+@include placeholder($Texto);
+
+@media screen and(max-width:600px){
+	button{ width:100%; padding:25px 0; }
+}

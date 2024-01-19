@@ -1,0 +1,44 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import url(../fonts/fonts.css);
+
+$Gotham:'Gotham', Helvetica, Arial, sans-serif;
+$Zantroke:'Zantroke', Helvetica, Arial, sans-serif;
+
+$book:300;
+$bold:600;
+
+// CORES
+$amarelo:#FC3;
+$verde:#488237;
+$vermelho:#C60605;
+$vinho:#9C0000;
+
+// ESTILOS GLOBAIS
+body{ font-family:$Gotham; @include font-size(18px); @include font-smoothing(on); }
+@include selection($amarelo,$vermelho);
+
+/* Header */
+#header{ position:fixed; z-index:10; top:0; left:0; width:100%; min-height:110px; background:#211E1E url(../img/bkg-topo.jpg) repeat center top; }
+#logo{ position:absolute; top:0; left:0; width:32.5%; height:183px; background:url(../img/logo.png) no-repeat center top; background-size:contain; @include removeText; }
+#menu{ float:left; margin:40px 0 0 35%; }
+#menu li{ font-family:$Zantroke; color:$amarelo; @include font-size(13px); text-transform:uppercase; display:inline-block; }
+#menu li:after{ content:'|'; display:inline-block; margin:0 12px 0 17px; }
+#menu li:last-child:after{ display:none; }
+#menu li a{}
+#social{ float:right; margin-top:32px; }
+#social li{ display:inline-block; margin-left:3px; }
+#social li a{ display:block; width:32px; height:32px; background-repeat:no-repeat; background-position:center; }
+#social li a.fb{ background-image:url(../img/ico-facebook.png); }
+#social li a.in{ background-image:url(../img/ico-instagram.png); }
+
+/* Banners */
+#banners{ background:#882120; margin-top:110px; }
+#banners .owl-controls{ width:96%; max-width:960px; margin:0 auto; position:relative; }
+#banners .owl-controls .owl-dots{ width:42%; text-align:center; position:absolute; left:0; bottom:30px; }
+#banners .owl-controls .owl-dots .owl-dot{ display:inline-block; width:20px; height:20px; margin:0 5px; @include border-radius(50%); background-color:#FFF; }
+#banners .owl-controls .owl-dots .owl-dot.active{ background-color:$amarelo; }

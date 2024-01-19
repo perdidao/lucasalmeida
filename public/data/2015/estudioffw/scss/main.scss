@@ -1,0 +1,128 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// CORES
+$Vermelho:#DA524D;
+$Cinza:#555;
+
+// FONTES
+@import url("../fonts/gotham.css");
+$GothamBk:"Gotham Black", Helvetica, Arial, sans-serif;
+$GothamBd:"Gotham Bold", Helvetica, Arial, sans-serif;
+$Gotham:"Gotham Book", Helvetica, Arial, sans-serif;
+
+// ESTILOS GLOBAIS
+body{ font-family:$Gotham; color:$Cinza; @include font-size(14px); @include font-smoothing(on); }
+@include selection($Vermelho, #FFF);
+
+// Tipografia
+h2{ color:$Cinza; font-family:$GothamBd; @include font-size(50px); line-height:1.2em; text-transform:uppercase; margin-bottom:30px; }
+h2:before{ content:"— "; }
+h3{ text-transform:uppercase; color:$Vermelho; @include font-size(22px); line-height:24px; }
+h3:before{ content:"— "; }
+h4{ font-family:$GothamBd; @include font-size(16px); }
+p{ line-height:23px; }
+
+// Topo
+#topo{ width:100%; min-height:740px; background:url(../img/bkg-topo.png) no-repeat center top; padding-top:40px; }
+.logo{ float:left; width:89px; height:41px; margin-left:40px; background:url(../img/logo.png) no-repeat center center; }
+.social{ float:right; margin-right:40px; }
+.social li{ float:left; }
+.social li a{ display:block; height:30px; margin-left:20px; background-position:center center; background-repeat:no-repeat; @include opacity(1); @include transition(all 300ms ease-in-out); }
+.social li a:hover{ @include opacity(0.7); }
+.social li a.i-facebook{ width:15px; background-image:url(../img/ico-facebook.png); }
+.social li a.i-github{ width:31px; background-image:url(../img/ico-github.png); }
+#topo h1{ color:#FFF; @include font-size(30px); text-transform:uppercase; letter-spacing:0.16em; margin-top:145px; word-wrap:break-word; }
+#topo h1 span{ display:block; @include font-size(130px); font-family:$GothamBk; margin-left:-5px; }
+#topo h1:after{ content:"—"; display:block; @include font-size(130px); line-height:0; margin:6px 0 0 -5px; }
+
+// — O estúdio
+#sobre{ width:100%; margin-bottom:100px; }
+#sobre-graficos{ float:left; width:30%; margin-right:4%; }
+#sobre-graficos .foto{ display:block; width:240px; margin:0 auto; position:relative; z-index:2; }
+#sobre-graficos .foto img{ display:block; width:100%; }
+#sobre-graficos .video{ display:block; width:100%; margin-top:-100px; position:relative; z-index:1; }
+#sobre-graficos .video video{ width:100%; }
+#sobre article{ float:left; width:66%; margin-top:30px; }
+#sobre article h2{ color:$Vermelho; }
+#sobre article p{ text-align:justify; margin-bottom:20px; }
+#sobre article p:last-child{ margin-bottom:0; }
+
+// — Os trabalhos
+#trabalho{ width:100%; padding:100px 0; margin-bottom:100px; background:#F4F4F4 url(../img/bkg-trabalhos.jpg) repeat-y left center; }
+#trabalho .subheading{ display:block; color:$Vermelho; @include font-size(16px); margin-bottom:20px; }
+#trabalho .subheading strong{ font-family:$GothamBd; }
+#trabalho .trabalhos{ width:100%; min-height:46px; }
+#trabalho .trabalhos li{ float:left; width:29.33%; margin-right:4%; }
+#trabalho .trabalhos li:last-child{ margin-right:0; }
+#trabalho .trabalhos li p{ display:block; min-height:46px; }
+#fiddle{ margin-bottom:30px; }
+
+// — O contato
+#contato{}
+#contato h3{ margin-bottom:30px; }
+#como-trabalhamos{ float:left; width:30%; margin-right:4%; }
+#como-trabalhamos p{ margin-bottom:20px; }
+#mande-oi{ float:left; width:66%; }
+#mande-oi label{ display:block; width:100%; text-transform:uppercase; margin-bottom:25px;}
+#mande-oi label.i-50{ float:left; width:48%; margin-right:4%; }
+#mande-oi label.i-50.i-ultimo{ margin-right:0; }
+#mande-oi label input,
+#mande-oi label textarea{ display:block; width:100%; height:36px; padding:0 10px; border:1px solid #CCC; margin-top:5px; background-color:#FFF; @include font-size(14px); font-family:$Gotham; color:$Cinza; @include transition(all 300ms ease-in-out); }
+#mande-oi label input:focus,
+#mande-oi label textarea:focus{ color:$Vermelho; border-color:$Vermelho; }
+#mande-oi #mensagem{ height:160px; resize:vertical; padding:10px; line-height:23px; }
+#enviar{ display:block; width:100%; height:50px; border:1px solid $Vermelho; color:$Vermelho; text-transform:uppercase; @include font-size(14px); font-family:$Gotham; background-color:#FFF; cursor:pointer; @include transition(all 300ms ease-in-out); }
+#enviar:hover{ color:#FFF; background-color:$Vermelho; }
+#msg{ display:none; width:100%; padding:10px; color:$Vermelho; border:1px solid $Vermelho; margin-top:25px; }
+
+// Rodapé
+#rodape{ width:100%; height:245px; background:url(../img/bkg-rodape.png) no-repeat center bottom; padding-top:100px; }
+#rodape .logo{ float:none; margin:0; }
+#rodape .social{ float:none; margin-top:20px; }
+#rodape .social li a{ margin:0 20px 0 0; }
+#rodape p{ color:#FFF; @include font-size(12px); margin-top:15px; }
+
+// Responsivo
+@media screen and(max-width:1190px){
+	.center{ max-width:92.8%; margin:0 3.6%; }
+}
+
+@media screen and(max-width:900px){
+	#sobre-graficos .foto{ width:100%; }
+	#sobre-graficos .video{ margin-top:0; }
+	#sobre article{ margin-top:0; }
+}
+
+@media screen and(max-width:720px){
+	#sobre-graficos{ width:100%; }
+	#sobre-graficos .foto{ width:50%; float:left; }
+	#sobre-graficos .video{ width:50%; float:left; }
+	#sobre article{ width:100%; margin-top:50px; }
+
+	#trabalho{ background-image:none; }
+	#trabalho .trabalhos li{ width:100%; margin-right:0; }
+
+	#como-trabalhamos{ width:100%; margin-right:0; }
+	#mande-oi{ width:100%; }
+
+	#rodape{ background-position:left bottom; }
+}
+
+@media screen and(max-width:590px){
+	#mande-oi label.i-50{ width:100%; margin-right:0; }
+
+	#topo h1{ @include font-size(30px); }
+	#topo h1 span{ @include font-size(100px); }
+	#topo h1:after{ @include font-size(100px); }
+}
+
+@media screen and(max-width:460px){
+	#topo h1 span{ @include font-size(60px); }
+	#topo h1:after{ @include font-size(60px); }
+	h2{ @include font-size(40px); }
+
+	#trabalho .trabalhos li p{ margin-bottom:20px; }
+}

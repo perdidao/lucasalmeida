@@ -1,0 +1,37 @@
+@import "compass";
+@import "tools.scss";
+*{ @include box-sizing(border-box); }
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700);
+
+// VARIÁVEIS GLOBAIS
+$royal:#1B4A74;
+$turquoise:#29B8D8;
+
+$Source:'Source Sans Pro', Helvetica, Arial, Sans-serif;
+
+// BANNERS
+#mapa{ width:1240px; height:340px; margin:0 auto; position:relative; }
+
+// INFO
+.col-left{ width:48%; float:left; margin-top:20px; }
+.col-right{ width:48%; float:right; margin-top:40px; }
+
+h3{ @include font-size(18px); font-weight:$bold; text-transform:uppercase; color:$turquoise; margin-top:20px; }
+p{ margin:10px 0; line-height:1.4em; }
+p a{ @include transition(all 200ms linear); }
+p a:hover{ color:$turquoise; text-decoration:underline; }
+p span{ font-weight:$bold; @include font-size(12px); color:$turquoise; }
+p strong{ @include font-size(16px); }
+
+.col-right input{ display:block; float:left; width:75%; padding:5px; @include font-size(14px); font-family:$Source; color:#666; border:1px solid $turquoise; }
+.col-right #buscar{ display:block; float:left; width:20%; margin-left:2%; padding:5px; background-color:$turquoise; border:0; @include font-smoothing(on); @include font-size(14px); font-family:$Source; color:#FFF; text-transform:uppercase; cursor:pointer; border:1px solid $turquoise; }
+
+.col-left label{ display:block; width:100%; margin-bottom:10px; }
+.col-left label span{ color:#F33; @include font-size(16px); }
+.col-left label input,
+.col-left label select,
+.col-left label textarea{ display:block; width:100%; margin-top:5px; height:30px; padding:5px; background-color:#FFF; @include font-size(14px); font-family:$Source; color:#666; border:1px solid $turquoise; }
+.col-left label textarea{ height:160px; resize:none; }
+.col-left label.campo-cidade{ width:80%; float:left; }
+.col-left label.campo-estado{ width:18%; float:left; margin-left:2%; }
+#enviaForm{ display:block; float:right; width:140px; padding:10px; background-color:$turquoise; border:0; @include font-smoothing(on); @include font-size(14px); font-family:$Source; color:#FFF; text-transform:uppercase; cursor:pointer; border:1px solid $turquoise; }

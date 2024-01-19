@@ -1,0 +1,55 @@
+.page-heading {
+  width: 100%;
+  background: $royal url("../images/contempladas-background.jpg") no-repeat center bottom;
+  background-size: cover;
+
+  &__container {
+    height: rel(380);
+    color: $white;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    flex-direction: column;
+
+    &:after {
+      content: " ";
+      display: block;
+      width: rel(170);
+      height: 3px;
+      background-color: $cyan;
+    }
+
+    @media (max-width: $size-mobile) {
+      height: 50vh;
+
+      &:after {
+        width: 40%;
+      }
+    }
+  }
+
+  &__title {
+    font-size: rem(32);
+    font-weight: $bold;
+    margin-bottom: rel(25);
+
+    @media (max-width: $size-mobile) {
+      font-size: rem(54);
+      margin-bottom: rel(25, true);
+    }
+  }
+
+  &__description {
+    font-size: rem(18);
+    line-height: 1.6;
+    font-weight: $light;
+    max-width: 85%;
+    margin-bottom: rel(50);
+
+    @media (max-width: $size-mobile) {
+      font-size: rem(32);
+      max-width: 100%;
+      margin-bottom: rel(50, true);
+    }
+  }
+}

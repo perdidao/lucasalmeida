@@ -1,0 +1,53 @@
+// DEPENDÊNCIAS
+@import "compass";
+@import "tools.scss";
+
+// CORES
+$Azul:#1D334D;
+$Amarelo:#F3CA31;
+$Vermelho:#F77;
+$Cinza:#777;
+
+// FONTES
+@import "fonts.scss";
+
+.container{ background:url(../img/pattern-longstay.png) repeat; padding-bottom:60px; }
+// BANNER
+#headline{ width:100%; height:620px; background:url(../img/bkg-banner-longstay.jpg) no-repeat  center top; margin-bottom:70px; }
+#headline .ilustra-longstay{ float:left; width:100%; height:111px; background:url(../img/linha-longstay.png) no-repeat center center; margin-top:160px; color:#FFF; }
+#headline .ilustra-longstay h2{ display:block; float:left; font-family:$Di; @include font-size(45px); margin:55px 0 0 28%; max-width:500px; }
+#headline .ilustra-longstay p{ display:block; float:left; font-family:$Dr; @include font-size(25px); line-height:30px; margin:60px 0 0 28%; max-width:500px; font-family:$Di; }
+
+
+@include placeholder($Azul);
+
+// PLANOS
+.box-orcamento{ width:766px; height:766px; float:left; }
+.box-orcamento h2{ display:block; float:left; width:100%; text-align:center; color:#FFF; @include font-size(35px); margin-top:130px; font-family:$Dr; }
+.box-orcamento .dias{ width:50%; float:left; padding-left:20%; margin-top:80px; font-family:$Di; }
+.box-orcamento .dias input{ display:block; width:200px; border:1px solid #CCC; color:$Azul; @include font-size(16px); padding:15px; }
+.box-orcamento .preco{ width:50%; float:right; padding-left:5%; margin-top:80px; font-family:$Di; }
+.box-orcamento .preco p{ @include font-size(30px); }
+.box-orcamento .preco h3{ @include font-size(56px); line-height:1.3em; margin-left:-10px; }
+.box-orcamento .preco h3 span{ display:inline-block; @include font-size(20px); position:relative; top:-25px; left:10px; }
+.btn-formulario{ display:block; width:210px; height:50px; border:1px solid #FFF; text-align:center; line-height:48px; font-family:$Fbi; color:#FFF; margin:140px auto 0; @include transition(all 300ms ease-in-out); }
+.btn-formulario:hover{ background-color:#FFF; color:$Azul; }
+
+#basic{ background:url(../img/longstay-basic.png) no-repeat center center; margin-left:2%; }
+#plus{ background:url(../img/longstay-plus.png) no-repeat center center; margin-left:2%; }
+
+#plus.box-orcamento .dias,
+#plus.box-orcamento .dias input,
+#plus.box-orcamento .preco p,
+#plus.box-orcamento .preco h3{ color:#a4864e !important; }
+
+#plus .btn-formulario{ color:$Azul; border-color:$Azul; }
+#plus .btn-formulario:hover{ background-color:#FFF; color:$Azul; }
+
+#footer{ margin-top:0; }
+
+
+@media screen and(max-width:800px){
+	.box-orcamento#basic,
+	.box-orcamento#plus{ width:100%; margin:0; }
+}

@@ -1,0 +1,98 @@
+// DEPENDÊNCIAS
+@import "compass";
+@import "tools.scss";
+
+// CORES
+$Azul:#1B3280;
+$CinzaClaro:#929497;
+$Cinza:#58595B;
+$Grafite:#404041;
+
+// FONTES
+$AvenirBook: "Avenir Book", Helvetica, Arial, sans-serif;
+$AvenirRoman: "Avenir Roman", Helvetica, Arial, sans-serif;
+$Garamond: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+
+// PRODUTOS
+#linha-topo{ width:75%; height:6px; background-color:$CinzaClaro; }
+#banner{ width:100%; height:390px; background:url(../img/banner-rh.jpg) no-repeat center top; text-align:center; padding-top:170px }
+#banner h1{ color:#FFF; @include font-size(90px); font-family:$Garamond; font-style:italic; }
+
+// SOBRE
+.sobre{ padding:70px 0 60px; background:#e5e7ea; }
+.sobre h2{ text-align:center; margin-bottom:40px; }
+.sobre p{ float:left; width:33%; margin:0 2%; @include font-size(16px); line-height:28px; text-align:justify; }
+.sobre p.sobre-left{ margin-left:15%; }
+
+// TEXTOS
+.area-textos{}
+.area-textos img{ display:block; width:100%; }
+.area-textos .col-left{ float:left; width:49%; }
+.area-textos .col-left .inner-col{ float:right; margin-right:5%; }
+.area-textos .col-right{ float:right; width:49%; }
+.area-textos .col-right .inner-col{ float:left; margin-left:5%; }
+.area-textos .inner-col{ margin:50px 0 70px; width:45%; }
+.area-textos .inner-col h3{ @include font-size(40px); font-family:$Garamond; font-style:italic; font-weight:$bold; margin-bottom:20px; }
+.area-textos .inner-col p{ @include font-size(16px); line-height:28px; text-align:justify; }
+.area-textos .inner-col .btn-textos{ display:inline-block; padding:5px 20px; border:2px solid $Azul; color:$Azul; font-family:$Garamond; font-style:italic; @include font-size(20px); margin-top:20px; @include transition(all 300ms ease-in-out); }
+.area-textos .inner-col .btn-textos:hover{ background-color:$Azul; color:#FFF; }
+
+// VISITAS
+#visitas{ padding:130px 0; background:#e5e7ea url(../img/logo-visita.png) no-repeat right bottom; }
+#visitas h2{ text-align:center; margin-bottom:30px; }
+#visitas p{ max-width:64%; margin:0 auto; @include font-size(16px); line-height:28px; text-align:justify; }
+#visitas p strong{ font-family:$AvenirRoman; font-weight:600; }
+.btn-visita{ display:block; width:400px; height:50px; margin:40px auto 0; border:3px solid $Azul; color:$Azul; font-family:$Garamond; font-style:italic; @include font-size(27px); text-align:center; line-height:46px; }
+
+// TRABALHE CONOSCO
+#banner-trabalhe{ width:100%; height:479px; background:url(../img/img-conteudo/trabalhe-conosco.jpg) no-repeat center center; }
+#trabalhe-conosco{ background-color:#485054; }
+#trabalhe-conosco .center{ padding:130px 0; }
+#trabalhe-conosco h2{ text-align:center; margin-bottom:30px; color:#FFF; }
+#trabalhe-conosco p{ max-width:64%; margin:0 auto; @include font-size(16px); line-height:28px; text-align:justify; color:#FFF; }
+#trabalhe-conosco p strong{ font-family:$AvenirRoman; font-weight:600; }
+.btn-trabalhe{ display:block; width:400px; height:50px; margin:40px auto 0; border:3px solid #FFF; color:#FFF; font-family:$Garamond; font-style:italic; @include font-size(27px); text-align:center; line-height:46px; @include transition(all 300ms ease-in-out); }
+.btn-trabalhe:hover{ background-color:#FFF; color:$Grafite; }
+
+
+// OVERLAY
+.overlay{ display:none; }
+.overlay .o-content{ padding:60px 100px 80px; }
+.overlay .o-content h2{ @include font-size(32px); max-width:45%; margin-bottom:40px; }
+.overlay .o-content .col-left{ float:left; width:45%; margin-right:10%; }
+.overlay .o-content .col-right{ float:left; width:45%; }
+.overlay .o-content label{ display:block; @include font-size(17px); font-family:$Garamond; font-style:italic; margin-bottom:20px; }
+.overlay .o-content input,
+.overlay .o-content textarea{ display:block; width:100%; padding:5px 10px; margin-top:10px; background-color:#d0d2d3; border:0; height:40px; @include font-size(17px); font-family:$Garamond; color:$Grafite; }
+#enviar{ display:block; float:right; padding:10px 30px; margin-top:20px; border:3px solid $Azul; color:$Azul; font-family:$Garamond; font-style:italic; @include font-size(18px); @include transition(all 300ms ease-in-out); text-transform:none; font-weight:$bold; }
+.overlay .o-content textarea{ height:130px; resize:none; }
+
+
+// RESPONSIVO
+@media screen and(max-width:1260px){
+	.center{ width:96%; }
+}
+
+@media screen and(max-width:900px){
+	.area-textos .col-left,
+	.area-textos .col-right{ width:100%; }
+	#visitas p,
+	#trabalhe-conosco p{ max-width:90%; }
+
+	.area-textos .col-left .inner-col,
+	.area-textos .col-right .inner-col{ margin:50px auto 70px; float:none; }
+}
+
+@media screen and(max-width:740px){
+	.sobre p{ float:none; width:80%; margin:0 auto; }
+	.sobre p.sobre-left{ margin-left:auto; }
+	.area-textos .inner-col{ margin:50px 10% 70px; width:80%; }
+	.area-textos .col-left .inner-col{ float:none; margin-right:10%; }
+	.area-textos .col-right .inner-col{ float:none; margin-left:10%; }
+	#visitas{ padding:60px 0; }
+}
+
+@media screen and(max-width:440px){
+	.btn-visita,
+	.btn-trabalhe{ width:100%; height:auto; padding:5px 20px; line-height:1.3em; }
+}

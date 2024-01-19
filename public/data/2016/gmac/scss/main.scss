@@ -1,0 +1,358 @@
+// Dependências
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// Fontes
+@import url(fonts.css);
+
+$Din:'DIN', Helvetica, Arial, sans-serif;
+$Myriad:'MyriadPro-Cond', 'Arial Narrow', Helvetica, sans-serif;
+
+$light:300;
+$regular:400;
+$bold:700;
+
+// Cores
+$amarelo:#F4BF2F;
+$preto:#292929;
+$prata:#999;
+$verde:#4EBC5B;
+$bege:#CCAB72;
+
+// Estilos globais
+body{ @include font-size(16px); line-height:1.3; font-family:$Din; color:$preto; @include font-smoothing(on); background:url(../img/bkg-body.jpg) no-repeat center top; }
+@include selection(#FFF,$amarelo);
+
+.rev{ display:block; @include transform(skewx(38deg)); }
+h2.tit{ font-family:$Myriad; @include font-size(80px); font-weight:$bold; text-transform:uppercase; color:$amarelo; letter-spacing:-0.02em; }
+h2.tit:after{ content:' /'; color:$preto; @include font-size(100px); line-height:50px; }
+
+h3.tit{ font-family:$Myriad; @include font-size(35px); text-transform:uppercase; font-weight:$bold; margin-bottom:10px; }
+h3.tit:after{ content:' /'; color:$amarelo; @include font-size(45px); }
+
+ // -------
+// Header
+#home{ background:url(../img/bkg-home.jpg) no-repeat center top; }
+#home #header{ min-height:245px; background:url(../img/bkg-header.png) no-repeat center top; }
+
+#btn-menu{
+    display:none;
+    width:40px;
+    height:29px;
+    position:fixed;
+    z-index:7;
+    top:35px;
+    right:20px;
+    @include transition(all 300ms ease-in-out);
+    & span,
+    &:before,
+    &:after{
+        content:" ";
+        display:block;
+        width:40px;
+        height:5px;
+        background-color:$preto;
+        @include transform(rotate(0));
+        position:absolute;
+        left:0;
+        @include transition(all 300ms ease-in-out);
+    }
+        
+    &:before{ top:0; }
+    & span{ top:12px; @include opacity(1); }
+    &:after{ bottom:0; }
+    
+    &.active span{ opacity:0; top:12px; @include transform(rotate(90deg)); }
+    &.active:before{ width:40px; top:12px; left:0; @include transform(rotate(45deg)); }
+    &.active:after{ width:40px; bottom:12px; left:0; @include transform(rotate(-45deg)); } 
+}
+
+#header{ width:100%; min-height:163px; background:url(../img/bkg-header-in.png) no-repeat center top; padding-top:1px; position:absolute; top:0; left:0; z-index:6; }
+#logo{ display:block; float:left; width:260px; height:96px; margin-top:15px; background:url(../img/logo.png) no-repeat center center; @include removeText; }
+#menu{ float:left; margin-left:160px; }
+#menu li{ display:inline-block; margin-right:34px; }
+#menu li:last-child{ margin-right:0; }
+#menu li a,
+#btn-cliente{ display:block; text-transform:uppercase; @include font-size(15px); font-weight:$bold; letter-spacing:0.02em; line-height:64px; @include transition(all 200ms ease-in-out); }
+#menu li a:hover{ color:$bege; }
+#btn-cliente{ float:right; color:$bege; padding:0 30px; border:2px solid $bege; border-width:0 2px 0 2px; margin-right:34px; @include transform(skewx(-38deg)); }
+#btn-cliente:hover{ background-color:$bege; color:#FFF; }
+
+ // -------
+// Banners
+#banner-wrapper{ width:100%; height:715px; position:relative; overflow:hidden; }
+#banners{ width:1920px; position:absolute; top:0; left:50%; @include transform(translatex(-50%)); }
+#banners li{ position:relative; }
+#banners li p{ position:absolute; top:220px; right:22%; font-family:$Myriad; font-weight:$bold; @include font-size(90px); line-height:80px; text-transform:uppercase; font-weight:$bold; letter-spacing:-0.02em; text-align:right; }
+#banners li p span{ color:$amarelo; }
+
+.owl-nav div{ position:absolute; @include removeText; }
+.owl-nav .owl-prev{ width:14px; height:22px; background:url(../img/arw-prev.png) no-repeat center center; left:30.5%; top:360px; }
+.owl-nav .owl-next{ width:20px; height:31px; background:url(../img/arw-next.png) no-repeat center center; left:34%; top:415px; }
+
+ // -------
+// Eficiência
+#eficiencia{ width:100%; margin-bottom:30px; overflow:hidden; }
+#eficiencia .foto{ float:left; width:50%; height:322px; background:url(../img/eficiencia.png) no-repeat center center; background-size:contain; }
+#eficiencia h2{ float:left; width:50%; margin-top:100px; font-family:$Myriad; @include font-size(60px); line-height:60px; text-transform:uppercase; font-weight:$bold; }
+
+ // -------
+// Produtos
+#produtos{ margin-bottom:70px; }
+#produtos .wrapper{ max-width:1500px; margin:0 auto; padding:45px 0 80px; background-color:#FFF; @include box-shadow(35px 35px 150px rgba(0,0,0,.2)); position:relative; }
+#produtos .wrapper:after{ content:' '; display:block; position:absolute; bottom:-20px; left:11%; width:78%; height:20px; background-color:$preto; }
+#produtos ul{ overflow:hidden; margin-top:10px; }
+#produtos ul li{ float:left; width:18%; margin:0 2.5% 40px 0; }
+#produtos ul li:nth-child(5n){ margin-right:0; }
+#produtos ul li a{ display:block; text-align:center; text-transform:uppercase; font-family:$Myriad; @include font-size(25px); line-height:30px; letter-spacing:0.05em; color:$prata; }
+#produtos ul li a img{ display:block; width:100%; margin-bottom:15px; }
+
+ // -------
+// Parceiros e Televendas
+#parc-vendas{ width:100%; background:url(../img/bkg-televendas.jpg) no-repeat right top; }
+#parc-vendas .center{ overflow:hidden; }
+#parceiros{ float:left; width:51%; padding-top:40px; background-color:#FFF; }
+#parceiros h2{ margin-bottom:20px; }
+#parceiros ul{ overflow:hidden; }
+#parceiros ul li{ float:left; margin:0 40px 30px 0; }
+#parceiros ul li a{ display:block; }
+#televendas{ float:left; width:49%; min-height:337px; padding:80px 0 0 275px; background:url(../img/televendas.png) no-repeat left top; font-family:$Myriad; font-weight:$bold; color:$verde; text-transform:uppercase; }
+#televendas strong{ @include font-size(20px); line-height:18px; }
+#televendas p{ @include font-size(50px); line-height:50px; }
+#televendas p span{ display:block; color:$preto; }
+#televendas .btn{ display:inline-block; padding:10px 15px 5px; margin-top:25px; color:#FFF; background-color:$verde; @include font-size(22px); @include transition(all 200ms ease-in-out); }
+#televendas .btn:hover{ background-color:$preto; }
+
+ // -------
+// Rodapé
+#footer{ width:100%; margin-top:5px; background:#1E1E1E url(../img/bkg-footer.png) repeat-x center bottom; color:#999; }
+#footer .topf{ padding:15px 0 20px; border-bottom:2px solid #020202; overflow:hidden; }
+#footer .topf .logo{ float:left; }
+#social{ float:right; margin-top:10px; }
+#social li{ display:inline-block; margin-left:18px; }
+#social li a{ display:block; width:33px; height:33px; background:no-repeat center center; @include transition(all 200ms ease-in-out); }
+#social li a:hover{ @include opacity(0.7); }
+#social li a.in{ background-image:url(../img/ico-instagram.png); }
+#social li a.fb{ background-image:url(../img/ico-facebook.png); }
+#footer .midf{ padding:30px 0; border-top:1px solid #242424; border-bottom:1px solid #020202; overflow:hidden; }
+#footer .midf .col1{ float:left; width:37.5%; min-height:180px; padding-right:60px; border-right:1px solid #2A2A2A; }
+#footer .midf .col1 .mapa{ width:100%; height:105px; background:url(../img/mapa-footer.png) no-repeat center center; background-size:cover; margin-bottom:20px; }
+#footer .midf .col1 p{ font-weight:$light; }
+#footer .midf .col1 p strong{ font-weight:$regular; display:block; }
+#footer .midf .col2{ float:left; width:25%; min-height:180px; padding:0 60px; border-right:1px solid #2A2A2A; }
+#footer-nav li{ margin-bottom:20px; }
+#footer-nav li:last-child{ margin:0; }
+#footer-nav li a{ text-transform:uppercase; @include transition(all 200ms ease-in-out); }
+#footer-nav li a:hover{ color:$amarelo; }
+#footer .midf .col3{ float:left; width:37.5%; min-height:180px; padding-left:60px; }
+#footer .midf .col3 .relacionamento{ min-height:51px; padding-left:80px; margin-top:60px; background:url(../img/ico-contato.png) no-repeat center left; }
+#footer .midf .col3 .relacionamento span{ text-transform:uppercase; color:$amarelo; letter-spacing:0.04em; }
+#footer .midf .col3 .relacionamento a{ display:block; @include font-size(23px); font-weight:$bold; }
+#footer .copy{ width:100%; padding:30px 0 40px; border-top:1px solid #171717; text-align:center; font-weight:$light; }
+
+
+  // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- //
+ // SOBRE ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- //
+#topo{ width:100%; height:243px; margin-bottom:80px; background-repeat:no-repeat; background-position:center top; }
+#container{ width:100; margin-bottom:100px; }
+#container .wrapper{ max-width:1500px; margin:0 auto; background-color:#FFF; @include box-shadow(35px 35px 150px rgba(0,0,0,.2)); position:relative; }
+#container .wrapper:after{ content:' '; display:block; position:absolute; bottom:-20px; left:11%; width:78%; height:20px; background-color:$preto; }
+#container .wrapper .col-left{ float:left; width:66%; padding-top:35px; }
+#container .wrapper .col-right{ float:left; width:32%; margin-left:2%; padding-top:35px; border-top:10px solid $amarelo; margin-top:-5px; }
+
+#container .wrapper p{ font-family:$Myriad; @include font-size(22px); line-height:29px; font-weight:$regular; color:#777; margin-bottom:25px; }
+#container .wrapper figure{ margin-bottom:30px; }
+#container .wrapper figure img{ display:block; max-width:100%; }
+#container .wrapper blockquote{ width:100%; padding-top:50px; background:url(../img/quotes.png) no-repeat center top; text-align:center; margin-bottom:10px; }
+#container .wrapper blockquote p{ font-family:Georgia,Times,Times New Roman,serif; @include font-size(23px); font-style:italic; line-height:32px; }
+#container .wrapper .col-left ul{ overflow:hidden; margin-bottom:10px; }
+#container .wrapper .col-left ul li{ display:block; float:left; width:50%; font-family:$Myriad; @include font-size(25px); font-weight:$regular; color:#777; margin-bottom:20px; padding-left:40px; background:url(../img/bullet.png) no-repeat center left; }
+
+#container .wrapper #abrangencia{ width:100%; min-height:564px; background:url(../img/mapa-areas.png) no-repeat bottom center; }
+#container .wrapper #abrangencia .inner{ float:right; width:100%; max-width:360px; background-color:#FFF; padding:35px 50px; border-bottom:10px solid $amarelo; margin-top:60px; @include box-shadow(13px 13px 32px rgba(0,0,0,.1)); position:relative; }
+#container .wrapper #abrangencia .inner:before{ content:' '; display:block; width:50px; height:63px; background:url(../img/dtl-inner.png) no-repeat center center; position:absolute; top:0; left:-50px; }
+#container .wrapper #abrangencia .inner p{ @include font-size(21px); line-height:26px; margin-bottom:20px; color:$prata; }
+#container .wrapper #abrangencia .inner p strong{ font-weight:$bold; text-transform:uppercase; }
+
+#container .wrapper .onde-estamos{ width:100%; min-height:375px; padding:17px 70px 0; margin-bottom:20px; background:url(../img/banner-mapa.png) no-repeat center center; background-size:cover; }
+#container .wrapper .onde-estamos h3{ font-family:$Myriad; @include font-size(33px); line-height:30px; font-weight:$bold; color:#FFF; text-transform:uppercase; margin-bottom:20px; }
+#container .wrapper .onde-estamos p{ @include font-size(22px); line-height:25px; color:#FFF; }
+#container .wrapper .onde-estamos p strong{ font-weight:$bold; }
+#container .wrapper .onde-estamos p span{ display:block; @include font-size(32px); line-height:32px; }
+#container .wrapper .como-chegar{ display:block; width:60%; margin:0 auto; border-bottom:2px solid $amarelo; font-family:$Myriad; @include font-size(20px); letter-spacing:0.4em; text-transform:uppercase; color:$amarelo; text-align:center; }
+
+  // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- //
+ // PRODUTOS -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- //
+#container .topshelf{ overflow: hidden; font-family:$Myriad; }
+#container .topshelf h2.tit{ float:left; }
+#container .tit-categoria{ float:left; @include font-size(45px); text-transform:uppercase; font-weight:$bold; margin:30px 0 0 10px; }
+#container .filtro{ float:right; min-width:260px; }
+#container .filtro span{ display:block; text-transform:uppercase; color:$prata; @include font-size(25px); }
+#container .filtro select{ display:block; width:100%; border:0; background:transparent; font-family:$Myriad; color:$amarelo; @include font-size(45px); text-transform:uppercase; font-weight:$bold; }
+
+#container .wrapper.produtos{ padding-bottom:100px; }
+#container .wrapper.produtos .col-left{ width:75%; }
+#container .wrapper.produtos .col-right{ width:23%; }
+
+#container .wrapper #lista-produtos{ overflow:visible; }
+#container .wrapper #lista-produtos li{ float:left; width:31.33%; margin:0 3% 2% 0; padding:0; background-color:#FFF; border-bottom:10px solid $amarelo; @include box-shadow(13px 13px 32px rgba(0,0,0,.1)); }
+#container .wrapper #lista-produtos li:nth-child(3n){ margin-right:0; }
+#container .wrapper #lista-produtos li .img{ border-bottom:1px solid #EBEBEB; }
+#container .wrapper #lista-produtos li .img img{ display:block; width:100%; }
+#container .wrapper #lista-produtos li .content{ background-color:#FCFCFC; padding:10px 20px; }
+#container .wrapper #lista-produtos li .content h2{ @include font-size(28px); line-height:28px; color:$preto; }
+#container .wrapper #lista-produtos li .content p{ margin:0; }
+
+#lista-categorias li{ display:block; margin-bottom:1px; }
+#lista-categorias li a{ display:block; width:100%; background-color:$preto; color:$amarelo; font-family:$Myriad; text-transform:uppercase; padding:10px 20px 5px; @include font-size(25px); font-weight:$bold; }
+
+  // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- //
+ // CONTATO --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- //
+.form{ margin-bottom:100px; }
+.form label{ display:block; width:90%; @include font-size(23px); font-family:$Myriad; color:#777; margin-bottom:15px; }
+.form label input,
+.form label select,
+.form label textarea{ display:block; width:100%; border:1px solid #D5D5D5; font-family:$Myriad; color:$preto; @include font-size(20px); padding:10px 10px 5px; @include box-shadow(5px 5px 0 rgba(0,0,0,.03)); }
+.form label input.file{ background-color:$preto; }
+.form label textarea{ height:250px; resize:none; }
+#enviar{ display:inline-block; background-color:$preto; color:$amarelo; font-family:$Myriad; text-transform:uppercase; font-weight:$bold; @include font-size(24px); padding:15px 50px 5px; border:0; cursor:pointer; }
+
+#container .top-contato{ overflow:hidden; }
+#container .top-contato h2.tit{ float:left; }
+#container .top-contato .trabalhe{ float:right; margin:20px 60px 0 0; font-family:$Myriad; @include font-size(31px); letter-spacing:-0.02em; text-transform:uppercase; font-weight:$bold; line-height:1em; color:#585c5e; }
+#container .top-contato .trabalhe strong{ display:block; @include font-size(40px); }
+#container .top-contato .trabalhe a{ @include font-size(20px); color:$amarelo; text-decoration:underline; }
+
+  // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- //
+ // REPRESENTANTES -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- //
+#mapa{ width:100%; height:550px; background-color:$amarelo; margin-bottom:30px; }
+#container .wrapper .visualizando{ @include font-size(25px); color:#CCC; text-transform:uppercase; letter-spacing:0.04em; }
+#container .wrapper .visualizando span{ display:block; @include font-size(45px); font-weight:$bold; color:$amarelo; margin-top:10px; }
+#container .wrapper #lista-locais{ min-height:280px; margin-bottom:140px; }
+#container .wrapper #lista-locais li{ float:left; width:23.5%; margin-right:2%; @include box-shadow(13px 13px 32px rgba(0,0,0,.1)); }
+#container .wrapper #lista-locais li:last-child{ margin-right:0; }
+#container .wrapper #lista-locais li .img{ width:100%; border-bottom:4px solid $amarelo; }
+#container .wrapper #lista-locais li .img img{ display:block; width:100%; }
+#container .wrapper #lista-locais li .info{ padding:20px 30px; border-bottom:10px solid $amarelo; background-color:#FFF; }
+#container .wrapper #lista-locais li h3{ font-family:$Myriad; @include font-size(26px); line-height:26px; }
+#container .wrapper #lista-locais li p{ margin-bottom:10px; color:#999; line-height:1.1em; }
+#container .wrapper #lista-locais li p.fixo{ padding-left:30px; background:url(../img/ico-fixo.png) no-repeat left center; line-height:23px; }
+#container .wrapper #lista-locais li p.cel{ padding-left:30px; background:url(../img/ico-cel.png) no-repeat left center; line-height:23px; }
+
+ // -------
+// Responsivo
+@media screen and(max-width:1220px){
+	#menu{ margin-left:100px; }
+
+	#produtos ul li{ width:23%; margin:0 1% 40px 1%; }
+	#produtos ul li:nth-child(5n){ margin-right:1%; }
+
+	#parc-vendas{ background:#FFF; }
+	#parceiros{ width:100%; padding:40px 0; }
+	#televendas{ width:100%; }
+}
+
+@media screen and(max-width:1100px){
+	#header{ background:#FFF; min-height:0; padding:20px 0; }
+	#menu{ margin-left:50px; }
+	#menu li{ margin:23px 30px 23px 0; }
+	#menu li a{ line-height:50px; }
+
+	.rev{ @include transform(skewx(0)); }
+	#btn-cliente{ padding:0; border:0; margin-right:0; @include transform(skewx(0)); margin:23px 0; line-height:50px; }
+	#btn-cliente:hover{ background:transparent; color:$preto; }
+
+	#banners li p{ right:0; width:100%; text-align:center; }
+
+	#footer .midf .col1{ padding-right:20px; }
+	#footer .midf .col2{ padding:0 20px; }
+	#footer .midf .col3{ padding-left:20px; }
+}
+
+@media screen and(max-width:960px){
+	#logo{ width:100%; height:60px; margin:0; background-size:contain; }
+	#btn-menu{ display:block; }
+	#menu{ display:none; position:fixed; top:100px; left:0; width:100%; margin:0; background-color:#FFF; }
+	#menu li{ display:block; margin:10px 0; text-align:center; }
+	#menu li:last-child{ margin-bottom:0; }
+	#menu li a{ display:block; text-transform:uppercase; @include font-size(15px); font-weight:$bold; letter-spacing:0.02em; line-height:64px; @include transition(all 200ms ease-in-out); }
+	#btn-cliente{ display:none; }
+
+	#produtos ul li{ width:48%; }
+
+	#footer .midf .col1{ width:60%; }
+	#footer .midf .col2{ width:40%; border-right:0; }
+	#footer .midf .col3{ width:100%; padding:0; }
+
+	#container .wrapper .col-left{ width:100%; }
+	#container .wrapper.produtos .col-left{ width:100%; }
+	#container .wrapper .col-right{ display:none; }
+
+	#container .wrapper #abrangencia .inner:before{ display:none; }
+
+	#container .filtro{ display:none; }
+
+	.form label{ width:100%; }
+}
+
+@media screen and(max-width:800px){
+	.owl-nav div{ display:none; }
+
+	#eficiencia .foto{ width:100%; height:200px; }
+	#eficiencia h2{ width:100%; margin-top:50px; text-align:center; }
+
+	#container .wrapper #abrangencia{ background-position:center top; }
+	#container .wrapper #abrangencia .inner{ float:none; max-width:100%; margin-top:330px; }
+
+	#container .wrapper #lista-locais li{ width:49%; margin-bottom:2%; }
+	#container .wrapper #lista-locais li:nth-child(2n){ margin-right:0; }
+}
+
+@media screen and(max-width:640px){
+	#parceiros ul li{ width:31.3%; margin:0 1% 30px; }
+	#parceiros ul li img{ display:block; width:100%; }
+
+	#televendas{ min-height:0; padding:30px 0; background:transparent; text-align:center; }
+
+	#container .wrapper ul li{ width:100%; }
+
+	#container .wrapper #lista-produtos li{ width:100%; margin:0 0 2%; }
+
+	#container h2.tit{ margin-bottom:0; }
+	#container .tit-categoria{ display:none; }
+	h2.tit.rep{ @include font-size(60px); }
+	h2.tit.rep:after{ @include font-size(70px); }
+}
+
+@media screen and(max-width:460px){
+	#footer .midf .col1{ width:100%; padding:0; border:0; text-align:center; margin-bottom:40px; }
+	#footer .midf .col2{ width:100%; padding:0; text-align:center; }
+}
+
+@media screen and(max-width:420px){
+	h2.tit{ @include font-size(60px); }
+	h2.tit:after{ @include font-size(70px); }
+
+	#banners li p{ @include font-size(60px); line-height:50px; }
+	#eficiencia h2{ @include font-size(50px); line-height:50px; }
+
+	#produtos ul li{ width:100%; margin:0 0 20px; }
+
+	#parceiros ul li{ width:48%; }
+	
+	#container .wrapper .visualizando{ @include font-size(20px); }
+	#container .wrapper #lista-locais li{ width:100%; margin-bottom:2%; }
+	h2.tit.rep{ @include font-size(40px); }
+	h2.tit.rep:after{ @include font-size(50px); }
+}
+
+@media screen and(max-width:360px){
+	#logo{ background-position:center left; }
+
+	#footer .midf .col3 .relacionamento{ min-height:0; padding:80px 0 0; margin-top:30px; background-position:top center; text-align:center; }
+}

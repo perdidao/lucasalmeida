@@ -1,0 +1,199 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import url(../font/encore.css);
+$Encore:'Encore Sans', Helvetica, Arial, sans-serif;
+
+$light:300;
+$medium:400;
+$bold:600;
+$black:700;
+
+// CORES
+$Laranja:#F89200;
+$Marinho:#002135;
+$Cinza:#6F6F6F;
+$Texto:#808080;
+$Prata:#EDEDED;
+
+// ESTILOS GLOBAIS
+body{ font-family:$Encore; @include font-size(16px); font-weight:$medium; @include font-smoothing(on); color:$Texto; }
+@include selection(#FFF,$Laranja);
+
+.title{ width:100%; margin-bottom:50px; @include font-size(32px); text-transform:uppercase; font-style:italic; font-weight:$light; color:$Cinza; background:url(../img/bkg-title.png) no-repeat right center; }
+.title.vantagens{ background-image:url(../img/bkg-title-vantagens.png); }
+.title.seguranca{ background-image:url(../img/bkg-title-seguranca.png); }
+.title.clientes{ margin-bottom:100px; background-image:url(../img/bkg-title-clientes.png); }
+.title strong{ font-weight:$black; }
+
+// HEADER
+#header{ width:100%; height:765px; overflow:hidden; background:#000 url(../img/bkg-topo.jpg) no-repeat center top; color:#FFF; position:relative; }
+
+#logo{ width:100%; height:174px; margin-top:240px; background:url(../img/logo.png) no-repeat center center; background-size:contain; @include removeText; }
+
+#down-menu{ position:absolute; bottom:-15px; }
+#down-menu li{ float:left; width:188px; height:188px; background:rgba(0,33,53,.8); text-align:center; @include transition(all 300ms ease-in-out); }
+#down-menu li:hover{ background-color:rgba(255,134,26,.8); }
+#down-menu li .icone{ width:100%; height:51px; margin-top:45px; background-repeat:no-repeat; background-position:center center; }
+#down-menu li .icone.graf{ background-image:url(../img/ico-graf.png); }
+#down-menu li .icone.graf2{ background-image:url(../img/ico-graf2.png); }
+#down-menu li .icone.estrela{ background-image:url(../img/ico-estrela.png); }
+#down-menu li .icone.megafone{ background-image:url(../img/ico-megafone.png); }
+#down-menu li .icone.cifrao{ background-image:url(../img/ico-cifrao.png); }
+#down-menu li p{ margin-top:20px; @include font-size(17px); text-transform:uppercase; }
+
+// MENU FIXO
+#menu{ width:100%; position:fixed; z-index:999; top:0; left:0; background:rgba(255,134,26,.8); @include transition(all 300ms ease-in-out); }
+#logo-small{ float:left; width:177px; height:52px; margin:13px 30px 13px 0; background:url(../img/logo-small.png) no-repeat center center; }
+#menu .menu{ float:left; }
+#menu .menu li{ display:inline-block; }
+#menu .menu li a{ display:block; @include font-size(20px); color:#FFF; text-transform:uppercase; padding:32px 10px; @include transition(all 300ms ease-in-out); }
+#menu .menu li a:hover,
+#menu .menu li a.active{ background-color:rgba(255,97,56,.7); }
+
+// WHAT DO WE DO
+#we-do{ padding:95px 0 70px; }
+#we-do-list{ text-align:center; }
+#we-do-list li{ float:left; width:21.25%; margin-right:5%; }
+#we-do-list li:last-child{ margin-right:0; }
+#we-do-list li .icone{ width:90px; height:90px; border:1px dotted #BABABA; margin:0 auto 20px; background-repeat:no-repeat; background-position:center center; }
+#we-do-list li .icone.stats{ background-image:url(../img/ico-stats.png); }
+#we-do-list li .icone.cell{ background-image:url(../img/ico-cell.png); }
+#we-do-list li .icone.safe{ background-image:url(../img/ico-safe.png); }
+#we-do-list li .icone.art{ background-image:url(../img/ico-art.png); }
+#we-do-list li h3{ margin-bottom:15px; @include font-size(19px); font-weight:$bold; text-transform:uppercase; color:$Laranja; }
+#we-do-list li .line{ display:block; width:90px; height:1px; background-color:#BABABA; margin:0 auto 16px; }
+#we-do-list li p{ line-height:20px; font-weight:$light; }
+
+// SOBRE
+#sobre{}
+#lista-sobre{ max-width:1260px; margin:0 auto; }
+#lista-sobre li{ float:left; width:33.33%; height:295px; overflow:hidden; }
+#lista-sobre li.text{ background-color:$Marinho; color:#FFF; padding:60px 40px 0; }
+#lista-sobre li.text.color{ background-color:$Laranja; }
+#lista-sobre li.text h3{ text-transform:uppercase; padding-bottom:8px; border-bottom:1px solid #FFF; margin-bottom:15px; }
+#lista-sobre li.text p{ @include font-size(14px); line-height:23px; font-weight:$light; }
+#lista-sobre li img{ display:block; @include transition(all 300ms ease-in-out); }
+#lista-sobre li:hover img{ @include transform(scale(1.1)); }
+
+// VANTAGENS
+#vantagens{ padding:70px 0 170px; background:url(../img/bkg-vantagens.jpg) repeat-y center top; }
+#lista-vantagens{ display:table; width:100%; text-align:center; }
+#lista-vantagens li{ display:table-cell; width:25%; height:250px; vertical-align:middle; color:#FFF; }
+#lista-vantagens li.vant1{ background:$Laranja url(../img/bkg-1.png) no-repeat 0 0; }
+#lista-vantagens li.vant2{ background:#FFB751 url(../img/bkg-2.png) no-repeat 0 0; }
+#lista-vantagens li.vant3{ background:#026098 url(../img/bkg-3.png) no-repeat 0 0; }
+#lista-vantagens li.vant4{ background:$Marinho url(../img/bkg-4.png) no-repeat 0 0; }
+#lista-vantagens li .icone{ display:inline-block; width:100%; height:66px; margin-bottom:25px; background-repeat:no-repeat; background-position:center center; }
+#lista-vantagens li .icone.support{ background-image:url(../img/ico-support.png); }
+#lista-vantagens li .icone.bars{ background-image:url(../img/ico-bars.png); }
+#lista-vantagens li .icone.paint{ background-image:url(../img/ico-paint.png); }
+#lista-vantagens li .icone.target{ background-image:url(../img/ico-target.png); }
+#lista-vantagens li h3{ text-transform:uppercase; @include font-size(22px); }
+
+// SEGURANÇA
+#seguranca{ padding:70px 0 100px; }
+#lista-seguranca{}
+#lista-seguranca .col-left{ float:left; width:66%; margin-right:2%; }
+#lista-seguranca .col-right{ float:left; width:32%; }
+#lista-seguranca li{ float:left; background-color:$Prata; }
+#lista-seguranca li img{ display:block; width:100%; }
+#lista-seguranca li .texto{ padding:20px; color:$Cinza; }
+#lista-seguranca li .texto h3{ @include font-size(26px); text-transform:uppercase; font-weight:$black; }
+#lista-seguranca li .texto p{ @include font-size(13px); line-height:16px; font-weight:$light; }
+
+#lista-seguranca li.vert.small{ float:left; width:48.4%; margin-right:3.2%; margin-bottom:20px; }
+#lista-seguranca li.vert.small.last{ margin-right:0; }
+
+#lista-seguranca li.horz{ width:100%; }
+#lista-seguranca li.horz .texto{ float:left; width:48.4%; margin-right:3.2%; }
+#lista-seguranca li.horz img{ width:48.4%; }
+
+// CONTATO
+#contato{ padding:45px 0 30px; background-color:$Laranja; color:#FFF; text-align:center; }
+#contato h2{ @include font-size(28px); font-weight:$bold; text-transform:uppercase; margin-bottom:5px; }
+#contato p{ @include font-size(22px); font-weight:$light; }
+#contato .btn{ display:inline-block; margin-top:25px; text-transform:uppercase; border:2px solid #FFF; padding:14px 12px 12px 12px; @include font-size(20px); @include transition(all 300ms ease-in-out); }
+#contato .btn:hover{ background-color:#FFF; color:$Marinho; }
+
+// CLIENTES
+#clientes{ padding:60px 0 70px; }
+#clientes .center{ position:relative; }
+#lista-clientes{ width:94%; margin:0 auto; }
+#lista-clientes li{ text-align:center; @include font-size(22px); color:$Cinza; }
+#lista-clientes li .logo{ margin-bottom:15px; }
+#lista-clientes li .logo img{ display:inline-block; }
+#lista-clientes li h3{ font-weight:$bold; line-height:23px; }
+#lista-clientes li p{ font-weight:$light; line-height:26px; }
+
+#prev,
+#next{ display:block; width:28px; height:46px; background-repeat:no-repeat; background-position:center center; position:absolute; top:200px; }
+#prev{ background-image:url(../img/prev.png); left:0; }
+#next{ background-image:url(../img/next.png); right:0; }
+
+// FOOTER
+#footer{ background-color:#393939; padding:100px 0; text-align:center; }
+#conviso{ display:inline-block; width:298px; height:57px; background:url(../img/conviso.png) no-repeat center center; @include removeText; @include transition(all 300ms ease-in-out); }
+#conviso:hover{ @include opacity(0.7); }
+
+// RESPONSIVO
+@media screen and(max-width:1000px){
+	h2.title, h2.title.vantagens, h2.title.seguranca, h2.title.clientes{ background:transparent; text-align:center; }
+
+	#logo-small{ width:100%; margin:13px auto 20px; }
+	#menu .menu{ width:100%; text-align:center; }
+	#menu .menu li a{ padding:15px 14px; }
+
+	#down-menu{ position:static; margin-top:600px; }
+	#down-menu li{ width:20%; @include border-radius(0); }
+
+	#lista-sobre li{ width:50%; }
+}
+
+@media screen and(max-width:820px){
+	#header{ height:auto; background-position:center center; padding:100px 0; }
+	#menu{ display:none; }
+	#down-menu{ display:none; }
+
+	#logo{ margin-top:0; }
+}
+
+@media screen and(max-width:700px){
+	#lista-sobre li{ width:100%; height:auto; }
+	#lista-sobre li img{ width:100%; }
+	#lista-sobre li:hover img{ @include transform(scale(1)); }
+	#lista-sobre li.text{ padding:40px; }
+
+	#lista-vantagens{ display:block; }
+	#lista-vantagens li{ display:block; float:left; width:50%; height:auto; padding:50px 0; }
+}
+
+@media screen and(max-width:640px){
+	#we-do-list li{ width:40%; margin:0 5% 5%; }
+	#we-do-list li:last-child{ margin-right:5%; }
+
+	#lista-seguranca .col-left{ width:40%; }
+	#lista-seguranca .col-right{ width:58%; }
+
+	#lista-seguranca li.vert.small{ width:100%; margin-right:0; }
+	#lista-seguranca li.horz .texto{ width:100%; margin:0; }
+	#lista-seguranca li.horz img{ width:100%; }
+
+	#logo{ height:268px; width:90%; margin:0 auto; background-image:url(../img/logo-alt.png); }
+}
+
+@media screen and(max-width:420px){
+	#we-do-list li{ width:90%; }
+
+	#lista-seguranca .col-left{ width:100%; margin-bottom:20px; }
+	#lista-seguranca .col-right{ width:100%; }
+
+	#header{ padding:50px 0; }
+}
+
+@media screen and(max-width:360px){
+	#lista-vantagens li{ width:100%; }
+}

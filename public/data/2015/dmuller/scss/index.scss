@@ -1,0 +1,148 @@
+// DEPENDÊNCIAS
+@import "compass";
+@import "tools.scss";
+
+// FONTES
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,300,700");
+$OpenSans: "Open Sans", Helvetica, Arial, sans-serif;
+$Georgia: Georgia, Times, Times New Roman, serif;
+
+// CORES
+$Azul:#034B9C;
+$AzulClaro:#0768CD;
+$Amarelo:#FFD503;
+$AmareloClaro:#FFE769;
+$Cinza:#777;
+$Prata:#CCC;
+
+// BANNER
+#banner{ width:100%; }
+#banner li{ width:100%; }
+#banner li a{ display:block; }
+#banner li a img{ display:block; width:100%; }
+.owl-pagination{ width:100%; text-align:center; margin:20px auto; }
+.owl-pagination .owl-page{ display:inline-block; width:10px; height:10px; background-color:$Prata; margin:0 5px; border-radius:50%; }
+.owl-pagination .owl-page.active{ background-color:$Cinza; }
+
+// SOBRE
+#sobre{ margin-top:100px; }
+#sobre .descubra,
+#sobre .marcas{ width:49%; float:left; }
+#sobre .marcas{ margin-left:2%; }
+#sobre p{ display:block; height:75px; margin-bottom:30px; text-align:center; font-family:$Georgia; @include font-size(27px); line-height:35px; font-style:italic; @include font-smoothing(on); }
+#sobre figure{ display:block; position:relative; }
+#sobre img{ display:block; width:100%; }
+#sobre a{ display:block; width:50%; height:80px; background-color:$Azul; position:absolute; left:25%; bottom:-40px; color:#FFF; font-weight:$bold; text-transform:uppercase; text-align:center; line-height:80px; @include opacity(1); @include transition(all 300ms ease-in-out); @include font-smoothing(on); }
+#sobre a:hover{ @include opacity(0.95); }
+#sobre a:active{ @include opacity(0.8); }
+
+// MARCAS
+#marcas{ margin:180px 0 130px; }
+#marcas p{ display:block; margin-bottom:30px; text-align:center; font-family:$Georgia; @include font-size(27px); line-height:35px; font-style:italic; @include font-smoothing(on); }
+#lista-marcas li{ margin:0 10px; border:1px solid $Prata; }
+#lista-marcas li a img{ display:block; width:100%; @include filter(grayscale(1)); @include opacity(0.4); @include transition(all 300ms ease-in-out); }
+#lista-marcas li a img:hover{ @include filter(grayscale(0)); @include opacity(1); }
+#marcas .big-button{ width:400px; margin:35px auto 0; }
+
+// PEDIDO ONLINE
+#pedidos{ background:url(../img/bkg-pedidos.jpg) repeat-x center top; padding-top:50px; }
+#pedidos .mouse{ width:150px; height:132px; background:url(../img/mouse.png) no-repeat center center; margin:0 auto; }
+#pedidos h2{ display:block; @include font-size(40px); font-family:$OpenSans; font-weight:$semibold; color:$Azul; max-width:350px; text-align:center; margin:15px auto 25px; padding-bottom:30px; border-bottom:2px solid $Azul; @include font-smoothing(on); }
+#pedidos p{ display:block; margin-bottom:60px; text-align:center; font-family:$Georgia; @include font-size(27px); line-height:35px; font-style:italic; @include font-smoothing(on); color:$Azul; }
+#pedidos .big-button{ max-width:400px; margin:0 auto; }
+
+// NOTÍCIAS
+#noticias{ margin-top:100px; }
+#noticias p{ display:block; margin-bottom:30px; text-align:center; font-family:$Georgia; @include font-size(27px); line-height:35px; font-style:italic; @include font-smoothing(on); }
+#noticias .noticia{ float:left; width:36.25%; margin:0 2% 0 12.75%; }
+#noticias .noticia.right{ margin:0; }
+#noticias .noticia img{ display:block; width:100%; border:0px solid $Azul; @include transition(all 100ms ease-in-out); }
+#noticias .noticia a:hover img{ border:5px solid $Azul; }
+#noticias .noticia .info{ background-color:#F6F6F6; border:1px solid #DADADA; padding:10px; }
+#noticias .noticia em{ display:block; float:left; min-height:70px; line-height:70px; margin-left:20px; }
+#noticias .noticia span{ display:block; width:70px; height:70px; background:#DADADA url(../img/mais.png) no-repeat center center; float:right; }
+
+// INTERAÇÃO COM CLIENTE
+#interacao{ margin-top:60px; border-top:1px solid $Prata; padding-top:60px; @include font-smoothing(on); }
+#interacao h2{ @include font-size(32px); font-family:$Georgia; font-style:italic; display:block; border-bottom:1px solid #FFF; padding-bottom:20px; margin-bottom:15px; }
+#interacao p{ @include font-size(18px); line-height:25px; font-style:italic; margin-bottom:20px; }
+
+#novidades{ min-height:320px; background-color:$AzulClaro; color:#FFF; float:left; width:49%; margin:0 2% 0 12.75%; padding:25px 30px; }
+#novidades input{ display:block; width:100%; background-color:#FFF; border:1px solid $Azul; @include font-size(18px); font-family:$OpenSans; color:$Cinza; padding:13px 17px; line-height:1em; margin-bottom:10px; }
+#novidades input#e-mail{ float:left; width:75%; }
+#cadastrar{ display:block; float:left; width:25%; border:1px solid $Azul; background-color:#FFF; @include font-size(18px); font-family:$OpenSans; font-weight:700; text-transform:uppercase; color:$AzulClaro; padding:12px 17px; line-height:1em; cursor:pointer; }
+#novidades .msg{ font-family:$Georgia; font-style:italic; }
+
+@include placeholder($Cinza);
+
+#contato-rapido{ min-height:320px; background-color:$AzulClaro; color:#FFF; float:left; width:23.5%; padding:25px 30px; text-align:center; position:relative; }
+#contato-rapido .balao{ width:61px; height:69px; background:url(../img/ico-balao.png) no-repeat center center; position:absolute; top:-50px; left:50%; margin-left:-30px; }
+#contato-rapido .big-button{ width:136%; margin-left:-18%; height:100px; line-height:45px; }
+
+// REPRESENTANTES
+#representantes{ background:url(../img/bkg-representantes.jpg) repeat-x center top; padding-top:80px; margin-top:70px; }
+#representantes .prancheta{ width:150px; height:140px; background:url(../img/ico-representantes.png) no-repeat center center; margin:0 auto; }
+#representantes h2{ display:block; @include font-size(40px); font-family:$OpenSans; font-weight:$semibold; color:#FFF; max-width:350px; text-align:center; margin:25px auto; padding-bottom:30px; border-bottom:2px solid #FFF; @include font-smoothing(on); }
+#representantes p{ display:block; margin-bottom:110px; text-align:center; font-family:$Georgia; @include font-size(27px); line-height:35px; font-style:italic; @include font-smoothing(on); color:#FFF; }
+#representantes .container-busca{ max-width:640px; height:80px; margin:0 auto; position:relative; }
+#representantes .container-busca input{ display:block; width:68%; height:80px; float:left; background-color:#FFF; border:1px solid $Azul; border-left-width:10px; border-right-width:0; @include font-size(27px); color:$Cinza; font-family:$Georgia; font-style:italic; padding-left:20px; @include font-smoothing(on); }
+#representantes .container-busca #uf-dropdown{ float:left; display:block; width:12%; height:80px; border-top:1px solid $Azul; border-bottom:1px solid $Azul; background:#FFF url(../img/ico-dropdown.png) no-repeat center center; @include transition(all 200ms ease-in-out); }
+#representantes .container-busca #uf-dropdown:hover{ background-position:center 34px; }
+#representantes .container-busca #buscar{ float:left; display:block; width:20%; height:80px; border:1px solid $Azul; background-color:$Azul; color:#FFF; text-align:center; line-height:80px; @include font-size(18px); text-transform:uppercase; font-weight:$bold; @include opacity(1); @include transition(all 300ms ease-in-out); }
+#representantes .container-busca #buscar:hover{ @include opacity(0.95); }
+#representantes .container-busca #buscar:active{ @include opacity(0.8); }
+
+#lista-estados{ display:none; position:absolute; top:80px; width:80%; height:240px; overflow:scroll; }
+#lista-estados li a{ display:block; width:100%; height:60px; background-color:#FFF; border:1px solid $Azul; border-left-width:10px; border-top:0; padding-left:20px; line-height:60px; @include transition(all 200ms ease-in-out); }
+#lista-estados li a:hover{ background-color:$AzulClaro; color:#FFF; }
+
+// VAGAS E LOCALIZAÇÃO
+#contato{ margin-top:100px; }
+#contato p.subtitulo{ @include font-size(27px); font-family:$Georgia; font-style:italic; height:70px; text-align:center; @include font-smoothing(on); margin-bottom:20px; }
+
+#trabalhe{ float:left; width:49%; margin-right:2%; }
+#trabalhe figure{ display:block; position:relative; }
+#trabalhe figure img{ display:block; width:100%; }
+#trabalhe figure a{ display:block; width:50%; height:80px; background-color:$Azul; position:absolute; left:25%; bottom:-40px; color:#FFF; font-weight:$bold; text-transform:uppercase; text-align:center; line-height:80px; @include opacity(1); @include transition(all 300ms ease-in-out); @include font-smoothing(on); }
+#trabalhe figure a:hover{ @include opacity(0.95); }
+#trabalhe figure a:active{ @include opacity(0.8); }
+#trabalhe figure span{ position:absolute; right:0; bottom:-20px; @include font-size(12px); font-family:$Georgia; font-style:italic; }
+
+#localizacao{ float:left; width:49%; }
+#localizacao .box-loc{ background-color:$Amarelo; font-family:$Georgia; color:#0355A0; padding:40px; }
+#localizacao .box-loc address{ @include font-size(18px); font-style:italic; margin-bottom:30px; }
+#localizacao .box-loc .telefone{ background:url(../img/ico-fone.png) no-repeat left center; padding-left:60px; height:50px; line-height:50px; @include font-size(26px); font-style:italic; margin-left:-17px; }
+#localizacao .box-loc .gmaps{ background:#034C9C url(../img/bkg-gmaps.png) repeat-y right top; color:#FFF; border-right:5px solid #FFF; padding:25px; margin-top:25px; position:relative; }
+#localizacao .box-loc .gmaps p{ @include font-size(14px); font-style:italic; line-height:1.3em; }
+#localizacao .box-loc .gmaps p .link-maps{ text-decoration:underline; }
+#localizacao .box-loc .gmaps p .link-enderecos{ color:$Amarelo; }
+#localizacao .box-loc .pointer{ width:210px; height:206px; background:url(../img/pointer.png) no-repeat center center; position:absolute; right:0; top:-15px; }
+
+// RESPONSIVO
+@media screen and(max-width:1024px){
+	.center{ margin:0 10%; }
+
+	#banner{ margin-top:150px; }
+
+	#sobre .descubra,
+	#sobre .marcas{ width:100%; }
+	#sobre .marcas{ margin:140px 0 0; }
+
+	#pedidos p{ margin-bottom:30px; }
+
+	#noticias .noticia{ width:100%; margin:0 0 40px; }
+
+	#novidades{ width:100%; margin:0 0 40px; }
+
+	#cadastrar{ padding:16px 17px; }
+
+	#contato-rapido{ width:100%; margin-top:60px; }
+	#contato-rapido h2{ max-width:320px; margin:0 auto 15px; }
+	#contato-rapido p{ max-width:320px; margin:0 auto 20px; }
+	#contato-rapido .big-button{ width:320px; margin:0 auto; }
+
+	#representantes p{ margin-bottom:80px; }
+
+	#trabalhe{ width:100%; margin-right:0; }
+	#localizacao{ width:100%; margin-top:100px; }
+}

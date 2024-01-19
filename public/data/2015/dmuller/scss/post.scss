@@ -1,0 +1,57 @@
+// DEPENDÊNCIAS
+@import "compass";
+@import "tools.scss";
+
+// FONTES
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,300,700");
+$OpenSans: "Open Sans", Helvetica, Arial, sans-serif;
+$Georgia: Georgia, Times, Times New Roman, serif;
+
+// CORES
+$Azul:#034B9C;
+$AzulClaro:#0768CD;
+$Amarelo:#FFD503;
+$AmareloClaro:#FFE769;
+$Cinza:#777;
+$Prata:#CCC;
+
+#header{ border-bottom:10px solid $Azul; margin-bottom:35px; }
+#container{ max-width:940px; margin:0 auto; }
+
+// TOPO
+.topo-linha{ width:100%; border-bottom:1px solid $Azul; }
+.topo-linha .center{ padding:10px 0; }
+.topo-linha .voltar-marcas{ display:block; float:left; width:48%; border-bottom:5px solid $Azul; margin-bottom:-13px; padding:0 0 25px 40px; @include font-size(18px); font-weight:$bold; text-transform:uppercase; letter-spacing:0.2em; color:$Azul; background:url(../img/arw-left.png) no-repeat left 2px; }
+
+// ARTIGO
+#artigo{ font-family:$Georgia; font-style:italic; line-height:40px; @include font-smoothing(on); }
+#artigo .data{ display:block; margin:20px 0 30px; }
+#artigo h1{ @include font-size(32px); font-weight:$semibold; color:$Azul; font-family:$OpenSans; font-style:normal; margin-bottom:40px; }
+#artigo p{ color:#939393; @include font-size(24px); margin-bottom:40px; }
+#artigo p strong{ color:$Cinza; @include font-size(27px); }
+#artigo figure{ margin-bottom:20px; }
+#artigo figure img{ display:block; width:100%; }
+#artigo .tags{ border:1px solid $Azul; border-left-width:10px; padding:10px 20px; }
+#artigo .tags p{ margin:0; }
+
+// SOCIAL
+.social{ margin-top:40px; }
+.social h2{ display:block; float:left; height:60px; line-height:60px; margin-right:10px; padding-right:20px; border-right:1px solid $Azul; @include font-size(22px); font-family:$Georgia; font-style:italic; color:$Azul; }
+.social a{ display:block; float:left; width:30px; height:30px; background-position:center center; background-repeat:no-repeat; margin:15px 0 0 20px; }
+.social a.ico-facebook{ background-image:url(../img/ico-facebook.png); }
+.social a.ico-gplus{ background-image:url(../img/ico-gplus.png); }
+.social a.ico-twitter{ background-image:url(../img/ico-twitter.png); }
+.social a.ico-linkedin{ background-image:url(../img/ico-linkedin.png); }
+.social a.ico-mail{ background-image:url(../img/ico-mail-alt.png); }
+
+
+// RESPONSIVO
+@media screen and(max-width:1300px){
+	.center,
+	#container{ margin:0 3%; }
+}
+
+@media screen and(max-width:1024px){
+	.center,
+	#container{ margin:0 10%; }
+}

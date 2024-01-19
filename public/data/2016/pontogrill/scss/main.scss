@@ -1,0 +1,97 @@
+// DEPENDÊNCIAS
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTES
+@import url(../fonts/fonts.css);
+$Aachen:'Aachen', 'Impact', Helvetica, Arial, sans-serif;
+$Akz:'Akz', Helvetica, Arial, sans-serif;
+$Myriad:MyriadPro-Regular, 'Myriad Pro Regular', MyriadPro, 'Myriad Pro', Helvetica, Arial, sans-serif;
+
+// CORES
+$vermelho:#CA2127;
+$amarelo:#FFBA00;
+$preto:#231F20;
+
+// ESTILOS GLOBAIS
+body{ font-family:$Myriad; color:$preto; @include font-size(16px); @include font-smoothing(on); }
+@include selection(#FFF,$vermelho);
+
+// HEADER
+#header{ width:100%; position:relative; min-height:980px; }
+#header.hack{ margin-bottom:90px; }
+#header .center{ padding-top:1px; z-index:2; text-align:center; }
+#logo{ width:100%; height:321px; background:url(../img/logo.png) no-repeat center center; background-size:contain; margin-top:180px; @include removeText; }
+#header .btn{ display:inline-block; padding:10px 22px 6px; border:3px solid #FFF; margin-top:30px; text-transform:uppercase; color:#FFF; @include font-size(20px); font-weight:bold; @include transition(all 300ms ease-in-out); }
+#header .btn:hover{ background-color:#FFF; color:$vermelho; }
+#delivery{ position:absolute; z-index:2; bottom:30px; right:50px; font-family:$Aachen; color:#FFF; @include font-size(20px); padding-right:25px; background:url(../img/ico-delivery.png) no-repeat right center; text-transform:uppercase; }
+#delivery span{ @include font-size(15px); }
+#banners{ position:absolute; z-index:1; top:0; left:0; }
+#banners li img{ text-align:center; }
+
+// Navegação
+#nav{ width:100%; height:90px; background-color:#FFF; text-align:center; position:relative; z-index:999; }
+#nav.fixed{ position:fixed; z-index:999; top:0; left:0; }
+#nav a{ display:block; float:left; height:90px; padding:0 23px; line-height:90px; text-transform:uppercase; @include transition(all 300ms ease-in-out); }
+#nav a:hover,
+#nav a.active{ color:$vermelho; }
+#nav .logo{ float:left; width:110px; height:110px; margin-top:-10px; background:url(../img/logo.png) no-repeat center center; background-size:contain; }
+
+// Sobre
+#sobre{ width:100%; background:url(../img/bkg-sobre.jpg) repeat center top; }
+#sobre .center{ padding:45px 0 75px; }
+#sobre h2{ font-family:$Aachen; @include font-size(50px); line-height:60px; text-transform:uppercase; color:$vermelho; }
+#sobre h3{ margin-top:20px; font-family:$Akz; @include font-size(22px); line-height:38px; text-transform:uppercase; letter-spacing:0.04em; }
+#sobre p{ margin-top:25px; @include font-size(14px); line-height:24px; letter-spacing:0.06em; }
+#parallax{ width:100%; height:490px; background:url(../img/parallax.jpg) no-repeat center center; }
+
+// Pratos
+#pratos h2{ font-family:$Aachen; @include font-size(50px); line-height:60px; margin:75px 0; text-transform:uppercase; color:$vermelho; }
+#lista-pratos li{ padding:5px; }
+#lista-pratos li img{ display:block; width:100%; }
+
+// Localização
+#localizacao{ padding-top:50px; background:#bf3031 url(../img/bkg-locais.jpg) repeat-x center top; }
+#localizacao h2{ font-family:$Aachen; @include font-size(50px); line-height:60px; margin-bottom:20px; text-transform:uppercase; color:$amarelo; }
+#localizacao p{ margin-top:20px; font-family:$Akz; @include font-size(22px); line-height:38px; text-transform:uppercase; letter-spacing:0.06em; color:#FFF; }
+#localizacao p span{ display:inline-block; @include font-size(28px); padding-right:50px; background:url(../img/ico-delivery-b.png) no-repeat right center; margin-right:20px; }
+#lista-locais{ margin:15px 0 70px; }
+#lista-locais li{ margin-bottom:10px; }
+#lista-locais li a{ display:block; padding:5px 20px; border:1px solid #FFF; color:#FFF; @include transition(all 300ms ease-in-out); }
+#lista-locais li a.active,
+#lista-locais li a:hover{ background-color:$amarelo; border-color:$amarelo; color:$preto; }
+#localizacao .mapa{ position:relative; }
+#localizacao .mapa .overmap{ position:absolute; z-index:1; top:0; left:0; width:100%; height:440px; }
+#mapa-royal, #mapa-catuai{ display:none; }
+
+// Facebook
+#facebook{ min-height:440px; padding:60px 0 50px; background:url(../img/bkg-facebook.jpg) no-repeat center top; }
+#facebook h2{ font-family:$Aachen; @include font-size(50px); line-height:60px; margin-bottom:20px; text-transform:uppercase; color:#FFF; text-align:center; }
+#facebook .fb-wrapper{ max-width:500px; margin:0 auto; }
+
+// CONTATO
+#contato{ padding:60px 0 40px; background:url(../img/bkg-contato.jpg) no-repeat center top; }
+#contato .center{ max-width:780px; }
+#contato h2{ font-family:$Aachen; @include font-size(50px); line-height:60px; margin-bottom:30px; text-transform:uppercase; color:$vermelho; text-align:center; }
+#contato input,
+#contato textarea{ display:block; width:100%; padding:8px 15px 5px; border:0; margin-bottom:15px; background-color:#FFF; color:$preto; font-family:$Myriad; @include font-size(14px); }
+#contato textarea{ height:95px; }
+@include placeholder($preto);
+#enviar{ display:block; width:180px; height:70px; background-color:#FFF; border:2px solid $preto; margin:-30px auto 0; color:$preto; font-family:$Myriad; @include font-size(26px); font-weight:bold; text-transform:uppercase; cursor:pointer; @include transition(all 300ms ease-in-out); }
+#enviar:hover{ background-color:$preto; color:#FFF; }
+
+// FOOTER
+#footer{ padding:20px 0; background-color:$preto; color:#FFF; @include font-size(12px); line-height:18px; }
+#footer .center{ max-width:920px; }
+#footer p{ float:left; }
+#footer a{ display:block; float:right; width:43px; height:18px; background:url(../img/m2mp.png) no-repeat center center; }
+
+// RESPONSIVO
+@media screen and(max-width:680px){
+	#nav{ display:none; }
+}
+
+@media screen and(max-width:420px){
+	#sobre h2,#pratos h2, #localizacao h2, #facebook h2, #contato h2{ @include font-size(36px); }
+}

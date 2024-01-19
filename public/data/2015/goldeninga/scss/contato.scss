@@ -1,0 +1,46 @@
+// DEPENDÊNCIAS
+@import "compass";
+@import "tools.scss";
+
+// CORES
+$Azul:#1D334D;
+$Amarelo:#F3CA31;
+$Vermelho:#F77;
+$Cinza:#777;
+
+// FONTES
+@import "fonts.scss";
+
+h2.titulo{ display:block; width:100%; text-align:center; @include font-size(45px); font-family:$Dr; margin:105px 0 15px; }
+h3.subtitulo{ display:block; width:100%; text-align:center; @include font-size(25px); font-family:$Di; }
+
+@include placeholder($Azul);
+#form-contato{ max-width:940px; margin:0 auto; text-align:left; }
+.col-left,
+.col-right{ float:left; width:45%; margin:80px 0 40px; }
+.col-left{ margin-right:10%; margin-top:40px; }
+
+#form-contato input,
+#form-contato textarea{ display:block; width:100%; border:2px solid $Azul; @include font-size(16px); font-family:$Fm; color:$Azul; }
+#form-contato input{ margin-top:40px; border-left:0; border-right:0; border-top:0; padding-bottom:15px; }
+#form-contato textarea{ resize:none; height:240px; padding:10px; }
+#form-contato input.required{ border-color:$Vermelho; }
+
+#enviar{ display:block; float:left; font-family:$Fbi; @include font-size(18px); color:#FFF; border:0; background-color:$Azul; text-transform:uppercase; padding:20px 70px; cursor:pointer; }
+.notice{ display:block; float:left; margin:25px; color:$Vermelho; font-family:$Di; @include font-size(16px); }
+
+#contato{ background:url(../img/bkg-contato.jpg) repeat-x center bottom; padding-bottom:90px; }
+
+label.error{ color:$Vermelho; margin-top:-20px; font-family:$Di; @include font-size(16px); }
+
+#footer{ margin-top:0; }
+
+@media screen and(max-width:980px){
+	#form-contato{ max-width:auto; width:80%; margin:0 10%; }
+}
+
+@media screen and(max-width:660px){
+	.col-left,
+	.col-right{ width:100%; margin:0; }
+	.col-right{ margin:30px 0; }
+}

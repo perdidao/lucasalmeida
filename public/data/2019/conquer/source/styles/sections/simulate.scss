@@ -1,0 +1,115 @@
+.simulate {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+
+  &-gradient {
+    position: relative;
+    background-image: linear-gradient(to bottom, $cyan 0%, rgba(221, 244, 255, 1) 50%, #fff 100%);
+  }
+
+  &-container {
+    position: absolute;
+    top: rel(-220);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: $size-mobile) {
+      position: static;
+      flex-direction: column;
+      transform: none;
+      padding-top: rel(50, true);
+    }
+  }
+
+  &-item {
+    flex-shrink: 1;
+    width: 32%;
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-radius: rel(5);
+    transition: $default-transition;
+
+    &.hovered {
+      background-color: $white;
+      border-color: $cyan;
+
+      .simulate-item__title {
+        opacity: 1;
+      }
+
+      .simulate-item__button {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: $size-mobile) {
+      width: 100%;
+      margin-bottom: rel(50, true);
+      border-radius: rel(5, true);
+      background-color: $white;
+      border-color: $cyan;
+    }
+
+    &__title {
+      display: block;
+      opacity: 0;
+      font-size: rem(22);
+      text-transform: uppercase;
+      color: $cyan;
+
+      @media (max-width: $size-mobile) {
+        font-size: rem(44);
+        opacity: 1;
+      }
+    }
+
+    &__image {
+      display: block;
+
+      @media (max-width: $size-mobile) {
+        margin: rel(40, true) 0;
+      }
+    }
+
+    &__button {
+      display: flex;
+      opacity: 0;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: rel(15) rel(20) rel(15) rel(40);
+      background-color: $cyan;
+      border-radius: rel(5);
+      color: $white;
+      font-size: rem(14);
+      font-weight: $bold;
+      text-transform: uppercase;
+      transition: $default-transition;
+
+      &--center {
+        justify-content: center;
+        padding: rel(15) rel(20);
+      }
+
+      &:hover {
+        background-color: $royal;
+      }
+
+      @media (max-width: $size-mobile) {
+        opacity: 1;
+        padding: rel(15, true) rel(20, true) rel(15, true) rel(40, true);
+        border-radius: rel(5, true);
+        font-size: rem(28);
+      }
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+  }
+}

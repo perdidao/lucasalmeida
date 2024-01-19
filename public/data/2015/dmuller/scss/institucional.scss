@@ -1,0 +1,143 @@
+// DEPENDÊNCIAS
+@import "compass";
+@import "tools.scss";
+
+// FONTES
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,300,700");
+$OpenSans: "Open Sans", Helvetica, Arial, sans-serif;
+$Georgia: Georgia, Times, Times New Roman, serif;
+
+// CORES
+$Azul:#034B9C;
+$AzulClaro:#0768CD;
+$Amarelo:#FFD503;
+$AmareloClaro:#FFE769;
+$Cinza:#777;
+$Prata:#CCC;
+
+#header{ border-bottom:10px solid $Azul; margin-bottom:35px; }
+
+// INSTITUCIONAL
+h2.title{ text-align:center; @include font-size(18px); font-weight:$bold; text-transform:uppercase; letter-spacing:0.2em; color:$Azul; margin:0 auto 20px; padding-bottom:27px; background:url(../img/lin-title.png) no-repeat center bottom; @include font-smoothing(on); }
+h3.stitle{ @include font-size(32px); line-height:40px; font-weight:$semibold; color:$Azul; margin:90px 0 50px; @include font-smoothing(on); }
+h4.sstitle{ @include font-size(27px); line-height:35px; font-family:$Georgia; font-style:italic; @include font-smoothing(on); }
+
+#apresentacao{ margin-top:80px; }
+#apresentacao .col-left{ float:left; width:49%; margin-right:2%; }
+#apresentacao .col-right{ float:left; width:49%; }
+
+#video{ width:100%; border-left:10px solid $AmareloClaro; position:relative; }
+#video img{ display:block; width:100%; }
+#btn-play{ display:block; width:114px; height:114px; background:url(../img/btn-play.png) no-repeat center center; position:absolute; top:50%; left:50%; margin-top:-57px; margin-left:-57px; }
+
+// DESCRIÇÃO
+#descricao{ margin-top:70px; }
+#descricao p{ @include font-size(24px); line-height:45px; font-family:$Georgia; font-style:italic; @include font-smoothing(on); }
+#descricao .col-right,
+#descricao .col-left{ float:left; width:48%; margin-right:0; margin-top:30px; }
+#descricao .separador{ width:4%; height:400px; float:left; background:url(../img/separador-sobre.png) no-repeat center center; }
+
+// ABAS
+#tabs{ margin-bottom:120px; }
+#abas{ float:left; width:23.50%; }
+#abas li{ margin-bottom:1px; }
+#abas li a{ display:block; width:100%; color:$Azul; @include font-size(24px); padding:30px; background-color:#ffee78; @include transition(all 300ms ease-in-out); }
+#abas li a:hover{ color:#FFF; background-color:$Azul; }
+#abas li a.active{ background:$Azul url(../img/arw-right.png) no-repeat 90% center; color:#FFF; font-weight:$semibold; @include font-smoothing(on); }
+.aba{ float:left; width:74.5%; margin-left:2%; padding:15px 40px 15px 10px; border-right:12px solid $Azul; }
+.aba p{ @include font-size(27px); line-height:45px; font-family:$Georgia; font-style:italic; }
+
+#visao,
+#valores{ display:none; }
+
+// TIMELINE
+#timeline{ max-width:940px; margin:0 auto; }
+#timeline h2{ display:block; max-width:350px; margin:0 auto 20px; padding-bottom:20px; @include font-size(40px); color:$Azul; border-bottom:2px solid $Cinza; text-align:center; }
+#timeline p{ @include font-size(24px); line-height:35px; text-align:center; font-family:$Georgia; font-style:italic; }
+#timeline p.sub{ margin-bottom:45px; }
+#timeline h3{ color:$Azul; text-align:center; max-width:350px; margin:0 auto; @include font-size(24px); font-weight:$bold; }
+#timeline .img-linha{ margin:20px 0; }
+#timeline .img-linha img{ display:block; width:100%; }
+
+// GALERIA DE IMAGENS
+#fotos{ max-width:1260px; margin:40px auto 80px; }
+#galeria li{ float:left; width:100%; margin-bottom:20px; height:380px; overflow:hidden; position:relative; }
+#galeria li img{ display:block; width:100%; }
+#galeria li.half{ width:49%; }
+#galeria li.half.desc{ margin-left:2%; background:url(../img/bkg-foto.jpg) repeat center center; padding:50px; }
+#galeria li.half.desc p{ color:#FFF; @include font-size(24px); line-height:45px; font-family:$Georgia; font-style:italic; text-align:center; @include font-smoothing(on); }
+#galeria li .banner{ display:block; width:45%; padding:30px 0; text-align:center; background:url(../img/bkg-hover-inst.jpg) no-repeat right center; position:absolute; top:40px; left:0; color:#FFF; font-family:$Georgia; font-style:italic; @include font-size(22px); @include font-smoothing(on); }
+#galeria li.half.right{ margin-left:2%; }
+
+// PRODUTOS
+#produtos{ float:left; width:50%; background:url(../img/bkg-pro-inst.jpg) no-repeat right top; }
+#produtos .f-right{ width:60%; margin-right:4%; }
+#produtos .icone{ display:block; width:150px; height:140px; background:url(../img/ico-produtos.png) no-repeat center center; margin:50px auto 0; }
+#produtos h2{ display:block; @include font-size(38px); font-family:$OpenSans; font-weight:$semibold; color:$Azul; max-width:350px; text-align:center; margin:10px auto; padding-bottom:30px; border-bottom:2px solid $Azul; @include font-smoothing(on); }
+#produtos p{ display:block; text-align:center; font-family:$Georgia; @include font-size(18px); line-height:35px; font-style:italic; @include font-smoothing(on); color:$Azul; max-width:350px; margin:0 auto 40px; }
+#produtos .big-button{ max-width:400px; margin:0 auto; }
+
+
+// REPRESENTANTES
+#representantes{ float:left; width:50%; background:url(../img/bkg-rep-inst.jpg) no-repeat left top; }
+#representantes .f-left{ width:60%; margin-left:4%; }
+#representantes .icone{ display:block; width:150px; height:140px; background:url(../img/ico-representantes.png) no-repeat center center; margin:50px auto 0; }
+#representantes h2{ display:block; @include font-size(38px); font-family:$OpenSans; font-weight:$semibold; color:#FFF; max-width:350px; text-align:center; margin:10px auto; padding-bottom:30px; border-bottom:2px solid #FFF; @include font-smoothing(on); }
+#representantes p{ display:block; text-align:center; font-family:$Georgia; @include font-size(18px); line-height:35px; font-style:italic; @include font-smoothing(on); color:#FFF; max-width:350px; margin:0 auto 40px; }
+#representantes .container-busca{ max-width:400px; height:80px; margin:0 auto; position:relative; }
+#representantes .container-busca input{ display:block; width:58%; height:80px; float:left; background-color:#FFF; border:1px solid $Azul; border-left-width:10px; border-right-width:0; @include font-size(22px); color:$Cinza; font-family:$Georgia; font-style:italic; padding-left:20px; @include font-smoothing(on); }
+#representantes .container-busca #uf-dropdown{ float:left; display:block; width:17%; height:80px; border-top:1px solid $Azul; border-bottom:1px solid $Azul; background:#FFF url(../img/ico-dropdown.png) no-repeat center center; @include transition(all 200ms ease-in-out); }
+#representantes .container-busca #uf-dropdown:hover{ background-position:center 34px; }
+#representantes .container-busca #buscar{ float:left; display:block; width:25%; height:80px; border:1px solid $Azul; background-color:$Azul; color:#FFF; text-align:center; line-height:80px; @include font-size(18px); text-transform:uppercase; font-weight:$bold; @include opacity(1); @include transition(all 300ms ease-in-out); }
+#representantes .container-busca #buscar:hover{ @include opacity(0.95); }
+#representantes .container-busca #buscar:active{ @include opacity(0.8); }
+
+#lista-estados{ display:none; position:absolute; top:80px; width:80%; height:240px; overflow:scroll; }
+#lista-estados li a{ display:block; width:100%; height:60px; background-color:#FFF; border:1px solid $Azul; border-left-width:10px; border-top:0; padding-left:20px; line-height:60px; @include transition(all 200ms ease-in-out); }
+#lista-estados li a:hover{ background-color:$AzulClaro; color:#FFF; }
+
+// RESPONSIVO
+@media screen and(max-width:1300px){
+	.center,
+	#timeline{ margin:0 3%; }
+
+	#produtos .f-right{ width:80%; }
+	#representantes .f-left{ width:80%; }
+}
+
+@media screen and(max-width:1024px){
+	.center{ margin:0 10%; }
+
+	h3.stitle{ margin:0 0 50px; }
+	#apresentacao{ margin:80px 0; text-align:center; }
+	#apresentacao .col-left{ width:100%; margin-right:0; }
+	#apresentacao .col-right{ width:100%; }
+	#video{ margin-top:40px; }
+	
+	#descricao{ margin:70px 0; }
+	#descricao .col-right,
+	#descricao .col-left{ width:100%; }
+	#descricao .separador{ display:none; }
+
+	#abas{ width:100%; }
+	#abas li{ margin:0; }
+	#abas li a{ width:33.3%; float:left; text-align:center; }
+	#abas li a.active{ background:$Azul; }
+	.aba{ width:100%; margin-left:0; border-bottom:12px solid $Azul; border-right:0; }
+
+	#timeline{ margin:0 10%; }
+
+	#fotos{ margin:40px 10% 80px; }
+	#galeria li{ height:auto; }
+	#galeria li.half{ width:100%; }
+	#galeria li.half.desc{ margin-left:0; }
+	#galeria li.half.right{ margin-left:0; }
+	#galeria li .banner{ width:80%; }
+
+	#produtos,
+	#representantes{ width:100%; background-repeat:repeat-x; }
+	#representantes{ margin-top:50px; }
+	#produtos .f-right,
+	#representantes .f-left{ float:none; margin:0 auto; }
+	#representantes .container-busca{ max-width:100%; width:100%; }
+}

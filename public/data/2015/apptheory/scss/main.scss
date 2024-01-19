@@ -1,0 +1,329 @@
+// DEPENDENCIES
+@import "compass";
+@include global-reset;
+@import "tools.scss";
+
+// FONTS
+@import url('http://fonts.googleapis.com/css?family=Montserrat:400,700');
+$Montserrat:'Montserrat', Helvetica, Arial, sans-serif;
+
+@import url('brandon.css');
+$Bdr:'Brandon Regular', Helvetica, Arial, sans-serif;
+$Bdm:'Brandon Medium', Helvetica, Arial, sans-serif;
+
+$regular:400;
+$bold:700;
+
+// COLORS
+$text:#47525D;
+$purple:#7071E1;
+$darkgray:#313030;
+$gray:#797979;
+$silver:#CDCDCD;
+
+// GLOBAL
+body{
+	font-family:$Montserrat;
+	font-weight:$regular;
+	color:$text;
+	@include font-smoothing(on);
+}
+
+@include selection(#FFF,$purple);
+
+// HEADER
+#header{
+	position:fixed;
+	z-index:1;
+	top:60px;
+	left:3%;
+	width:47%;
+
+	h1{
+		@include font-size(36px);
+		line-height:42px;
+		font-weight:$bold;
+		text-transform:uppercase;
+		max-width:570px;
+		margin-top:70px;
+	}
+
+	h2{
+		font-family:$Bdm;
+		@include font-size(20px);
+		line-height:29px;
+		text-transform:uppercase;
+		margin-top:30px;
+	}
+
+	#btn-work{
+		display:inline-block;
+		width:225px;
+		height:50px;
+		margin-top:40px;
+		background-color:$purple;
+		@include border-radius(4px);
+
+		@include font-size(18px);
+		line-height:50px;
+		text-transform:uppercase;
+		text-align:center;
+		color:#FFF;
+	}
+}
+
+// PROJECTS
+#projects{
+	position:fixed;
+	top:0;
+	right:0;
+	z-index:2;
+	width:50%;
+	height:100%;
+	border-left:1px solid $purple;
+	background-color:#FFF;
+
+	#project-list{
+		position:relative;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+		
+		li{
+			text-align:center;
+			position:relative;
+			width:100%;
+			height:100%;
+			padding:0;
+
+			.about{
+				position:absolute;
+				z-index:2;
+				top:20px;
+				left:20px;
+				text-align:left;
+
+				.icon{
+					float:left;
+					@include font-size(8px);
+					font-weight:$bold;
+					text-transform:uppercase;
+					color:$silver;
+					text-align:center;
+
+					img{
+						display:block;
+						margin-bottom:5px;
+					}
+				}
+
+				.text{
+					float:left;
+					margin-left:20px;
+				}
+
+				h2{
+					@include font-size(16px);
+					font-weight:$bold;
+					color:$darkgray;
+				}
+				
+				p{
+					max-width:210px;
+					margin-top:5px;
+					@include font-size(14px);
+					font-family:$Bdr;
+				}
+
+			}
+
+			> img{
+				display:inline-block;
+				max-width:80%;
+				position:relative;
+				top:50%;
+				@include transform(translateY(-50%));
+			}
+
+		}
+
+		.rsNav.rsBullets{
+			position:absolute;
+			top:50%;
+			left:-8px;
+			@include transform(translateY(-50%));
+
+			.rsBullet{
+				width:15px;
+				height:15px;
+				margin:20px 0;
+				background-color:#FFF;
+				border:1px solid $purple;
+				@include border-radius(50%);
+				cursor:pointer;
+			}
+
+			.rsBullet.rsNavSelected{
+				background-color:$purple ;
+			}
+		}
+
+		.rsArrow{
+			width:30px;
+			height:30px;
+			position:absolute;
+			left:50%;
+			@include transform(translateX(-50%));
+			background-repeat:no-repeat;
+			background-position:center center;
+		}
+
+		.rsArrow.rsArrowLeft{
+			top:60px;
+			background-image:url(../img/arw-up.svg);
+		}
+
+		.rsArrow.rsArrowRight{
+			bottom:60px;
+			background-image:url(../img/arw-down.svg);
+		}
+	}
+}
+
+// FOOTER
+#footer{
+	position:fixed;
+	z-index:1;
+	left:3%;
+	bottom:50px;
+	width:42%;
+	@include font-size(12px);
+
+	#social{
+
+		p{
+			float:left;
+			margin:2px 5px 0 0;
+		}
+
+		a{
+			float:left;
+			margin-left:10px;
+		}
+	}
+
+	#copyrights{
+		float:right;
+		color:$silver;
+	}
+}
+
+// RESPONSIVE
+@media screen and(max-width:1240px){
+
+	#header{
+		width:42%;
+
+		h1{
+			@include font-size(24px);
+			line-height:31px;
+		}
+
+		h2{
+			@include font-size(14px);
+			margin-top:20px;
+		}
+	}
+
+	#projects{
+		width:55%;
+	}
+
+}
+
+@media screen and(max-width:1024px){
+
+	#header{
+		position:static;
+		width:100%;
+		text-align:center;
+		padding-bottom:120px;
+		border-bottom:1px solid $purple;
+
+		#logo{ margin-top:100px; }
+
+		h1{
+			@include font-size(26px);
+			max-width:100%;
+			margin-top:50px;
+		}
+
+		h2{
+			@include font-size(18px);
+			margin-top:5px;
+		}
+	}
+
+	#projects{
+		position:static;
+		width:100%;
+		padding-bottom:40px;
+		
+		#project-list{
+
+			li{
+				min-height:0;
+
+				.about{
+					position:static;
+					min-height:60px;
+					margin:40px 20px 30px;
+
+					.icon{
+						float:right;
+					}
+
+					.text{
+						float:left;
+						margin-left:0;
+					}
+				}
+
+				img{
+					position:static;
+					@include transform(translateY(0));
+				}
+			}
+		}
+	}
+
+	#footer{
+		text-align:center;
+		position:static;
+		width:100%;
+		padding:30px 0;
+		margin:0 auto;
+		border-top:1px solid $purple;
+
+		#social{
+			width:100%;
+
+			p{
+				float:none;
+				display:inline-block;
+				margin:0;
+			}
+
+			a{
+				float:none;
+			}
+		}
+
+		#copyrights{
+			float:none;
+			margin-top:10px;
+		}
+	}
+	
+}

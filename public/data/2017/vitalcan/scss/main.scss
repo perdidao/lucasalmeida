@@ -1,0 +1,481 @@
+// Biblioteca de mixins
+@import 'mixins.scss';
+
+/* Reset */
+@import 'reset.scss';
+
+// Cores
+$marinho:#30354A;
+$prata:#E0E0E0;
+$cinza:#949494;
+$azul-claro:#CCD7DA;
+
+// Interação
+$transition:all 200ms ease-in-out;
+$opacity:0.7;
+
+// Fontes
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:700|Roboto:300,500,900');
+$Roboto:'Roboto', Helvetica, Arial, sans-serif;
+$RobotoSlab:'Roboto Slab', Helvetica, Arial, sans-serif;
+
+$light:300;
+$regular:500;
+$bold:900;
+
+/* Estilos globais */
+body{ font:$regular 14px $Roboto; @include font-smoothing(on); color:$marinho; }
+@include selection(#FFF,$marinho);
+
+.center{ width:83.33%; max-width:1600px; margin:0 auto; }
+
+// Header
+#header{ width:100%; position:relative; }
+#header .upper{ position:absolute; top:0; left:0; width:100%; padding:20px 8.3% 0; overflow:hidden; z-index:3; }
+#logo{ display:block; float:left; }
+#btn-menu{
+    display:none;
+    width:40px;
+    height:29px;
+    position:absolute;
+    z-index:2;
+    top:30px;
+    right:8.33%;
+    transition:all 300ms ease-in-out;
+    & span,
+    &:before,
+    &:after{
+        content:" ";
+        display:block;
+        width:40px;
+        height:5px;
+        background-color:#FFF;
+        transform:rotate(0);
+        position:absolute;
+        left:0;
+        transition:all 300ms ease-in-out;
+    }
+
+    &:before{ top:0; }
+    & span{ top:12px; opacity:1; }
+    &:after{ bottom:0; }
+
+    &.active span{ opacity:0; top:12px; transform:rotate(90deg); }
+    &.active:before{ width:40px; top:12px; left:0; transform:rotate(45deg); }
+    &.active:after{ width:40px; bottom:12px; left:0; transform:rotate(-45deg); }
+}
+
+#menu{ float:right; }
+#menu li{ display:inline-block; margin-left:30px; @include font-size(16px); text-transform:uppercase; color:#FFF; }
+#menu li a{ display:block; border-bottom:3px solid transparent; transition:$transition; letter-spacing:0.1em; }
+#menu li a.active,
+#menu li a:hover{ border-bottom-color:#FFF; }
+#heading{ position: absolute; z-index:2; top:160px; left:20%; width:471px; height:402px; padding:80px 100px 0 120px; background:url(../img/circulo.png) no-repeat center center; }
+#heading .slogan{ font-family:$RobotoSlab; text-transform:uppercase; color:$cinza; @include font-size(34px); line-height:40px; margin-bottom:30px; }
+#heading .tit-redes{ text-align:center; text-transform:uppercase; color:#FFF; @include font-size(16px); letter-spacing:0.1em; position:relative; margin-bottom:20px; }
+#heading .tit-redes:after{ content:' '; display:block; width:76px; height:1px; background-color:#FFF; position:absolute; bottom:-8px; left:50%; transform:translateX(-50%); }
+.redes{ width:100%; text-align:center; }
+.redes li{ display:inline-block; margin:0 8px; }
+.redes li a{ display:block; width:34px; height:34px; background:no-repeat center center; transition:$transition; }
+.redes li a:hover{ opacity:$opacity; }
+.redes li a.yt{ background-image:url(../img/ico-youtube.png); }
+.redes li a.fb{ background-image:url(../img/ico-facebook.png); }
+.redes li a.in{ background-image:url(../img/ico-instagram.png); }
+#banners{ z-index:1; position:relative; }
+#banners .owl-prev,
+#banners .owl-next{ position:absolute; top:40.5%; width:41px; height:70px; background:no-repeat center center; text-indent:-9999999px; overflow:hidden; }
+#banners .owl-prev{ left:3%; background-image:url(../img/arw-left.png); }
+#banners .owl-next{ right:3%; background-image:url(../img/arw-right.png); }
+
+// Container
+#container{ width:100%; padding:90px 0; }
+#container .center{ overflow:hidden; }
+.title-wrapper{ width:100%; text-align:center; margin-bottom:35px; }
+.title-wrapper h1,
+.title-wrapper h2{ @include font-size(40px); text-transform:uppercase; letter-spacing:0.01em; }
+.title-wrapper p{ text-transform:uppercase; color:$cinza; letter-spacing:0.4em; }
+.patas{ width:100%; height:84px; background:url(../img/patas.jpg) repeat 0 0; margin-bottom:40px; }
+.patas.patas1{ height:42px; }
+.patas.patas3{ height:126px; }
+
+// Abas
+#init-produtos{ position:relative; }
+#init-produtos .header{ width:100%; max-width:1280px; position:absolute; z-index:2; left:50%; transform:translateX(-50%); top:-270px; }
+#init-produtos .header .title-wrapper{ text-align:left; }
+#prod-premium{ display:none; }
+
+// Parallax
+#parallax{ width:100%; min-height:600px; background:transparent; }
+
+// Calculadora
+#calculadora{ padding:110px 0 170px; background:url(../img/golden.jpg) no-repeat 23.33% center; }
+#calculadora .inner{ width:50%; margin-left:50%; }
+#calculadora .inner h2{ @include font-size(80px); text-transform:uppercase; letter-spacing:0.01em; line-height:1em; transform:translateX(-60px); }
+#calculadora .inner p{ @include font-size(36px); text-transform:uppercase; letter-spacing:0.18em; color:$cinza; }
+#calculadora .line{ width:100%; height:1px; background-color:$marinho; margin:50px 0; }
+#calculadora .form{ overflow:hidden; max-width:640px; }
+#calculadora .form select,
+#calculadora .form input{ display:block; float:left; width:185px; padding-bottom:20px; border:0; border-bottom:1px solid $marinho; margin:0 20px 60px 0; background-color:transparent; color:$cinza; font-family:$Roboto; @include font-size(14px); letter-spacing:0.025em; }
+#calculadora .form select{ margin-bottom:20px; }
+#calculadora .form .btn{ float:left; background-color:$marinho; color:#FFF; font-family:$Roboto; @include font-size(16px); letter-spacing:0.075em; border:0; cursor:pointer; margin-top:-10px; }
+
+// Cão celebridade
+#init-celebridade{ padding:50px 0 85px; background:$marinho url(../img/patas-alt.png) repeat 0 0; color:#FFF; }
+#init-celebridade .center{ max-width:1280px; position:relative; overflow:visible; padding-top:1px; }
+#init-celebridade .center .col-foto{ position:absolute; top:0; left:0; width:37.5%; }
+#init-celebridade .center .col-foto img{ display:block; width:100%; }
+#init-celebridade .center .col-info{ margin-left:37.5%; width:62.5%; }
+#init-celebridade .center .col-info p{ line-height:28px; letter-spacing:0.025em; font-weight:$light; margin:40px 0 60px; }
+#init-celebridade .center .col-info .col{ width:80%; margin-left:20%; overflow:hidden; }
+#init-celebridade .center .col-info .col h2{ @include font-size(40px); text-transform:uppercase; color:$cinza; position:relative; margin-bottom:40px; }
+#init-celebridade .center .col-info .col h2 span{ color:#FFF; }
+#init-celebridade .center .col-info .col h2:after{ content:' '; display:block; width:120px; height:4px; background-color:$cinza; position: absolute; bottom:0; left:0; }
+#init-celebridade .center .col-info .col input[type=text],
+#init-celebridade .center .col-info .col input[type=file]{ display:block; float:left; width:100%; padding-bottom:20px; border:0; border-bottom:1px solid $cinza; margin-bottom:25px; background-color:transparent; color:$prata; font-family:$Roboto; @include font-size(14px); letter-spacing:0.025em; }
+#init-celebridade .center .col-info .col .aceite{ float:left; margin-top:20px; }
+#init-celebridade .center .col-info .col .aceite a{ text-decoration:underline; }
+#init-celebridade .center .col-info .col .btn{ float:right; background-color:$cinza; color:$marinho; font-family:$Roboto; @include font-size(16px); letter-spacing:0.075em; border:0; cursor:pointer; }
+
+// Instagram
+#instagram{ padding:60px 0 0; }
+#instagram .inst-title{ max-width:320px; padding-left:94px; background:url(../img/ico-insta.png) no-repeat 10px center; height:56px; margin:0 auto 60px; }
+#instagram .inst-title h2{ @include font-size(40px); text-transform:uppercase; position:relative; }
+#instagram .inst-title h2:after{ content:' '; display:block; width:120px; height:1px; background-color:$marinho; position:absolute; bottom:-20px; left:0; }
+#instagram ul{ overflow:hidden; }
+#instagram ul li{ float:left; width:16.66%; }
+#instagram ul li a{ display:block; opacity:0.3; transition:$transition; }
+#instagram ul li a:hover{ opacity:1; }
+#instagram ul li a img{ display:block; width:100%; }
+
+// Marcas
+#marcas{ text-align:center; padding-top:50px; }
+#marcas .top{ width:100%; height:114px; background:url(../img/topo-marcas.png) no-repeat center center; margin-bottom:15px; }
+#marcas h2{ display:inline-block; padding:20px 35px; background-color:$marinho; color:$prata; @include font-size(18px); letter-spacing:0.08em; margin-bottom:100px; }
+#marcas ul{}
+#marcas ul li{ display:inline-block; margin:0 80px 80px; }
+#marcas ul li a{}
+#marcas ul li a img{}
+
+// Sobre
+#container .col-span{ overflow:hidden; width:83.33%; max-width:1380px; margin:0 auto 50px; }
+#container .col-span .col-left{ width:54%; }
+#container .col-span .col-left .title-wrapper{ text-align:left; margin-bottom:120px; }
+#container .col-span .col-left .title-wrapper h2{ color:$marinho; margin-bottom:0; }
+#container .col-span .col-left > p{ @include font-size(20px); font-weight:$light; line-height:28px; letter-spacing:0.025em; color:$cinza; }
+#container .col-span .col-right{ width:36%; }
+#container .col-span .col-right img{ display:block; max-width:100%; }
+
+#container .col-span.alt .col-left{ margin:60px 0 0; }
+#container .col-span.alt .col-right{ margin-right:10%; }
+
+#vitalsys{ width:100%; padding:70px 0 220px; background:$marinho url(../img/patas-alt.png) repeat 0 0; }
+#vitalsys .center{ width:83.33%; max-width:960px; overflow:visible; }
+#vitalsys .title-wrapper{}
+#vitalsys .title-wrapper h2{ @include font-size(40px); color:#FFF; margin-bottom:0; }
+#vitalsys .sub{ @include font-size(20px); line-height:28px; letter-spacing:0.025em; font-weight:$light; color:$cinza; margin-bottom:60px; text-align:center; }
+#vitalsys .system{ width:100%; height:320px; text-align:center; position:relative; }
+#vitalsys .system .ingr{ color:#FFF; }
+#vitalsys .system .ingr.ingr-l{ position:absolute; top:0; right:75%; }
+#vitalsys .system .ingr.ingr-r{ position:absolute; top:0; left:75%; }
+#vitalsys .system .ingr li{ width:450px; margin-bottom:15px; }
+#vitalsys .system .ingr.ingr-l li{ text-align:right; }
+#vitalsys .system .ingr.ingr-r li{ text-align:left; }
+#vitalsys .system .ingr li a{ display:block; @include font-size(20px); text-transform:uppercase; transition:$transition; }
+#vitalsys .system .ingr li a:hover{ opacity:$opacity; }
+#vitalsys .system .ingr.ingr-l li a{ padding:20px 75px 20px 0; background:no-repeat center right; }
+#vitalsys .system .ingr.ingr-r li a{ padding:20px 0 20px 75px; background:no-repeat center left; }
+#vitalsys .system .ingr li a.antioxidantes{ background-image:url(../img/i-antioxidantes.png); }
+#vitalsys .system .ingr li a.articulacoes{ background-image:url(../img/i-articulacoes.png); }
+#vitalsys .system .ingr li a.tartaro{ background-image:url(../img/i-tartaro.png); }
+#vitalsys .system .ingr li a.defesas{ background-image:url(../img/i-defesas.png); }
+#vitalsys .system .ingr li a.digestao{ background-image:url(../img/i-digestao.png); }
+#vitalsys .system .ingr li a.pele{ background-image:url(../img/i-pele.png); }
+#vitalsys .system .ingr li a.proteinas{ background-image:url(../img/i-proteinas.png); }
+#vitalsys .system .ingr li a.tonicidade{ background-image:url(../img/i-tonicidade.png); }
+
+.overlay{ display:none; position:fixed; z-index:9999999; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,.9); }
+.overlay .inner{ position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); padding:30px; background-color:#FFF; max-width:100%; max-height:100%; }
+.overlay .inner .fechar{ position:absolute; top:-30px; right:-30px; display:block; width:60px; height:60px; background:$marinho url(../img/fechar.png) no-repeat center center; border-radius:50%; }
+.overlay .inner img{ display:block; max-width:100%; }
+
+// Blog
+#container .blog-title{ @include font-size(30px); text-transform:uppercase; color:$cinza; letter-spacing:0.01em; margin-bottom:15px; }
+#container .col-left{ float:left; width:60%; margin-right:10%; }
+#container .destaque{ margin-bottom:50px; }
+#container .destaque img{ display:block; width:100%; margin-bottom:20px; }
+#container .destaque h3{ @include font-size(26px); line-height:1.3em; text-transform:uppercase; color:$marinho; margin-bottom:15px; }
+#container .destaque p{ line-height:20px; font-weight:$light; color:$cinza; margin-bottom:15px; }
+#container .destaque .button-stack{ width:100%; background:url(../img/button-stack.jpg) no-repeat center left; overflow:hidden; }
+.btn{ display:block; float:right; padding:15px 42px; border-radius:30px; background-color:$marinho; text-transform:uppercase; color:#FFF; transition:$transition; }
+.btn:hover{ opacity:$opacity; }
+
+#crumbs{ @include font-size(16px); text-transform:uppercase; color:$marinho; margin-bottom:20px; }
+#crumbs a{ color:$cinza; }
+#crumbs span{ color:$cinza; }
+
+#container .destaque .timestamp{ text-transform:uppercase; font-weight:$light; letter-spacing:0.2em; }
+#container .destaque .timestamp strong{ font-weight:$regular; letter-spacing:0.4em; }
+
+#posts{ width:100%; overflow:hidden; margin-bottom:80px; }
+#posts li{ float:left; width:48.5%; margin:0 3% 40px 0; }
+#posts li:nth-child(even){ margin-right:0; }
+#posts li img{ display:block; width:100%; margin-bottom:20px; }
+#posts li h3{ @include font-size(20px); text-transform:uppercase; color:$marinho; line-height:1.3em; }
+
+#pagination{ width:100%; text-align:center; }
+#pagination li{ display:inline-block; }
+#pagination li a{ display:block; width:36px; height:36px; border-radius:50%; background-color:transparent; color:#dbdbdb; @include font-size(20px); line-height:36px; transition:$transition; }
+#pagination li a:hover,
+#pagination li a.active{ background-color:$marinho; }
+
+#container .col-right{ float:left; width:30%; }
+#collateral-posts{ margin-bottom:90px; }
+#collateral-posts li{ width:100%; overflow:hidden; margin-bottom:50px; }
+#collateral-posts li .foto{ float:left; width:33.33%; }
+#collateral-posts li .foto img{ display:block; width:100%; }
+#collateral-posts li h3{ float:left; width:66.66%; padding:0 10px; @include font-size(20px); line-height:1.3em; text-transform:uppercase; color:$marinho; }
+
+#container .inst{}
+#container .inst .title-wrapper{ text-align:left; }
+#container .inst .title-wrapper h2{ @include font-size(40px); color:$marinho; margin-bottom:0; }
+#container .inst .title-wrapper p{ @include font-size(12px); }
+#container .inst > p{ font-weight:$light; @include font-size(16px); line-height:28px; letter-spacing:0.025em; color:#b7b5b5; margin-bottom:50px; }
+#container .inst .mix{ display:block; width:100%; }
+#container .inst .mix img{ display:block; width:100%; }
+
+// Cão celebridade
+#celebridade li.width1{ width:25%; }
+#celebridade li.width2{ width:50%; }
+#celebridade li img{ display:block; width:100%; }
+
+// Produtos
+.produtos{ width:96%; margin:0 auto 20px; overflow:hidden; }
+.produtos li{ float:left; width:33.33%; padding:40px 20px 20px; margin-bottom:40px; overflow:hidden; transition:$transition; }
+.produtos li:hover{ background-color:$prata; }
+.produtos li .img{ float:left; width:35%; margin-right:5%; }
+.produtos li .img img{ display:inline-block; max-width:100%; }
+.produtos li .info{ float:left; width:60%; padding-top:80px; text-align:center; }
+.produtos li .info p{ @include font-size(24px); text-transform:uppercase; color:$cinza; margin-bottom:20px; }
+.produtos li .info p span{ display:block; @include font-size(16px); }
+.produtos li .info p strong{ display:block; @include font-size(30px); font-weight:$bold; }
+.produtos li .info .btn.big{ float:none; display:inline-block; @include font-size(16px); color:$prata; border-radius:40px; padding:15px 60px 12px; }
+.produtos li .info .btn.big span{ display:block; }
+
+#produto{ width:96%; max-width:1280px; margin:100px auto 40px; overflow:hidden; }
+#produto .imagem{ float:left; width:37.5%; }
+#produto .imagem img{ display:inline-block; max-width:100%; }
+#produto .info{ float:left; width:62.5%; padding:0 25px; }
+#produto .info h2{ @include font-size(20px); text-transform:uppercase; line-height:1.3em; letter-spacing:0.1em; margin-bottom:40px; max-width:550px; }
+#produto .info p{ @include font-size(16px); font-weight:$light; line-height:1.3em; letter-spacing:0.1em; color:$cinza; }
+
+#collateral-info{ width:96%; max-width:1280px; margin:0 auto; overflow:hidden; }
+.tabs{ width:100%; overflow:hidden; }
+.tabs li{ float:left; width:25%; }
+.tabs li a{ display:block; text-align:center; height:60px; padding:10px 10px 0; margin-top:12px; background-color:$prata; @include font-size(16px); letter-spacing:0.1em; text-transform:uppercase; color:$marinho; }
+.tabs li a.active{ margin-top:0; padding-top:22px; height:72px; background-color:$marinho; color:#FFF; position:relative; }
+.tabs li a.active:after{ content:' '; display:block; width:10px; height:60px; position:absolute; top:12px; right:-10px; background-color:$cinza; }
+
+#collateral-info .tab{ display:none; width:100%; padding:50px 0; overflow:hidden; }
+#collateral-info .tab#tab-vitalsys{ display:block; }
+#collateral-info .tab p{ @include font-size(16px); line-height:1.3em; font-weight:$light; color:$cinza; }
+.lista-vitalsys{}
+.lista-vitalsys li{ float:left; width:50%; padding-right:30px; margin-bottom:30px; }
+.lista-vitalsys li h3{ width:100%; padding:15px 0 15px 80px; text-transform:uppercase; @include font-size(20px); background:no-repeat center left; margin-bottom:15px; }
+.lista-vitalsys li p{}
+.lista-vitalsys li h3.antioxidantes{ background-image:url(../img/i-antioxidantes.png); }
+.lista-vitalsys li h3.articulacoes{ background-image:url(../img/i-articulacoes.png); }
+.lista-vitalsys li h3.tartaro{ background-image:url(../img/i-tartaro.png); }
+.lista-vitalsys li h3.defesas{ background-image:url(../img/i-defesas.png); }
+.lista-vitalsys li h3.digestao{ background-image:url(../img/i-digestao.png); }
+.lista-vitalsys li h3.pele{ background-image:url(../img/i-pele.png); }
+.lista-vitalsys li h3.proteinas{ background-image:url(../img/i-proteinas.png); }
+.lista-vitalsys li h3.tonicidade{ background-image:url(../img/i-tonicidade.png); }
+
+// Contato
+#container .center.contato{ overflow:hidden; }
+
+#areas{ float:left; width:20%; }
+#areas li a{ display:block; width:100%; padding:35px 0 30px 20px; border-right:20px solid transparent; color:$cinza; @include font-size(24px); text-transform:uppercase; letter-spacing:0.08em; transition:$transition; }
+#areas li a:hover{ color:$marinho; }
+#areas li a.active{ color:#FFF; background-color:$marinho; border-right-color:#1c1f2d; }
+
+#contato{ float:left; width:80%; background:$marinho; padding:60px 90px 100px; margin-bottom:80px; overflow:hidden; color:$prata; }
+#contato .form{ float:left; width:56%; margin-right:6%; }
+#contato .form input[type=text],
+#contato .form input[type=email],
+#contato .form textarea{ display:block; float:left; width:100%; padding-bottom:20px; border:0; border-bottom:1px solid $cinza; margin-bottom:25px; background-color:transparent; color:$prata; font-family:$Roboto; @include font-size(14px); letter-spacing:0.025em; }
+#contato .form input.cl7{ width:68%; margin-right:4%; }
+#contato .form input.cl3{ width:28%; }
+#contato .form .aceite{ float:left; margin-top:20px; }
+#contato .form .btn{ float:right; background-color:$cinza; color:$marinho; font-family:$Roboto; @include font-size(16px); letter-spacing:0.075em; border:0; cursor:pointer; }
+#contato .fone{ float:left; width:38%; text-align:center; margin-top:240px; }
+#contato .fone p{ padding-top:90px; background:url(../img/ico-fone.png) no-repeat center top; @include font-size(16px); }
+#contato .fone p strong{ display:block; @include font-size(30px); }
+
+#redes{}
+#redes .center{ height:885px; background:url(../img/bkg-redes.png) no-repeat center right; }
+#redes .col{ max-width:640px; margin-top:380px; }
+#redes .col .redes li a.yt{ background-image:url(../img/ico-youtube-alt.png); }
+#redes .col .redes li a.fb{ background-image:url(../img/ico-facebook-alt.png); }
+#redes .col .redes li a.in{ background-image:url(../img/ico-instagram-alt.png); }
+
+// Footer
+#footer{ width:100%; border-top:3px solid $marinho; padding:30px 0 50px; background-color:$azul-claro; color:$marinho; @include font-size(12px); line-height:18px; font-weight:$light; }
+#footer .center{ max-width:960px; overflow:hidden; }
+#footer .col-left{ float:left; max-width:320px; margin-bottom:100px; }
+#footer .col-left .logo{ margin-bottom:20px; }
+#footer .col-left p{ }
+#footer .col-right{ float:right; max-width:320px; overflow:hidden; }
+#footer .col-right .col{ float:left; margin-right:20px; }
+#footer .col-right .col h2{ font-weight:$regular; }
+#footer .copy{ clear:both; font-weight:$regular; }
+
+// Responsivo
+@media screen and (max-width:1690px){
+  #init-produtos .header{ position:absolute; z-index:2; left:5%; transform:translateX(0); top:-270px; }
+}
+
+@media screen and (max-width:1390px){
+  #vitalsys .system .ingr li{ width:auto; }
+}
+
+@media screen and (max-width:1440px){
+  #heading{ top:130px; left:10%; }
+
+  .produtos li .img{ float:none; width:100%; margin:0 0 20px; text-align:center; }
+  .produtos li .info{ float:none; width:100%; padding-top:0; }
+
+  #areas{ width:30%; }
+  #contato{ width:70%; }
+  #contato .form{ width:100%; margin:0 0 100px; }
+  #contato .fone{ width:100%; margin-top:0; }
+  #redes .center{ background-position:center 20%; }
+  #redes .title-wrapper,
+  #redes .redes{ text-align:left; }
+
+  #init-produtos .header{ position:static; margin:0 0 50px 5%; width:95%; }
+  #calculadora{ padding:100px 0; background-position:50px center; }
+}
+
+@media screen and (max-width:1100px){
+  #btn-menu{ display:block; }
+  #header .upper{ overflow:visible; }
+  #menu{ display:none; position:absolute; z-index:5; top:100px; left:0; width:100%; background-color:$marinho; text-align:center; }
+  #menu li{ display:block; margin:0; padding:15px 0; border-bottom:1px solid #FFF; }
+  #heading{ width:auto; max-width:320px; padding:0; text-align:left; height:auto; background:$marinho; }
+  #heading .slogan{ background-color:#FFF; padding:20px; margin-bottom:20px; }
+  #heading .redes{ padding-bottom:20px; }
+
+  #areas{ width:100%; }
+  #areas li{ float:left; width:50%; }
+  #areas li a{ text-align:center; border:0; }
+  #areas li a.active{ border:0; }
+  #contato{ width:100%; }
+  #redes .center{ height:auto; background:transparent; }
+  #redes .center .col{ max-width:100%; margin:0; }
+  #redes .title-wrapper,
+  #redes .redes{ text-align:center; }
+
+  .tabs li{ width:50%; }
+  .tabs li a{ margin-top:0; }
+  .tabs li a.active{ padding-top:10px; height:60px; }
+  .tabs li a.active:after{ display:none; }
+
+  #calculadora{ padding:50px 0; background:none; }
+  #calculadora .inner{ width:80%; margin-left:10%; }
+}
+
+@media screen and (max-width:1024px){
+  #container .col-span .col-left .title-wrapper{ margin-bottom:40px; }
+  #vitalsys{ padding:50px 0; }
+  #vitalsys .title-wrapper{ text-align:left; }
+  #vitalsys .sub{ text-align:left; }
+  #vitalsys .system{ height:auto; text-align:left; }
+  #vitalsys .system img{ display:block; max-width:100%; margin-bottom:30px; }
+  #vitalsys .system .ingr.ingr-l,
+  #vitalsys .system .ingr.ingr-r{ position:static; }
+  #vitalsys .system .ingr.ingr-l li,
+  #vitalsys .system .ingr.ingr-r li{ text-align:left; }
+  #vitalsys .system .ingr.ingr-l li a,
+  #vitalsys .system .ingr.ingr-r li a{ padding:20px 0 20px 75px; background-position:center left; }
+
+  #instagram ul li{ float:left; width:33.33%; }
+}
+
+@media screen and (max-width:840px){
+  #btn-menu{
+    & span,
+    &:before,
+    &:after{
+      background-color:$marinho;
+    }
+  }
+  #header{ padding-top:1px; }
+  #heading{ position:static; margin-top:70px; max-width:100%; text-align:center; }
+  #banners .owl-prev,
+  #banners .owl-next{ top:50%; margin-top:-35px; }
+
+  #container .col-left{ width:100%; margin:0 0 80px; }
+  #container .col-right{ width:100%; }
+
+  #container .col-span .col-left{ width:100%; margin:0 0 40px; }
+  #container .col-span .col-right{ width:100%; margin:0 0 40px; }
+
+  .produtos li{ width:100%; padding:0; }
+  .produtos li:hover{ background-color:transparent; }
+
+  #produto .imagem{ width:100%; text-align:center; margin-bottom:30px; }
+  #produto .info{ width:100%; padding:0; }
+
+  #calculadora .form select,
+  #calculadora .form input{ width:100%; margin:0 0 30px 0; }
+  #calculadora .form select{ margin-bottom:30px; }
+  #calculadora .form .btn{ width:100%; margin:0; }
+
+  #celebridade .center .col-foto{ position:static; width:80%; margin:0 10% 50px; }
+  #celebridade .center .col-info{ margin-left:0; width:100%; }
+  #celebridade .center .col-info .col{ width:100%; margin-left:0; }
+
+  #init-produtos .header{ left:0; width:100%; margin:0 0 20px; }
+  #init-produtos .header .title-wrapper{ text-align:center; }
+}
+
+@media screen and (max-width:680px){
+  #footer .col-left{ width:100%; max-width:100%; margin-bottom:40px; }
+  #footer .col-right{ width:100%; max-width:100%; margin-bottom:40px; }
+
+  #areas li{ width:100%; }
+  #areas li a{ padding:15px 0; }
+  #contato{ padding:20px 5%; }
+
+  .tabs li{ width:100%; }
+  .tabs li a{ padding:15px; height:auto; }
+  .tabs li a.active{ padding:15px; height:auto; }
+  .lista-vitalsys li{ width:100%; padding-right:0; }
+
+  #calculadora .inner h2{ @include font-size(30px); transform:translateX(0); }
+  #calculadora .inner p{ @include font-size(16px); }
+
+  #instagram ul li{ float:left; width:50%; }
+}
+
+@media screen and (max-width:540px){
+  #posts li{ width:100%; margin:0 0 40px; }
+}
+
+@media screen and (max-width:420px){
+  #collateral-posts li .foto{ width:100%; margin-bottom:20px; }
+  #collateral-posts li h3{ width:100%; padding:0; }
+
+  #container .center.contato{ width:100%; }
+  #contato{ padding:40px 5%; }
+  #contato .form input.cl7,
+  #contato .form input.cl3{ width:100%; margin-right:0; }
+  #contato .form .aceite{ margin-bottom:20px; }
+  #contato .form .btn{ width:100%; }
+
+  #celebridade .center .col-info .col .aceite{ width:100%; margin:0 0 20px; }
+  #celebridade .center .col-info .col .btn{ width:100%; }
+
+  #instagram ul li{ float:left; width:100%; }
+}

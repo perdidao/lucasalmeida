@@ -1,0 +1,75 @@
+// DEPENDÊNCIAS
+@import "compass";
+@import "tools.scss";
+
+// CORES
+$Azul:#1D334D;
+$Amarelo:#F3CA31;
+$Vermelho:#F77;
+$Verde:#1CFF87;
+$Cinza:#777;
+
+// FONTES
+@import "fonts.scss";
+
+
+// PASSOS
+.step1pj,
+.step2,
+.step3{ display:none; }
+
+// ESTRUTURA
+.overlay-reserva{ display:none; position:fixed; z-index:999; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,.7); }
+@include placeholder($Azul);
+
+#reserva{ width:80%; height:90%; background-color:#FFF; position:absolute; top:5%; left:10%; }
+#fechar{ position:absolute; top:3px; right:0; width:60px; height:60px; background:#607082 url(../img/ico-fechar.png) no-repeat center center; }
+
+#reserva .passos{ width:100%; height:3px; background-color:$Vermelho; }
+#reserva .passos .concluido{ width:0; height:3px; background-color:$Verde; }
+#reserva .passos.passo1 .concluido{ width:33.3%; }
+#reserva .passos.passo2 .concluido{ width:66.6% }
+#reserva .passos.passo3 .concluido{ width:100%; }
+
+#reserva h2{ max-width:80%; margin:80px 10% 50px; @include font-size(25px); font-family:$Di; }
+#reserva .btn-pessoa{ display:block; float:left; width:40%; height:60px; margin-left:10%; border:1px solid $Azul; font-family:$Dr; @include font-size(24px); line-height:58px; color:$Azul; text-align:center; }
+#reserva .btn-pessoa.active{ color:#FFF; background-color:$Azul; }
+#reserva .btn-pessoa#pj{ margin-left:0; }
+
+.step{ padding:0 10%; }
+
+#reserva .col-left{ float:left; width:45%; }
+#reserva .col-right{ float:left; width:45%; margin-left:10%; }
+
+#reserva input,
+#reserva textarea{ display:block; width:100%; border:2px solid $Azul; @include font-size(16px); font-family:$Fm; color:$Azul; }
+#reserva input{ margin-top:40px; border-left:0; border-right:0; border-top:0; padding-bottom:15px; }
+#reserva textarea{ resize:none; height:240px; padding:10px; }
+#reserva input.required{ border-color:$Vermelho; }
+
+.avancar,
+.enviar{ display:block; float:right; font-family:$Fbi; @include font-size(18px); color:#FFF; border:0; background-color:$Azul; text-transform:uppercase; padding:15px 50px; cursor:pointer; }
+.notice{ display:block; float:right; margin:20px; color:$Vermelho; font-family:$Di; @include font-size(16px); }
+
+// FIXES
+#reserva .step1pf .col-right{ margin-top:85px; }
+#reserva .step1pf .avancar{ margin-top:30px; }
+#reserva .step1pf .notice{ margin-top:50px; }
+#reserva .step1pf .line{ width:100%; margin-top:50px; }
+#reserva .step1pf .line span,
+#reserva .step1pf .line p{ display:block; float:left; }
+#reserva .step1pf .line span{ margin-right:80px; }
+#reserva .step1pf .line p{ margin-right:40px; @include font-size(13px); }
+
+#reserva .step2 input{ float:left; }
+#reserva .step2 input#endereco{ width:45%; margin-right:5%; }
+#reserva .step2 input#numero{ width:22.5%; margin-right:5%; }
+#reserva .step2 input#complemento{ width:22.5%; }
+#reserva .step2 input#estado{ width:25%; margin-right:12.5%; }
+#reserva .step2 input#cidade{ width:25%; margin-right:12.5%; }
+#reserva .step2 input#bairro{ width:25%; }
+#reserva .step2 input#cep{ width:25%; }
+
+#reserva .step3 .titulo-comentarios{ margin-top:40px; margin-bottom:10px; text-transform:uppercase; }
+#reserva .step3 .enviar{ margin-top:30px; }
+#reserva .step3 .notice{ margin-top:50px; }
