@@ -3,13 +3,16 @@
 package-lock.json
 yarn.lock
 .npmrc
+.*.env
 
 # Folders
+.next/
 .sass-cache/
 .parcel-cache/
 node_modules/
 dist/
 static/
+.swc/
 
 # dependencies
 /node_modules
