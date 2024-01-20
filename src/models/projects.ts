@@ -5,7 +5,6 @@ export interface Project {
   categories: Category[]
   source: string
   releaseYear: number
-  description: string
   url: string
   thumbnail: string
 }

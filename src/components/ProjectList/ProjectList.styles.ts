@@ -8,8 +8,9 @@ import styled from 'styled-components'
 
 // Core element styles
 export const Container = styled.div`
+  width: 90vw;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: ${spacing('sm')};
-  padding: 0 ${spacing('sm')};
 `
