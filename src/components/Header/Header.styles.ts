@@ -9,7 +9,7 @@ import { fontTitle, color, spacing, toRem } from '@helpers/designSystem'
 export const Container = styled.div`
   max-width: 90vw;
   margin: 0 auto;
-  padding: ${spacing('xxl')} 0;
+  padding: ${spacing('xxl')} 0 ${spacing('lg')};
 `
 
 export const Title = styled.h1`

@@ -1,11 +1,10 @@
-import { color, fontBody, fontTitle, spacing, toRem } from '@helpers/designSystem'
-import Link from 'next/link'
 import styled from 'styled-components'
 
 // Helpers
-// import { } from '@helpers/designSystem'
+import { color, fontBody, fontSubtitle, spacing, toRem } from '@helpers/designSystem'
 
-// Types
+// Components
+import Link from 'next/link'
 
 // Core element styles
 export const ImageBlock = styled.figure`
@@ -37,7 +36,7 @@ export const ProjectInfo = styled.div`
 `
 
 export const Title = styled.h2`
-  ${fontTitle('sm')}
+  ${fontSubtitle('sm')}
   color: ${color('content-primary')};
   transition: color 400ms ease-in-out;
 `
@@ -52,10 +51,10 @@ export const LivePreview = styled(Link)`
   min-width: ${toRem(160)};
   border: 1px solid ${color('border-primary')};
   border-radius: ${spacing('sm')};
-  padding: ${spacing('tiny')};
+  padding: ${spacing('nano')};
   text-align: center;
   
-  ${fontBody('md')};
+  ${fontBody('sm')};
   color: ${color('content-secondary')};
   font-weight: 600;
   text-decoration: none;
