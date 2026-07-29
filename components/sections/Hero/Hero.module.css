@@ -1,0 +1,76 @@
+.hero {
+  display: flex;
+  align-items: center;
+  min-height: 100svh;
+  padding: calc(var(--nav-h) + clamp(4rem, 12vw, 7rem)) var(--gutter)
+    clamp(4rem, 10vw, 6.25rem);
+  border-bottom: 1px solid var(--rule);
+}
+
+/*
+ * Load-in stagger. Pure CSS: it runs from the first paint, before any
+ * JavaScript has executed, so the hero never waits on hydration.
+ * The global reduced-motion rule collapses all four to ~0s.
+ */
+.eyebrow,
+.title,
+.intro,
+.actions {
+  animation: fadeUp 1s var(--ease) both;
+}
+
+.eyebrow {
+  animation-duration: 0.9s;
+}
+
+.title {
+  animation-delay: 0.08s;
+}
+
+.intro {
+  animation-delay: 0.16s;
+}
+
+.actions {
+  animation-delay: 0.24s;
+}
+
+.title {
+  margin-top: 2.125rem;
+  font-size: var(--fs-h1);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  max-width: 17ch;
+  text-wrap: pretty;
+}
+
+.emphasis {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.intro {
+  display: grid;
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  margin-top: clamp(2.25rem, 5vw, 3.5rem);
+  max-width: 56.25rem;
+}
+
+.paragraph {
+  color: var(--ink-muted);
+  line-height: 1.65;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.875rem;
+  margin-top: clamp(2.25rem, 5vw, 3.5rem);
+}
+
+@media (min-width: 48rem) {
+  .intro {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

@@ -1,0 +1,50 @@
+.eyebrow {
+  margin-bottom: 1.875rem;
+}
+
+.heading {
+  margin-bottom: clamp(3rem, 7vw, 5.25rem);
+  font-size: var(--fs-h2);
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  max-width: 20ch;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+  gap: 1px;
+  background: var(--grid-line);
+  margin: 0;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  padding: 2.125rem 1.625rem 2.5rem;
+  transition: background-color var(--dur) var(--ease);
+}
+
+.step:hover {
+  background: var(--surface-2);
+}
+
+.index {
+  margin-bottom: clamp(1.5rem, 4vw, 2.875rem);
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  color: var(--accent);
+}
+
+.title {
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.375rem, 2.2vw, 1.625rem);
+}
+
+.body {
+  font-size: var(--fs-body-sm);
+  line-height: 1.6;
+  color: var(--ink-muted);
+  margin-top: auto;
+}

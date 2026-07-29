@@ -1,0 +1,29 @@
+.eyebrow {
+  /* Wins over the global heading styles when rendered `as="h2"`. */
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  line-height: 1.4;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.subtle {
+  color: var(--ink-subtle);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.dot {
+  flex: none;
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0.875rem rgba(215, 254, 98, 0.7);
+}

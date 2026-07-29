@@ -1,0 +1,80 @@
+.grid {
+  display: grid;
+  gap: clamp(3rem, 8vw, 6.25rem);
+}
+
+.eyebrow {
+  margin-bottom: 1.875rem;
+}
+
+.heading {
+  font-size: var(--fs-h2-lg);
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  max-width: 20ch;
+}
+
+.body {
+  margin-top: 2.375rem;
+  color: var(--ink-muted);
+  line-height: 1.7;
+  max-width: 46ch;
+}
+
+.quote {
+  margin-top: 1.875rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 2.4vw, 1.625rem);
+  line-height: 1.35;
+  color: var(--ink);
+  max-width: 24ch;
+}
+
+.quoteTrail {
+  color: var(--ink-subtle);
+}
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.5rem;
+}
+
+.asideLabel {
+  margin-bottom: 0.5rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.item {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  padding: 1.375rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+
+.index {
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  color: var(--accent);
+}
+
+.itemText {
+  font-size: clamp(1.0625rem, 2vw, 1.25rem);
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 60rem) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  }
+}

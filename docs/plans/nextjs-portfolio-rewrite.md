@@ -116,9 +116,27 @@ prefer CSS.*
 | Effect | Implementation | Why |
 | --- | --- | --- |
 | Hero staggered fade-up | CSS `@keyframes` + `animation-delay` | No JS needed; runs before hydration |
-| Section reveal on scroll | IntersectionObserver → `data-revealed` attr → CSS transition (~25 lines) | A library is not justified for a one-shot opacity/transform |
+| Section reveal on scroll | IntersectionObserver → `data-revealed` attr → CSS transition (~30 lines) | A library is not justified for a one-shot opacity/transform |
 | Hover states, nav backdrop | CSS `transition` | — |
-| **Mobile nav drawer** | **Framer Motion `AnimatePresence` + `LazyMotion`/`domAnimation`** | The only *exit* animation on the site; CSS can't unmount-with-animation without keeping the panel in the a11y tree. `LazyMotion` keeps it to ~5 kB, loaded only on mobile interaction |
+| Mobile nav drawer | CSS transition on opacity/transform + `visibility` delay, with `inert` when closed | See below |
+
+**Framer Motion is not used anywhere, and the dependency was removed.**
+
+The plan above earmarked it for the mobile drawer, on the reasoning that an *exit*
+animation needs the node to animate before leaving the DOM. Measuring it killed
+the idea: even with `LazyMotion` and a lazily-imported feature bundle, the
+statically-imported `AnimatePresence`/`m` core pulled **~40 kB gzipped** into the
+first load — for a 220 ms fade on a nav panel.
+
+The replacement costs nothing. The panel stays mounted and absolutely positioned;
+`visibility` flips back to hidden on a `0s` transition *delayed* until the opacity
+and transform transitions finish, which produces a genuine exit animation in pure
+CSS. `inert` — not unmounting — is what removes the closed panel from the tab
+order and the accessibility tree, which was the actual requirement.
+
+Measured effect of removing it: **228 kB → 189 kB** of gzipped JS on first load.
+The brief said "only where it genuinely improves the experience"; on measurement,
+nowhere qualified.
 
 `prefers-reduced-motion: reduce` disables every animation and reveal (content
 renders in its final state).
@@ -129,14 +147,29 @@ also avoids a flash of hidden content.
 
 ## 6. Performance
 
-- `next/font/google` with `display: swap`, `latin` subset, preload on the two
-  fonts used above the fold.
+- `next/font/google` with `display: swap`, `latin` subset, self-hosted.
 - Zero images above the fold; hero is pure text → LCP is a font-rendered `<h1>`.
-- Client JS budget: header + reveal hook only. Target < 15 kB gzipped of
-  first-party JS.
+- Client components: `SiteHeader`/`MobileNav` and `Reveal`. Everything else is a
+  Server Component.
 - `next.config.ts`: `poweredByHeader: false`, `reactStrictMode`, AVIF/WebP
   formats for `next/image`.
 - CSS Modules only — no runtime style engine.
+
+**Measured first load** (production build, gzipped, 15 subresources):
+
+| | |
+| --- | --- |
+| HTML | 15.4 kB |
+| JS | 188.9 kB |
+| CSS | 6.6 kB |
+| Fonts (3 × woff2) | 60.6 kB |
+| **Total** | **271.5 kB** |
+
+Honest caveat: the JS figure is dominated by the React 19 + App Router runtime,
+which is the floor for this framework once any client component exists — it is not
+first-party code, and it cannot be reduced without abandoning the App Router. The
+site's own JS is a few kB. If that baseline is unacceptable, the lever is the
+framework choice, not this code; say so and it can be revisited.
 
 ## 7. SEO
 
@@ -203,11 +236,23 @@ no secrets. The realistic attack surface is small but not empty.
 
 **9.6 Supply chain**
 - *Risk:* the largest realistic threat, given the site is otherwise inert.
-- *Mitigation:* dependency set kept minimal (`next`, `react`, `react-dom`,
-  `framer-motion` + dev-only test/lint tooling). Lockfile committed. No
-  `postinstall` scripts from new deps. No CDN-loaded scripts at runtime — fonts
-  are self-hosted, which also removes `fonts.googleapis.com` as a third party
-  that can serve arbitrary CSS.
+- *Mitigation:* runtime dependencies are exactly three — `next`, `react`,
+  `react-dom`. Everything else is dev-only. No CDN-loaded scripts at runtime;
+  fonts are self-hosted, which removes `fonts.googleapis.com` as a third party
+  that could serve arbitrary CSS.
+- *Lockfile:* `package-lock.json` was previously in `.gitignore`. It is now
+  committed — without it the `overrides` below are not reproducible.
+- *Patched transitive vulnerabilities:* `npm audit` flagged three highs inside
+  Next's own dependency tree (`sharp` < 0.35.0 libvips CVEs; `postcss` 8.4.31
+  path traversal). npm's suggested remedy was `next@9.3.3`, a five-major
+  downgrade — rejected. Patched versions exist upstream, so they are pinned via
+  `overrides`: `sharp ^0.35.3`, `postcss ^8.5.25`. **`npm audit --omit=dev` is
+  clean.**
+- *Known, accepted:* `npm audit` still reports a `brace-expansion` DoS advisory
+  reachable only through `eslint-config-next`'s glob matching. Overriding it to
+  v5 breaks `minimatch`'s API and takes the linter down, so it is left alone: it
+  is dev-tooling-only, not reachable from anything the site serves, and the
+  "fix" is worse than the finding.
 
 **9.7 Headers set in `next.config.ts`**
 `Content-Security-Policy` (`default-src 'self'`, `frame-ancestors 'none'`,
@@ -239,7 +284,52 @@ across all rendered links.
    all green.
 10. Responsive pass at 360 / 768 / 1024 / 1440 and a manual keyboard-only pass.
 
-## 11. Out of scope
+## 11. Found during implementation
+
+**11.1 The reveal watchdog was blanket-revealing the whole page.**
+The design's own script revealed *any* still-hidden element after 4 s. Ported
+verbatim, that silently defeats the entire effect on a page this long: sit at the
+top for four seconds and every off-screen section is revealed before you scroll
+to it, so scrolling animates nothing. The watchdog now distinguishes the two
+cases it was conflating — IntersectionObserver is specified to deliver an initial
+callback shortly after `observe()` regardless of visibility, so *silence* means
+the observer is broken, while `isIntersecting: false` means the user simply has
+not scrolled there yet. Only the former triggers a rescue (1.5 s). Both cases
+have regression tests.
+
+**11.2 Toolchain versions had to be pinned down.**
+`typescript@7` is not yet supported by `typescript-eslint` (and Next 16's
+in-process type check rejects it outright), and `eslint@10` breaks
+`eslint-plugin-react` as bundled by `eslint-config-next@16`. Settled on
+**TypeScript 6** and **ESLint 9**, which both toolchains support. No source
+changes were needed for either.
+
+**11.3 `css: true` in Vitest produced false-green accessibility tests.**
+jsdom does not evaluate media queries, so a mobile-first `display: none` that a
+real browser overrides at a breakpoint was treated as permanently hidden — which
+dropped the entire desktop nav out of the accessibility tree and made queries
+against it pass for the wrong reason. Styles are no longer applied in tests; CSS
+is verified by `contrast.test.ts` and in the browser instead.
+
+**11.4 Responsive verification is static, not visual.**
+The browser automation could not resize the viewport (the window manager kept it
+at 1290 px), so the mobile and tablet renderings were **not** confirmed visually.
+Instead every `grid-template-columns` declaration in the codebase was audited:
+all 12 are either `repeat(auto-fit, minmax(min(100%, …), 1fr))` — which collapses
+to one column on narrow screens — or gated behind a `min-width` media query. Zero
+unguarded multi-column grids. Desktop was verified visually. **A real device or
+devtools pass at 360/390/768 px is still worth doing before shipping.**
+
+**11.5 A browser measurement that looked like a catastrophic bug was not one.**
+Off-screen sections reported `opacity: 0` with `data-revealed="true"`, and
+scrolled screenshots came back blank. Cause: the automated tab was
+`document.hidden`, so Chrome pinned `document.timeline.currentTime` at 0 and every
+CSS transition froze at its start value. Once the tab was actually visible the
+timeline advanced and all nine sections resolved to `opacity: 1`. Recorded here
+because the symptom is convincing and the wrong fix would have been to rip out
+the transitions.
+
+## 12. Out of scope
 
 - The mouse-tracking "face" widget from the old site (not in the design).
 - A CMS or MDX case-study routes — the design is a single page.

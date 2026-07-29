@@ -1,19 +1,43 @@
 {
   "name": "lucasalmeida",
-  "version": "1.0.0",
-  "description": "self presentation page",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Lucas Almeida — Product Engineer. Personal site.",
   "repository": "git@github.com:perdidao/lucasalmeida",
   "author": "Lucas Almeida <lucasecalmeida@gmail.com>",
   "license": "MIT",
-  "browserslist": "> 0.5%, last 2 versions, not dead",
-  "source": "src/index.html",
   "scripts": {
-    "dev": "parcel",
-    "start": "parcel",
-    "build": "parcel build --public-url ./"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "next": "^16.2.12",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.8.3",
-    "parcel": "^2.6.0"
-  }
+    "@testing-library/jest-dom": "^7.0.0",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^26.1.2",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.4",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.2.12",
+    "jsdom": "^30.0.1",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.10",
+    "vitest-axe": "^0.1.0"
+  },
+  "overrides": {
+    "sharp": "^0.35.3",
+    "postcss": "^8.5.25"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead"
 }

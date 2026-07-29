@@ -1,0 +1,23 @@
+/* Each case study brings its own bottom rhythm, so the section drops its own. */
+.section {
+  padding-bottom: 0;
+}
+
+.eyebrow {
+  margin-bottom: 1.875rem;
+}
+
+.heading {
+  margin-bottom: 1.25rem;
+  font-size: var(--fs-h2);
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  max-width: 22ch;
+}
+
+.intro {
+  margin-bottom: clamp(3.5rem, 9vw, 6.875rem);
+  line-height: 1.7;
+  color: var(--ink-muted);
+  max-width: 52ch;
+}

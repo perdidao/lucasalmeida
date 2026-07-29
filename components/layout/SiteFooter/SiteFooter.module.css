@@ -1,0 +1,42 @@
+.footer {
+  padding: 2.5rem var(--gutter);
+  border-top: 1px solid var(--rule);
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.1em;
+  color: var(--ink-subtle);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  color: var(--ink-muted);
+}
+
+.name {
+  letter-spacing: 0.1em;
+}
+
+.role,
+.tagline {
+  color: var(--ink-subtle);
+  text-transform: uppercase;
+}
+
+.top {
+  color: var(--ink-subtle);
+  text-transform: uppercase;
+}
+
+.top:hover {
+  color: var(--ink);
+}

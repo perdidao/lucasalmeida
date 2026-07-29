@@ -1,0 +1,29 @@
+import styles from './Logo.module.css'
+
+const PATH =
+  'M43.39,86.79C19.47,86.79,0,67.32,0,43.39S19.47,0,43.39,0s43.39,19.47,43.39,43.39-19.47,43.39-43.39,43.39ZM43.39,6.63C23.12,6.63,6.63,23.12,6.63,43.39s16.49,36.76,36.76,36.76,36.76-16.49,36.76-36.76S63.67,6.63,43.39,6.63ZM56.3,61.1v-9.64h-.02c-4.4,0-9.04-1.32-12.59-3.56l-20,20v-23.96c-.84.51-1.63,1.14-2.35,1.86l-2.4,2.4-4.81-4.81,2.4-2.4c2.07-2.07,4.47-3.59,7.16-4.53v-17.57l6.8,6.8v9.65h.02c4.41,0,9.04,1.32,12.59,3.55l20-20v23.96c.84-.52,1.63-1.14,2.35-1.86l2.4-2.4,4.81,4.81-2.4,2.4c-2.06,2.06-4.47,3.58-7.16,4.53v17.58l-6.8-6.8ZM30.49,51.49l7.6-7.6c-2.33-1.12-5.07-1.78-7.6-1.78v9.38ZM48.7,42.89c2.33,1.12,5.07,1.78,7.6,1.78v-9.38l-7.6,7.6Z'
+
+type LogoProps = {
+  size?: number
+  className?: string
+}
+
+/**
+ * The monogram. Always decorative — every place it appears sits next to the
+ * name in text, so announcing it again would only add noise for screen readers.
+ */
+export function Logo({ size = 26, className }: LogoProps) {
+  return (
+    <svg
+      viewBox="0 0 86.79 86.79"
+      width={size}
+      height={size}
+      fill="currentColor"
+      aria-hidden="true"
+      focusable="false"
+      className={className ? `${styles.logo} ${className}` : styles.logo}
+    >
+      <path d={PATH} />
+    </svg>
+  )
+}

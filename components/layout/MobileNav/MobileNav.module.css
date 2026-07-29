@@ -1,0 +1,126 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.5rem 0.25rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-subtle);
+  transition: color var(--dur) var(--ease);
+}
+
+.toggle:hover {
+  color: var(--ink);
+}
+
+.toggleLabel {
+  white-space: nowrap;
+}
+
+.bars {
+  position: relative;
+  display: block;
+  width: 1.125rem;
+  height: 0.625rem;
+}
+
+.bar {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transition: transform 0.22s var(--ease);
+}
+
+.bar:first-child {
+  top: 0;
+}
+
+.bar:last-child {
+  bottom: 0;
+}
+
+.bars[data-open] .bar:first-child {
+  transform: translateY(0.3125rem) rotate(45deg);
+}
+
+.bars[data-open] .bar:last-child {
+  transform: translateY(-0.3125rem) rotate(-45deg);
+}
+
+/*
+ * Absolutely positioned so opening it never reflows the header, and so the
+ * closed state costs no layout. `visibility` is what makes the exit animation
+ * possible: it flips back to hidden only *after* the opacity/transform
+ * transition has finished (the 0s duration with a delay), which is the trick
+ * that removes the need for an animation library here.
+ */
+.panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border-top: 1px solid var(--rule);
+  background: var(--bg);
+  padding: 0.5rem var(--gutter) 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-0.5rem);
+  transition:
+    opacity 0.22s var(--ease),
+    transform 0.22s var(--ease),
+    visibility 0s linear 0.22s;
+}
+
+.panel[data-open] {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition:
+    opacity 0.22s var(--ease),
+    transform 0.22s var(--ease),
+    visibility 0s;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.link {
+  display: block;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.link:hover {
+  color: var(--accent);
+}
+
+.list li:last-child .link {
+  border-bottom: 0;
+  color: var(--ink);
+}
+
+@media (min-width: 53.75rem) {
+  .toggle,
+  .panel {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel,
+  .panel[data-open] {
+    transition: visibility 0s;
+  }
+}

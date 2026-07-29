@@ -1,0 +1,37 @@
+/*
+ * The hidden state is gated on `scripting: enabled` rather than on a class set
+ * by an inline bootstrap script. Two things fall out of that:
+ *
+ *   1. With JavaScript disabled the query does not match, so content is simply
+ *      visible — there is no scenario where the page renders blank.
+ *   2. It is a pure CSS gate evaluated at first paint, so there is no flash of
+ *      visible-then-hidden content, and no inline <script> to whitelist in CSP.
+ *
+ * Browsers that do not support the `scripting` media feature also fail to match
+ * and land on the same safe outcome: everything visible, no reveal animation.
+ */
+
+@media (scripting: enabled) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(1.125rem);
+    transition:
+      opacity var(--dur-reveal) var(--ease),
+      transform var(--dur-reveal) var(--ease);
+    will-change: opacity, transform;
+  }
+
+  .reveal[data-revealed='true'] {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

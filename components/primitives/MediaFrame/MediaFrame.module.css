@@ -1,0 +1,48 @@
+.frame {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.125rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.wide {
+  height: clamp(11rem, 28vw, 17.5rem);
+}
+
+.portrait {
+  height: clamp(20rem, 46vw, 32.5rem);
+}
+
+/* Diagonal hairline hatch, straight from the design. */
+.empty {
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.045) 0 1px,
+    transparent 1px 9px
+  );
+}
+
+.caption {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-subtle);
+}
+
+.monogram {
+  position: absolute;
+  top: -1.875rem;
+  right: -1.875rem;
+  color: var(--accent);
+  transform: rotate(15deg);
+  pointer-events: none;
+}
+
+.image {
+  object-fit: cover;
+}

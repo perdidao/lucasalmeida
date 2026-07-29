@@ -1,0 +1,7 @@
+.section {
+  padding: var(--section-y) var(--gutter);
+}
+
+.divider {
+  border-bottom: 1px solid var(--rule);
+}

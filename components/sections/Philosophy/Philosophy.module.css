@@ -1,0 +1,62 @@
+.head {
+  margin-bottom: clamp(2.75rem, 6vw, 4.75rem);
+}
+
+.eyebrow {
+  margin-bottom: 1.875rem;
+}
+
+.heading {
+  font-size: var(--fs-h2);
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+}
+
+/*
+ * A 1px gap over a tinted background draws the hairline grid without any
+ * per-cell borders, so adjacent rules never double up.
+ */
+.grid {
+  display: grid;
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.07);
+  margin: 0;
+}
+
+.card {
+  background: var(--bg);
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 4vw, 3.25rem)
+    clamp(2.25rem, 4vw, 3.375rem);
+  transition: background-color var(--dur) var(--ease);
+}
+
+.card:hover {
+  background: var(--surface);
+}
+
+.numeral {
+  display: block;
+  margin-bottom: 1.625rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  color: var(--accent);
+}
+
+.title {
+  margin-bottom: 1rem;
+  font-size: var(--fs-h3);
+  letter-spacing: -0.01em;
+}
+
+.body {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--ink-muted);
+  max-width: 36ch;
+}
+
+@media (min-width: 48rem) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

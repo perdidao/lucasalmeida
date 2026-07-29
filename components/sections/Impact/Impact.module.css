@@ -1,0 +1,20 @@
+.head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+  margin-bottom: clamp(3rem, 7vw, 5.25rem);
+}
+
+.aside {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.2vw, 1.375rem);
+  color: var(--ink-muted);
+}
+
+.grid {
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 4rem) 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+}
