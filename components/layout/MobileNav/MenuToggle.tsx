@@ -6,6 +6,8 @@ import styles from './MobileNav.module.css'
 type MenuToggleProps = {
   open: boolean
   panelId: string
+  openLabel: string
+  closeLabel: string
   onToggle: () => void
   ref?: Ref<HTMLButtonElement>
 }
@@ -15,7 +17,14 @@ type MenuToggleProps = {
  * label is what actually communicates state to assistive tech, the glyph is
  * decorative.
  */
-export function MenuToggle({ open, panelId, onToggle, ref }: MenuToggleProps) {
+export function MenuToggle({
+  open,
+  panelId,
+  openLabel,
+  closeLabel,
+  onToggle,
+  ref,
+}: MenuToggleProps) {
   return (
     <button
       ref={ref}
@@ -25,7 +34,7 @@ export function MenuToggle({ open, panelId, onToggle, ref }: MenuToggleProps) {
       aria-controls={panelId}
       onClick={onToggle}
     >
-      <span className={styles.toggleLabel}>{open ? 'Close menu' : 'Menu'}</span>
+      <span className={styles.toggleLabel}>{open ? closeLabel : openLabel}</span>
       <span className={styles.bars} data-open={open || undefined} aria-hidden="true">
         <span className={styles.bar} />
         <span className={styles.bar} />

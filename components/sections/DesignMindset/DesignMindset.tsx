@@ -1,13 +1,17 @@
 import { Section } from '@/components/primitives/Section/Section'
 import { Eyebrow } from '@/components/primitives/Eyebrow/Eyebrow'
-import { designMindset } from '@/content/site'
+import type { Messages } from '@/lib/i18n/types'
 import styles from './DesignMindset.module.css'
 
-export function DesignMindset() {
+export function DesignMindset({
+  content,
+}: {
+  content: Messages['designMindset']
+}) {
   return (
     <Section labelledBy="mindset-title">
       <div className={styles.grid}>
-        <Eyebrow id="mindset-eyebrow">{designMindset.eyebrow}</Eyebrow>
+        <Eyebrow id="mindset-eyebrow">{content.eyebrow}</Eyebrow>
 
         <div>
           {/*
@@ -16,11 +20,11 @@ export function DesignMindset() {
             outline stays intact.
           */}
           <h2 id="mindset-title" className={styles.statement}>
-            {designMindset.statement}
+            {content.statement}
           </h2>
 
           <div className={styles.columns}>
-            {designMindset.paragraphs.map((paragraph) => (
+            {content.paragraphs.map((paragraph) => (
               <p key={paragraph} className={styles.paragraph}>
                 {paragraph}
               </p>

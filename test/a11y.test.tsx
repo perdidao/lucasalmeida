@@ -2,10 +2,15 @@ import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { axe } from 'vitest-axe'
 import { FullPage } from './harness'
+import { getMessages } from '@/content'
+import { locales, type Locale } from '@/lib/i18n/config'
 
-describe('accessibility', () => {
+/** Every assertion runs against both locales — a translation must not regress a11y. */
+describe.each(locales)('accessibility (%s)', (locale: Locale) => {
+  const m = getMessages(locale)
+
   it('has no axe violations', async () => {
-    const { container } = render(<FullPage />)
+    const { container } = render(<FullPage locale={locale} />)
 
     const results = await axe(container, {
       rules: {
@@ -19,12 +24,12 @@ describe('accessibility', () => {
   })
 
   it('has exactly one h1', () => {
-    render(<FullPage />)
+    render(<FullPage locale={locale} />)
     expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1)
   })
 
   it('never skips a heading level', () => {
-    const { container } = render(<FullPage />)
+    const { container } = render(<FullPage locale={locale} />)
 
     const levels = Array.from(
       container.querySelectorAll('h1, h2, h3, h4, h5, h6'),
@@ -42,14 +47,14 @@ describe('accessibility', () => {
   })
 
   it('exposes the expected landmarks', () => {
-    render(<FullPage />)
+    render(<FullPage locale={locale} />)
     expect(screen.getByRole('banner')).toBeInTheDocument()
     expect(screen.getByRole('main')).toBeInTheDocument()
     expect(screen.getByRole('contentinfo')).toBeInTheDocument()
   })
 
   it('gives every section an accessible name', () => {
-    const { container } = render(<FullPage />)
+    const { container } = render(<FullPage locale={locale} />)
     const sections = Array.from(container.querySelectorAll('section'))
 
     expect(sections.length).toBeGreaterThanOrEqual(10)
@@ -65,7 +70,7 @@ describe('accessibility', () => {
   })
 
   it('names every case study region', () => {
-    const { container } = render(<FullPage />)
+    const { container } = render(<FullPage locale={locale} />)
     const articles = Array.from(container.querySelectorAll('article'))
 
     expect(articles).toHaveLength(3)
@@ -74,17 +79,27 @@ describe('accessibility', () => {
     }
   })
 
-  it('starts with a skip link that targets main', () => {
-    render(<FullPage />)
-    const skip = screen.getByRole('link', { name: /skip to content/i })
+  it('starts with a localised skip link that targets main', () => {
+    render(<FullPage locale={locale} />)
+    const skip = screen.getByRole('link', { name: m.a11y.skipToContent })
     expect(skip).toHaveAttribute('href', '#main')
     expect(screen.getByRole('main')).toHaveAttribute('id', 'main')
   })
 
   it('leaves no decorative graphic exposed to assistive tech', () => {
-    const { container } = render(<FullPage />)
+    const { container } = render(<FullPage locale={locale} />)
     for (const svg of Array.from(container.querySelectorAll('svg'))) {
       expect(svg).toHaveAttribute('aria-hidden', 'true')
+    }
+  })
+
+  it('keeps the anchor ids identical across locales', () => {
+    const { container } = render(<FullPage locale={locale} />)
+    for (const id of ['top', 'work', 'approach', 'about', 'contact']) {
+      expect(
+        container.querySelector(`#${id}`),
+        `missing anchor #${id} in ${locale}`,
+      ).not.toBeNull()
     }
   })
 })

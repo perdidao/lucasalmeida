@@ -5,10 +5,20 @@ import { Logo } from '@/components/primitives/Logo/Logo'
 import { ButtonLink } from '@/components/primitives/ButtonLink/ButtonLink'
 import { MobileNav } from '@/components/layout/MobileNav/MobileNav'
 import { MenuToggle } from '@/components/layout/MobileNav/MenuToggle'
-import { navItems, navCta, site } from '@/content/site'
+import { LocaleSwitcher } from '@/components/layout/LocaleSwitcher/LocaleSwitcher'
+import { navCtaHref, navHrefs, navIds, site } from '@/content/config'
+import type { Locale } from '@/lib/i18n/config'
+import type { Messages } from '@/lib/i18n/types'
 import styles from './SiteHeader.module.css'
 
-export function SiteHeader() {
+type SiteHeaderProps = {
+  locale: Locale
+  role: string
+  nav: Messages['nav']
+  a11y: Messages['a11y']
+}
+
+export function SiteHeader({ locale, role, nav, a11y }: SiteHeaderProps) {
   const [open, setOpen] = useState(false)
   const panelId = useId()
   const toggleRef = useRef<HTMLButtonElement>(null)
@@ -25,33 +35,45 @@ export function SiteHeader() {
         <a href="#top" className={styles.brand}>
           <Logo size={26} />
           <span className={styles.name}>{site.name}</span>
-          <span className={styles.role}>{site.role}</span>
+          <span className={styles.role}>{role}</span>
         </a>
 
-        <nav className={styles.desktopNav} aria-label="Primary">
-          <ul className={styles.links}>
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <a href={item.href} className={styles.link}>
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <ButtonLink href={navCta.href} variant="outline" size="sm">
-            {navCta.label}
-          </ButtonLink>
-        </nav>
+        <div className={styles.actions}>
+          <nav className={styles.desktopNav} aria-label={a11y.navPrimary}>
+            <ul className={styles.links}>
+              {navIds.map((id) => (
+                <li key={id}>
+                  <a href={navHrefs[id]} className={styles.link}>
+                    {nav.labels[id]}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <ButtonLink href={navCtaHref} variant="outline" size="sm">
+              {nav.cta}
+            </ButtonLink>
+          </nav>
 
-        <MenuToggle
-          ref={toggleRef}
-          open={open}
-          panelId={panelId}
-          onToggle={() => (open ? close() : setOpen(true))}
-        />
+          <LocaleSwitcher current={locale} label={a11y.languageLabel} />
+
+          <MenuToggle
+            ref={toggleRef}
+            open={open}
+            panelId={panelId}
+            openLabel={a11y.menuOpen}
+            closeLabel={a11y.menuClose}
+            onToggle={() => (open ? close() : setOpen(true))}
+          />
+        </div>
       </div>
 
-      <MobileNav id={panelId} open={open} onClose={close} />
+      <MobileNav
+        id={panelId}
+        open={open}
+        onClose={close}
+        label={a11y.navMobile}
+        nav={nav}
+      />
     </header>
   )
 }

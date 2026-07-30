@@ -1,13 +1,16 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { navItems, navCta } from '@/content/site'
+import { navCtaHref, navHrefs, navIds } from '@/content/config'
+import type { Messages } from '@/lib/i18n/types'
 import styles from './MobileNav.module.css'
 
 type MobileNavProps = {
   id: string
   open: boolean
   onClose: () => void
+  label: string
+  nav: Messages['nav']
 }
 
 /**
@@ -20,7 +23,7 @@ type MobileNavProps = {
  * ~45 kB gzipped that an animation runtime costs, which is the whole reason
  * Framer Motion is not used here. See docs/plans/nextjs-portfolio-rewrite.md §5.
  */
-export function MobileNav({ id, open, onClose }: MobileNavProps) {
+export function MobileNav({ id, open, onClose, label, nav }: MobileNavProps) {
   const panelRef = useRef<HTMLDivElement>(null)
 
   /* Escape closes; Tab is trapped inside the open panel. */
@@ -80,15 +83,24 @@ export function MobileNav({ id, open, onClose }: MobileNavProps) {
       data-open={open || undefined}
       inert={!open}
     >
-      <nav aria-label="Primary, mobile">
+      <nav aria-label={label}>
         <ul className={styles.list}>
-          {[...navItems, navCta].map((item) => (
-            <li key={item.href}>
-              <a href={item.href} className={styles.link} onClick={onClose}>
-                {item.label}
+          {navIds.map((navId) => (
+            <li key={navId}>
+              <a
+                href={navHrefs[navId]}
+                className={styles.link}
+                onClick={onClose}
+              >
+                {nav.labels[navId]}
               </a>
             </li>
           ))}
+          <li>
+            <a href={navCtaHref} className={styles.link} onClick={onClose}>
+              {nav.cta}
+            </a>
+          </li>
         </ul>
       </nav>
     </div>

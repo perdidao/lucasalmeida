@@ -45,6 +45,12 @@
   white-space: nowrap;
 }
 
+.actions {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+}
+
 .desktopNav {
   display: none;
   align-items: center;

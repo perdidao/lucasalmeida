@@ -1,4 +1,6 @@
-import { site, socialLinks } from '@/content/site'
+import { getMessages } from '@/content'
+import { site, socialLinks } from '@/content/config'
+import { localeMeta, localeUrl, type Locale } from '@/lib/i18n/config'
 
 /**
  * Schema.org graph for the page.
@@ -9,11 +11,19 @@ import { site, socialLinks } from '@/content/site'
  * interpolation point an attacker could reach, and `JSON.stringify` escapes the
  * content. `</script>` cannot appear in the output because no value contains it.
  *
+ * Both locales describe the *same* Person under the same `@id`, so this is one
+ * entity documented in two languages rather than two people. Only `WebSite` is
+ * per-locale, since that is what `inLanguage` describes.
+ *
  * The phone number is deliberately absent: it is public on the contact row, but
  * structured data is scraped far more aggressively than rendered HTML.
  * See docs/plans/nextjs-portfolio-rewrite.md §9.1 and §9.4.
  */
-export function StructuredData() {
+export function StructuredData({ locale }: { locale: Locale }) {
+  const m = getMessages(locale)
+  const meta = localeMeta[locale]
+  const pageUrl = localeUrl(locale, site.url)
+
   const graph = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -22,19 +32,19 @@ export function StructuredData() {
         '@id': `${site.url}/#person`,
         name: site.name,
         url: site.url,
-        jobTitle: site.role,
+        jobTitle: m.meta.role,
         email: `mailto:${site.email}`,
-        description: site.description,
-        knowsAbout: [...site.keywords],
+        description: m.meta.description,
+        knowsAbout: [...m.meta.keywords],
         sameAs: socialLinks.filter((l) => l.isProfile).map((l) => l.href),
       },
       {
         '@type': 'WebSite',
-        '@id': `${site.url}/#website`,
-        url: site.url,
-        name: `${site.name} — ${site.role}`,
-        description: site.description,
-        inLanguage: 'en',
+        '@id': `${pageUrl}#website`,
+        url: pageUrl,
+        name: `${site.name} — ${m.meta.role}`,
+        description: m.meta.description,
+        inLanguage: meta.tag,
         publisher: { '@id': `${site.url}/#person` },
       },
     ],

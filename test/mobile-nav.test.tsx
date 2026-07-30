@@ -2,7 +2,8 @@ import { describe, it, expect, vi } from 'vitest'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { SiteHeader } from '@/components/layout/SiteHeader/SiteHeader'
-import { navItems } from '@/content/site'
+import { headerProps } from './harness'
+import { getMessages } from '@/content'
 
 const toggle = () => screen.getByRole('button', { name: /menu/i })
 
@@ -22,7 +23,7 @@ const panelRoot = () => {
 
 describe('mobile navigation', () => {
   it('starts closed, collapsed and inert', () => {
-    render(<SiteHeader />)
+    render(<SiteHeader {...headerProps()} />)
     expect(toggle()).toHaveAttribute('aria-expanded', 'false')
 
     const root = panelRoot()
@@ -32,7 +33,7 @@ describe('mobile navigation', () => {
 
   it('opens on click, drops inert and points aria-controls at the panel', async () => {
     const user = userEvent.setup()
-    render(<SiteHeader />)
+    render(<SiteHeader {...headerProps()} />)
 
     await user.click(toggle())
 
@@ -48,18 +49,18 @@ describe('mobile navigation', () => {
 
   it('moves focus into the panel when it opens', async () => {
     const user = userEvent.setup()
-    render(<SiteHeader />)
+    render(<SiteHeader {...headerProps()} />)
 
     await user.click(toggle())
 
     const first = panelRoot().querySelector<HTMLElement>('a[href]')!
     await waitFor(() => expect(first).toHaveFocus())
-    expect(first).toHaveTextContent(navItems[0]!.label)
+    expect(first).toHaveTextContent(getMessages('en').nav.labels.work)
   })
 
   it('closes on Escape and hands focus back to the trigger', async () => {
     const user = userEvent.setup()
-    render(<SiteHeader />)
+    render(<SiteHeader {...headerProps()} />)
 
     await user.click(toggle())
     await user.keyboard('{Escape}')
@@ -71,7 +72,7 @@ describe('mobile navigation', () => {
 
   it('closes when a link inside it is chosen', async () => {
     const user = userEvent.setup()
-    render(<SiteHeader />)
+    render(<SiteHeader {...headerProps()} />)
 
     await user.click(toggle())
 
@@ -85,7 +86,7 @@ describe('mobile navigation', () => {
 
   it('traps Tab inside the open panel', async () => {
     const user = userEvent.setup()
-    render(<SiteHeader />)
+    render(<SiteHeader {...headerProps()} />)
 
     await user.click(toggle())
 
@@ -106,7 +107,7 @@ describe('mobile navigation', () => {
   /** Failure path: rapid toggling must not desynchronise state or scroll lock. */
   it('survives a rapid triple toggle', async () => {
     const user = userEvent.setup()
-    render(<SiteHeader />)
+    render(<SiteHeader {...headerProps()} />)
 
     await user.click(toggle())
     await user.click(toggle())
@@ -119,7 +120,7 @@ describe('mobile navigation', () => {
 
   it('locks page scroll while open and restores it on close', async () => {
     const user = userEvent.setup()
-    render(<SiteHeader />)
+    render(<SiteHeader {...headerProps()} />)
 
     const before = document.body.style.overflow
 
@@ -134,7 +135,7 @@ describe('mobile navigation', () => {
   it('cleans up listeners and scroll lock when unmounted while open', async () => {
     const user = userEvent.setup()
     const removeSpy = vi.spyOn(document, 'removeEventListener')
-    const { unmount } = render(<SiteHeader />)
+    const { unmount } = render(<SiteHeader {...headerProps()} />)
 
     await user.click(toggle())
     await waitFor(() => expect(document.body.style.overflow).toBe('hidden'))
@@ -147,7 +148,7 @@ describe('mobile navigation', () => {
   })
 
   it('keeps the desktop nav labelled separately from the mobile one', () => {
-    render(<SiteHeader />)
+    render(<SiteHeader {...headerProps()} />)
     expect(screen.getByRole('navigation', { name: 'Primary' })).toBeInTheDocument()
     expect(
       screen.getByRole('navigation', { name: 'Primary, mobile' }),

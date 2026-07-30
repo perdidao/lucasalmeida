@@ -1,0 +1,32 @@
+.switcher {
+  flex: none;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+/* Hairline divider between the two, drawn once. */
+.list > li + li {
+  border-left: 1px solid var(--border);
+}
+
+.link {
+  display: block;
+  padding: 0.25rem 0.5rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-subtle);
+}
+
+.link:hover {
+  color: var(--ink);
+}
+
+.link[data-current] {
+  color: var(--ink);
+}

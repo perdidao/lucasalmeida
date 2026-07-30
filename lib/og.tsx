@@ -1,20 +1,22 @@
 import { ImageResponse } from 'next/og'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { site } from '@/content/site'
+import { getMessages } from '@/content'
+import { site } from '@/content/config'
+import type { Locale } from '@/lib/i18n/config'
 
-export const alt = `${site.name} — ${site.role}`
-export const size = { width: 1200, height: 630 }
-export const contentType = 'image/png'
+export const ogSize = { width: 1200, height: 630 }
+export const ogContentType = 'image/png'
 
 /**
- * Social card, generated rather than shipped as a static PNG so it can never
- * drift from the copy in content/site.ts.
+ * Social card, generated per locale rather than shipped as a static PNG so it can
+ * never drift from the copy in content/messages.
  *
- * The display face is read off disk (assets/fonts) instead of fetched: nothing
- * in the render path should depend on a third-party host being reachable.
+ * The display face is read off disk (assets/fonts) instead of fetched: nothing in
+ * the render path should depend on a third-party host being reachable.
  */
-export default async function OpengraphImage() {
+export async function renderOgImage(locale: Locale) {
+  const m = getMessages(locale)
   const instrumentSerif = await readFile(
     join(process.cwd(), 'assets/fonts/InstrumentSerif-Regular.ttf'),
   )
@@ -50,7 +52,7 @@ export default async function OpengraphImage() {
               color: 'rgba(237,235,232,.72)',
             }}
           >
-            {site.tagline}
+            {m.meta.tagline}
           </div>
         </div>
 
@@ -73,7 +75,7 @@ export default async function OpengraphImage() {
               letterSpacing: -0.5,
             }}
           >
-            {site.role}
+            {m.meta.role}
           </div>
         </div>
 
@@ -88,13 +90,13 @@ export default async function OpengraphImage() {
             color: 'rgba(237,235,232,.58)',
           }}
         >
-          <div style={{ display: 'flex' }}>15+ years building products</div>
+          <div style={{ display: 'flex' }}>{m.og.footnote}</div>
           <div style={{ display: 'flex' }}>lucasalmeida.dev</div>
         </div>
       </div>
     ),
     {
-      ...size,
+      ...ogSize,
       fonts: [
         {
           name: 'Instrument Serif',

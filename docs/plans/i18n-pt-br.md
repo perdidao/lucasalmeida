@@ -212,7 +212,59 @@ Extends the existing 61 tests.
 10. `npm test`, `lint`, `typecheck`, `build` green; verify redirect behaviour with
     real `Accept-Language` headers against the production build.
 
-## 10. Out of scope
+## 10. Found during implementation
+
+**10.1 The two-root-layout arrangement works.** No fallback to the
+`[locale]`-plus-rewrite structure was needed. `/` and `/pt-br` both prerender
+statically, and `<html lang>` is a real server-rendered attribute on each.
+
+**10.2 `middleware.ts` is deprecated in Next 16.** The build warns and points at
+the `proxy` convention. Renamed to `proxy.ts` exporting `proxy()`; behaviour and
+tests are otherwise identical.
+
+**10.3 `Vary` on `/` is only partially achievable — and the unit test lied about
+it.** `addVary` on `NextResponse.next()` passed its test against the returned
+response object, but the *actual* HTTP response for `/` does not carry it: Next
+owns `Vary` on App Router responses (`rsc`, `next-router-*`) and overwrites it.
+Declaring it in `next.config.ts` did not win either. What *does* work is `Vary` on
+the 307 — which is the direction that matters, since it stops a cache pinning
+"everybody gets redirected". The 200 relies instead on the proxy running
+per-request ahead of the cache. Documented at the call site; a CDN in front of
+`next start` must preserve that ordering. **Caught only by checking the real
+server — worth remembering that a passing middleware unit test proves nothing
+about the emitted headers.**
+
+**10.4 The accessible-name algorithm concatenates without separators.** The
+switcher first used a visually-hidden `<span> English</span>` after the visible
+"EN" to satisfy WCAG 2.5.3. Its computed accessible name came out as
+**"ENEnglish"** — one garbled word — because the name algorithm joins child text
+with no whitespace and trims each part. Replaced with an explicit
+`aria-label="EN English"`. The test now asserts the exact accessible name rather
+than a loose regex, so the concatenation bug cannot come back.
+
+**10.5 Canonical and sitemap disagreed on the trailing slash.** Metadata resolved
+`/` to `https://www.lucasalmeida.dev` while the sitemap emitted
+`https://www.lucasalmeida.dev/` — two spellings of the URL canonicals exist to
+disambiguate. Both now come from one `localeUrl()` helper, with a test asserting
+canonical, sitemap and JSON-LD agree per locale.
+
+**10.6 Portuguese runs longer, and the hero absorbs it.** The h1 wraps to four
+lines in pt-BR against two in English, because the measure (`max-width: 17ch`) was
+set for the English headline. Audited the rendered Portuguese page: zero
+horizontal overflow, no clipped text, heading count identical to English (39). The
+`ch` measures were therefore left alone rather than widened, since changing them
+would pull the approved English layout around to fit the translation. **This is a
+taste call — if you want the Portuguese headline at three lines, the lever is
+`--fs-h1` or the `max-width` in `Hero.module.css`, and it will affect both
+locales.**
+
+**10.7 Responsive verification is still static.** Same tooling limitation as the
+base plan (§11.4 there): the browser automation cannot resize the viewport, so
+neither locale has been confirmed visually below 1290 px. Portuguese is the higher
+risk of the two given the longer strings. **A devtools pass at 360/390/768 px on
+`/pt-br` is worth doing before shipping.**
+
+## 11. Out of scope
 
 - A third language, or a locale-aware CMS.
 - Translating `docs/`, the README, or commit messages.

@@ -1,26 +1,45 @@
 import type { ReactElement } from 'react'
 import { SiteHeader } from '@/components/layout/SiteHeader/SiteHeader'
 import { SiteFooter } from '@/components/layout/SiteFooter/SiteFooter'
-import HomePage from '@/app/page'
+import { PageSections } from '@/components/sections/PageSections'
+import { getMessages } from '@/content'
+import type { Locale } from '@/lib/i18n/config'
 
 /**
- * The full page as a user meets it.
+ * The full page as a user meets it, for one locale.
  *
- * `RootLayout` itself renders <html>/<body>, which Testing Library cannot mount
- * into an existing document, so this mirrors its body content instead. Anything
- * that lives on <html> (lang, font variables) is asserted separately.
+ * `Document` itself renders <html>/<body>, which Testing Library cannot mount
+ * into an existing document, so this mirrors its body content instead. The
+ * <html lang> attribute is asserted separately, by server-rendering `Document`.
  */
-export function FullPage(): ReactElement {
+export function FullPage({ locale }: { locale: Locale }): ReactElement {
+  const m = getMessages(locale)
+
   return (
     <>
       <a href="#main" className="skipLink">
-        Skip to content
+        {m.a11y.skipToContent}
       </a>
-      <SiteHeader />
+      <SiteHeader
+        locale={locale}
+        role={m.meta.role}
+        nav={m.nav}
+        a11y={m.a11y}
+      />
       <main id="main">
-        <HomePage />
+        <PageSections locale={locale} />
       </main>
-      <SiteFooter />
+      <SiteFooter
+        role={m.meta.role}
+        tagline={m.meta.tagline}
+        backToTop={m.footer.backToTop}
+      />
     </>
   )
+}
+
+/** Props for a `SiteHeader` in the given locale — used by the nav tests. */
+export function headerProps(locale: Locale = 'en') {
+  const m = getMessages(locale)
+  return { locale, role: m.meta.role, nav: m.nav, a11y: m.a11y }
 }
