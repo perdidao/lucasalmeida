@@ -6,6 +6,15 @@ in the header.
 
 Builds on `docs/plans/nextjs-portfolio-rewrite.md`.
 
+> **PARTLY SUPERSEDED — see `docs/plans/english-default.md`.**
+> The automatic-detection half of this plan was withdrawn. English is now the
+> unconditional default: there is no `Accept-Language` negotiation, no preference
+> cookie and no redirect, and the proxy has been deleted. §4 (negotiation and the
+> middleware), §7.1–7.4 (the risks that existed only because of it) and the
+> middleware/negotiation rows of §8 no longer describe the codebase.
+> Everything else here — the content split, the routing shape, the SEO surface and
+> the translation approach — is still current.
+
 ## 0. Decisions taken with the owner
 
 | Question | Decision |

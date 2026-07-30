@@ -25,7 +25,6 @@ app/
   (en)/              English root layout + page + OG image   ->  /
   pt-br/             Portuguese root layout + page + OG image ->  /pt-br
   globals.css  icon.svg  robots.ts  sitemap.ts
-proxy.ts             locale negotiation, redirect and preference cookie
 components/
   primitives/        Container, Section, Eyebrow, Pill, ButtonLink,
                      ExternalLink, Logo, MediaFrame, StatBlock, Reveal
@@ -37,7 +36,7 @@ content/
   messages/en.ts     English copy
   messages/pt-BR.ts  Portuguese copy
 lib/
-  i18n/              locale config, Accept-Language negotiation, Messages type
+  i18n/              locale config, metadata builder, Messages type
   useReveal.ts       IntersectionObserver reveal hook
   og.tsx  fonts.ts
 assets/fonts/        display face for OG image generation only (not served)
@@ -50,17 +49,21 @@ renders on the server. There is deliberately **no `app/layout.tsx`**: each local
 supplies its own root layout, which is the only way `<html lang>` can be a static
 server-rendered attribute.
 
-## How the language is chosen
+## Languages
 
-1. `?lang=en` / `?lang=pt-br` — an explicit click in the switcher. Stored in an
-   `httpOnly` cookie, then the parameter is stripped from the URL.
-2. That cookie, on later visits. It always beats the browser header.
-3. `Accept-Language`, negotiated in `lib/i18n/negotiate.ts`. Any Portuguese tag
-   (`pt`, `pt-BR`, `pt-PT`) resolves to `/pt-br`.
-4. English, for anything unmatched — including crawlers, which send no header and
-   so index `/` and discover `/pt-br` via `hreflang`.
+English at `/`, Brazilian Portuguese at `/pt-br`. English is the default for
+everyone; visitors opt in to Portuguese with the `EN / PT` switcher in the header.
 
-Only `/` redirects. `/pt-br` is always served as asked, so there is no loop.
+Nothing is detected and nothing is remembered — no `Accept-Language` sniffing, no
+preference cookie, no redirects. The switcher is two plain links, so the language
+is decided purely by which URL is requested. Consequences worth knowing:
+
+- The site sets **no cookies at all**.
+- Both pages are unconditional static documents, cacheable by anyone for anyone.
+- A returning Portuguese visitor who types the bare domain gets English and clicks
+  PT, or bookmarks `/pt-br`.
+- Both locales stay indexable via reciprocal `hreflang`, with `x-default` pointing
+  at English. Neither is hidden behind a redirect.
 
 **Adding a language:** add the id to `locales` and an entry to `localeMeta` in
 `lib/i18n/config.ts`, add `content/messages/<tag>.ts` (the `Messages` type makes

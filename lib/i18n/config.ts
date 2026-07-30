@@ -3,7 +3,7 @@
  *
  * Three different strings are involved and they are NOT interchangeable:
  *   - `id`       url-safe internal identifier and URL segment ('en', 'pt-br')
- *   - `tag`      BCP-47, for <html lang>, hreflang and the Accept-Language match
+ *   - `tag`      BCP-47, for <html lang> and hreflang
  *   - `ogLocale` Open Graph's underscore form
  *
  * Nothing derives one from another by string munging; they are declared.
@@ -43,25 +43,15 @@ export const localeMeta: Record<Locale, LocaleMeta> = {
   },
 }
 
-/** Cookie holding an explicit choice. Read only by middleware, hence httpOnly. */
-export const LOCALE_COOKIE = 'locale'
-
-/** Query parameter the switcher uses to record an explicit choice. */
-export const LOCALE_PARAM = 'lang'
-
-/**
- * The only way an outside string becomes a Locale.
+/*
+ * There is deliberately no cookie, no `?lang` parameter and no string->Locale
+ * parser here any more.
  *
- * Every untrusted source — the cookie, the `?lang` parameter, a route param —
- * goes through here, so an unrecognised value can only ever become `undefined`
- * and never reaches a redirect target. See docs/plans/i18n-pt-br.md §7.1–7.2.
+ * The locale is decided entirely by which URL is requested: `/` is English,
+ * `/pt-br` is Portuguese, and nothing redirects. Because no untrusted string is
+ * ever turned into a locale, there is no allowlist to enforce and no redirect
+ * target to protect. See docs/plans/english-default.md.
  */
-export function parseLocale(value: string | null | undefined): Locale | undefined {
-  if (!value) return undefined
-  return (locales as readonly string[]).includes(value)
-    ? (value as Locale)
-    : undefined
-}
 
 /** The other locale — with exactly two, this is the switcher's target. */
 export function otherLocale(locale: Locale): Locale {

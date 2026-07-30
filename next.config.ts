@@ -43,30 +43,17 @@ const nextConfig: NextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
   },
+  /*
+   * No `Vary` entry for `/`.
+   *
+   * It used to need one because the response depended on Accept-Language and a
+   * preference cookie. Neither is read any more — `/` is unconditionally English
+   * and `/pt-br` unconditionally Portuguese — so both pages are plain static
+   * documents that any cache can serve to anyone.
+   * See docs/plans/english-default.md §2.
+   */
   async headers() {
-    return [
-      { source: '/:path*', headers: securityHeaders },
-      {
-        /*
-         * What `/` returns depends on Accept-Language and the locale cookie, so a
-         * shared cache must not serve one visitor's outcome to another.
-         *
-         * Partial by necessity, measured against the production server:
-         *   - the 307 to /pt-br DOES carry `Vary: Accept-Language, Cookie`
-         *     (set in proxy.ts), which is the dangerous direction — it stops a
-         *     cache pinning "everyone gets redirected".
-         *   - the 200 for `/` does NOT. Next owns `Vary` on App Router responses
-         *     (rsc, next-router-*) and overwrites this entry.
-         *
-         * The 200 case is instead covered by the proxy running per-request ahead
-         * of any cache lookup, so the language decision is never itself cached.
-         * A CDN placed in front of `next start` must preserve that ordering.
-         * See docs/plans/i18n-pt-br.md §7.4.
-         */
-        source: '/',
-        headers: [{ key: 'Vary', value: 'Accept-Language, Cookie' }],
-      },
-    ]
+    return [{ source: '/:path*', headers: securityHeaders }]
   },
 }
 

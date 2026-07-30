@@ -51,7 +51,11 @@ describe.each(locales)('LocaleSwitcher (current: %s)', (current: Locale) => {
     }
   })
 
-  it('points every link at that locale, tagged with ?lang so the choice sticks', () => {
+  /**
+   * Bare paths, no query string. Regression guard for removing `?lang=`: the
+   * switcher navigates and nothing else — no preference is recorded anywhere.
+   */
+  it('points every link at that locale as a bare path', () => {
     render(<LocaleSwitcher current={current} label={label(current)} />)
 
     for (const locale of locales) {
@@ -59,8 +63,17 @@ describe.each(locales)('LocaleSwitcher (current: %s)', (current: Locale) => {
       const link = screen.getByRole('link', {
         name: `${meta.shortLabel} ${meta.nativeName}`,
       })
-      expect(link).toHaveAttribute('href', `${meta.path}?lang=${locale}`)
+      expect(link).toHaveAttribute('href', meta.path)
       expect(link).toHaveAttribute('hreflang', meta.tag)
+    }
+  })
+
+  it('carries no query string on any link', () => {
+    const { container } = render(
+      <LocaleSwitcher current={current} label={label(current)} />,
+    )
+    for (const link of Array.from(container.querySelectorAll('a[href]'))) {
+      expect(link.getAttribute('href')).not.toContain('?')
     }
   })
 

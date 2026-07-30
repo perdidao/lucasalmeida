@@ -1,9 +1,4 @@
-import {
-  LOCALE_PARAM,
-  locales,
-  localeMeta,
-  type Locale,
-} from '@/lib/i18n/config'
+import { locales, localeMeta, type Locale } from '@/lib/i18n/config'
 import styles from './LocaleSwitcher.module.css'
 
 type LocaleSwitcherProps = {
@@ -15,10 +10,11 @@ type LocaleSwitcherProps = {
 /**
  * `EN / PT` toggle.
  *
- * Both locales are links, including the current one: clicking it is how a
- * visitor pins the language the browser already gave them, since every link
- * carries `?lang=`, which the middleware turns into the preference cookie
- * before redirecting to the clean URL.
+ * Plain links to each locale's own URL — no query string, no cookie, nothing
+ * remembered. Choosing a language is navigating to it, which is the whole
+ * mechanism: English is the default for everyone and the visitor opts in to
+ * Portuguese. The current locale is still rendered as a link so both options
+ * read as equivalent choices rather than one being a dead label.
  *
  * Each link shows the two-letter abbreviation and carries an explicit
  * `aria-label` of "EN English" / "PT Português". The label is set directly
@@ -41,7 +37,7 @@ export function LocaleSwitcher({ current, label }: LocaleSwitcherProps) {
           return (
             <li key={locale}>
               <a
-                href={`${meta.path}?${LOCALE_PARAM}=${locale}`}
+                href={meta.path}
                 className={styles.link}
                 hrefLang={meta.tag}
                 aria-label={`${meta.shortLabel} ${meta.nativeName}`}
