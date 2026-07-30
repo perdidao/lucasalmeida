@@ -97,36 +97,7 @@ describe('token contrast against --bg', () => {
   })
 })
 
-describe('surface tokens relative to --bg', () => {
-  const luminanceOf = (token: string) => {
-    const { rgb, alpha } = parseColor(readToken(token))
-    return luminance(composite(rgb, alpha, bg))
-  }
-
-  /**
-   * Hover surfaces must sit *above* the canvas.
-   *
-   * They were near-black lifts chosen for a #0a0a0b background; on a lighter
-   * canvas the same literals are darker than the page, which turns every hover
-   * state from a lift into a hole. Caught exactly that when --bg moved to
-   * #282828.
-   */
-  it.each(['surface', 'surface-2'])(
-    '--%s is lighter than --bg',
-    (token) => {
-      expect(luminanceOf(token)).toBeGreaterThan(luminance(bg))
-    },
-  )
-
-  it('keeps the two hover surfaces distinguishable and subtle', () => {
-    const base = luminance(bg)
-    for (const token of ['surface', 'surface-2']) {
-      // Visible as a lift, but never so bright it reads as a different colour.
-      expect(luminanceOf(token) - base).toBeLessThan(0.05)
-    }
-    expect(luminanceOf('surface-2')).toBeGreaterThan(luminanceOf('surface'))
-  })
-
+describe('canvas-derived tokens', () => {
   /** The translucent header backdrop has to be the same colour as the canvas. */
   it('derives --bg-translucent from --bg', () => {
     const { rgb: translucent, alpha } = parseColor(readToken('bg-translucent'))

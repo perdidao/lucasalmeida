@@ -18,16 +18,12 @@
   margin: 0;
 }
 
+/* Deliberately no :hover — these steps are static content, not controls. */
 .step {
   display: flex;
   flex-direction: column;
   background: var(--bg);
   padding: 2.125rem 1.625rem 2.5rem;
-  transition: background-color var(--dur) var(--ease);
-}
-
-.step:hover {
-  background: var(--surface-2);
 }
 
 .index {

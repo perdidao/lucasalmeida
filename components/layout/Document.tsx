@@ -29,12 +29,7 @@ export function Document({
           {m.a11y.skipToContent}
         </a>
         <StructuredData locale={locale} />
-        <SiteHeader
-          locale={locale}
-          role={m.meta.role}
-          nav={m.nav}
-          a11y={m.a11y}
-        />
+        <SiteHeader locale={locale} nav={m.nav} a11y={m.a11y} />
         <main id="main">{children}</main>
         <SiteFooter
           role={m.meta.role}

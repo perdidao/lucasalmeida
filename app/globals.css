@@ -7,11 +7,9 @@
 :root {
   /* --- Colour ----------------------------------------------------------- */
   --bg: #282828;
-  /* Hover surfaces must sit *above* the canvas. They were near-black lifts when
-     --bg was #0a0a0b; on a mid-grey canvas they have to be lighter, not darker,
-     or every hover state reads as a hole rather than a lift. */
-  --surface: #2e2e2e;
-  --surface-2: #313131;
+  /* No hover-surface tokens: the only things that used them were the philosophy
+     and process cards, which are not interactive. A hover state on static
+     content just implies a click that does nothing. */
   /* The header's translucent backdrop. Kept as a token so it can never drift
      from --bg again. */
   --bg-translucent: rgba(40, 40, 40, 0.72);
@@ -88,8 +86,12 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
-  /* Anchor targets must clear the fixed header. */
-  scroll-padding-top: calc(var(--nav-h) + 1.5rem);
+  /*
+   * Anchor targets land flush against the bottom of the fixed header.
+   * The +1px is the header's own bottom border, which --nav-h (a min-height on
+   * the bar) does not include; without it the section sits a hairline low.
+   */
+  scroll-padding-top: calc(var(--nav-h) + 1px);
 }
 
 body {

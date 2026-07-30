@@ -13,12 +13,11 @@ import styles from './SiteHeader.module.css'
 
 type SiteHeaderProps = {
   locale: Locale
-  role: string
   nav: Messages['nav']
   a11y: Messages['a11y']
 }
 
-export function SiteHeader({ locale, role, nav, a11y }: SiteHeaderProps) {
+export function SiteHeader({ locale, nav, a11y }: SiteHeaderProps) {
   const [open, setOpen] = useState(false)
   const panelId = useId()
   const toggleRef = useRef<HTMLButtonElement>(null)
@@ -35,7 +34,6 @@ export function SiteHeader({ locale, role, nav, a11y }: SiteHeaderProps) {
         <a href="#top" className={styles.brand}>
           <Logo size={26} />
           <span className={styles.name}>{site.name}</span>
-          <span className={styles.role}>{role}</span>
         </a>
 
         <div className={styles.actions}>

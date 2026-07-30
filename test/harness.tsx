@@ -20,12 +20,7 @@ export function FullPage({ locale }: { locale: Locale }): ReactElement {
       <a href="#main" className="skipLink">
         {m.a11y.skipToContent}
       </a>
-      <SiteHeader
-        locale={locale}
-        role={m.meta.role}
-        nav={m.nav}
-        a11y={m.a11y}
-      />
+      <SiteHeader locale={locale} nav={m.nav} a11y={m.a11y} />
       <main id="main">
         <PageSections locale={locale} />
       </main>
@@ -41,5 +36,5 @@ export function FullPage({ locale }: { locale: Locale }): ReactElement {
 /** Props for a `SiteHeader` in the given locale — used by the nav tests. */
 export function headerProps(locale: Locale = 'en') {
   const m = getMessages(locale)
-  return { locale, role: m.meta.role, nav: m.nav, a11y: m.a11y }
+  return { locale, nav: m.nav, a11y: m.a11y }
 }

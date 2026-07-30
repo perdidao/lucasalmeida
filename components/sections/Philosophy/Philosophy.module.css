@@ -23,15 +23,11 @@
   margin: 0;
 }
 
+/* Deliberately no :hover — these cards are static content, not controls. */
 .card {
   background: var(--bg);
   padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 4vw, 3.25rem)
     clamp(2.25rem, 4vw, 3.375rem);
-  transition: background-color var(--dur) var(--ease);
-}
-
-.card:hover {
-  background: var(--surface);
 }
 
 .numeral {
