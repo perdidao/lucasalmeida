@@ -20,7 +20,7 @@
 .empty {
   background-image: repeating-linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.045) 0 1px,
+    var(--hatch) 0 1px,
     transparent 1px 9px
   );
 }

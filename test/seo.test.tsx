@@ -9,6 +9,7 @@ import { Document } from '@/components/layout/Document'
 import { getMessages } from '@/content'
 import { site } from '@/content/config'
 import { localeMeta, localeUrl, locales, type Locale } from '@/lib/i18n/config'
+import { readToken } from './tokens'
 
 describe.each(locales)('metadata (%s)', (locale: Locale) => {
   const metadata = buildMetadata(locale)
@@ -53,8 +54,10 @@ describe.each(locales)('metadata (%s)', (locale: Locale) => {
     expect(og.url).toBe(localeMeta[locale].path)
   })
 
-  it('declares the dark theme colour matching the design background', () => {
-    expect(viewport.themeColor).toBe('#0a0a0b')
+  it('declares a theme colour that tracks --bg rather than a stale literal', () => {
+    // Pinning the hex here meant the browser chrome kept the old background
+    // after --bg changed. Read the token instead so they cannot diverge.
+    expect(viewport.themeColor).toBe(readToken('bg'))
     expect(viewport.colorScheme).toBe('dark')
   })
 })

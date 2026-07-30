@@ -26,7 +26,7 @@
   font-size: clamp(1.5rem, 3.4vw, 2.875rem);
   letter-spacing: -0.015em;
   line-height: 1.2;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid var(--border);
   padding-bottom: 0.625rem;
   /* The address itself must never wrap mid-word on narrow screens. */
   word-break: break-word;

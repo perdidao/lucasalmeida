@@ -1,29 +1,20 @@
 import { describe, it, expect } from 'vitest'
-import { readFileSync } from 'node:fs'
-import { join } from 'node:path'
+import { globalsCss as css, readToken } from './tokens'
 
 /**
  * Regression guard for the accessibility deviation documented in
  * docs/plans/nextjs-portfolio-rewrite.md §3.1.
  *
- * The design's muted greys sit between 2.7:1 and 3.6:1 against the page
- * background — below the 4.5:1 WCAG AA floor for normal text, and they are
- * applied to 11px labels. They were raised deliberately. If anyone reverts them
- * towards the original design values, this fails with the exact ratio.
+ * The design's muted greys fall below the 4.5:1 WCAG AA floor for normal text,
+ * and they are applied to 11px labels. They were raised deliberately. If anyone
+ * reverts them towards the original design values, this fails with the ratio.
+ *
+ * This is also the guard that makes changing --bg safe: every ratio is computed
+ * against whatever --bg currently is, so lightening the canvas re-checks the
+ * whole text palette automatically rather than silently eroding it.
  */
 
-const css = readFileSync(
-  join(process.cwd(), 'app/globals.css'),
-  'utf8',
-)
-
 type Rgb = [number, number, number]
-
-function readToken(name: string): string {
-  const match = css.match(new RegExp(`--${name}:\\s*([^;]+);`))
-  if (!match?.[1]) throw new Error(`token --${name} not found in globals.css`)
-  return match[1].trim()
-}
 
 function parseColor(value: string): { rgb: Rgb; alpha: number } {
   const hex = value.match(/^#([0-9a-f]{6})$/i)
@@ -103,5 +94,44 @@ describe('token contrast against --bg', () => {
         `--ink-subtle regressed to ${alpha}`,
       ).toBe(false)
     }
+  })
+})
+
+describe('surface tokens relative to --bg', () => {
+  const luminanceOf = (token: string) => {
+    const { rgb, alpha } = parseColor(readToken(token))
+    return luminance(composite(rgb, alpha, bg))
+  }
+
+  /**
+   * Hover surfaces must sit *above* the canvas.
+   *
+   * They were near-black lifts chosen for a #0a0a0b background; on a lighter
+   * canvas the same literals are darker than the page, which turns every hover
+   * state from a lift into a hole. Caught exactly that when --bg moved to
+   * #282828.
+   */
+  it.each(['surface', 'surface-2'])(
+    '--%s is lighter than --bg',
+    (token) => {
+      expect(luminanceOf(token)).toBeGreaterThan(luminance(bg))
+    },
+  )
+
+  it('keeps the two hover surfaces distinguishable and subtle', () => {
+    const base = luminance(bg)
+    for (const token of ['surface', 'surface-2']) {
+      // Visible as a lift, but never so bright it reads as a different colour.
+      expect(luminanceOf(token) - base).toBeLessThan(0.05)
+    }
+    expect(luminanceOf('surface-2')).toBeGreaterThan(luminanceOf('surface'))
+  })
+
+  /** The translucent header backdrop has to be the same colour as the canvas. */
+  it('derives --bg-translucent from --bg', () => {
+    const { rgb: translucent, alpha } = parseColor(readToken('bg-translucent'))
+    expect(alpha).toBeGreaterThan(0)
+    expect(alpha).toBeLessThan(1)
+    expect(translucent).toEqual(bg)
   })
 })

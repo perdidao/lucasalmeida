@@ -30,7 +30,7 @@ export async function renderOgImage(locale: Locale) {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          background: '#0a0a0b',
+          background: '#282828',
           padding: '72px 80px',
           color: '#edebe8',
         }}

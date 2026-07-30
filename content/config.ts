@@ -13,7 +13,15 @@ export const site = {
   twitterHandle: '@lucasperdidao',
 } as const
 
-export const navIds = ['work', 'approach', 'about'] as const
+/**
+ * Navigation order, as displayed. This array is the single source of order for
+ * the desktop nav, the mobile panel and every locale — the labels are keyed off
+ * these ids, so reordering here reorders everything.
+ *
+ * Note it deliberately does not match the order the sections appear on the page
+ * (Work comes before Approach there); the nav leads with Approach by choice.
+ */
+export const navIds = ['approach', 'work', 'about'] as const
 export type NavId = (typeof navIds)[number]
 
 export const navHrefs: Readonly<Record<NavId, string>> = {

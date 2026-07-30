@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { FullPage } from './harness'
 import { getMessages } from '@/content'
-import { navCtaHref, navHrefs, site, socialLinks } from '@/content/config'
+import { navCtaHref, navHrefs, navIds, site, socialLinks } from '@/content/config'
 import { locales, type Locale } from '@/lib/i18n/config'
 
 describe('content integrity (locale-independent)', () => {
@@ -99,5 +99,53 @@ describe.each(locales)('content integrity (%s)', (locale: Locale) => {
     const { container } = render(<FullPage locale={locale} />)
     expect(container.textContent).toContain(m.nav.labels.work)
     expect(container.textContent).toContain(m.nav.cta)
+  })
+})
+
+describe.each(locales)('navigation order (%s)', (locale: Locale) => {
+  const m = getMessages(locale)
+
+  /**
+   * Order is specified: Approach, then Work, then About. It deliberately differs
+   * from the order the sections appear in the page, so it cannot be inferred and
+   * is worth pinning.
+   */
+  const expectedOrder = ['approach', 'work', 'about'] as const
+
+  it('declares the ids in the intended order', () => {
+    expect(navIds).toEqual(expectedOrder)
+  })
+
+  it('renders the desktop nav in that order', () => {
+    render(<FullPage locale={locale} />)
+    const nav = screen.getByRole('navigation', { name: m.a11y.navPrimary })
+    const labels = Array.from(nav.querySelectorAll('ul a')).map((a) =>
+      a.textContent?.trim(),
+    )
+    expect(labels).toEqual(expectedOrder.map((id) => m.nav.labels[id]))
+  })
+
+  it('renders the mobile panel in that order, with the CTA last', () => {
+    render(<FullPage locale={locale} />)
+    const nav = screen.getByRole('navigation', { name: m.a11y.navMobile })
+    const labels = Array.from(nav.querySelectorAll('a')).map((a) =>
+      a.textContent?.trim(),
+    )
+    expect(labels).toEqual([
+      ...expectedOrder.map((id) => m.nav.labels[id]),
+      m.nav.cta,
+    ])
+  })
+
+  it('points each nav item at its own section', () => {
+    render(<FullPage locale={locale} />)
+    const nav = screen.getByRole('navigation', { name: m.a11y.navPrimary })
+    for (const id of expectedOrder) {
+      const link = Array.from(nav.querySelectorAll('a')).find(
+        (a) => a.textContent?.trim() === m.nav.labels[id],
+      )
+      expect(link, `no nav link for ${id}`).toBeDefined()
+      expect(link).toHaveAttribute('href', navHrefs[id])
+    }
   })
 })

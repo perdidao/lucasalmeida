@@ -6,24 +6,34 @@
 
 :root {
   /* --- Colour ----------------------------------------------------------- */
-  --bg: #0a0a0b;
-  --surface: #0d0d0f;
-  --surface-2: #0e0e10;
+  --bg: #282828;
+  /* Hover surfaces must sit *above* the canvas. They were near-black lifts when
+     --bg was #0a0a0b; on a mid-grey canvas they have to be lighter, not darker,
+     or every hover state reads as a hole rather than a lift. */
+  --surface: #2e2e2e;
+  --surface-2: #313131;
+  /* The header's translucent backdrop. Kept as a token so it can never drift
+     from --bg again. */
+  --bg-translucent: rgba(40, 40, 40, 0.72);
 
-  --ink: #edebe8;
+  --ink: #edebe8; /* 12.4:1 on --bg */
   /* Muted values are raised above the design's originals to clear WCAG AA
      against --bg. See docs/plans/nextjs-portfolio-rewrite.md §3.1.
-     --ink-muted  = 8.7:1   --ink-subtle = 5.9:1 */
+     --ink-muted  = 7.0:1   --ink-subtle = 5.2:1 */
   --ink-muted: rgba(237, 235, 232, 0.72);
   --ink-subtle: rgba(237, 235, 232, 0.58);
 
-  --accent: #d7fe62; /* 17.2:1 on --bg */
+  --accent: #d7fe62; /* 12.8:1 on --bg */
 
-  --rule: rgba(255, 255, 255, 0.06);
-  --rule-strong: rgba(255, 255, 255, 0.1);
-  --border: rgba(255, 255, 255, 0.16);
-  --border-hover: rgba(255, 255, 255, 0.4);
-  --grid-line: rgba(255, 255, 255, 0.08);
+  /* Hairlines are white-on-dark, so a lighter canvas shrinks their contrast.
+     Each step is raised to keep the drawn weight roughly as it was at #0a0a0b. */
+  --rule: rgba(255, 255, 255, 0.1);
+  --grid-line: rgba(255, 255, 255, 0.12);
+  --rule-strong: rgba(255, 255, 255, 0.16);
+  --border: rgba(255, 255, 255, 0.24);
+  --border-hover: rgba(255, 255, 255, 0.45);
+  /* Diagonal hatch inside empty media slots. */
+  --hatch: rgba(255, 255, 255, 0.07);
 
   /* --- Type ------------------------------------------------------------- */
   --font-display: var(--font-instrument-serif), Georgia, "Times New Roman",

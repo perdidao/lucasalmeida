@@ -1,6 +1,6 @@
 .article {
   padding-block: clamp(3.5rem, 8vw, 6.25rem);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--grid-line);
 }
 
 /* The first case study sits directly under the section intro. */

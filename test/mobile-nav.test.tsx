@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event'
 import { SiteHeader } from '@/components/layout/SiteHeader/SiteHeader'
 import { headerProps } from './harness'
 import { getMessages } from '@/content'
+import { navIds } from '@/content/config'
 
 const toggle = () => screen.getByRole('button', { name: /menu/i })
 
@@ -55,7 +56,8 @@ describe('mobile navigation', () => {
 
     const first = panelRoot().querySelector<HTMLElement>('a[href]')!
     await waitFor(() => expect(first).toHaveFocus())
-    expect(first).toHaveTextContent(getMessages('en').nav.labels.work)
+    // Derived, not hardcoded: focus lands on whichever item nav order puts first.
+    expect(first).toHaveTextContent(getMessages('en').nav.labels[navIds[0]])
   })
 
   it('closes on Escape and hands focus back to the trigger', async () => {
