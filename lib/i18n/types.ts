@@ -23,8 +23,12 @@ export type CaseStudyMessages = {
   readonly kicker: string
   readonly title: string
   readonly summary: string
-  /** Placeholder caption for an empty media slot. Omit when the case has none. */
-  readonly mediaCaption?: string
+  /**
+   * Alt text for this case's image. Omit when the case has no visual — the
+   * source lives in `caseMedia` in content/config.ts, since the file is the
+   * same in every language and only the description changes.
+   */
+  readonly mediaAlt?: string
   readonly tags?: readonly string[]
   readonly blocks: readonly CaseBlock[]
   readonly outcomeLabel: string
@@ -140,7 +144,7 @@ export type Messages = {
       readonly current: boolean
     }[]
     readonly closing: string
-    readonly portraitCaption: string
+    readonly portraitAlt: string
   }
 
   readonly contact: {

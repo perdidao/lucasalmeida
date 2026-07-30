@@ -9,11 +9,13 @@ type CaseStudyProps = {
   id: string
   /** Display number, derived from position so it cannot drift between locales. */
   index: string
+  /** Image source, if this case has one. Alt text comes from `study.mediaAlt`. */
+  media?: string
   study: CaseStudyMessages
 }
 
 /** One case study: problem on the left, the decisions and outcome on the right. */
-export function CaseStudy({ id, index, study }: CaseStudyProps) {
+export function CaseStudy({ id, index, media, study }: CaseStudyProps) {
   const headingId = `case-${id}-title`
 
   return (
@@ -31,8 +33,8 @@ export function CaseStudy({ id, index, study }: CaseStudyProps) {
 
           <p className={styles.summary}>{study.summary}</p>
 
-          {study.mediaCaption && (
-            <MediaFrame caption={study.mediaCaption} variant="wide" />
+          {media && study.mediaAlt && (
+            <MediaFrame src={media} alt={study.mediaAlt} variant="wide" />
           )}
 
           {study.tags && (

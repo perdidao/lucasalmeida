@@ -85,15 +85,33 @@ the new locale is complete.
   `rel="noopener noreferrer"`. A test enforces this across the rendered page.
 - **Prefer CSS over JS for motion.** No animation library is used; see plan §5.
 
-## Filling the three image slots
+## Images
 
-`<MediaFrame>` renders the design's hatched placeholder until given a `src`. Add
-the image to `public/`, then pass `src` and `alt` — `alt` is required by the type
-signature whenever `src` is present. No markup changes needed.
+The three slots are filled from `public/media/`:
 
-Slots: two case-study visuals (`components/sections/SelectedWork/CaseStudy.tsx`,
-driven by `mediaCaption` in `content/messages/*`) and the About portrait
-(`components/sections/About/About.tsx`).
+| Slot | File | Source size |
+| --- | --- | --- |
+| Gamers Club case study | `gamers-club.jpg` | 495 x 280 |
+| Minehut case study | `minehut.jpg` | 495 x 280 |
+| About portrait | `portrait.jpg` | 896 x 1040 |
+
+Sources live in `content/config.ts` (`caseMedia`, `portraitSrc`) because the file
+is the same in every language; **alt text lives per-locale** in
+`content/messages/*` (`mediaAlt`, `portraitAlt`). `MediaFrame`'s prop type makes
+`alt` mandatory whenever `src` is given, and rejects placeholder `caption` copy
+alongside an image, so a slot cannot be filled without a description.
+
+The Freelance & Consulting case deliberately has no image — it shows industry
+tags instead, as in the design.
+
+**Known limitation:** the two case-study sources are 495 px wide but render in a
+~493 px slot, so they are 1:1 on a standard display and roughly half-resolution
+on a 2x one. They will look soft on most laptops and phones. Re-exporting them at
+~990 x 560 fixes it with no code change. The portrait has no such problem (896 px
+into a ~447 px slot is a clean 2x).
+
+To swap an image: drop the file in `public/media/`, update the path in
+`content/config.ts`, and update the alt text in **both** message files.
 
 ## Deployment
 

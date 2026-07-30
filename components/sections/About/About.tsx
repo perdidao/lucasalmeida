@@ -1,6 +1,7 @@
 import { Section } from '@/components/primitives/Section/Section'
 import { Eyebrow } from '@/components/primitives/Eyebrow/Eyebrow'
 import { MediaFrame } from '@/components/primitives/MediaFrame/MediaFrame'
+import { portraitSrc } from '@/content/config'
 import type { Messages } from '@/lib/i18n/types'
 import styles from './About.module.css'
 
@@ -33,9 +34,9 @@ export function About({ content }: { content: Messages['about'] }) {
 
         <div className={styles.portrait}>
           <MediaFrame
-            caption={content.portraitCaption}
+            src={portraitSrc}
+            alt={content.portraitAlt}
             variant="portrait"
-            monogram
           />
         </div>
       </div>

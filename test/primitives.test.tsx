@@ -15,24 +15,34 @@ describe('MediaFrame', () => {
 
   it('renders an image with its alt text once a source is supplied', () => {
     render(
-      <MediaFrame
-        caption="Portrait"
-        src="/portrait.jpg"
-        alt="Lucas Almeida at his desk"
-      />,
+      <MediaFrame src="/portrait.jpg" alt="Lucas Almeida at his desk" />,
     )
     const image = screen.getByRole('img', {
       name: 'Lucas Almeida at his desk',
     })
     expect(image).toBeInTheDocument()
-    // The caption is placeholder-only copy and must not survive the swap.
-    expect(screen.queryByText('Portrait')).not.toBeInTheDocument()
   })
 
   it('requires alt whenever src is given', () => {
     // @ts-expect-error — `src` without `alt` must remain a type error. If the
     // union in MediaFrame is ever loosened, `npm run typecheck` fails here.
-    const invalid = <MediaFrame caption="Portrait" src="/portrait.jpg" />
+    const invalid = <MediaFrame src="/portrait.jpg" />
+    expect(invalid).toBeTruthy()
+  })
+
+  /**
+   * A filled slot must not also carry placeholder copy. Without this the "Drop
+   * image here" caption can quietly outlive the image being added.
+   */
+  it('rejects a caption alongside a src', () => {
+    // @ts-expect-error — `caption` and `src` are mutually exclusive.
+    const invalid = <MediaFrame src="/portrait.jpg" alt="x" caption="Portrait" />
+    expect(invalid).toBeTruthy()
+  })
+
+  it('requires a caption when the slot is empty', () => {
+    // @ts-expect-error — an empty frame with no caption has nothing to show.
+    const invalid = <MediaFrame />
     expect(invalid).toBeTruthy()
   })
 })

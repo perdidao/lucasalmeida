@@ -34,15 +34,6 @@
   color: var(--ink-subtle);
 }
 
-.monogram {
-  position: absolute;
-  top: -1.875rem;
-  right: -1.875rem;
-  color: var(--accent);
-  transform: rotate(15deg);
-  pointer-events: none;
-}
-
 .image {
   object-fit: cover;
 }

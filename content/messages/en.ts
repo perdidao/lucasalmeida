@@ -136,7 +136,8 @@ export const en = {
         title: 'Gamers Club',
         summary:
           "One of Latin America's largest esports platforms — millions of competitive players, matches running around the clock.",
-        mediaCaption: 'Match experience UI',
+        mediaAlt:
+          'Gamers Club key art: the tenth-anniversary logo over a masked competitive player.',
         blocks: [
           {
             label: 'The challenge',
@@ -162,7 +163,8 @@ export const en = {
         title: 'Minehut',
         summary:
           "One of the world's largest Minecraft hosting platforms, where most new users are teenagers creating their first server.",
-        mediaCaption: 'Server creation flow',
+        mediaAlt:
+          'The Minehut logo over a dimmed screenshot of a player-built Minecraft world.',
         blocks: [
           {
             label: 'The challenge',
@@ -296,7 +298,7 @@ export const en = {
     ],
     closing:
       'The through line is the same at every step: build products that are easier to use, easier to scale and more valuable for the companies behind them. Fifteen years in, that’s still the only scorecard I trust.',
-    portraitCaption: 'Portrait',
+    portraitAlt: 'Lucas Almeida, photographed against a weathered concrete wall.',
   },
 
   contact: {

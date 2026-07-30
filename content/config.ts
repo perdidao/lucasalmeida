@@ -68,3 +68,21 @@ export const socialLinks: readonly SocialLink[] = [
 
 /** Stable ids for the case studies — used for heading ids, not shown to users. */
 export const caseIds = ['gamers-club', 'minehut', 'consulting'] as const
+export type CaseId = (typeof caseIds)[number]
+
+/*
+ * Image sources live here rather than in the message files because the file on
+ * disk is the same whichever language you read the page in. Only the alt text is
+ * per-locale, and that sits in content/messages/*.
+ *
+ * Paths are public-relative. `next/image` renders them with `fill`, so no
+ * intrinsic dimensions are needed here.
+ */
+
+/** Not every case study has a visual — the consulting one uses industry tags. */
+export const caseMedia: Partial<Record<CaseId, string>> = {
+  'gamers-club': '/media/gamers-club.jpg',
+  minehut: '/media/minehut.jpg',
+}
+
+export const portraitSrc = '/media/portrait.jpg'

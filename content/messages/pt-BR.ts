@@ -151,7 +151,8 @@ export const ptBR = {
         title: 'Gamers Club',
         summary:
           'Uma das maiores plataformas de esports da América Latina — milhões de jogadores competitivos e partidas acontecendo a qualquer hora do dia.',
-        mediaCaption: 'Interface da experiência de partida',
+        mediaAlt:
+          'Arte da Gamers Club: o logo de dez anos sobre um jogador competitivo mascarado.',
         blocks: [
           {
             label: 'O desafio',
@@ -177,7 +178,8 @@ export const ptBR = {
         title: 'Minehut',
         summary:
           'Uma das maiores plataformas de hospedagem de Minecraft do mundo, onde a maior parte dos novos usuários são adolescentes criando seu primeiro servidor.',
-        mediaCaption: 'Fluxo de criação de servidor',
+        mediaAlt:
+          'O logo da Minehut sobre uma captura esmaecida de um mundo de Minecraft construído por jogadores.',
         blocks: [
           {
             label: 'O desafio',
@@ -315,7 +317,8 @@ export const ptBR = {
     ],
     closing:
       'O fio condutor é o mesmo em cada etapa: construir produtos mais fáceis de usar, mais fáceis de escalar e mais valiosos para as empresas por trás deles. Quinze anos depois, esse ainda é o único placar em que eu confio.',
-    portraitCaption: 'Retrato',
+    portraitAlt:
+      'Lucas Almeida, fotografado diante de uma parede de concreto desgastada.',
   },
 
   contact: {
