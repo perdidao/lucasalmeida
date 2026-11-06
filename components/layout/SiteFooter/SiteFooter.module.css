@@ -40,3 +40,8 @@
 .top:hover {
   color: var(--ink);
 }
+
+.legal {
+  flex-basis: 100%;
+  color: var(--ink-subtle);
+}

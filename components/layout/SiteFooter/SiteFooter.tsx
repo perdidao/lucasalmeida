@@ -26,6 +26,10 @@ export function SiteFooter({
         <a href="#top" className={styles.top}>
           {backToTop} <span aria-hidden="true">↑</span>
         </a>
+
+        <p className={styles.legal}>
+          © {new Date().getFullYear()} {site.name} · {site.legalName}
+        </p>
       </Container>
     </footer>
   )

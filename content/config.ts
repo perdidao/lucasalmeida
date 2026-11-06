@@ -8,6 +8,7 @@
 
 export const site = {
   name: 'Lucas Almeida',
+  legalName: 'Lucas Eduardo Carneiro Almeida Desenvolvimento de Software LTDA',
   url: 'https://www.lucasalmeida.dev',
   email: 'contato@lucasalmeida.dev',
   twitterHandle: '@lucasperdidao',
