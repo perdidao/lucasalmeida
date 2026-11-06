@@ -59,6 +59,11 @@ export function buildMetadata(locale: Locale): Metadata {
       follow: true,
       googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
     },
+    verification: {
+      other: {
+        'facebook-domain-verification': 'd9tyecap9knodjcbjqqilkydpblsnh',
+      },
+    },
   }
 }
 
